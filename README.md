@@ -1,4 +1,4 @@
-# SquareCloud.app Documentation
+# Square Cloud Documentation
 
 Welcome to the squarecloud.app  Documentation! This documentation provides detailed information on how to interact with the squarecloud.app to manage and deploy your applications on the Square Cloud platform.
 
