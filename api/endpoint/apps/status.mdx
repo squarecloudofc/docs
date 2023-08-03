@@ -1,0 +1,103 @@
+---
+title: "Get Application Status"
+sidebarTitle: "Application Status"
+description: "Collect status information about your application."
+api: "GET https://api.squarecloud.app/v2/apps/{app_id}/status"
+authMethod: "none"
+---
+
+<ParamField header="Authorization" type="string" placeholder="API KEY" required>
+  The API key for your account. You can find this in your [account settings](https://squarecloud.app/dashboard/account).
+</ParamField>
+
+<ParamField path="app_id" type="string" placeholder="Application ID" required>
+  The ID of the application. You can find this in the URL of your application's dashboard.
+</ParamField>
+
+### Response
+
+<ResponseField name="status" type="string">
+  Indicates whether the call was successful. "success" if successful, "error" if not.
+</ResponseField>
+
+<ResponseField name="code" type="string">
+  The status code of the response.
+</ResponseField>
+
+<ResponseField name="response" type="object">
+
+The contents of the response.
+
+<Expandable title="Toggle object">
+
+<ResponseField name="cpu" type="string">
+  The CPU usage of the application.
+</ResponseField>
+
+<ResponseField name="ram" type="string">
+  The RAM usage of the application.
+</ResponseField>
+
+<ResponseField name="status" type="string">
+  The status of the application.
+</ResponseField>
+
+<ResponseField name="running" type="boolean">
+  Indicates whether the application is currently running.
+</ResponseField>
+
+<ResponseField name="storage" type="string">
+  The storage used by the application.
+</ResponseField>
+
+<ResponseField name="network" type="object">
+<Expandable title="Toggle object">
+
+<ResponseField name="total" type="string">
+  The total network usage of the application.
+</ResponseField>
+
+<ResponseField name="now" type="string">
+  The current network usage of the application.
+</ResponseField>
+
+</Expandable>
+</ResponseField>
+
+<ResponseField name="requests" type="number">
+  The number of requests made to the application.
+</ResponseField>
+
+<ResponseField name="uptime" type="number">
+  The uptime of the application in milliseconds.
+</ResponseField>
+
+<ResponseField name="time" type="number">
+  The timestamp of the response in milliseconds.
+</ResponseField>
+
+</Expandable>
+</ResponseField>
+
+<ResponseExample>
+```json
+{
+    "status": "success",
+    "code": null,
+    "response": {
+        "cpu": "0.01%",
+        "ram": "31.79",
+        "status": "running",
+        "running": true,
+        "storage": "2.72MB",
+        "network": {
+            "total": "602 KB ↑ 134 KB ↓",
+            "now": "14 KB ↑ 3.3 KB ↓"
+        },
+        "requests": 0,
+        "uptime": 1662927833666,
+        "time": 1662930740951
+    }
+}
+```
+</ResponseExample>

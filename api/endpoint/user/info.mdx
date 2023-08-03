@@ -1,0 +1,159 @@
+---
+title: "Get User"
+api: "GET https://api.squarecloud.app/v2/user"
+authMethod: "authorization"
+description: "Get information about your account or another user."
+---
+
+### Query Parameters
+**/v2/user/:userID**
+
+This is the ID of the user you want to get information about. If you want to get information about your own account, you can leave this blank.
+
+### Response
+
+<ResponseField name="status" type="string">
+  Indicates whether the call was successful. "success" if successful, "error" if not.
+</ResponseField>
+
+<ResponseField name="response" type="object">
+
+The contents of the response.
+
+<Expandable title="Toggle object">
+
+<ResponseField name="user" type="object">
+
+<Expandable title="Toggle object">
+
+<ResponseField name="id" type="string">
+  The user's ID.
+</ResponseField>
+
+<ResponseField name="tag" type="string">
+  The user's tag.
+</ResponseField>
+
+<ResponseField name="locale" type="string">
+  The user's locale.
+</ResponseField>
+
+<ResponseField name="email" type="string">
+  The user's email.
+</ResponseField>
+
+<ResponseField name="plan" type="object">
+<Expandable title="Toggle object">
+
+<ResponseField name="name" type="string">
+  The user's plan name.
+</ResponseField>
+
+<ResponseField name="duration" type="object">
+<Expandable title="Toggle object">
+
+<ResponseField name="formatted" type="string">
+  The user's plan duration in a human-readable format.
+</ResponseField>
+
+<ResponseField name="raw" type="number">
+  The user's plan duration in milliseconds.
+</ResponseField>
+
+</Expandable>
+</ResponseField>
+
+</Expandable>
+</ResponseField>
+
+<ResponseField name="blocklist" type="boolean">
+  Indicates whether the user is on the blocklist.
+</ResponseField>
+
+</Expandable>
+</ResponseField>
+
+<ResponseField name="applications" type="array">
+
+<Expandable title="Toggle object">
+
+<ResponseField name="id" type="string">
+    The application's ID.
+</ResponseField>
+
+<ResponseField name="tag" type="string">
+    The application's tag.
+</ResponseField>
+
+<ResponseField name="ram" type="number">
+    The application's RAM usage.
+</ResponseField>
+
+<ResponseField name="lang" type="string">
+    The application's language.
+</ResponseField>
+
+<ResponseField name="type" type="string">
+    The application's type.
+</ResponseField>
+
+<ResponseField name="cluster" type="string">
+    The application's cluster.
+</ResponseField>
+
+<ResponseField name="isWebsite" type="boolean">
+    Indicates whether the application is a website.
+</ResponseField>
+
+<ResponseField name="avatar" type="string">
+    The application's avatar.
+</ResponseField>
+
+</Expandable>
+</ResponseField>
+
+</Expandable>
+</ResponseField>
+
+<ResponseExample>
+
+```json Response
+{
+  "status": "success",
+  "response": {
+    "user": {
+      "id": "313397145698959364",
+      "tag": "joaootavios",
+      "locale": "pt-BR",
+      "email": "joao@squarecloud.app",
+      "plan": {
+        "name": "deluxe",
+        "memory": {
+          "limit": 0000,
+          "available": 0000,
+          "used": 0000
+        },
+        "duration": {
+          "formatted": "4m 18d 6h 5min 5s",
+          "raw": 1732072955446
+        }
+      },
+      "blocklist": false
+    },
+    "applications": [
+      {
+        "id": "446b0b4118634a1c99e73bac9a54e475",
+        "tag": "Square Example APP",
+        "ram": 128,
+        "lang": "javascript",
+        "type": "paid",
+        "cluster": "ultra-mega-cluster",
+        "isWebsite": false,
+        "avatar": "https://api.squarecloud.app/cdn/avatars/4.png"
+      }
+    ]
+  }
+}
+```
+
+</ResponseExample>

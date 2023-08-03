@@ -1,0 +1,73 @@
+---
+title: "Get Service Statistics"
+sidebarTitle: "Service Statistics"
+api: "GET https://api.squarecloud.app/v2/service/statistics"
+authMethod: "none"
+description: "This endpoint returns statistics about the service."
+---
+
+### Response
+
+<ResponseField name="status" type="string">
+  Indicates whether the call was successful. "success" if successful, "error" if not.
+</ResponseField>
+
+<ResponseField name="response" type="object">
+
+The contents of the response.
+
+<Expandable title="Toggle object">
+
+<ResponseField name="worker" type="number">
+  The number of the worker that handled the request.
+</ResponseField>
+
+<ResponseField name="statistics" type="object">
+
+<Expandable title="Toggle object">
+
+<ResponseField name="users" type="number">
+  The number of users registered in the service
+</ResponseField>
+
+<ResponseField name="apps" type="number">
+  The number of apps running in the service.
+</ResponseField>
+
+<ResponseField name="websites" type="number">
+  The number of websites running in the service.
+</ResponseField>
+
+<ResponseField name="ping" type="number">
+  The average ping of the service.
+</ResponseField>
+
+<ResponseField name="time" type="number">
+  The cache time of the response.
+</ResponseField>
+
+</Expandable>
+</ResponseField>
+
+</Expandable>
+</ResponseField>
+
+<ResponseExample>
+
+```json Response
+{
+  "status": "success",
+  "response": {
+    "worker": 909559,
+    "statistics": {
+      "users": 30207,
+      "apps": 4622,
+      "websites": 190,
+      "ping": 26,
+      "time": 1688581934112
+    }
+  }
+}
+```
+
+</ResponseExample>

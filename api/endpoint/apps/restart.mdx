@@ -1,0 +1,29 @@
+---
+title: "Restart Application"
+sidebarTitle: "Restart Application"
+description: "Initiate your application."
+api: "POST https://api.squarecloud.app/v2/apps/{app_id}/restart"
+authMethod: "none"
+---
+
+<ParamField header="Authorization" type="string" placeholder="API KEY" required>
+  The API key for your account. You can find this in your [account settings](https://squarecloud.app/dashboard/account).
+</ParamField>
+
+<ParamField path="app_id" type="string" placeholder="Application ID" required>
+  The ID of the application. You can find this in the URL of your application's dashboard.
+</ParamField>
+
+### Response
+
+<ResponseField name="status" type="string">
+  Indicates whether the call was successful. "success" if successful, "error" if not.
+</ResponseField>
+
+<ResponseExample>
+```json
+{
+    "status": "success"
+}
+```
+</ResponseExample>

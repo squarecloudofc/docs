@@ -1,0 +1,83 @@
+---
+title: "Upload Application"
+sidebarTitle: "Upload Application"
+description: "Send an application to Square Cloud. It has a rate limit of 1 request every 15 seconds."
+api: "POST https://api-dev.squarecloud.app/v2/apps/upload"
+authMethod: "none"
+---
+
+<ParamField header="Authorization" type="string" placeholder="API KEY" required>
+  The API key for your account. You can find this in your [account settings](https://squarecloud.app/dashboard/account).
+</ParamField>
+
+<ParamField header="file" type="file" placeholder="application.zip" required>
+  The application to upload. Must be a ZIP file.
+</ParamField>
+
+### Response
+
+<ResponseField name="status" type="string">
+  Indicates whether the call was successful. "success" if successful, "error" if not.
+</ResponseField>
+<ResponseField name="code" type="string">
+  The status code of the response.
+</ResponseField>
+<ResponseField name="response" type="object">
+
+The contents of the response.
+<Expandable title="Toggle object">
+<ResponseField name="id" type="string">
+  The ID of the uploaded application.
+</ResponseField>
+<ResponseField name="tag" type="string">
+  The tag of the uploaded application.
+</ResponseField>
+<ResponseField name="description" type="string">
+  The description of the uploaded application.
+</ResponseField>
+<ResponseField name="subdomain" type="string">
+  The subdomain of the uploaded application (null if not applicable).
+</ResponseField>
+<ResponseField name="avatar" type="string">
+  The avatar URL of the uploaded application.
+</ResponseField>
+<ResponseField name="ram" type="number">
+  The RAM usage of the uploaded application in MB.
+</ResponseField>
+<ResponseField name="cpu" type="number">
+  The CPU usage of the uploaded application.
+</ResponseField>
+<ResponseField name="language" type="object">
+<Expandable title="Toggle object">
+<ResponseField name="name" type="string">
+  The programming language of the uploaded application.
+</ResponseField>
+<ResponseField name="version" type="string">
+  The recommended version of the programming language.
+</ResponseField>
+</Expandable>
+</ResponseField>
+</Expandable>
+</ResponseField>
+
+<ResponseExample>
+```json
+{
+    "status": "success",
+    "code": "SUCCESS",
+    "response": {
+        "id": "945f574e6cc14ea6818f91d7d56de101",
+        "tag": "Estrelinha Legal",
+        "description": "Nossa, fui enviada na velocidade da luz! ✨",
+        "subdomain": null,
+        "avatar": "https://api.squarecloud.app/cdn/avatars/6.png",
+        "ram": 1024,
+        "cpu": 12,
+        "language": {
+            "name": "JavaScript",
+            "version": "recommended"
+        }
+    }
+}
+```
+</ResponseExample>

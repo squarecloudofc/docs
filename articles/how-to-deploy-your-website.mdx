@@ -1,0 +1,40 @@
+---
+title: Hosting Your Website/API on Square Cloud
+sidebarTitle: How to deploy your Website or API
+description: Learn how to host your website or API on Square Cloud using the squarecloud.app configuration file.
+---
+
+## Introduction
+
+Hosting your website or API on Square Cloud is a breeze with the squarecloud.app configuration file. This file allows you to customize and configure your application with essential parameters like the main file, memory allocation, version, display name, and more.
+
+## Creating the squarecloud.app configuration File
+To get started, create your [squarecloud.app](how-to-create-your-squarecloud-configuration-file) configuration file in the root directory of your project.
+
+### Important website parameters
+The **website port** needs to be **80**, if you are using a static website, you don't need to set the `START` parameter.
+
+In squarecloud.app configuration file:
+- `SUBDOMAIN`: If you are hosting a website, set this parameter to your desired subdomain.
+- `START`: A custom startup command (if needed).
+
+
+<Note>Website url will be: `my-subdomain-parameter`.squareweb.app</Note>
+```systemd This example host a website without custom startup command
+MAIN=index.html
+MEMORY=512
+VERSION=recommended
+DISPLAY_NAME=My simple static website!
+SUBDOMAIN=mysite-simple-website
+```
+
+```systemd This example use all parameters and custom startup command in a website
+MAIN=index.js
+MEMORY=512
+VERSION=recommended
+DISPLAY_NAME=My simple nextjs website!
+SUBDOMAIN=mysite-nextjs-website
+START=npm run build && npm run start
+```
+
+By following these steps, you'll have your website or API up and running smoothly on Square Cloud. If you encounter any issues or need further assistance, don't hesitate to reach out to our [support team](../company/support).

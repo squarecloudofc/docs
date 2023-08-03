@@ -1,0 +1,40 @@
+---
+title: "Commit Application Changes"
+sidebarTitle: "Commit Changes"
+description: "Send a change to your application. (yellow category)"
+api: "POST https://api.squarecloud.app/v2/apps/{app_id}/commit"
+authMethod: "none"
+---
+
+<ParamField header="Authorization" type="string" placeholder="API KEY" required>
+  The API key for your account. You can find this in your [account settings](https://squarecloud.app/dashboard/account).
+</ParamField>
+
+<ParamField path="app_id" type="string" placeholder="Application ID" required>
+  The ID of the application. You can find this in the URL of your application's dashboard.
+</ParamField>
+
+<ParamField header="file" type="file" placeholder="commit.zip" required>
+  Use FormData or NodeJS Buffer (single file or compress [zip])
+</ParamField>
+
+<ParamField query="restart" type="boolean">
+  Set to true if you want to restart the application after the commit. Default is true.
+</ParamField>
+
+### Response
+
+<ResponseField name="status" type="string">
+  Indicates whether the call was successful. "success" if successful, "error" if not.
+</ResponseField>
+<ResponseField name="message" type="string">
+  A message indicating the status of the commit.
+</ResponseField>
+
+<ResponseExample>
+```json
+{
+    "status": "success"
+}
+```
+</ResponseExample>

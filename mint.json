@@ -1,0 +1,121 @@
+{
+  "$schema": "https://mintlify.com/schema.json",
+  "name": "Square Cloud",
+  "favicon": "/favicon.png",
+  "colors": {
+    "primary": "#2563eb",
+    "light": "#2563eb",
+    "dark": "#2563eb",
+    "background": {
+      "light": "#f0f0f0",
+      "dark": "#0B0E13"
+    }
+  },
+  "topbarCtaButton": {
+    "name": "Dashboard",
+    "url": "https://squarecloud.app/dashboard"
+  },
+  "tabs": [
+    {
+      "name": "API Documentation",
+      "url": "api"
+    }
+  ],
+  "navigation": [
+    {
+      "group": "Getting Started",
+      "pages": [
+        "introduction",
+        "articles/how-to-create-your-squarecloud-configuration-file"
+      ]
+    },
+    {
+      "group": "Languages",
+      "pages": [
+        "articles/getting-started-with-nodejs",
+        "articles/getting-started-with-python",
+        "articles/getting-started-with-java",
+        "articles/getting-started-with-elixir",
+        "articles/getting-started-with-rust",
+        "articles/getting-started-with-go"
+      ]
+    },
+    {
+      "group": "Articles",
+      "pages": [
+        "articles/how-to-deploy-your-website",
+        "articles/how-to-create-your-lavalink-server"
+      ]
+    },
+    {
+      "group": "Company",
+      "pages": [
+        "company/brand",
+        "company/legal",
+        "company/support"
+      ]
+    },
+    {
+      "group": "API Documentation",
+      "pages": [
+        "api/authentication",
+        "api/limitations-and-restrictions"
+      ]
+    },
+    {
+      "group": "Endpoints",
+      "pages": [
+        {
+          "group": "No auth required",
+          "pages": [
+            "api/endpoint/service/statistics"
+          ]
+        },
+        {
+          "group": "User",
+          "pages": [
+            "api/endpoint/user/info"
+          ]
+        },
+        {
+          "group": "Application",
+          "pages": [
+            "api/endpoint/apps/info",
+            "api/endpoint/apps/status",
+            "api/endpoint/apps/logs",
+            "api/endpoint/apps/start",
+            "api/endpoint/apps/restart",
+            "api/endpoint/apps/stop",
+            "api/endpoint/apps/backup",
+            "api/endpoint/apps/commit",
+            "api/endpoint/apps/delete"
+          ]
+        },
+        {
+          "group": "Application - File Manager",
+          "pages": [
+            "api/endpoint/apps/filemanager/list",
+            "api/endpoint/apps/filemanager/read",
+            "api/endpoint/apps/filemanager/create",
+            "api/endpoint/apps/filemanager/delete"
+          ]
+        }
+      ]
+    }
+  ],
+  "footerSocials": {
+    "website": "https://squarecloud.app",
+    "discord": "https://discord.gg/squarecloud",
+    "instagram": "https://instagram.com/squarecloudofc",
+    "twitter": "https://twitter.com/squarecloudofc",
+    "linkedin": "https://linkedin.com/company/squarecloud",
+    "github": "https://github.com/squarecloudofc"
+  },
+  "backgroundImage": "/background.png",
+  "api": {
+    "auth": {
+      "method": "key",
+      "name": "Authorization"
+    }
+  }
+}

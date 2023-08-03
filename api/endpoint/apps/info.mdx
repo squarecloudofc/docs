@@ -1,0 +1,113 @@
+---
+title: "Get Application Information"
+sidebarTitle: "Application Information"
+description: "Retrieve technical information about your application."
+api: "GET https://api.squarecloud.app/v2/apps/{app_id}"
+authMethod: "none"
+---
+
+<ParamField header="Authorization" type="string" placeholder="API KEY" required>
+  The API key for your account. You can find this in your [account settings](https://squarecloud.app/dashboard/account).
+</ParamField>
+
+<ParamField path="app_id" type="string" placeholder="Application ID" required>
+  The ID of the application. You can find this in the URL of your application's dashboard.
+</ParamField>
+
+### Response
+
+<ResponseField name="status" type="string">
+  Indicates whether the call was successful. "success" if successful, "error" if not.
+</ResponseField>
+
+<ResponseField name="code" type="string">
+  The status code of the response.
+</ResponseField>
+
+<ResponseField name="response" type="object">
+
+The contents of the response.
+
+<Expandable title="Toggle object">
+
+<ResponseField name="app" type="object">
+
+<Expandable title="Toggle object">
+
+<ResponseField name="id" type="string">
+  The application's ID.
+</ResponseField>
+
+<ResponseField name="name" type="string">
+  The application's name.
+</ResponseField>
+
+<ResponseField name="avatar" type="string">
+  The application's avatar URL.
+</ResponseField>
+
+<ResponseField name="owner" type="string">
+  The ID of the application owner.
+</ResponseField>
+
+<ResponseField name="cluster" type="string">
+  The application's cluster.
+</ResponseField>
+
+<ResponseField name="cpu" type="number">
+  The application's CPU usage.
+</ResponseField>
+
+<ResponseField name="ram" type="number">
+  The application's RAM usage in MB.
+</ResponseField>
+
+<ResponseField name="language" type="string">
+  The application's programming language.
+</ResponseField>
+
+<ResponseField name="domain" type="string">
+  The application's domain (null if not applicable).
+</ResponseField>
+
+<ResponseField name="custom" type="string">
+  Custom information about the application (null if not applicable).
+</ResponseField>
+
+<ResponseField name="isWebsite" type="boolean">
+  Indicates whether the application is a website.
+</ResponseField>
+
+<ResponseField name="gitIntegration" type="boolean">
+  Indicates whether the application has Git integration.
+</ResponseField>
+
+</Expandable>
+</ResponseField>
+
+</Expandable>
+</ResponseField>
+
+<ResponseExample>
+```json Response
+{
+  "status": "success",
+  "response": {
+    "app": {
+      "id": "64d0c750212742ca8704fb458c9771af",
+      "name": "Best bot forever",
+      "avatar": "https://api.squarecloud.app/cdn/avatars/8.png",
+      "owner": "3133971456989594464",
+      "cluster": "fl-haswell-1",
+      "cpu": 1,
+      "ram": 1024,
+      "language": "rust",
+      "domain": null,
+      "custom": null,
+      "isWebsite": false,
+      "gitIntegration": false
+    }
+  }
+}
+```
+</ResponseExample>
