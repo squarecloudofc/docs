@@ -18,7 +18,7 @@
   "tabs": [
     {
       "name": "API Documentation",
-      "url": "api"
+      "url": "api-reference"
     }
   ],
   "navigation": [
@@ -58,8 +58,8 @@
     {
       "group": "API Documentation",
       "pages": [
-        "api/authentication",
-        "api/limitations-and-restrictions"
+        "api-reference/authentication",
+        "api-reference/limitations-and-restrictions"
       ]
     },
     {
@@ -68,36 +68,36 @@
         {
           "group": "No auth required",
           "pages": [
-            "api/endpoint/service/statistics"
+            "api-reference/endpoint/service/statistics"
           ]
         },
         {
           "group": "User",
           "pages": [
-            "api/endpoint/user/info"
+            "api-reference/endpoint/user/info"
           ]
         },
         {
           "group": "Application",
           "pages": [
-            "api/endpoint/apps/info",
-            "api/endpoint/apps/status",
-            "api/endpoint/apps/logs",
-            "api/endpoint/apps/start",
-            "api/endpoint/apps/restart",
-            "api/endpoint/apps/stop",
-            "api/endpoint/apps/backup",
-            "api/endpoint/apps/commit",
-            "api/endpoint/apps/delete"
+            "api-reference/endpoint/apps/info",
+            "api-reference/endpoint/apps/status",
+            "api-reference/endpoint/apps/logs",
+            "api-reference/endpoint/apps/start",
+            "api-reference/endpoint/apps/restart",
+            "api-reference/endpoint/apps/stop",
+            "api-reference/endpoint/apps/backup",
+            "api-reference/endpoint/apps/commit",
+            "api-reference/endpoint/apps/delete"
           ]
         },
         {
           "group": "Application - File Manager",
           "pages": [
-            "api/endpoint/apps/filemanager/list",
-            "api/endpoint/apps/filemanager/read",
-            "api/endpoint/apps/filemanager/create",
-            "api/endpoint/apps/filemanager/delete"
+            "api-reference/endpoint/apps/filemanager/list",
+            "api-reference/endpoint/apps/filemanager/read",
+            "api-reference/endpoint/apps/filemanager/create",
+            "api-reference/endpoint/apps/filemanager/delete"
           ]
         }
       ]
