@@ -100,6 +100,12 @@
             "api-reference/endpoint/apps/filemanager/create",
             "api-reference/endpoint/apps/filemanager/delete"
           ]
+        },
+        {
+          "group": "Application - Deploy",
+          "pages": [
+            "api-reference/endpoint/apps/deploy/webhooks"
+          ]
         }
       ]
     }

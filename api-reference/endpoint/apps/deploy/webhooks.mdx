@@ -1,0 +1,52 @@
+---
+title: "GitHub Webhook Integration"
+sidebarTitle: "GitHub Webhook"
+description: "Integrate SquareCloud with GitHub webhooks"
+api: "POST https:/api.squarecloud.app/v2/apps/{app_id}/deploy/git-webhook"
+authMethod: "none"
+---
+
+<ParamField header="Authorization" type="string" placeholder="API KEY" required>
+  The API key for your account. You can find this in your [account settings](https://squarecloud.app/dashboard/account).
+</ParamField>
+
+<ParamField path="app_id" type="string" placeholder="Application ID" required>
+  The ID of the application. You can find this in the URL of your application's dashboard.
+</ParamField>
+
+<ParamField body="access_token" type="string" placeholder="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" required>
+  The access token for your GitHub repository. You can find this in your [GitHub Tokens Classic](https://github.com/settings/tokens/new)
+</ParamField>
+
+### Response
+
+<ResponseField name="status" type="string">
+  Indicates whether the call was successful. "success" if successful, "error" if not.
+</ResponseField>
+<ResponseField name="message" type="string">
+  A message indicating the status of the commit.
+</ResponseField>
+
+<ResponseField name="response" type="object">
+
+The contents of the response.
+
+<Expandable title="Toggle object">
+
+<ResponseField name="webhook" type="string">
+  The URL of the webhook.
+</ResponseField>
+
+</Expandable>
+</ResponseField>
+
+<ResponseExample>
+```json
+{
+    "status": "success",
+    "response": { 
+        "webhook": "https://api.squarecloud.app/v2/git/webhook/<webhook-code>"
+    },
+}
+```
+</ResponseExample>
