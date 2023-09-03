@@ -1,0 +1,39 @@
+---
+title: 'Getting Started on Square Cloud with PHP'
+sidebarTitle: 'PHP'
+description: 'Learn how to get started on Square Cloud with PHP'
+---
+
+## Introduction
+This tutorial will have you deploying a PHP app to Square Cloud in minutes.
+
+This tutorial assumes that you already have a [Square Cloud account](https://squarecloud.app/login) and PHP installed locally.
+
+## Required Files
+Make sure your project includes the following files:
+
+- Your main PHP file.
+- `composer.json` (*optional dependency file).
+- [squarecloud.app](./how-to-create-your-squarecloud-configuration-file) (a file containing your Square Cloud configuration).
+
+## Preparing Files for Upload
+Before you can host your project on Square Cloud, ensure your project files are correctly configured for hosting.
+
+Create your [squarecloud.app](./how-to-create-your-squarecloud-configuration-file) configuration file.
+
+If your project includes a `composer.json` file, Square Cloud will automatically install dependencies using Composer. However, if your project also has Node dependencies (i.e., a `package.json` file), you should specify the installation process in the `START` field of your `squarecloud.app` file. For example:
+
+```plaintext
+START=npm install && php .....
+```
+
+If your project lacks a `composer.json` file, it will be initialized by executing the following command: `php -S 0.0.0.0:80`, which will start a web server.
+
+# Uploading Files to Square Cloud
+
+After preparing your project files, you can now upload them to Square Cloud and host your project.
+Access the [Square Cloud Dashboard](https://squarecloud.app/dashboard/upload) and upload your project files.
+
+<Frame>
+  <img src="/images/uploading.gif" style={{ borderRadius: '0.5rem' }} />
+</Frame>
