@@ -125,5 +125,10 @@
       "method": "key",
       "name": "Authorization"
     }
+  },
+  "analytics": {
+    "ga4": {
+        "measurementId": "G-8NTENKCHRS"
+    }
   }
 }
