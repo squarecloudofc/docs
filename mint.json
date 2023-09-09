@@ -15,10 +15,36 @@
     "name": "Dashboard",
     "url": "https://squarecloud.app/dashboard"
   },
+  "anchors": [
+    {
+      "name": "Join our Discord",
+      "icon": "discord",
+      "url": "https://discord.gg/squarecloud"
+    },
+    {
+      "name": "Follow us on Twitter",
+      "icon": "twitter",
+      "url": "https://twitter.com/squarecloudofc"
+    },
+    {
+      "name": "Follow us on Instagram",
+      "icon": "instagram",
+      "url": "https://instagram.com/squarecloudofc"
+    },
+    {
+      "name": "Contribute on GitHub",
+      "icon": "github",
+      "url": "https://github.com/squarecloudofc"
+    }
+  ],
   "tabs": [
     {
       "name": "API Documentation",
       "url": "api-reference"
+    },
+    {
+      "name": "FAQs",
+      "url": "faqs"
     }
   ],
   "navigation": [
@@ -33,7 +59,13 @@
       "group": "Languages",
       "pages": [
         "articles/getting-started-with-nodejs",
-        "articles/getting-started-with-python",
+        {
+          "group": "Python",
+          "pages": [
+            "articles/getting-started-with-python",
+            "articles/how-to-create-your-requirements"
+          ]
+        },
         "articles/getting-started-with-java",
         "articles/getting-started-with-elixir",
         "articles/getting-started-with-rust",
@@ -109,6 +141,12 @@
           ]
         }
       ]
+    },
+    {
+      "group": "FAQs",
+      "pages": [
+        "faqs/whitelist-mongodb"
+      ]
     }
   ],
   "footerSocials": {
@@ -128,7 +166,7 @@
   },
   "analytics": {
     "ga4": {
-        "measurementId": "G-8NTENKCHRS"
+      "measurementId": "G-8NTENKCHRS"
     }
   },
   "feedback": {

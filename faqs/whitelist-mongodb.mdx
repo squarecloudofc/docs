@@ -1,0 +1,19 @@
+---
+title: Configuring your MongoDB in a app hosted on Square Cloud.
+sidebarTitle: Whitelisting MongoDB 
+---
+
+When connecting your database to a app hosted on Square Cloud you may come across the possible error:
+```
+MongoNetworkError: connection 0 to shard-xxx-xxx.mongodb.net:27017 closed
+```
+
+You will receive this error message if you have not included the MongoDB Atlas addresses, the IP where your app is hosted, on the whitelist.
+
+<Note>Due to how Square works in a way that has a dynamic IP, by an exclusive technology, it is impossible to provide you with an IP, since every restart in the application, you receive a unique IP.</Note>
+
+So according to the [mongodb documentation](https://www.mongodb.com/docs/atlas/security/ip-access-list/), you need to whitelist 0.0.0.0/0 IP address.
+
+<Frame>
+  <img src="/images/mongodb-whitelist.png" style={{ borderRadius: '0.5rem' }} />
+</Frame>
