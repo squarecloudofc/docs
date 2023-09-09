@@ -1,0 +1,41 @@
+---
+title: Hospedando seu Site ou API na Square Cloud
+sidebarTitle: Como implantar seu Site ou API
+description: Saiba como hospedar seu site ou API na Square Cloud usando o arquivo de configuração squarecloud.app.
+---
+
+## Introdução
+
+Hospedar seu site ou API na Square Cloud é muito simples com o arquivo de configuração squarecloud.app. Este arquivo permite personalizar e configurar sua aplicação com parâmetros essenciais, como o arquivo principal, alocação de memória, versão, nome de exibição e muito mais.
+
+## Criando o Arquivo de Configuração squarecloud.app
+Para começar, crie seu arquivo de configuração [squarecloud.app](./como-criar-seu-arquivo-de-configuracao-squarecloud) na pasta raiz do seu projeto.
+
+### Parâmetros importantes para websites
+A **porta do site** precisa ser **80**; se você estiver usando um site estático, não precisa definir o parâmetro `START`.
+
+No arquivo de configuração squarecloud.app:
+- `SUBDOMAIN`: Se você estiver hospedando um site, defina este parâmetro como o subdomínio desejado.
+- `START`: Um comando de inicialização personalizado (se necessário).
+
+<Note>O URL do site será: `seu-parâmetro-de-subdomínio`.squareweb.app</Note>
+```systemd Este exemplo hospeda um site sem comando de inicialização personalizado
+MAIN=index.html
+MEMORY=512
+VERSION=recommended
+DISPLAY_NAME=Meu site estático simples!
+SUBDOMAIN=meusite-site-simples
+```
+
+```systemd Este exemplo usa todos os parâmetros e comandos de inicialização personalizados em um site
+MAIN=index.js
+MEMORY=512
+VERSION=recommended
+DISPLAY_NAME=Meu site nextjs simples!
+SUBDOMAIN=meusite-site-nextjs
+START=npm run build && npm run start
+```
+
+Seguindo esses passos, você terá seu site ou API funcionando sem problemas na Square Cloud. Se encontrar algum problema ou precisar de assistência adicional, não hesite em entrar em contato com nossa [equipe de suporte](../company/support).
+
+Este artigo foi traduzido por [Square Cloud](https://squarecloud.app) e pode estar desatualizado, recomendamos sempre conferir a versão original dele em inglês clicando [aqui](./how-to-create-your-squarecloud-configuration-file).

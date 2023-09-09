@@ -1,0 +1,92 @@
+---
+title: 'Como criar seu arquivo de configuração squarecloud.app'
+sidebarTitle: 'Arquivo squarecloud.app'
+description: 'Aprenda como criar seu arquivo de configuração Square Cloud'
+---
+
+## Introdução
+O arquivo de configuração é um arquivo que será usado para configurar sua aplicação, ele será usado para definir o nome, descrição, versão, entre outras coisas.
+
+## Criando o arquivo de configuração
+<Warning>Nota: **.app** ou **.config** é a **extensão do arquivo**, **não o nome**.</Warning>
+
+É muito simples criar o arquivo de configuração, basta criar um arquivo com o nome `squarecloud.app` ou `squarecloud.config` e colocar os parâmetros de configuração dentro dele.
+
+## Parâmetros de configuração
+<Note>Mínimo de **memória** para o **bot** é **100 MB** e para o **site 512 MB**</Note>
+
+| Parâmetros obrigatórios | Descrição                            | Exemplo                               |
+| ----------------------- | ------------------------------------ | --------------------------------------|
+| MAIN                    | Arquivo principal da sua aplicação   | MAIN=index.js                         |
+| MEMORY                  | Quantidade de memória RAM            | MEMORY=128                            |
+| VERSION                 | Versão da sua aplicação              | VERSION=recommended                   |
+| DISPLAY_NAME            | Nome da aplicação                    | DISPLAY_NAME=My app!                  |
+| SUBDOMAIN               | **Se você estiver enviando um site** | SUBDOMAIN=mysite                      |
+
+| Parâmetros opcionais    | Descrição                               |
+| ----------------------- | --------------------------------------- |
+| DESCRIPTION             | Descrição da sua aplicação              |
+| AUTORESTART             | Reiniciar sua aplicação se ela travar   | 
+| AVATAR                  | Avatar da sua aplicação                 |
+| START                   | *Comando de inicialização personalizado |
+
+<Note>AVATAR: Somente Discord e Imgur CDN têm suas imagens carregadas em nosso site. <br/> AUTORESTART é um recurso **PAGO**, se você quiser usá-lo, precisa [**adquirir um plano**](https://squarecloud.app/planos).</Note>
+## Exemplos de configuração
+
+```systemd Este exemplo usa apenas parâmetros obrigatórios (configuração mínima)
+MAIN=index.js
+MEMORY=128
+VERSION=recommended
+DISPLAY_NAME=My app!
+```
+
+```systemd Este exemplo usa todos os parâmetros
+MAIN=index.js
+MEMORY=128
+VERSION=recommended
+DISPLAY_NAME=My app!
+DESCRIPTION=My app is very cool!
+AVATAR=https://cdn.discordapp.com/avatars/.../...png
+```
+
+<Note>Website url will be: mysite.squareweb.app</Note>
+```systemd This example use all parameters and custom startup command in a website.
+MAIN=index.js
+MEMORY=512
+VERSION=recommended
+DISPLAY_NAME=My website!
+DESCRIPTION=My website is very cool!
+AVATAR=https://cdn.discordapp.com/avatars/.../...png
+SUBDOMAIN=mysite
+START=npm run start-build
+AUTORESTART=true
+```
+
+## Versões
+Para cada linguagem, existe um parâmetro VERSION diferente, abaixo você pode ver as versões disponíveis para cada linguagem. Atualizado em 29/07/2023.
+
+| Language                 | Version recommended  | Version latest | Old version    |
+| ------------------------ | ---------------------| -------------- | -------------- |
+| JavaScript [Node.js]     | 18.17.0 (LTS - 2023) | 20.5.0         |                |
+| Python                   | 3.10.12              | 3.11.4         |                |
+| Java                     | JDK 17               | JDK 18         |                |
+| Elixir                   | 1.15.4               | 1.15.4         |                |
+| Rust                     | 1.71.1               | 1.71.1         |                |
+| PHP                      | 8.2                  | 8.2            | 7.4            |
+| Go                       | 1.20.7               | 1.20.7         |                |
+| HTML/CSS                 | Build 07-29-23       | Build 07-29-23 |                |
+
+
+## Limites técnicos
+Por razões de segurança e desempenho, existem limites nos parâmetros de configuração, abaixo você pode ver os limites de cada parâmetro.
+
+| Parameter     | Limit          |
+| ------------- | -------------- |
+| MAIN          | 32 characters  |
+| DISPLAY_NAME  | 32 characters  |
+| DESCRIPTION   | 280 characters |
+| AVATAR        | 128 characters |
+| START         | 128 characters |
+| SUBDOMAIN     | 383 characters |
+
+Este artigo foi traduzido por [Square Cloud](https://squarecloud.app) e pode estar desatualizado, recomendamos sempre conferir a versão original dele em inglês clicando [aqui](./how-to-create-your-squarecloud-configuration-file).
