@@ -130,5 +130,10 @@
     "ga4": {
         "measurementId": "G-8NTENKCHRS"
     }
+  },
+  "feedback": {
+    "thumbsRating": true,
+    "raiseIssue": true,
+    "suggestEdit": true
   }
 }
