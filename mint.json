@@ -11,6 +11,9 @@
       "dark": "#0B0E13"
     }
   },
+  "modeToggle": {
+    "default": "dark"
+  },  
   "topbarCtaButton": {
     "name": "Dashboard",
     "url": "https://squarecloud.app/dashboard"
