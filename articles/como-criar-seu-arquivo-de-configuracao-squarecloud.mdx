@@ -33,14 +33,14 @@ O arquivo de configuração é um arquivo que será usado para configurar sua ap
 <Note>AVATAR: Somente Discord e Imgur CDN têm suas imagens carregadas em nosso site. <br/> AUTORESTART é um recurso **PAGO**, se você quiser usá-lo, precisa [**adquirir um plano**](https://squarecloud.app/planos).</Note>
 ## Exemplos de configuração
 
-```systemd Este exemplo usa apenas parâmetros obrigatórios (configuração mínima)
+```systemd Este exemplo usa apenas parâmetros obrigatórios. (configuração mínima)
 MAIN=index.js
 MEMORY=128
 VERSION=recommended
 DISPLAY_NAME=My app!
 ```
 
-```systemd Este exemplo usa todos os parâmetros
+```systemd Este exemplo usa todos os parâmetros.
 MAIN=index.js
 MEMORY=128
 VERSION=recommended
@@ -50,7 +50,7 @@ AVATAR=https://cdn.discordapp.com/avatars/.../...png
 ```
 
 <Note>Website url will be: mysite.squareweb.app</Note>
-```systemd This example use all parameters and custom startup command in a website.
+```systemd Este exemplo usa todos os parâmetros e comandos de inicialização personalizados em um site.
 MAIN=index.js
 MEMORY=512
 VERSION=recommended
