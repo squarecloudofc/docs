@@ -148,7 +148,8 @@
     {
       "group": "FAQs",
       "pages": [
-        "faqs/whitelist-mongodb"
+        "faqs/whitelist-mongodb",
+        "faqs/automatic-deletion-files-when-deploying-an-application-to-squarecloud"
       ]
     }
   ],
