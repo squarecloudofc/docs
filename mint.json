@@ -92,7 +92,7 @@
       ]
     },
     {
-      "group": "API Documentation",
+      "group": "API Reference",
       "pages": [
         "api-reference/authentication",
         "api-reference/limitations-and-restrictions"
