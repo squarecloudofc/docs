@@ -142,6 +142,13 @@
           "pages": [
             "api-reference/endpoint/apps/deploy/webhooks"
           ]
+        },
+        {
+          "group": "Application - Network",
+          "pages": [
+            "api-reference/endpoint/apps/network/custom",
+            "api-reference/endpoint/apps/network/analytics"
+          ]
         }
       ]
     },
