@@ -1,0 +1,68 @@
+---
+title: "Client"
+description: "The central object is the Client object, instantiated with an API key. This
+object represents a connection to the Square Cloud service and acts as an
+interface to interact with various aspects of the service."
+---
+
+[Client]: ./#client
+
+````python
+import squarecloud as square
+
+client = square.Client(api_key='API_KEY')
+
+async def example():
+    app_status = await client.app_status('application_id')
+    print(app_status)
+````
+
+## Parameters:
+
+- api_key
+
+`api_key: str`: This is the required parameter when instantiating the Client object.
+A valid API key must be provided as a string for authentication to be performed correctly.
+
+- debug
+
+`debug: bool = True`: This is an optional parameter that controls the debug mode of
+the Client object. When set to True, every time a request is made, the Client object prints
+debug information to facilitate the detection and resolution of
+issues. However, in production environments, it is common to set this parameter
+to False to avoid displaying unnecessary information.
+This value defaults to True.
+
+## Application
+
+Using the [Client], you can obtain an object (or a list of
+objects) that represents your application. This object would be an instance of the
+Application class that you can use
+to manage your application more conveniently, without always needing to pass
+the id of your application.
+
+<Tabs>
+    <Tab title="obtaining an application">
+        ````python
+        import squarecloud as square
+
+        client = square.Client(api_key='API KEY')
+
+        async def example():
+            app = await client.app('application id')
+            print(app)  # <Application tag='example' id='application_id'>
+        ````
+    </Tab>
+
+    <Tab title="obtaining all applications">
+    ````python
+    import squarecloud as square
+
+    client = square.Client(api_key='API KEY')
+
+    async def example():
+        apps = await client.all_apps()
+        print(apps)  # list[<Application tag='example' id='application_id'>]
+    ````
+    </Tab>
+</Tabs>

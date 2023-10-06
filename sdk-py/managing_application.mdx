@@ -1,0 +1,234 @@
+---
+title: "Managing Applications"
+description: "In this section, you will learn how to manage your application using the available library. You can interact with your application in various ways, such as obtaining information about the application status, accessing logs, starting, stopping, and restarting the application, as well as managing files associated with it."
+---
+
+[Client]: client
+
+[Application]: client#aplication
+
+All operations below can be performed by either the [Client] class, the
+[Application] class and the CLI. Below are examples of how to perform each of
+these tasks using both classes:
+
+## Getting the status of your application
+
+`client.app_status` and `app.status` return a `StatusData` object.
+
+<Tabs>
+    <Tab title="Using Client">
+        ````python
+        import squarecloud as square
+
+        client = square.Client(api_key='API KEY')
+
+        async def example():
+            status = await client.app_status('application_id')  # StatusData(...)
+
+            print(status.ram)  # '70MB'
+            print(status.cpu)  # '5%'
+            print(status.requests)  # 0
+            print(status.network)  # {'total': '0 KB ↑ 0 KB ↓', 'now': '0 KB ↑ 0 KB ↓'}
+            print(status.running)  # True | False
+            print(status.storage)  # '0MB'
+        ````
+    </Tab>
+    <Tab title="Using Application">
+        ````python
+        import squarecloud as square
+
+        client = square.Client(api_key='API KEY')
+
+        async def example():
+            app = await client.app('application_id')  # StatusData(...)
+            status = await app.status()
+
+            print(status.ram)  # '70MB'
+            print(status.cpu)  # '5%'
+            print(status.requests)  # 0
+            print(status.network)  # {'total': '0 KB ↑ 0 KB ↓', 'now': '0 KB ↑ 0 KB ↓'}
+            print(status.running)  # True | False
+            print(status.storage)  # '0MB'
+        ````
+    </Tab>
+    <Tab title="Using CLI">
+        ````bash
+        squarecloud app <APP_ID> status
+        ````
+    </Tab>
+</Tabs>
+
+## Getting logs
+
+`client.get_logs` and `app.logs` return a `LogsData` object.
+
+<Tabs>
+    <Tab title="Using Client">
+        ````python
+        import squarecloud as square
+
+        client = square.Client(api_key='API KEY')
+
+        async def example():
+            logs = await client.get_logs('application_id')
+
+            print(logs)  # LogsData(logs='Hello World!')
+            print(logs.logs)  # 'Hello World'
+        ````
+    </Tab>
+    <Tab title="Using Application">
+        ````python
+        import squarecloud as square
+
+        client = square.Client(api_key='API KEY')
+
+        async def example():
+            app = await client.app('application_id')
+            logs = await app.logs()
+
+            print(logs)  # LogsData(logs='Hello World!')
+            print(logs.logs)  # 'Hello World'
+        ````
+    </Tab>
+    <Tab title="Using CLI">
+        ````bash
+        squarecloud app <APP_ID> logs
+        ````
+    </Tab>
+</Tabs>
+
+## Starting the application
+
+`client.start_app` and `app.start` return a `Response` object.
+
+<Tabs>
+    <Tab title="Using Client">
+        ````python
+        import squarecloud as square
+
+        client = square.Client(api_key='API KEY')
+
+        async def example():
+            await client.start_app('application_id')
+        ````
+    </Tab>
+    <Tab title="Using Application">
+        ````python
+        import squarecloud as square
+
+        client = square.Client(api_key='API KEY')
+
+        async def example():
+            app = await client.app('application_id')
+            await app.start()
+        ````
+    </Tab>
+    <Tab title="Using CLI">
+        ````bash
+        squarecloud app <APP_ID> start
+        ````
+    </Tab>
+</Tabs>
+
+## Stopping the application
+
+`client.stop_app` and `app.stop` return a `Response` object.
+
+<Tabs>
+    <Tab title="Using Client">
+        ````python
+        import squarecloud as square
+
+        client = square.Client(api_key='API KEY')
+
+        async def example():
+            await client.stop_app('application_id')
+        ````
+    </Tab>
+    <Tab title="Using Application">
+        ````python
+        import squarecloud as square
+
+        client = square.Client(api_key='API KEY')
+
+        async def example():
+            app = await client.app('application_id')
+            await app.stop()
+        ````
+    </Tab>
+    <Tab title="Using CLI">
+        ````bash
+        squarecloud app <APP_ID> stop
+        ````
+    </Tab>
+</Tabs>
+
+## Restarting the application
+
+`client.restart_app` and `app.restart` return a `Response` object.
+
+<Tabs>
+    <Tab title="Using Client">
+        ````python
+        import squarecloud as square
+
+        client = square.Client(api_key='API KEY')
+
+        async def example():
+            await client.restart_app('application_id')
+        ````
+    </Tab>
+    <Tab title="Using Application">
+        ````python
+        import squarecloud as square
+
+        client = square.Client(api_key='API KEY')
+
+        async def example():
+            app = await client.app('application_id')
+            await app.restart()
+        ````
+    </Tab>
+    <Tab title="Using CLI">
+        ````bash
+        squarecloud app <APP_ID> restart
+        ````
+    </Tab>
+</Tabs>
+
+## Deleting an application
+
+`client.delete_app` and `app.delete` return a `Response` object.
+
+<Tabs>
+    <Tab title="Using Client">
+        ````python
+        import squarecloud as square
+
+        client = square.Client(api_key='API KEY')
+
+        async def example():
+            await client.delete_app('application_id')
+        ````
+    </Tab>
+    <Tab title="Using Application">
+        ````python
+        import squarecloud as square
+
+        client = square.Client(api_key='API KEY')
+
+        async def example():
+            app = await client.app('application_id')
+            await app.delete()
+        ````
+    </Tab>
+    <Tab title="Using CLI">
+        ````bash
+        squarecloud app <APP_ID> delete
+        ````
+    </Tab>
+</Tabs>
+
+<Warning>
+    This will delete your application **PERMANENTLY**, meaning that unless you have a backup of your application, it cannot be recovered.
+</Warning>

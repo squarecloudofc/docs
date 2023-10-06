@@ -46,6 +46,10 @@
       "url": "api-reference"
     },
     {
+      "name": "SDK PY",
+      "url": "sdk-py"
+    },
+    {
       "name": "FAQs",
       "url": "faqs"
     }
@@ -150,6 +154,23 @@
             "api-reference/endpoint/apps/network/analytics"
           ]
         }
+      ]
+    },
+    {
+      "group": "SDK PY",
+      "pages": [
+        "sdk-py/client",
+        "sdk-py/commit_and_upload",
+        "sdk-py/managing_application",
+        "sdk-py/managing_files",
+        "sdk-py/storing_your_token"
+      ]
+    },
+    {
+      "group": "Advanced Guide",
+      "pages": [
+        "sdk-py/advanced/app_cache",
+        "sdk-py/advanced/listeners"
       ]
     },
     {

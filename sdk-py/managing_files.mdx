@@ -1,0 +1,171 @@
+---
+title: "Managing Files"
+description: "In this section, you will find information and examples on how to manipulate the
+files associated with your application. Learn how to list, read, create, and delete
+files using the Client or the Application class for efficient resource
+administration of your application."
+---
+
+[Client]: client
+[Application]: client#application
+
+All operations below can be performed by either the [Client] class, the
+[Application] class and the CLI. Below are examples of how to perform each of
+these tasks using both classes:
+
+## Getting a list of files
+
+`client.app_files_list` and `app.files_list` return a list of `FileInfo` objects.
+
+<Tabs>
+    <Tab title="Using Client">
+        ````python
+        import squarecloud as square
+
+        client = square.Client(api_key='API KEY')
+
+        async def example():
+            files_list = await client.app_files_list(app_id='application_id', path='/')
+
+            for file in files_list:
+                print(file.name)  # 'main.py'
+                print(file.type)  # 'directory' or 'file'
+                print(file.size)  # 2140
+                print(file.lastModified)  # 1677112835000
+        ````
+    </Tab>
+    <Tab title="Using Application">
+        ````python
+        import squarecloud as square
+
+        client = square.Client(api_key='API KEY')
+
+        async def example():
+            app = await client.app('application_id')
+            files_list = await app.files_list(path='/')  # list[FileInfo(...)]
+
+            for file in files_list:
+                print(file.name)  # 'main.py'
+
+                print(file.type)  # 'directory' or 'file'
+
+                print(file.size)  # 2140
+
+                print(file.lastModified)  # 1677112835000
+        ````
+    </Tab>
+        <Tab title="Using CLI">
+        ````bash
+        squarecloud app <APP_ID> file-list
+        ````
+    </Tab>
+</Tabs>
+
+## Reading a file
+
+`client.read_app_file` and `app.read_file` return a `BytesIO` object.
+
+<Tabs>
+    <Tab title="Using Client">
+        ````python
+        import squarecloud as square
+
+        client = square.Client(api_key='API KEY')
+
+        async def example():
+            file_bytes = await client.read_app_file(
+                app_id='application_id', path='main.py'
+            )
+
+            print(file_bytes)  # b'01101000 01101001'
+        ````
+    </Tab>
+    <Tab title="Using Application">
+        ````python
+        import squarecloud as square
+
+        client = square.Client(api_key='API KEY')
+
+        async def example():
+            app = await client.app('application_id')
+            file_bytes = await app.read_file(path='main.py')
+
+            print(file_bytes)  # b'01101000 01101001'
+        ````
+    </Tab>
+        <Tab title="Using CLI">
+        ````bash
+        squarecloud app <APP-ID> file-read <PATH>
+        ````
+    </Tab>
+</Tabs>
+
+## Creating a file
+
+`client.create_app_file` and `app.create_file` return a `Response` object.
+
+<Tabs>
+    <Tab title="Using Client">
+        ````python
+        import squarecloud as square
+
+        client = square.Client(api_key='API KEY')
+
+        async def example():
+            await client.create_app_file(
+                app_id='application_id', path='/file.txt', file=square.File('file.txt')
+            )
+        ````
+    </Tab>
+    <Tab title="Using Application">
+        ````python
+        import squarecloud as square
+
+        client = square.Client(api_key='API KEY')
+
+        async def example():
+            app = await client.app('application_id')
+
+            await app.create_file(path='/file.txt', file=square.File('file.txt'))
+        ````
+    </Tab>
+        <Tab title="Using CLI">
+        ````bash
+        squarecloud app <APP-ID> file-create <FILE>
+        ````
+    </Tab>
+</Tabs>
+
+## Deleting a file
+
+`client.delete_app_file` and `app.delete_file` return a `Response` object.
+
+<Tabs>
+    <Tab title="Using Client">
+        ````python
+        import squarecloud as square
+
+        client = square.Client(api_key='API KEY')
+
+        async def example():
+            await client.delete_app_file(app_id='application_id', path='/file.txt')
+        ````
+    </Tab>
+    <Tab title="Using Application">
+        ````python
+        import squarecloud as square
+
+        client = square.Client(api_key='API KEY')
+
+        async def example():
+            app = await client.app('application_id')
+
+            await app.delete_file(path='/file.txt')
+        ````
+    </Tab>
+        <Tab title="Using CLI">
+        ````bash
+        squarecloud app <APP-ID> file-delete <PATH>
+        ````
+    </Tab>
+</Tabs>

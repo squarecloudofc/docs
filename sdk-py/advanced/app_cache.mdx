@@ -1,0 +1,94 @@
+---
+title: "App Cache"
+description: "Learn how to use the App cache."
+---
+
+When a request is made, it returns application information and caches it in the Application object itself. This is useful if you need to access this information again in a relatively short time, meaning it's not worth making a new API request for updated data. In such cases, you can access `Application.cache`.
+
+````python
+import squarecloud as square
+
+client = square.Client('API_KEY')
+
+
+async def example():
+    app = await client.app('application_id')
+
+    # Note that, as no requests have been made, * in the cache will be None
+    print(app.cache.logs)    # None
+    print(app.cache.status)  # None
+    print(app.cache.backup)  # None
+
+    # Now let's make some requests
+    await app.logs()
+    await app.status()
+    await app.backup()
+
+    # The cache has been updated 🤯
+    print(app.cache.logs)    # LogsData(...)
+    print(app.cache.status)  # StatusData(...)
+    print(app.cache.backup)  # BackupData(...)
+````
+
+## Making requests without updating the cache
+
+If, for some reason, you don't want to update the cache when making a request, you can pass the `update_cache=False` argument.
+
+````python
+import squarecloud as square
+
+client = square.Client('API_KEY')
+
+async def example():
+    app = await client.app('application_id')
+    await app.status(update_cache=False)
+    print(app.cache.status)  # None
+````
+
+<Note>
+    If the arguments you pass to `cache.update` are not an instance of `StatusData`, `LogsData`, or `BackupData`, a `SquareException` error will be raised.
+</Note>
+
+## Manually clearing the cache
+
+You can manually clear the cache using `cache.clear`.
+
+````python
+import squarecloud as square
+
+client = square.Client('API_KEY')
+
+
+async def example():
+    app = await client.app('application_id')
+
+    await app.status()
+    print(app.cache.status)  # StatusData(...)
+    app.cache.clear()
+    print(app.cache.status)  # None
+````
+
+## Manually updating the cache
+
+You can also manually update it using the `cache.update` method.
+
+````python
+import squarecloud as square
+
+client = square.Client('API_KEY')
+
+
+async def example():
+    app = await client.app('application_id')
+
+    logs = await app.logs()
+    status = await app.status()
+    backup = await app.backup()
+
+    app.cache.clear()  # Clears the cache
+    app.cache.update(status, logs, backup)  # Updates the cache
+
+    print(app.cache.logs)    # LogsData(...)
+    print(app.cache.status)  # StatusData(...)
+    print(app.cache.backup)  # BackupData(...)
+````

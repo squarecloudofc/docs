@@ -1,0 +1,83 @@
+---
+title: "Commit and Upload"
+---
+
+[Client]: ../user_guide/client
+[Application]: ../user_guide/client#application
+
+You can make commits and uploads using Client or Application. You
+just need a `squarecloud.File` object and pass the path where your
+zip file is.
+
+## Making a commit
+
+<Tabs>
+    <Tab title="Using Client">
+    ````python
+    import squarecloud as square
+
+    client = square.Client('API_KEY')
+
+    async def example():
+        file = square.File('path/to/you/file.zip')
+        await client.commit(file=file, app_id='application_id')
+    ````
+    </Tab>
+
+    <Tab title="Using Application">
+    ````python
+    import squarecloud as square
+
+    client = square.Client('API_KEY')
+
+    async def example():
+        app = await client.app(app_id='application_id')
+        file = square.File('path/to/you/file.zip')
+        await app.commit(file=file)
+    ````
+    </Tab>
+    <Tab title="Using CLI">
+    ````bash
+    squarecloud app <APP-ID> commit <FILE>
+    ````
+    </Tab>
+</Tabs>
+
+## Making a upload
+
+To upload an application, you only use the [Client] and the CLI.
+
+<Tabs>
+    <Tab title="Using Client">
+    ````python
+    import squarecloud as square
+
+    client = square.Client(...)
+
+    async def example():
+        file = square.File('path/to/you/file.zip')
+        await client.upload_app(file=file)
+    ````
+    </Tab>
+    <Tab title="Using CLI">
+    ````bash
+    squarecloud upload <ZIP>
+    ````
+    </Tab>
+</Tabs>
+
+**Remember that to upload an application you need a zip that contains (at least) the following files:**:
+
+- Main file: responsible for starting your application
+- Dependencies file: contains information about which dependencies are necessary
+- Configuration file (squarecloud.app): a configuration file specifying the
+name,
+description, main file name, version, etc. To learn more about the
+configuration file, take a look at this [guide](https://docs.squarecloud.app/articles/how-to-create-your-squarecloud-configuration-file)
+
+<Tip>
+    For your convenience, a function has been added to create this configuration file:
+    `squarecloud.create_config_file`.
+    
+    You can also create the configuration file using the command line `squarecloud create_config_file`.
+</Tip>
