@@ -13,7 +13,7 @@
   },
   "modeToggle": {
     "default": "dark"
-  },  
+  },
   "topbarCtaButton": {
     "name": "Dashboard",
     "url": "https://squarecloud.app/dashboard"
@@ -37,7 +37,7 @@
     {
       "name": "Contribute on GitHub",
       "icon": "github",
-      "url": "https://github.com/squarecloudofc"
+      "url": "https://go.squarecloud.app/github"
     }
   ],
   "tabs": [
@@ -46,8 +46,8 @@
       "url": "api-reference"
     },
     {
-      "name": "SDK PY",
-      "url": "sdk-py"
+      "name": "SDKs",
+      "url": "sdks"
     },
     {
       "name": "FAQs",
@@ -157,20 +157,26 @@
       ]
     },
     {
-      "group": "SDK PY",
+      "group": "SDKs",
       "pages": [
-        "sdk-py/client",
-        "sdk-py/commit_and_upload",
-        "sdk-py/managing_application",
-        "sdk-py/managing_files",
-        "sdk-py/storing_your_token"
+        "sdks/introduction"
       ]
     },
     {
-      "group": "Advanced Guide",
+      "group": "Python SDK",
       "pages": [
-        "sdk-py/advanced/app_cache",
-        "sdk-py/advanced/listeners"
+        "sdks/py/client",
+        "sdks/py/commit_and_upload",
+        "sdks/py/managing_application",
+        "sdks/py/managing_files",
+        {
+          "group": "Advanced Guide",
+          "pages": [
+            "sdks/py/advanced/app_cache",
+            "sdks/py/advanced/listeners",
+            "sdks/py/storing_your_token"
+          ]
+        }
       ]
     },
     {
@@ -187,7 +193,7 @@
     "instagram": "https://instagram.com/squarecloudofc",
     "twitter": "https://twitter.com/squarecloudofc",
     "linkedin": "https://linkedin.com/company/squarecloud",
-    "github": "https://github.com/squarecloudofc"
+    "github": "https://go.squarecloud.app/github"
   },
   "backgroundImage": "/background.png",
   "api": {
