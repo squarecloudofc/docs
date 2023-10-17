@@ -1,0 +1,69 @@
+---
+title: "Last Deploys"
+description: "Get the last 10 deploys for an application within 24 hours."
+api: "GET https:/api.squarecloud.app/v2/apps/{app_id}/deploy/list"
+authMethod: "none"
+---
+
+<ParamField header="Authorization" type="string" placeholder="API KEY" required>
+  The API key for your account. You can find this in your [account settings](https://squarecloud.app/dashboard/account).
+</ParamField>
+
+<ParamField path="app_id" type="string" placeholder="Application ID" required>
+  The ID of the application. You can find this in the URL of your application's dashboard.
+</ParamField>
+
+### Response
+
+<ResponseField name="status" type="string">
+  Indicates whether the call was successful. "success" if successful, "error" if not.
+</ResponseField>
+
+<ResponseField name="response" type="array">
+
+The contents of the response.
+
+<Expandable title="Toggle object">
+
+<ResponseField name="id" type="string">
+  The ID of the deploy.
+</ResponseField>
+
+<ResponseField name="state" type="string">
+  The state of the deploy. Can be "pending", "cloning", "building", "deploying", "success", or "failed".
+</ResponseField>
+
+<ResponseField name="date" type="string">
+  The date the deploy was created.
+</ResponseField>
+
+</Expandable>
+</ResponseField>
+
+
+<ResponseExample>
+```json
+{
+    "status": "success",
+    "response": [
+        [
+		    {
+			    "id": "git-393caedd68f5e5b771f6a027",
+			    "state": "pending",
+			    "date": "2023-10-16T20:27:20.513Z"
+		    },
+		    {
+			    "id": "git-393caedd68f5e5b771f6a027",
+			    "state": "clone",
+			    "date": "2023-10-16T20:27:20.536Z"
+		    },
+		    {
+			    "id": "git-393caedd68f5e5b771f6a027",
+			    "state": "success",
+			    "date": "2023-10-16T20:27:21.422Z"
+		    }
+	    ]
+    ],
+}
+```
+</ResponseExample>

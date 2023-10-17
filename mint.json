@@ -144,6 +144,7 @@
         {
           "group": "Application - Deploy",
           "pages": [
+            "api-reference/endpoint/apps/deploy/list",
             "api-reference/endpoint/apps/deploy/webhooks"
           ]
         },
