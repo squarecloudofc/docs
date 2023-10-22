@@ -83,10 +83,10 @@
     {
       "group": "Articles",
       "pages": [
-        "articles/how-to-deploy-your-website",
-        "articles/how-to-create-your-lavalink-server",
+        "articles/how-to-set-up-git-integration",
         "articles/how-to-set-up-your-domain",
-        "articles/how-to-set-up-git-integration"
+        "articles/how-to-deploy-your-website",
+        "articles/how-to-create-your-lavalink-server"
       ]
     },
     {

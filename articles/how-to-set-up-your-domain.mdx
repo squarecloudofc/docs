@@ -1,5 +1,6 @@
 ---
 title: "How to set up your custom domain"
+sidebarTitle: "Set up your custom domain"
 description: "Learn how to configure your domain on Square Cloud"
 ---
 
@@ -7,33 +8,55 @@ description: "Learn how to configure your domain on Square Cloud"
 
 To configure your domain, you need to have the Senior plan or higher. You can purchase it on various domain registration platforms like:
 
-- [Hostinger](https://www.hostinger.com.br/)
 - [Registro.br](https://registro.br/)
-- [Namecheap](https://www.namecheap.com/)
+- [Square Space](https://squarespace.com/) *previously: Google Domains
 - [GoDaddy](https://www.godaddy.com/)
-- [Google Domains](https://domains.google/)
-- [Bluehost](https://www.bluehost.com/)
-- [DreamHost](https://www.dreamhost.com/)
-- [Name.com](https://www.name.com/)
+- [Namecheap](https://www.namecheap.com/)
 
 Choose a platform that suits your needs and purchase your domain.
 
-## Configuring DNS:
+## Configuring DNS on Cloudflare
 
 - Access the website where you purchased your domain, such as [Hostinger](https://www.hostinger.com.br/) or [Registro.br](https://registro.br/).
-- Next, go to [Cloudflare](https://cloudflare.com/), navigate to "WebSites," and click on "Add a site," as shown in this ![image](https://i.imgur.com/AwL5pTi.png).
-- After entering your domain, copy the provided nameservers and paste them on the website where you purchased the domain, in the DNS/Nameservers section.
+- Next, go to [Cloudflare](https://cloudflare.com/), navigate to "Websites" and click on "Add a site".
+<Frame>
+  <img src="/images/articles/cloudflare/add-site.png" style={{ borderRadius: '0.2rem' }} />
+</Frame>
+After entering your domain, copy the provided nameservers and paste them on the website where you purchased the domain, in the DNS/Nameservers section.
 
-## Configuring the Domain on Square Cloud
+## Configuring your domain on Square Cloud
 
-- Choose the site you want to configure the domain for in the [dashboard](https://squarecloud.app/dashboard), then go to the **Network** option and enter your ![domain](https://i.imgur.com/XqbKn7v.png) in place of "example.com."
-- Now that the domain is configured on Square Cloud, go back to Cloudflare, select your domain, and choose the ![DNS](https://i.imgur.com/CTu7oFB.png) option.
-- Finally, point your domain to "custom.squarecloud.app" with the type "CNAME," following exactly as ![shown](https://i.imgur.com/yc9Nyty.png), replacing the "name" with your domain.
+- Choose the site you want to configure the domain for in the [dashboard](https://squarecloud.app/dashboard), then go to the **Network** option and enter your domain in place of "example.com."
+<Frame>
+  <img src="/images/articles/cloudflare/domain-setup.png" style={{ borderRadius: '0.2rem' }} />
+</Frame>
 
-## Possible Error Messages
+- Now that the domain is configured on Square Cloud, go back to Cloudflare, select your domain, and choose the DNS option.
+- Finally, point your domain to "custom.squarecloud.app" with the type "CNAME", replacing the "name" with your domain.
 
-- If you attempt to access the site after configuration, you might see this message. Please wait a bit:
-  ![Image](https://i.imgur.com/1wm3PNo.png)
+<Frame>
+  <img src="/images/articles/cloudflare/record-dns.png" style={{ borderRadius: '0.2rem' }} />
+</Frame>
 
-- If you receive this error when trying to access, check your domain configuration and ensure it is correctly pointed to Square Cloud. If the issue persists, contact our team through the [website](https://squarecloud.app/):
-  ![Image](https://i.imgur.com/bzYlD6J.png)
+## Good to know
+### www redirect to your domain
+- To redirect www to your domain, create a new record with the name "www" and the type "A", pointing to 192.0.2.1 (cloudflare internal IP).
+- Go to the "Page Rules" option on Cloudflare and create a new rule with the following settings:
+
+<Frame>
+  <img src="/images/articles/cloudflare/page-rule-www.png" style={{ borderRadius: '0.2rem' }} />
+</Frame>
+
+### Troubleshooting
+
+- If you attempt to access the site after configuration, you might see this message. This is normal and will disappear after a few minutes as the DNS propagates.
+<Frame>
+  <img src="/images/articles/cloudflare/pending-dns.png" style={{ borderRadius: '0.2rem' }} />
+</Frame>
+
+- If you receive the Unauthorized DNS error, try clearing your browser cache and accessing the site again in 5 minutes. If the issue persists, [contact our team](/company/support).
+<Frame>
+  <img src="/images/articles/cloudflare/unauthorized-dns.png" style={{ borderRadius: '0.2rem' }} />
+</Frame>
+
+- If you receive the Cloudflare 1015 error, it means your domain is not configured correctly. Check your domain configuration and ensure it is correctly pointed to Square Cloud. If the issue persists, [contact our team](/company/support).
