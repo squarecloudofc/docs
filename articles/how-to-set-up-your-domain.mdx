@@ -1,0 +1,39 @@
+---
+title: "How to set up your custom domain"
+description: "Learn how to configure your domain on Square Cloud"
+---
+
+## Introduction
+
+To configure your domain, you need to have the Senior plan or higher. You can purchase it on various domain registration platforms like:
+
+- [Hostinger](https://www.hostinger.com.br/)
+- [Registro.br](https://registro.br/)
+- [Namecheap](https://www.namecheap.com/)
+- [GoDaddy](https://www.godaddy.com/)
+- [Google Domains](https://domains.google/)
+- [Bluehost](https://www.bluehost.com/)
+- [DreamHost](https://www.dreamhost.com/)
+- [Name.com](https://www.name.com/)
+
+Choose a platform that suits your needs and purchase your domain.
+
+## Configuring DNS:
+
+- Access the website where you purchased your domain, such as [Hostinger](https://www.hostinger.com.br/) or [Registro.br](https://registro.br/).
+- Next, go to [Cloudflare](https://cloudflare.com/), navigate to "WebSites," and click on "Add a site," as shown in this ![image](https://i.imgur.com/AwL5pTi.png).
+- After entering your domain, copy the provided nameservers and paste them on the website where you purchased the domain, in the DNS/Nameservers section.
+
+## Configuring the Domain on Square Cloud
+
+- Choose the site you want to configure the domain for in the [dashboard](https://squarecloud.app/dashboard), then go to the **Network** option and enter your ![domain](https://i.imgur.com/XqbKn7v.png) in place of "example.com."
+- Now that the domain is configured on Square Cloud, go back to Cloudflare, select your domain, and choose the ![DNS](https://i.imgur.com/CTu7oFB.png) option.
+- Finally, point your domain to "custom.squarecloud.app" with the type "CNAME," following exactly as ![shown](https://i.imgur.com/yc9Nyty.png), replacing the "name" with your domain.
+
+## Possible Error Messages
+
+- If you attempt to access the site after configuration, you might see this message. Please wait a bit:
+  ![Image](https://i.imgur.com/1wm3PNo.png)
+
+- If you receive this error when trying to access, check your domain configuration and ensure it is correctly pointed to Square Cloud. If the issue persists, contact our team through the [website](https://squarecloud.app/):
+  ![Image](https://i.imgur.com/bzYlD6J.png)

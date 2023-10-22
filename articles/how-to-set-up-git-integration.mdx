@@ -1,0 +1,24 @@
+---
+title: "How to set up Git integration in your application"
+description: "Learn how to configure Git integration on Square Cloud"
+---
+
+## Obtaining the Access Token
+
+- Visit the [Personal access tokens](https://github.com/settings/tokens) page to obtain your access token. Click on "Generate new token" and choose the "classic" option.
+- When choosing the classic token option, select only the "repos" option and do not set an expiration time. Give your token a name of your choice ![image](https://i.imgur.com/U16DC3R.png)
+- Finally, click on "Generate token" at the bottom of the page ![image](https://i.imgur.com/2iesRUK.png) Your access token will be displayed for you to copy ![image](https://i.imgur.com/HOYVd3H.png)
+
+## Configuring the Token in Your Application
+
+- After obtaining the access token, go to the [dashboard](https://squarecloud.app/dashboard), choose the desired application, navigate to the Deploy section, and paste your token in the corresponding field. Click on "Save" ![image](https://i.imgur.com/H20Qgi1.png)
+- After saving, a webhook will be displayed that you need to copy ![image](https://i.imgur.com/1MfPF7k.png)
+
+## Configuring the Webhook
+
+- Now, access your application's repository (which can be private or public) and go to "Settings". Then, click on "Webhooks" and then on "Add Webhook".
+- Paste your webhook in the Payload URL field, set the Content Type to application/json, and click on "Add Webhook" ![image](https://i.imgur.com/g0RAuaX.png)
+
+## Deploy
+
+- If you have followed all the steps correctly, simply commit to your repository. Your application on Square Cloud will be updated. Final result: ![image](https://i.imgur.com/3Dn6ln4.png)
