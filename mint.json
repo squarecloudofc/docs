@@ -84,16 +84,14 @@
       "group": "Articles",
       "pages": [
         "articles/how-to-deploy-your-website",
-        "articles/how-to-create-your-lavalink-server"
+        "articles/how-to-create-your-lavalink-server",
+        "articles/how-to-set-up-your-domain",
+        "articles/how-to-set-up-git-integration"
       ]
     },
     {
       "group": "Company",
-      "pages": [
-        "company/brand",
-        "company/legal",
-        "company/support"
-      ]
+      "pages": ["company/brand", "company/legal", "company/support"]
     },
     {
       "group": "API Reference",
@@ -107,15 +105,11 @@
       "pages": [
         {
           "group": "No auth required",
-          "pages": [
-            "api-reference/endpoint/service/statistics"
-          ]
+          "pages": ["api-reference/endpoint/service/statistics"]
         },
         {
           "group": "User",
-          "pages": [
-            "api-reference/endpoint/user/info"
-          ]
+          "pages": ["api-reference/endpoint/user/info"]
         },
         {
           "group": "Application",
@@ -159,9 +153,7 @@
     },
     {
       "group": "SDKs",
-      "pages": [
-        "sdks/introduction"
-      ]
+      "pages": ["sdks/introduction"]
     },
     {
       "group": "Python SDK",
