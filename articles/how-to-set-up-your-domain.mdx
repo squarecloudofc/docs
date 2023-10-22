@@ -1,0 +1,38 @@
+---
+title: "Configurando seu Domínio Personalizado na Square Cloud"
+sidebarTitle: "Domínio"
+description: "Aprenda como configurar seu domínio na Square Cloud"
+---
+
+## Introdução
+
+É necessário ter o plano Sênior ou superior para configurar seu domínio. Você pode adquiri-lo em nosso [site](https://squarecloud.app/plans).
+
+## Configurando o DNS:
+
+- Acesse o site onde comprou seu domínio, como o [Hostinger](https://www.hostinger.com.br/) ou [Registro.br](https://registro.br/).
+- Em seguida, acesse o [Cloudflare](https://cloudflare.com/), vá para "WebSites" e clique em "Adicionar um site", conforme mostrado na [imagem](https://i.imgur.com/AwL5pTi.png).
+- Após inserir seu domínio, copie os nameservers fornecidos e insira no site onde comprou o domínio, na seção DNS/Nameservers.
+
+## Configurando o Domínio na Square Cloud
+
+- Escolha o site que deseja configurar o domínio no [painel](https://squarecloud.app/dashboard), depois vá para a opção **Network** e insira seu [domínio](https://i.imgur.com/XqbKn7v.png) no lugar de "example.com".
+- Agora que o domínio está configurado na Square Cloud, volte para o Cloudflare, selecione seu domínio e escolha a opção [DNS](https://i.imgur.com/CTu7oFB.png).
+- Por fim, aponte seu domínio para "custom.squarecloud.app" com o tipo "CNAME", seguindo exatamente como [mostrado](https://i.imgur.com/yc9Nyty.png), apenas substituindo o "name" pelo seu domínio.
+
+## Possíveis Mensagens de Erro
+
+- Se você tentar acessar após a configuração, é provável que veja esta mensagem. Aguarde um pouco:
+  <Frame>
+    <img
+      src="https://i.imgur.com/1wm3PNo.png"
+      style={{ borderRadius: "0.5rem" }}
+    />
+  </Frame>
+- Se você receber esse erro ao tentar acessar, verifique a configuração do seu domínio e se ele está apontado corretamente para a Square Cloud. Se o problema persistir, entre em contato com nossa equipe pelo [site](https://squarecloud.app/).
+  <Frame>
+    <img
+      src="https://i.imgur.com/bzYlD6J.png"
+      style={{ borderRadius: "0.5rem" }}
+    />
+  </Frame>
