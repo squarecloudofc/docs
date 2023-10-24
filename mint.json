@@ -90,6 +90,13 @@
       ]
     },
     {
+      "group": "Platform",
+      "pages": [
+        "platform/overview",
+        "platform/limitations-and-restrictions"
+      ]
+    },
+    {
       "group": "Company",
       "pages": ["company/brand", "company/legal", "company/support"]
     },
