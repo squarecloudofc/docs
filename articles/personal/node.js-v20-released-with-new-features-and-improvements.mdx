@@ -15,6 +15,15 @@ Other notable changes in Node.js 20 include:
 * Improved support for the Web Crypto API
 * Growing support for WASM interfaces
 
+## Native Env Support
+
+Node.js 20 implements native support to env files, which means that developers can now use env files to configure their applications.
+
+<Note>In Square Cloud all projects are configured to auto load .env files.</Note>
+```shell Read .env file and set environment variables
+node --env-files=.env index.js
+```
+
 ## Permission Model
 
 The Node.js Permission Model is an experimental feature that allows developers to restrict access to specific resources during execution. This can be useful for improving security and compliance by preventing applications from accessing unauthorized resources.
