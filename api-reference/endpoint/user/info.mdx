@@ -6,7 +6,7 @@ description: "Get information about your account or another user."
 ---
 
 ### Query Parameters
-**/v2/user/:userID**
+**/v2/user**
 
 This is the ID of the user you want to get information about. If you want to get information about your own account, you can leave this blank.
 
@@ -49,25 +49,11 @@ The contents of the response.
   The user's plan name.
 </ResponseField>
 
-<ResponseField name="duration" type="object">
-<Expandable title="Toggle object">
-
-<ResponseField name="formatted" type="string">
-  The user's plan duration in a human-readable format.
-</ResponseField>
-
-<ResponseField name="raw" type="number">
+<ResponseField name="duration" type="number">
   The user's plan duration in milliseconds.
 </ResponseField>
 
 </Expandable>
-</ResponseField>
-
-</Expandable>
-</ResponseField>
-
-<ResponseField name="blocklist" type="boolean">
-  Indicates whether the user is on the blocklist.
 </ResponseField>
 
 </Expandable>
@@ -91,10 +77,6 @@ The contents of the response.
 
 <ResponseField name="lang" type="string">
     The application's language.
-</ResponseField>
-
-<ResponseField name="type" type="string">
-    The application's type.
 </ResponseField>
 
 <ResponseField name="cluster" type="string">
@@ -133,12 +115,8 @@ The contents of the response.
           "available": 0000,
           "used": 0000
         },
-        "duration": {
-          "formatted": "4m 18d 6h 5min 5s",
-          "raw": 1732072955446
-        }
-      },
-      "blocklist": false
+        "duration": 1732072955446
+      }
     },
     "applications": [
       {
@@ -146,7 +124,6 @@ The contents of the response.
         "tag": "Square Example APP",
         "ram": 128,
         "lang": "javascript",
-        "type": "paid",
         "cluster": "fl-haswell-1",
         "isWebsite": false,
         "avatar": "https://cdn.squarecloud.app/avatars/4.png"
