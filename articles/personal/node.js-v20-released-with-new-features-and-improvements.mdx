@@ -1,0 +1,105 @@
+---
+title: "Node.js 20 Now an LTS Release"
+description: "As of October 24, 2023, Node.js 20 has been officially designated as the Long-Term Support (LTS) version, accompanied by a host of exciting new features and enhancements."
+---
+
+## Highlights
+
+The highlight of this release is the new Node.js Permission Model, which is an experimental mechanism for restricting access to specific resources during execution. This model can be used to improve security and compliance by preventing applications from accessing unauthorized resources.
+
+Other notable changes in Node.js 20 include:
+
+* A stable test_runner module, which provides a consistent way to run tests in Node.js
+* Updates of the V8 JavaScript engine to 11.3, which includes performance improvements and new features
+* Support for ARM64 for Windows
+* Improved support for the Web Crypto API
+* Growing support for WASM interfaces
+
+## Permission Model
+
+The Node.js Permission Model is an experimental feature that allows developers to restrict access to specific resources during execution. This can be useful for improving security and compliance by preventing applications from accessing unauthorized resources.
+
+To use the Permission Model, developers must specify the `--experimental-permission` flag when starting Node.js. This will enable the Permission Model and allow developers to specify permissions for each resource.
+
+For example, the following code will restrict access to the file system:
+
+```shell
+node --experimental-permission index.js
+```
+
+```js
+const { readFile } = require("node:fs");
+
+readFile("./file.txt", (err, data) => {
+    if (err) {
+        return console.log(err);
+    }
+    console.log(data);
+});
+```
+
+This code result in the following error:
+
+```js
+node:internal/modules/cjs/loader:178
+  const result = internalModuleStat(filename);
+                 ^
+Error: Access to this API has been restricted
+```
+
+Grant read and write access to the file system.
+```shell
+node --experimental-permission --allow-fs-read=* --allow-fs-write=* index.js
+```
+
+## Stable test_runner module
+The test_runner module is now stable, which means that it is ready for production use. This module provides a consistent way to run tests in Node.js, regardless of the test framework or test runner that is being used.
+
+For example, the following code will run a test using the test_runner module:
+```js
+const { test, mock } = require("node:test");
+const assert = require("node:assert");
+const fs = require("node:fs");
+
+mock.method(fs, "readFile", async () => "Hello World");
+test("synchronous passing test", async (t) => {
+  // This test passes because it does not throw an exception.
+  assert.strictEqual(await fs.readFile("a.txt"), "Hello World");
+});
+```
+
+## Other Changes
+
+In addition to the Permission Model, Node.js 20 also includes a number of other changes and improvements. These include:
+
+* **Updates of the V8 JavaScript engine to 11.3**
+
+The V8 JavaScript engine has been updated to version 11.3, which includes performance improvements and new features. These improvements can lead to faster and more efficient Node.js applications.
+
+* **Support for ARM64 for Windows**
+
+Node.js 20 now supports ARM64 for Windows. This means that developers can now run Node.js applications on Windows machines with ARM64 processors.
+
+* **Improved support for the Web Crypto API**
+
+The Web Crypto API has been improved in Node.js 20. These improvements include support for new algorithms and better performance.
+
+* **Growing support for WASM interfaces**
+
+Support for WebAssembly (WASM) interfaces is growing in Node.js 20. This means that developers can now use WASM modules in Node.js applications.
+
+## Conclusion
+
+Node.js 20 is a major release with a number of new features and improvements. The highlight of this release is the new Node.js Permission Model, which can be used to improve security and compliance. Other notable changes include a stable test_runner module, updates of the V8 JavaScript engine, and support for ARM64 for Windows.
+
+<Note> Square Cloud support for Node.js 20 is arrived on October 24, 2023. </Note>
+
+```md Node.js 21.1.0 + Python 3.12
+VERSION=latest
+```
+
+```md Node.js 20.9.0 + Python 3.11.6
+VERSION=recommended
+```
+
+That's all for now, an article written by João Otávio Stivi, CTO at Square Cloud.
