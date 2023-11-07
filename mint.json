@@ -123,6 +123,7 @@
           "pages": [
             "api-reference/endpoint/apps/info",
             "api-reference/endpoint/apps/status",
+            "api-reference/endpoint/apps/status-all",
             "api-reference/endpoint/apps/logs",
             "api-reference/endpoint/apps/start",
             "api-reference/endpoint/apps/restart",

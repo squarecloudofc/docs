@@ -1,0 +1,64 @@
+---
+title: "Get All Applications Status"
+sidebarTitle: "All Applications Status"
+description: "Collect status information about all of your applications."
+api: "GET https://api.squarecloud.app/v2/apps/all/status"
+authMethod: "none"
+---
+
+<ParamField header="Authorization" type="string" placeholder="API KEY" required>
+  The API key for your account. You can find this in your [account settings](https://squarecloud.app/dashboard/account).
+</ParamField>
+
+### Response
+
+<ResponseField name="status" type="string">
+  Indicates whether the call was successful. "success" if successful, "error" if not.
+</ResponseField>
+
+<ResponseField name="response" type="object">
+
+The contents of the response.
+
+<Expandable title="Toggle object">
+
+<ResponseField name="id" type="string">
+  The application ID.
+</ResponseField>
+
+<ResponseField name="cpu" type="string">
+  The CPU usage of the application.
+</ResponseField>
+
+<ResponseField name="ram" type="string">
+  The RAM usage of the application.
+</ResponseField>
+
+<ResponseField name="running" type="boolean">
+  Indicates whether the application is currently running.
+</ResponseField>
+
+</Expandable>
+</ResponseField>
+
+<ResponseExample>
+```json
+{
+  "status": "success",
+  "response": [
+    {
+      "id": "5bbd020126ee4692aga43e0ca0a75454",
+      "cpu": "0.00%",
+      "ram": "55.88MB",
+      "running": true
+    },
+    {
+      "id": "e1b286ba30f14a87baed4b4ad3b53c47",
+      "cpu": "0.01%",
+      "ram": "68.44MB",
+      "running": true
+    }
+  ]
+}
+```
+</ResponseExample>
