@@ -1,0 +1,49 @@
+---
+title: How to use Auto Restart in Square Cloud
+sidebarTitle: How to use Auto Restart
+---
+
+## Introduction
+A **Square Cloud exclusive technology**, Auto Restart is a powerful feature in Square Cloud that allows your application to **automatically restart in case it crashes**. This ensures that **your app** remains **accessible and functional** even in the **event of unexpected failures**.
+
+## Enabling Auto Restart
+To take advantage of Auto Restart, you must have a Square Cloud plan that includes this feature. Auto Restart is a **PAID feature**, so you need to [**buy a plan**](https://squarecloud.app/plans) that supports it.
+
+Once you have a plan with Auto Restart, follow these steps to enable it in your application's configuration file:
+
+1. Create or edit your `squarecloud.app` or `squarecloud.config` file.
+2. Locate the `AUTORESTART` parameter in the configuration file.
+3. Set the value of `AUTORESTART` to `true`.
+
+Here's an example of how to enable Auto Restart in your configuration file:
+
+```systemd squarecloud.app
+AUTORESTART=true
+```
+
+## How Auto Restart Works
+
+Auto Restart is a proactive feature that monitors the health of your application. If your application crashes or becomes unresponsive, Auto Restart takes action to get it back up and running. Here's how it works:
+
+- Monitoring: Auto Restart continuously monitors your application to ensure it's running as expected.
+
+- Detection: When Auto Restart detects that your application has crashed or is unresponsive, it initiates the restart process.
+
+- Restart: Auto Restart automatically restarts your application to bring it back to a functional state. It uses the configuration parameters you've defined, such as the MAIN file and memory allocation, to relaunch your app.
+
+- Notification: If a restart occurs, you receive a notification inside Console. This allows you to review the logs and understand the reason for the restart.
+
+- Minimal Downtime: Auto Restart operates quickly to minimize downtime, ensuring that your application is back online as soon as possible.
+
+- Small Rate Limit: Auto Restart has a small rate limit to prevent excessive restarts. This ensures that your application is not restarted too frequently. (**Note:** The rate limit is 1 restart per 60 minutes.)
+
+## Best Practices
+
+Here are some best practices to make the most of Auto Restart:
+
+-  Regularly review your application's logs to understand the reasons for any crashes or restarts. This can help you identify and address underlying issues.
+- Keep your MAIN file and memory allocation parameters up-to-date to ensure optimal performance and resource usage.
+
+## Conclusion
+
+Auto Restart in Square Cloud is a valuable feature that enhances the reliability of your application. By automatically handling crashes and unresponsiveness, it helps maintain a seamless user experience. Ensure that you have a plan with Auto Restart enabled and configure it in your `squarecloud.app` or `squarecloud.config` file to make the most of this feature.
