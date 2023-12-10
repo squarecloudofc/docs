@@ -1,0 +1,96 @@
+---
+title: "Commit and Upload"
+description: "In this section you will learn how to make commits and uploads using the Square Cloud JavaScript SDK."
+---
+
+## Making a commit
+
+`application.commit()` is a method that allows you to commit a file to your application.
+
+<Tabs>
+    <Tab title="Using Buffer">
+    ```javascript
+    const { SquareCloudAPI } = require("@squarecloud/api");
+    const api = new SquareCloudAPI("Your API Key");
+
+    const application = await api.applications.get("Application ID");
+
+    // Specify the content and name of the file you want to commit
+    const fileContent = Buffer.from("Your file content");
+    const fileName = "file.txt";
+
+    // Optionally, set whether the application should restart after the commit
+    const shouldRestart = true;
+
+    // Perform the commit operation
+    const success = await application.commit(fileContent, fileName, shouldRestart);
+
+    // Handle the result accordingly
+    if (success) {
+        console.log(`File "${fileName}" committed successfully.`);
+    } else {
+        console.error(`Failed to commit file "${fileName}".`);
+    }
+    ```
+    </Tab>
+    <Tab title="Using Absolute Path">
+    ```javascript
+    const { SquareCloudAPI } = require("@squarecloud/api");
+    const api = new SquareCloudAPI("Your API Key");
+
+    const application = await api.applications.get("Application ID");
+
+   // Specify the content and name of the file you want to commit
+    const { join } = require("node:path");
+    const fileName = "file.txt";
+    const filePath = join(__dirname, fileName)
+
+    // Optionally, set whether the application should restart after the commit
+    const shouldRestart = true;
+
+    // Perform the commit operation
+    const success = await application.commit(filePath, fileName, shouldRestart);
+
+    // Handle the result accordingly
+    if (success) {
+        console.log(`File "${fileName}" committed successfully.`);
+    } else {
+        console.error(`Failed to commit file "${fileName}".`);
+    }
+    ```
+    </Tab>
+</Tabs>
+
+## Making a upload
+
+`application.upload()` is a method that allows you to upload a application to Square Cloud.
+
+```javascript
+const { SquareCloudAPI } = require("@squarecloud/api");
+const api = new SquareCloudAPI("Your API Key");
+
+// Specify the content and name of the zip file you want to upload
+const { join } = require("node:path");
+const fileName = "application.zip";
+const filePath = join(__dirname, fileName)
+
+// Perform the upload operation
+const success = await api.applications.create(filePath);
+
+// Handle the result accordingly
+if (success) {
+    console.log(`Application uploaded successfully.`, success);
+    // Return the application uploaded information (id, tag, description, etc.)
+} else {
+    console.error(`Failed to upload application.`);
+}
+```
+
+**Remember that to upload an application you need a zip that contains (at least) the following files:**:
+
+- Main file: responsible for starting your application
+- Dependencies file: contains information about which dependencies are necessary
+- Configuration file (squarecloud.app): a configuration file specifying the
+name,
+description, main file name, version, etc. To learn more about the
+configuration file, take a look at this [guide](https://docs.squarecloud.app/articles/how-to-create-your-squarecloud-configuration-file).

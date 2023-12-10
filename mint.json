@@ -164,6 +164,15 @@
       "pages": ["sdks/introduction"]
     },
     {
+      "group": "JavaScript SDK",
+      "pages": [
+        "sdks/js/client",
+        "sdks/js/commit_and_upload",
+        "sdks/js/managing_application",
+        "sdks/js/managing_files"
+      ]
+    },
+    {
       "group": "Python SDK",
       "pages": [
         "sdks/py/client",

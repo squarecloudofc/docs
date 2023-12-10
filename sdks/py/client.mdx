@@ -11,7 +11,7 @@ interface to interact with various aspects of the service."
 pip install squarecloud-api
 ```
 
-````python
+```python
 import squarecloud as square
 
 client = square.Client(api_key='API_KEY')
@@ -19,7 +19,7 @@ client = square.Client(api_key='API_KEY')
 async def example():
     app_status = await client.app_status('application_id')
     print(app_status)
-````
+```
 
 ## Parameters:
 
@@ -47,7 +47,7 @@ the id of your application.
 
 <Tabs>
     <Tab title="obtaining an application">
-        ````python
+        ```python
         import squarecloud as square
 
         client = square.Client(api_key='API KEY')
@@ -55,11 +55,11 @@ the id of your application.
         async def example():
             app = await client.app('application id')
             print(app)  # <Application tag='example' id='application_id'>
-        ````
+        ```
     </Tab>
 
     <Tab title="obtaining all applications">
-    ````python
+    ```python
     import squarecloud as square
 
     client = square.Client(api_key='API KEY')
@@ -67,6 +67,6 @@ the id of your application.
     async def example():
         apps = await client.all_apps()
         print(apps)  # list[<Application tag='example' id='application_id'>]
-    ````
+    ```
     </Tab>
 </Tabs>

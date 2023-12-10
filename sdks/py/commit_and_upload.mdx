@@ -3,9 +3,6 @@ title: "Commit and Upload"
 description: "In this section you will learn how to make commits and uploads using the Client, Application and CLI."
 ---
 
-[Client]: ../user_guide/client
-[Application]: ../user_guide/client#application
-
 You can make commits and uploads using Client or Application. You
 just need a `squarecloud.File` object and pass the path where your
 zip file is.
@@ -14,7 +11,7 @@ zip file is.
 
 <Tabs>
     <Tab title="Using Client">
-    ````python
+    ```python
     import squarecloud as square
 
     client = square.Client('API_KEY')
@@ -22,11 +19,11 @@ zip file is.
     async def example():
         file = square.File('path/to/you/file.zip')
         await client.commit(file=file, app_id='application_id')
-    ````
+    ```
     </Tab>
 
     <Tab title="Using Application">
-    ````python
+    ```python
     import squarecloud as square
 
     client = square.Client('API_KEY')
@@ -35,12 +32,12 @@ zip file is.
         app = await client.app(app_id='application_id')
         file = square.File('path/to/you/file.zip')
         await app.commit(file=file)
-    ````
+    ```
     </Tab>
     <Tab title="Using CLI">
-    ````bash
+    ```bash
     squarecloud app <APP-ID> commit <FILE>
-    ````
+    ```
     </Tab>
 </Tabs>
 
@@ -50,7 +47,7 @@ To upload an application, you only use the [Client] and the CLI.
 
 <Tabs>
     <Tab title="Using Client">
-    ````python
+    ```python
     import squarecloud as square
 
     client = square.Client(...)
@@ -58,12 +55,12 @@ To upload an application, you only use the [Client] and the CLI.
     async def example():
         file = square.File('path/to/you/file.zip')
         await client.upload_app(file=file)
-    ````
+    ```
     </Tab>
     <Tab title="Using CLI">
-    ````bash
+    ```bash
     squarecloud upload <ZIP>
-    ````
+    ```
     </Tab>
 </Tabs>
 
@@ -74,7 +71,7 @@ To upload an application, you only use the [Client] and the CLI.
 - Configuration file (squarecloud.app): a configuration file specifying the
 name,
 description, main file name, version, etc. To learn more about the
-configuration file, take a look at this [guide](https://docs.squarecloud.app/articles/how-to-create-your-squarecloud-configuration-file)
+configuration file, take a look at this [guide](https://docs.squarecloud.app/articles/how-to-create-your-squarecloud-configuration-file).
 
 <Tip>
     For your convenience, a function has been added to create this configuration file:

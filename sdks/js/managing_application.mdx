@@ -1,0 +1,82 @@
+---
+title: "Managing Applications"
+description: "In this section, you will learn how to manage your application using the available library. You can interact with your application in various ways, such as obtaining information about the application status, accessing logs, starting, stopping, and restarting the application, as well as managing files associated with it."
+---
+
+## Getting the status of your application
+
+`application.getStatus()` return a `ApplicationStatus` class.
+
+````javascript
+const { SquareCloudAPI } = require("@squarecloud/api");
+const api = new SquareCloudAPI("Your API Key");
+
+const application = await api.applications.get("Application ID");
+const status = await application.getStatus();
+
+console.log(status.usage.cpu); // '0.22%'
+console.log(status.usage.ram); // '70MB'
+console.log(status.usage.network); // {'total': '0 KB ↑ 0 KB ↓', 'now': '0 KB ↑ 0 KB ↓'}
+console.log(status.usage.storage); // '0B'
+console.log(status.running); // true | false
+console.log(status.status); // 'running' | 'exited' ...
+````
+
+## Getting logs
+
+`application.getLogs()` return a String.
+
+````javascript
+const application = await api.applications.get("Application ID");
+const logs = await application.getLogs();
+
+console.log(logs); // String
+````
+
+## Starting the application
+
+`application.start()` return a Boolean.
+
+````javascript
+const application = await api.applications.get("Application ID");
+const started = await application.start();
+
+console.log(started); // Boolean (true or false)
+````
+
+## Stopping the application
+
+`application.stop()` return a Boolean.
+
+````javascript
+const application = await api.applications.get("Application ID");
+const stopped = await application.stop();
+
+console.log(stopped); // Boolean (true or false)
+````
+
+## Restarting the application
+
+`application.restart()` return a Boolean.
+
+````javascript
+const application = await api.applications.get("Application ID");
+const restarted = await application.restart();
+
+console.log(restarted); // Boolean (true or false)
+````
+
+## Deleting an application
+
+`application.delete()` return a Boolean.
+
+<Warning>
+    This will delete your application **PERMANENTLY**, meaning that unless you have a backup of your application, it cannot be recovered.
+</Warning>
+
+````javascript
+const application = await api.applications.get("Application ID");
+const deleted = await application.delete();
+
+console.log(deleted); // Boolean (true or false)
+````

@@ -19,7 +19,7 @@ these tasks using both classes:
 
 <Tabs>
     <Tab title="Using Client">
-        ````python
+        ```python
         import squarecloud as square
 
         client = square.Client(api_key='API KEY')
@@ -32,10 +32,10 @@ these tasks using both classes:
                 print(file.type)  # 'directory' or 'file'
                 print(file.size)  # 2140
                 print(file.lastModified)  # 1677112835000
-        ````
+        ```
     </Tab>
     <Tab title="Using Application">
-        ````python
+        ```python
         import squarecloud as square
 
         client = square.Client(api_key='API KEY')
@@ -52,12 +52,12 @@ these tasks using both classes:
                 print(file.size)  # 2140
 
                 print(file.lastModified)  # 1677112835000
-        ````
+        ```
     </Tab>
         <Tab title="Using CLI">
-        ````bash
+        ```bash
         squarecloud app <APP_ID> file-list
-        ````
+        ```
     </Tab>
 </Tabs>
 
@@ -67,7 +67,7 @@ these tasks using both classes:
 
 <Tabs>
     <Tab title="Using Client">
-        ````python
+        ```python
         import squarecloud as square
 
         client = square.Client(api_key='API KEY')
@@ -78,10 +78,10 @@ these tasks using both classes:
             )
 
             print(file_bytes)  # b'01101000 01101001'
-        ````
+        ```
     </Tab>
     <Tab title="Using Application">
-        ````python
+        ```python
         import squarecloud as square
 
         client = square.Client(api_key='API KEY')
@@ -91,12 +91,12 @@ these tasks using both classes:
             file_bytes = await app.read_file(path='main.py')
 
             print(file_bytes)  # b'01101000 01101001'
-        ````
+        ```
     </Tab>
         <Tab title="Using CLI">
-        ````bash
+        ```bash
         squarecloud app <APP-ID> file-read <PATH>
-        ````
+        ```
     </Tab>
 </Tabs>
 
@@ -106,7 +106,7 @@ these tasks using both classes:
 
 <Tabs>
     <Tab title="Using Client">
-        ````python
+        ```python
         import squarecloud as square
 
         client = square.Client(api_key='API KEY')
@@ -115,10 +115,10 @@ these tasks using both classes:
             await client.create_app_file(
                 app_id='application_id', path='/file.txt', file=square.File('file.txt')
             )
-        ````
+        ```
     </Tab>
     <Tab title="Using Application">
-        ````python
+        ```python
         import squarecloud as square
 
         client = square.Client(api_key='API KEY')
@@ -127,12 +127,12 @@ these tasks using both classes:
             app = await client.app('application_id')
 
             await app.create_file(path='/file.txt', file=square.File('file.txt'))
-        ````
+        ```
     </Tab>
         <Tab title="Using CLI">
-        ````bash
+        ```bash
         squarecloud app <APP-ID> file-create <FILE>
-        ````
+        ```
     </Tab>
 </Tabs>
 
@@ -142,17 +142,17 @@ these tasks using both classes:
 
 <Tabs>
     <Tab title="Using Client">
-        ````python
+        ```python
         import squarecloud as square
 
         client = square.Client(api_key='API KEY')
 
         async def example():
             await client.delete_app_file(app_id='application_id', path='/file.txt')
-        ````
+        ```
     </Tab>
     <Tab title="Using Application">
-        ````python
+        ```python
         import squarecloud as square
 
         client = square.Client(api_key='API KEY')
@@ -161,11 +161,11 @@ these tasks using both classes:
             app = await client.app('application_id')
 
             await app.delete_file(path='/file.txt')
-        ````
+        ```
     </Tab>
         <Tab title="Using CLI">
-        ````bash
+        ```bash
         squarecloud app <APP-ID> file-delete <PATH>
-        ````
+        ```
     </Tab>
 </Tabs>

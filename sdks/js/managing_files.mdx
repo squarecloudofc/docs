@@ -1,0 +1,83 @@
+---
+title: "Managing Files"
+description: "In this section, you will find information and examples on how to manipulate the
+files associated with your application. Learn how to list, read, create, and delete
+files using the Square Cloud JavaScript SDK."
+---
+
+## Getting a list of files
+
+`application.files.files_list()` return a list of `APIListedFile` objects. 
+
+````javascript
+const application = await api.applications.get("Application ID");
+const files_list = await application.files.list()
+
+console.log(files_list); // Return a Array of File Objects
+// [{type: "file", name: "index.js", size: 123, lastModified: 123456789}]
+````
+
+## Reading a file
+
+`application.files.read()` returns a Buffer object.
+
+````javascript
+const application = await api.applications.get("Application ID");
+const file = await application.files.read("index.js")
+
+console.log(file.toString()); // String
+````
+
+## Creating a file
+
+`application.files.create()` returns a Boolean.
+
+<Tabs>
+    <Tab title="Using Buffer">
+    ```javascript
+    const { SquareCloudAPI } = require("@squarecloud/api");
+    const api = new SquareCloudAPI("Your API Key");
+
+    const application = await api.applications.get("Application ID");
+
+    // Specify the content and name of the file you want to create
+    const fileContent = Buffer.from("archive content here");
+    const filePath = "./folder/test_file.txt";
+
+    // Perform the create file operation
+    const file = await application.files.create(fileContent, filePath)
+
+    console.log(file); // Boolean (true or false)
+    ```
+    </Tab>
+    <Tab title="Using Absolute Path">
+    ```javascript
+    const { SquareCloudAPI } = require("@squarecloud/api");
+    const api = new SquareCloudAPI("Your API Key");
+
+    const application = await api.applications.get("Application ID");
+
+    // Specify the content and name of the file you want to create
+    const { join } = require("node:path");
+    const fileName = "local_txt_file.txt";
+    const fileContent = join(__dirname, fileName)
+    const filePathtoCreate = "./folder/test_file.txt";
+
+    // Perform the create file operation
+    const file = await application.files.create(fileContent, filePathtoCreate)
+
+    console.log(file); // Boolean (true or false)
+    ```
+    </Tab>
+</Tabs>
+
+## Deleting a file
+
+`application.files.delete()` returns a Boolean.
+
+````javascript
+const application = await api.applications.get("Application ID");
+const deleted = await application.files.delete("index.js")
+
+console.log(deleted); // Boolean (true or false)
+````

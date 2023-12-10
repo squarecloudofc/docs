@@ -4,7 +4,6 @@ description: "In this section, you will learn how to manage your application usi
 ---
 
 [Client]: client
-
 [Application]: client#aplication
 
 All operations below can be performed by either the [Client] class, the
@@ -17,7 +16,7 @@ these tasks using both classes:
 
 <Tabs>
     <Tab title="Using Client">
-        ````python
+        ```python
         import squarecloud as square
 
         client = square.Client(api_key='API KEY')
@@ -27,14 +26,13 @@ these tasks using both classes:
 
             print(status.ram)  # '70MB'
             print(status.cpu)  # '5%'
-            print(status.requests)  # 0
             print(status.network)  # {'total': '0 KB ↑ 0 KB ↓', 'now': '0 KB ↑ 0 KB ↓'}
             print(status.running)  # True | False
-            print(status.storage)  # '0MB'
-        ````
+            print(status.storage)  # '0B'
+        ```
     </Tab>
     <Tab title="Using Application">
-        ````python
+        ```python
         import squarecloud as square
 
         client = square.Client(api_key='API KEY')
@@ -45,16 +43,15 @@ these tasks using both classes:
 
             print(status.ram)  # '70MB'
             print(status.cpu)  # '5%'
-            print(status.requests)  # 0
             print(status.network)  # {'total': '0 KB ↑ 0 KB ↓', 'now': '0 KB ↑ 0 KB ↓'}
             print(status.running)  # True | False
-            print(status.storage)  # '0MB'
-        ````
+            print(status.storage)  # '0B'
+        ```
     </Tab>
     <Tab title="Using CLI">
-        ````bash
+        ```bash
         squarecloud app <APP_ID> status
-        ````
+        ```
     </Tab>
 </Tabs>
 
@@ -64,7 +61,7 @@ these tasks using both classes:
 
 <Tabs>
     <Tab title="Using Client">
-        ````python
+        ```python
         import squarecloud as square
 
         client = square.Client(api_key='API KEY')
@@ -74,10 +71,10 @@ these tasks using both classes:
 
             print(logs)  # LogsData(logs='Hello World!')
             print(logs.logs)  # 'Hello World'
-        ````
+        ```
     </Tab>
     <Tab title="Using Application">
-        ````python
+        ```python
         import squarecloud as square
 
         client = square.Client(api_key='API KEY')
@@ -88,12 +85,12 @@ these tasks using both classes:
 
             print(logs)  # LogsData(logs='Hello World!')
             print(logs.logs)  # 'Hello World'
-        ````
+        ```
     </Tab>
     <Tab title="Using CLI">
-        ````bash
+        ```bash
         squarecloud app <APP_ID> logs
-        ````
+        ```
     </Tab>
 </Tabs>
 
@@ -103,17 +100,17 @@ these tasks using both classes:
 
 <Tabs>
     <Tab title="Using Client">
-        ````python
+        ```python
         import squarecloud as square
 
         client = square.Client(api_key='API KEY')
 
         async def example():
             await client.start_app('application_id')
-        ````
+        ```
     </Tab>
     <Tab title="Using Application">
-        ````python
+        ```python
         import squarecloud as square
 
         client = square.Client(api_key='API KEY')
@@ -121,12 +118,12 @@ these tasks using both classes:
         async def example():
             app = await client.app('application_id')
             await app.start()
-        ````
+        ```
     </Tab>
     <Tab title="Using CLI">
-        ````bash
+        ```bash
         squarecloud app <APP_ID> start
-        ````
+        ```
     </Tab>
 </Tabs>
 
@@ -136,17 +133,17 @@ these tasks using both classes:
 
 <Tabs>
     <Tab title="Using Client">
-        ````python
+        ```python
         import squarecloud as square
 
         client = square.Client(api_key='API KEY')
 
         async def example():
             await client.stop_app('application_id')
-        ````
+        ```
     </Tab>
     <Tab title="Using Application">
-        ````python
+        ```python
         import squarecloud as square
 
         client = square.Client(api_key='API KEY')
@@ -154,12 +151,12 @@ these tasks using both classes:
         async def example():
             app = await client.app('application_id')
             await app.stop()
-        ````
+        ```
     </Tab>
     <Tab title="Using CLI">
-        ````bash
+        ```bash
         squarecloud app <APP_ID> stop
-        ````
+        ```
     </Tab>
 </Tabs>
 
@@ -169,17 +166,17 @@ these tasks using both classes:
 
 <Tabs>
     <Tab title="Using Client">
-        ````python
+        ```python
         import squarecloud as square
 
         client = square.Client(api_key='API KEY')
 
         async def example():
             await client.restart_app('application_id')
-        ````
+        ```
     </Tab>
     <Tab title="Using Application">
-        ````python
+        ```python
         import squarecloud as square
 
         client = square.Client(api_key='API KEY')
@@ -187,12 +184,12 @@ these tasks using both classes:
         async def example():
             app = await client.app('application_id')
             await app.restart()
-        ````
+        ```
     </Tab>
     <Tab title="Using CLI">
-        ````bash
+        ```bash
         squarecloud app <APP_ID> restart
-        ````
+        ```
     </Tab>
 </Tabs>
 
@@ -200,19 +197,23 @@ these tasks using both classes:
 
 `client.delete_app` and `app.delete` return a `Response` object.
 
+<Warning>
+    This will delete your application **PERMANENTLY**, meaning that unless you have a backup of your application, it cannot be recovered.
+</Warning>
+
 <Tabs>
     <Tab title="Using Client">
-        ````python
+        ```python
         import squarecloud as square
 
         client = square.Client(api_key='API KEY')
 
         async def example():
             await client.delete_app('application_id')
-        ````
+        ```
     </Tab>
     <Tab title="Using Application">
-        ````python
+        ```python
         import squarecloud as square
 
         client = square.Client(api_key='API KEY')
@@ -220,15 +221,11 @@ these tasks using both classes:
         async def example():
             app = await client.app('application_id')
             await app.delete()
-        ````
+        ```
     </Tab>
     <Tab title="Using CLI">
-        ````bash
+        ```bash
         squarecloud app <APP_ID> delete
-        ````
+        ```
     </Tab>
 </Tabs>
-
-<Warning>
-    This will delete your application **PERMANENTLY**, meaning that unless you have a backup of your application, it cannot be recovered.
-</Warning>
