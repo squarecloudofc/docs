@@ -43,7 +43,7 @@ description: "In this section you will learn how to make commits and uploads usi
    // Specify the content and name of the file you want to commit
     const { join } = require("node:path");
     const fileName = "file.txt";
-    const filePath = join(__dirname, fileName)
+    const filePath = join(__dirname, fileName);
 
     // Optionally, set whether the application should restart after the commit
     const shouldRestart = true;
@@ -72,7 +72,7 @@ const api = new SquareCloudAPI("Your API Key");
 // Specify the content and name of the zip file you want to upload
 const { join } = require("node:path");
 const fileName = "application.zip";
-const filePath = join(__dirname, fileName)
+const filePath = join(__dirname, fileName);
 
 // Perform the upload operation
 const success = await api.applications.create(filePath);

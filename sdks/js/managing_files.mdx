@@ -7,11 +7,11 @@ files using the Square Cloud JavaScript SDK."
 
 ## Getting a list of files
 
-`application.files.files_list()` return a list of `APIListedFile` objects. 
+`application.files.list()` return a list of `APIListedFile` objects. 
 
 ````javascript
 const application = await api.applications.get("Application ID");
-const files_list = await application.files.list()
+const files_list = await application.files.list();
 
 console.log(files_list); // Return a Array of File Objects
 // [{type: "file", name: "index.js", size: 123, lastModified: 123456789}]
@@ -23,7 +23,7 @@ console.log(files_list); // Return a Array of File Objects
 
 ````javascript
 const application = await api.applications.get("Application ID");
-const file = await application.files.read("index.js")
+const file = await application.files.read("index.js");
 
 console.log(file.toString()); // String
 ````
@@ -45,7 +45,7 @@ console.log(file.toString()); // String
     const filePath = "./folder/test_file.txt";
 
     // Perform the create file operation
-    const file = await application.files.create(fileContent, filePath)
+    const file = await application.files.create(fileContent, filePath);
 
     console.log(file); // Boolean (true or false)
     ```
@@ -60,11 +60,11 @@ console.log(file.toString()); // String
     // Specify the content and name of the file you want to create
     const { join } = require("node:path");
     const fileName = "local_txt_file.txt";
-    const fileContent = join(__dirname, fileName)
+    const fileContent = join(__dirname, fileName);
     const filePathtoCreate = "./folder/test_file.txt";
 
     // Perform the create file operation
-    const file = await application.files.create(fileContent, filePathtoCreate)
+    const file = await application.files.create(fileContent, filePathtoCreate);
 
     console.log(file); // Boolean (true or false)
     ```
@@ -77,7 +77,7 @@ console.log(file.toString()); // String
 
 ````javascript
 const application = await api.applications.get("Application ID");
-const deleted = await application.files.delete("index.js")
+const deleted = await application.files.delete("index.js");
 
 console.log(deleted); // Boolean (true or false)
 ````
