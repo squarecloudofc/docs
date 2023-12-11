@@ -11,9 +11,9 @@ files using the Square Cloud JavaScript SDK."
 
 ````javascript
 const application = await api.applications.get("Application ID");
-const files_list = await application.files.list();
+const filesList = await application.files.list();
 
-console.log(files_list); // Return a Array of File Objects
+console.log(filesList); // Return a Array of File Objects
 // [{type: "file", name: "index.js", size: 123, lastModified: 123456789}]
 ````
 
