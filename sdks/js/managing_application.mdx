@@ -14,12 +14,12 @@ const api = new SquareCloudAPI("Your API Key");
 const application = await api.applications.get("Application ID");
 const status = await application.getStatus();
 
-console.log(status.usage.cpu); // '0.22%'
-console.log(status.usage.ram); // '70MB'
+console.log(status.usage.cpu);     // '0.22%'
+console.log(status.usage.ram);     // '70MB'
 console.log(status.usage.network); // {'total': '0 KB ↑ 0 KB ↓', 'now': '0 KB ↑ 0 KB ↓'}
 console.log(status.usage.storage); // '0B'
-console.log(status.running); // true | false
-console.log(status.status); // 'running' | 'exited' ...
+console.log(status.running);       // true | false
+console.log(status.status);        // 'running' | 'exited' ...
 ````
 
 ## Getting logs
