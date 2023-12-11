@@ -22,17 +22,17 @@
     {
       "name": "Join our Discord",
       "icon": "discord",
-      "url": "https://discord.gg/squarecloud"
+      "url": "https://go.squarecloud.app/discord"
     },
     {
       "name": "Follow us on Twitter",
       "icon": "twitter",
-      "url": "https://twitter.com/squarecloudofc"
+      "url": "https://go.squarecloud.app/twitter"
     },
     {
       "name": "Follow us on Instagram",
       "icon": "instagram",
-      "url": "https://instagram.com/squarecloudofc"
+      "url": "https://go.squarecloud.app/instagram"
     },
     {
       "name": "Contribute on GitHub",
