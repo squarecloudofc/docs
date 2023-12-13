@@ -65,7 +65,13 @@
     {
       "group": "Languages",
       "pages": [
-        "articles/getting-started-with-nodejs",
+        {
+          "group": "JavaScript",
+          "pages": [
+            "articles/getting-started-with-nodejs",
+            "articles/how-to-create-your-package-json"
+          ]
+        },
         {
           "group": "Python",
           "pages": [
