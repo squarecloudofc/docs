@@ -8,20 +8,22 @@ icon: 'shield-dog'
 
 Every project hosted on the Square Cloud Platform has specific minimum resource requirements to ensure optimal performance:
 
-- **Bots:** A minimum of 100MB of RAM is required for hosting.
-- **Websites:** Websites need at least 512MB of RAM allocated to operate effectively.
+- **Bots:** A minimum of **100MB** of RAM is required for hosting.
+- **Websites:** Websites need at least **512MB** of RAM allocated to operate effectively.
 
 Please note that while Square Cloud offers plans with up to 256GB of RAM, the maximum RAM allocation for any application is 32GB. If you require more than 32GB, please reach out to our support team for assistance.
 
-## Storage Limitations
+## CPU Optimization & Limitation
 
-Storage limitations are crucial to ensure equitable resource distribution and to provide a high-quality experience for all users.
+The CPU limitation logic aims to optimize performance by dynamically adapting to the application's needs. The code divides the default CPU allocation by two, promoting an efficient resource utilization approach. However, specific conditions alter this behavior:
 
-- **All projects:** Each project is allocated 20GB of virtual storage.
-- **Free Plan:** Each project on the Free Plan is allocated 500MB/s (NVMe) of speed.
-- **Paid Plan:** Each project on the Paid Plan is allocated 1.5GB/s (NVMe) of speed.
+- If the default **CPU allocation is less than or equal to 0.5**, the CPU remains at half.
+- If **RAM allocation is 512** or **higher**, and CPU allocation is between 0.5 and 6, the CPU is released for **full usage**.
+- If **RAM allocation is 1024** or **higher**, the CPU is released for **full usage**.
 
-<Note>If you require speeds exceeding 1.5GB/s (NVMe), please don't hesitate to contact our support team for assistance.</Note>
+This strategy aims to balance CPU efficiency with variable system demands, ensuring adequate performance across different scenarios.
+
+This approach is crucial to promote a high-quality experience, ensuring fair and efficient CPU resource allocation, optimizing application responsiveness, and reducing unnecessary resource consumption.
 
 ## Network Limitations
 
@@ -39,13 +41,33 @@ For applications requiring network speeds exceeding 500MB/s, please contact our 
 
 Square Cloud is committed to providing a balance between resource availability and performance, ensuring a seamless experience for all users.
 
+## Storage Limitations
+
+Storage limitations are crucial to ensure equitable resource distribution and to provide a high-quality experience for all users.
+
+- **All projects:** Each project is allocated 20GB of virtual storage.
+- **Free Plan:** Each project on the Free Plan is allocated 500MB/s (NVMe) of speed.
+- **Paid Plan:** Each project on the Paid Plan is allocated 1.5GB/s (NVMe) of speed.
+
+<Note>If you require speeds exceeding 1.5GB/s (NVMe), please don't hesitate to contact our support team for assistance.</Note>
+
 ## Service Limits
+
+Squarecloud implements service limits to ensure fair and efficient resource utilization for all users. These limits are categorized as:
 
 ### COMMERCIAL_USE
 
 If an application on the free plan violates COMMERCIAL_USE, typically by engaging in commercial activities or misusing resources intended for non-commercial use, the application will be temporarily banned. During this temporary ban, the application itself cannot be started, restarted, or stopped. However, the user's account remains unaffected. This temporary ban acts as a corrective measure to enforce the terms of service and discourage resource misuse.
+
 ### ABUSE_STORAGE
 
 In cases where an application is found to be in violation of ABUSE_STORAGE, involving excessive misuse or unauthorized utilization of storage resources, the application may face more severe consequences. As a measure to maintain resource integrity and fairness, the application may be subject to deletion. It is crucial to use storage resources responsibly and within the bounds of the terms and conditions.
+
+### LACK_OF_RAM
+
+If an application exceeds the allocated RAM limit as specified in its [squarecloud.app config file](../articles/how-to-create-your-squarecloud-configuration-file), it will be flagged for violating LACK_OF_RAM and shut down to preserve its own and everyone else's safety.
+
+### LACK_OF_CPU
+If an application exceeds and stresses its allocated processing limit, it will be flagged for violating LACK_OF_CPU and shut down to preserve its own and everyone else's safety. It is important to remember that Square does not allow the hosting of applications that mine cryptocurrencies, for example.
 
 Square Cloud is dedicated to providing a secure and balanced environment for all users while ensuring compliance with its policies.
