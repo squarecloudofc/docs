@@ -27,10 +27,7 @@ O arquivo de configuração é um arquivo que será usado para configurar sua ap
 | ----------------------- | --------------------------------------- |
 | DESCRIPTION             | Descrição da sua aplicação              |
 | AUTORESTART             | Reiniciar sua aplicação se ela travar   | 
-| AVATAR                  | Avatar da sua aplicação                 |
 | START                   | *Comando de inicialização personalizado |
-
-<Note>AVATAR: Somente Discord e Imgur CDN têm suas imagens carregadas em nosso site. <br/> AUTORESTART é um recurso **PAGO**, se você quiser usá-lo, precisa [**adquirir um plano**](https://squarecloud.app/planos).</Note>
 
 ## Exemplos de configuração
 ```systemd Este exemplo usa apenas parâmetros obrigatórios. (configuração mínima)
@@ -46,7 +43,6 @@ MEMORY=128
 VERSION=recommended
 DISPLAY_NAME=My app!
 DESCRIPTION=My app is very cool!
-AVATAR=https://cdn.discordapp.com/avatars/.../...png
 ```
 
 <Note>Website url will be: mysite.squareweb.app</Note>
@@ -56,7 +52,6 @@ MEMORY=512
 VERSION=recommended
 DISPLAY_NAME=My website!
 DESCRIPTION=My website is very cool!
-AVATAR=https://cdn.discordapp.com/avatars/.../...png
 SUBDOMAIN=mysite
 START=npm run start-build
 AUTORESTART=true
@@ -84,7 +79,6 @@ Por razões de segurança e desempenho, existem limites nos parâmetros de confi
 | MAIN          | 32 characters  |
 | DISPLAY_NAME  | 32 characters  |
 | DESCRIPTION   | 280 characters |
-| AVATAR        | 128 characters |
 | START         | 128 characters |
 | SUBDOMAIN     | 63 characters  |
 
