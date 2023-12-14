@@ -16,5 +16,4 @@ Once you have installed the Mintlify CLI, you can run the documentation site loc
 mintlify dev
 ```
 
-Documentation built with [Mintlify](https://mintlify.com)
-And with love by [Square Cloud](https://squarecloud.app)
+Documentation built with [Mintlify](https://mintlify.com). & with love by [Square Cloud](https://squarecloud.app)
