@@ -200,7 +200,8 @@
       "pages": [
         "faqs/whitelist-mongodb",
         "faqs/using-autorestart-in-your-squarecloud-application",
-        "faqs/automatic-deletion-files-when-deploying-an-application-to-squarecloud"
+        "faqs/automatic-deletion-files-when-deploying-an-application-to-squarecloud",
+        "faqs/debugging-an-application"
       ]
     }
   ],

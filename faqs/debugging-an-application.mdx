@@ -1,0 +1,47 @@
+---
+title: Debugging an Application
+description: Learn how to debug your application using discord.py and discord.js.
+---
+
+## Debugging in [**discord.js**](https://old.discordjs.dev/#/docs/discord.js/14.14.1/class/Client?scrollTo=e-debug)
+With discord.js, you can utilize the "debug" and "error" events for debugging. Here's an example:
+
+```js
+// The client listens for a 'debug' event
+client.on('debug', (info) => {
+    // Logs the debug info to the console
+    console.log(`Debug Info: ${info}`);
+});
+
+// The client listens for an 'error' event
+client.on('error', (error) => {
+    // Logs the error message to the console
+    console.error(`Encountered an Error: ${error.message}`);
+});
+```
+
+In this code, we use the 'debug' event; it is triggered to provide general debugging information, and the debug messages are logged to the console. Similarly, when the 'error' event is triggered, the error message is logged to the console.
+
+## Debugging in [**discord.py**](https://discordpy.readthedocs.io/en/stable/logging.html?highlight=debug)
+With discord.py, you can use the logging module for debugging. Here's an example:
+
+```py
+import logging
+import logging.handlers
+
+# Sets up the logger for discord
+logger = logging.getLogger('discord')
+logger.setLevel(logging.DEBUG)
+logging.getLogger('discord.http').setLevel(logging.INFO)
+
+# Sets up the handler for the logger
+handler = logging.StreamHandler()
+dt_fmt = '%Y-%m-%d %H:%M:%S'
+formatter = logging.Formatter('[{asctime}] [{levelname:<8}] {name}: {message}', dt_fmt, style='{')
+handler.setFormatter(formatter)
+logger.addHandler(handler)
+
+# Runs the bot
+client.run("your token here", log_handler=None)
+```
+In this code, all debugging information and errors are logged to the console.
