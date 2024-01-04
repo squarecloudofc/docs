@@ -198,10 +198,17 @@
     {
       "group": "FAQs",
       "pages": [
-        "faqs/whitelist-mongodb",
         "faqs/using-autorestart-in-your-squarecloud-application",
-        "faqs/automatic-deletion-files-when-deploying-an-application-to-squarecloud",
-        "faqs/debugging-an-application"
+        "faqs/debugging-an-application",
+        "faqs/automatic-deletion-files-when-deploying-an-application-to-squarecloud"
+      ]
+    },
+    {
+      "group": "Troubleshooting",
+      "pages": [
+        "faqs/troubleshooting/whitelist-mongodb",
+        "faqs/troubleshooting/token_invalid",
+        "faqs/troubleshooting/abuse_requests"
       ]
     }
   ],
