@@ -1,0 +1,51 @@
+---
+title: "Solving 'Could not locate the bindings file'"
+sidebarTitle: "Solving BETTER_SQLITE3_ERROR"
+description: "Learn how to resolve the 'Could not locate the bindings file' issue in your application."
+---
+
+## When does it occur?
+
+This issue happens when the `better-sqlite3` library or a library that depends on it, like `quick.db`, is not updated.
+
+```bash
+Error: Could not locate the bindings file. Tried:
+ → /application/node_modules/better-sqlite3/build/better_sqlite3.node
+ [...]
+```
+
+## Why does it occur?
+
+This error occurs because the `better-sqlite3` library has not been updated to the latest version. In `better-sqlite3` **7.x.x and earlier**, the library **was not support Node.js LTS v20**.x.x.
+
+## How to fix
+
+To fix this issue, you need to update the `better-sqlite3` library to the latest version. Remember to update libraries that depend on `better-sqlite3`, like `quick.db`.
+
+### Check the latest versions of the libraries:
+   - [npm better-sqlite3](https://www.npmjs.com/package/better-sqlite3)
+   - [npm quick.db](https://www.npmjs.com/package/quick.db)
+
+
+### Update the `better-sqlite3` in your `package.json`
+
+After checking the latest version of the library, you can update it in your `package.json`. For example, if the current version is 9.2.2, you can use the following:
+
+```json Update manually in your package.json
+"better-sqlite3": "^9.2.2",
+"quick.db": "^9.1.7" // or any other library that depends on better-sqlite3
+```
+
+```bash Update using the terminal
+npm install better-sqlite3@latest
+```
+
+### Removing files for a clean installation
+
+After updating your `package.json`, you should remove the files and folders: `node_modules`, `package-lock.json`, and the `.npm` folder.
+
+### Reboot Your Application
+
+In conclusion, simply restart your application by clicking on the blue button. If you have followed all the steps correctly, your application should no longer encounter this error.
+
+If you continue to experience any issues, please don't hesitate to [contact our support team](/company/support).
