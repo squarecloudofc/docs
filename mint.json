@@ -207,8 +207,11 @@
       "group": "Troubleshooting",
       "pages": [
         "faqs/troubleshooting/whitelist-mongodb",
-        "faqs/troubleshooting/token_invalid",
-        "faqs/troubleshooting/abuse_requests"
+        "faqs/troubleshooting/LACK_OF_CPU",
+        "faqs/troubleshooting/LACK_OF_RAM",
+        "faqs/troubleshooting/TOKEN_INVALID",
+        "faqs/troubleshooting/ABUSE_REQUESTS",
+        "faqs/troubleshooting/BETTER_SQLITE3_ERROR"
       ]
     }
   ],
