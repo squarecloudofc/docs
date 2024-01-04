@@ -7,6 +7,14 @@ description: "Learn how to resolve the TOKEN_INVALID code error and ensure smoot
 ## When does it occur?
 The authentication token for your Discord bot was not found or appears to be invalid. This might happen if the token is regenerated, revoked, or the bot's access to the server is restricted.
 
+```bash discord.js
+Error [TOKEN_INVALID]: An invalid token was provided.
+```
+
+```bash discord.py
+LoginFailure: Improper token has been passed.
+```
+
 ## Why does it occur?
 You will encounter this error when your application attempts to authenticate with the Discord API using an invalid or outdated bot token.
 
