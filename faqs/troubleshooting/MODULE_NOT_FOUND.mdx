@@ -1,0 +1,48 @@
+---
+title: "Solving MODULE_NOT_FOUND"
+sidebarTitle: "Solving MODULE_NOT_FOUND"
+description: "Learn how to resolve the MODULE_NOT_FOUND issue in your application."
+---
+
+## When does it occur?
+This error occurs when your application tries to use a library that is not installed in the environment.
+
+```bash javascript
+Error: Cannot find module 'discord.js'
+```
+
+```bash python
+ModuleNotFoundError: No module named 'discord.py'
+```
+
+## Why does it occur?
+
+This can happen when you try to use a library that is not installed by default in the environment. For example, the `discord.js` library is not installed by default in the JavaScript environment.
+
+## How to fix
+
+To fix this, you need to add the missing library to your project's dependency files. These files list the libraries that will be installed in the environment. In the case of Python, this file is called `requirements.txt`, and for JavaScript, it is called `package.json`.
+
+Here is an example of the content of these files after adding the missing libraries:
+
+```json package.json 
+{
+  "name": "my-app",
+  "version": "1.0.0",
+  "dependencies": {
+    "discord.js": "14.14.1",
+    // other dependencies...
+  }
+}
+```
+
+```txt requirements.txt
+discord.py
+# other dependencies...
+```
+
+### Reboot Your Application
+
+After adding the necessary libraries to your project's dependency files, you should reboot your application. This allows your environment to recognize and install the newly added libraries. 
+
+If you continue to experience any issues, please don't hesitate to [contact our support team](/company/support).
