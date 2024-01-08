@@ -1,0 +1,28 @@
+---
+title: "Solving Lavalink Closed Abnormally issue"
+sidebarTitle: "Lavalink Closed Abnormally"
+description: "Due to recent Lavalink updates you may come across the following error: Lavalink Closed Abnormally. This article will help you solve this issue."
+---
+
+## When does it occur?
+When you are trying to connect your Lavalink server to your app hosted on Square Cloud, you may come across the following error:
+
+```
+Error: Unexpected server response: 400
+Error: WebSocket closed abnormally with code 1006.
+```
+
+## Why does it occur?
+You will receive this error if you are using a Lavalink version that is not compatible with the library you are using.
+For example, if you are using the Lavalink version 4.0.0, you will receive this error if you are using the Lavalink client version 3, as the Lavalink version 4 is entirely REST.
+
+## How to fix
+To fix this error, you will need to update your Lavalink client to the latest version. Or use a Lavalink version that is compatible with your Lavalink client.
+
+### Bonus Tips:
+- Remember to open your Lavalink server in port 80.
+- Connect in your Lavalink server using port 443 and option `secure: true`.
+
+Congratulations! You have successfully solved the Lavalink Closed Abnormally issue. Now you can connect your Lavalink to your app hosted on Square Cloud. 
+
+If you continue to experience any issues, please don't hesitate to [contact our support team](/company/support).
