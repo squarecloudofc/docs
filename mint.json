@@ -181,6 +181,7 @@
     {
       "group": "Python SDK",
       "pages": [
+        "sdks/py/installation",
         "sdks/py/client",
         "sdks/py/commit_and_upload",
         "sdks/py/managing_application",
