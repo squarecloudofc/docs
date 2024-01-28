@@ -238,6 +238,9 @@
       "measurementId": "G-8NTENKCHRS"
     }
   },
+  "seo": {
+    "indexHiddenPages": true
+  },  
   "feedback": {
     "thumbsRating": true,
     "raiseIssue": true,
