@@ -1,0 +1,58 @@
+---
+title: "Solving INVALID_DEPENDENCY"
+sidebarTitle: "Solving INVALID_DEPENDENCY"
+description: "Learn how to resolve the Solving INVALID_DEPENDENCY issue in your application."
+---
+
+## When does it occur?
+
+This issue occurs when your dependency file could not be located in the root of your application.
+
+## Why does it occur?
+
+This issue occurs when your dependency file could not be located in the root of your application. This can happen when your dependency file does not exist or its nominated with an extra `.txt`.
+
+## How to fix
+
+### For Node.js (package.json)
+
+1. **Navigate to the root directory of your project:**
+   Ensure that you are in the main directory of your application.
+
+2. **Check for the presence of `package.json`:**
+   Verify whether the `package.json` file exists in the root directory. If it is not present, create one using the following command:
+   ```bash
+   npm init -y
+   ```
+   This command initializes a default `package.json` file.
+
+3. **Ensure correct naming:**
+   Confirm that the file is named exactly as `package.json` and does not have any additional extensions (e.g., `package.json.txt`). If there are any discrepancies, rename the file accordingly.
+
+### For Python (requirements.txt)
+
+1. **Navigate to the root directory of your project:**
+   Make sure you are in the main directory of your application.
+
+2. **Check for the presence of `requirements.txt`:**
+   Confirm whether the `requirements.txt` file exists in the root directory. If it is missing, create one.
+
+3. **Ensure correct naming:**
+   Verify that the file is named exactly as `requirements.txt` without any additional extensions (e.g., `requirements.txt.txt`). If the name is incorrect, rename the file accordingly.
+
+4. **Add dependencies to the file:**
+   Open the `requirements.txt` file and add the necessary dependencies for your Python project. For example:
+
+```plaintext requirements.txt
+discord.py
+```
+
+### Additional Tips:
+
+- **Double-check file extensions:**
+  Ensure that the file extensions are correct (e.g., `.json` for Node.js, `.txt` for Python). Incorrect extensions might lead to the `INVALID_DEPENDENCY` error.
+
+- **Review documentation and guides:**
+  Consult the documentation for your specific programming language ([Node.js](/articles/getting-started-with-nodejs)/[Python](/articles/getting-started-with-python)).
+
+If you continue to experience any issues, please don't hesitate to [contact our support team](/company/support).

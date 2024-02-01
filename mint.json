@@ -214,6 +214,7 @@
         "faqs/troubleshooting/TOKEN_INVALID",
         "faqs/troubleshooting/ABUSE_REQUESTS",
         "faqs/troubleshooting/MODULE_NOT_FOUND",
+        "faqs/troubleshooting/INVALID_DEPENDENCY",
         "faqs/troubleshooting/BETTER_SQLITE3_ERROR"
       ]
     }
