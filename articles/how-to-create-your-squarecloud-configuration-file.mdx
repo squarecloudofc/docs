@@ -13,12 +13,12 @@ The configuration file is a file that will be used to configure your application
 It"s very simple to create the configuration file, just create a file with the name `squarecloud.app` or `squarecloud.config` and put the configuration parameters inside it.
 
 ## Configuration parameters
-<Note>Minimum **memory** for **bot** is **100mb** and for **website 512mb**</Note>
+<Note>Minimum **memory** for **bot** is **100mb** (**256MB MINIMUM RECOMMENDED**) and for **website 512mb**</Note>
 
 | Required parameters | Description                           | Example                               |
 | ------------------- | ------------------------------------- | ------------------------------------- |
 | MAIN                | Main file of your application         | MAIN=index.js                         |
-| MEMORY              | Amount of memory ram                  | MEMORY=128                            |
+| MEMORY              | Amount of memory ram                  | MEMORY=256                            |
 | VERSION             | Version of your application           | VERSION=recommended                   |
 | DISPLAY_NAME        | Name of application                   | DISPLAY_NAME=My app!                  |
 | SUBDOMAIN           | **If you are sending a website**      | SUBDOMAIN=mysite                      |
@@ -33,14 +33,14 @@ It"s very simple to create the configuration file, just create a file with the n
 ## Examples of configuration
 ```systemd This example just use required parameters. (minimum configuration)
 MAIN=index.js
-MEMORY=128
+MEMORY=256
 VERSION=recommended
 DISPLAY_NAME=My app!
 ```
 
 ```systemd This example use all parameters.	
 MAIN=index.js
-MEMORY=128
+MEMORY=256
 VERSION=recommended
 DISPLAY_NAME=My app!
 DESCRIPTION=My app is very cool!

@@ -13,12 +13,12 @@ O arquivo de configuração é um arquivo que será usado para configurar sua ap
 É muito simples criar o arquivo de configuração, basta criar um arquivo com o nome `squarecloud.app` ou `squarecloud.config` e colocar os parâmetros de configuração dentro dele.
 
 ## Parâmetros de configuração
-<Note>Mínimo de **memória** para o **bot** é **100 MB** e para o **site 512 MB**</Note>
+<Note>Mínimo de **memória** para o **bot** é **100 MB** (**256MB MÍNIMO RECOMENDADO**) e para o **site 512 MB**</Note>
 
 | Parâmetros obrigatórios | Descrição                            | Exemplo                               |
 | ----------------------- | ------------------------------------ | --------------------------------------|
 | MAIN                    | Arquivo principal da sua aplicação   | MAIN=index.js                         |
-| MEMORY                  | Quantidade de memória RAM            | MEMORY=128                            |
+| MEMORY                  | Quantidade de memória RAM            | MEMORY=256                            |
 | VERSION                 | Versão da sua aplicação              | VERSION=recommended                   |
 | DISPLAY_NAME            | Nome da aplicação                    | DISPLAY_NAME=My app!                  |
 | SUBDOMAIN               | **Se você estiver enviando um site** | SUBDOMAIN=mysite                      |
@@ -32,14 +32,14 @@ O arquivo de configuração é um arquivo que será usado para configurar sua ap
 ## Exemplos de configuração
 ```systemd Este exemplo usa apenas parâmetros obrigatórios. (configuração mínima)
 MAIN=index.js
-MEMORY=128
+MEMORY=256
 VERSION=recommended
 DISPLAY_NAME=My app!
 ```
 
 ```systemd Este exemplo usa todos os parâmetros.
 MAIN=index.js
-MEMORY=128
+MEMORY=256
 VERSION=recommended
 DISPLAY_NAME=My app!
 DESCRIPTION=My app is very cool!
