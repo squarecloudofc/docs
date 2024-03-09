@@ -1,0 +1,130 @@
+---
+title: "Website hosting"
+description: "Discover the innovations and robustness of Square Cloud by exploring the website hosting features and support provided by the platform."
+---
+
+# Websites on Square Cloud
+
+**Square Cloud**, an advanced technological platform, stands out for providing comprehensive support for various types of frameworks. This article delves into the features and website support offered by **Square Cloud**, highlighting how this platform excels in the current technological landscape.
+
+## Features and Support
+
+<CardGroup cols={1}>
+    <Card title="Domain Configuration" icon="globe" href="https://docs.squarecloud.app/articles/how-to-set-up-your-domain">
+      The first step to elevate your website with Square Cloud is to configure your custom domain. This process involves linking your domain to the Square Cloud platform, allowing for seamless integration. Detailed instructions on configuring your domain are available [here](https://docs.squarecloud.app/articles/how-to-set-up-your-domain), offering a step-by-step guide for a hassle-free setup.
+    </Card>
+
+    <Card title="Fast DNS" icon="bolt">
+        We provide the opportunity for you to utilize your own domain, enhancing your online presence with a more professional and personalized touch.
+    </Card>
+
+    <Card title="Cloudflare Premium Integration" icon="link">
+      Maximize the benefits of your website hosting by seamlessly integrating Cloudflare Premium with Square Cloud. This collaboration delivers a powerful combination of advanced security, improved performance, and global content delivery.
+    </Card>
+
+    <Card title="WAF Configuration" icon="shield-check">
+        Our cutting-edge firewall system is dedicated to ensuring the utmost security for your website. By robustly defending against malicious attacks and thwarting unauthorized access attempts, we prioritize the protection of your online presence.
+    </Card>
+</CardGroup>
+
+In conclusion, Square Cloud offers a comprehensive suite of features and support to ensure your website is not only hosted efficiently but also fortified against the challenges of the digital landscape. Elevate your online presence with Square Cloud hosting and experience the innovation and robustness that define this advanced technological platform.
+
+## Supported Languages
+
+Square Cloud caters to a diverse range of programming languages, empowering developers to choose the most suitable technology for their projects. Here's a brief overview of the main supported languages:
+
+<CardGroup cols={3}>
+  <Card title="Node.js" icon="node-js" href="https://docs.squarecloud.app/articles/getting-started-with-nodejs">
+    Ideal for dynamic web development.
+  </Card>
+
+  <Card title="Python" icon="python" href="https://docs.squarecloud.app/articles/getting-started-with-python">
+    Widely used in AI, automation, and web development.
+  </Card>
+
+  <Card title="Java" icon="java" href="https://docs.squarecloud.app/articles/getting-started-with-java">
+    Portable and efficient for enterprise applications.
+  </Card>
+
+  <Card title="Elixir" icon="droplet" href="https://docs.squarecloud.app/articles/getting-started-with-elixir">
+    Excels in distributed systems and concurrent applications.
+  </Card>
+
+  <Card title="Rust" icon="rust" href="https://docs.squarecloud.app/articles/getting-started-with-rust">
+    Focused on security and performance, ideal for low-level systems.
+  </Card>
+
+  <Card title="PHP" icon="php" href="https://docs.squarecloud.app/articles/getting-started-with-php">
+    A popular choice for server-side scripting and web development.
+  </Card>
+
+  <Card title="Go" icon="golang" href="https://docs.squarecloud.app/articles/getting-started-with-go">
+    Recognized for efficiency in production environments.
+  </Card>
+
+  <Card title="HTML/CSS" icon="html5">
+    Perfect for static websites, offering simplicity and reliability.
+  </Card>
+</CardGroup>
+
+Leverage Square Cloud's language diversity to build innovative, efficient web applications, ensuring flexibility and adaptability in your development projects.
+
+## How to Host My Website on Square Cloud?
+<Steps>
+  <Step
+
+ title="Configuration File" icon="file">
+    The first step to host your website on **Square Cloud** is to create a detailed configuration file. This file is not just a simple text document but a comprehensive guide that defines the settings for the application on **Square Cloud**. It functions as an architectural plan for your project on the platform.
+
+    Once the plan is acquired, you need to create this file, detailing each configuration and filling it out correctly. Details on how to create this file are available [here](https://docs.squarecloud.app/articles/how-to-create-your-squarecloud-configuration-file), with a step-by-step guide.
+    Remember to include the following fields in the configuration file:
+    - **SUBDOMAIN**: The subdomain of your website.<br/>
+    Example: `SUBDOMAIN: test` (test.squareweb.app)
+    - **MEMORY**: The amount of RAM, with a **minimum of 512MB**.<br/>
+  </Step>
+  <Step title="ZIP File Creation" icon="file-zip">
+    With the configuration file ready, the next step is to prepare your application for upload. This involves placing the application files and the **Square Cloud** configuration file inside a .zip file.
+
+    However, not all files need to be included in this .zip. Files such as `node_modules`, `package-lock.json`, `pyproject.toml`, `poetry.lock`, `__pycache__`, and `poetry.lock` are not necessary, as they can be generated automatically on the server side. A list of files that do not need to be uploaded is available [here](https://docs.squarecloud.app/faqs/automatic-deletion-files-when-deploying-an-application-to-squarecloud), helping ensure that only necessary files are in the .zip, making the upload process faster and smoother.
+  </Step>
+  <Step title="Dependencies File" icon="box">
+    Another crucial aspect is to include the dependencies file in the .zip. This file informs the **Square Cloud** platform which dependencies to install for your project. For a Node.js project, this file is the `package.json`, and for a Python project, it's the `requirements.txt`.
+
+    These files list the libraries and packages required for the correct operation of the application. Keeping these files up-to-date is crucial to avoid installation errors. Additionally, it's important to note that native dependencies, such as `node-fetch` in Node.js and `random` in Python, should not be included in these files, as they are native libraries.
+  </Step>
+  <Step title="Website Upload" icon="arrow-up">
+    After following all the steps and configuring your project for **Square Cloud**, it's time to upload your website. Access the upload page on the **Square Cloud** website and submit your .zip file [here](https://squarecloud.app/dashboard/upload).
+
+    The process is simple: select your .zip file and click the upload button. The **Square Cloud** platform will initiate the deployment process, installing the necessary dependencies and configuring the environment based on the configuration file.
+  </Step>
+  <Step title="Common Errors During Application Deployment" icon="x">
+  <Warning>Even with careful preparation, some errors may occur during the application deployment process. Below are some common errors and how to resolve them. If you encounter an error not listed here, feel free to [contact our team](https://squarecloud.app/sac). We are always ready to help troubleshoot and resolve any issues that may arise during the deployment process. Remember, the goal is to successfully host your website on **Square Cloud**, and we are here to help you achieve that.</Warning>
+<AccordionGroup>
+  <Accordion title="INVALID_DEPENDENCY" icon="box">
+    This error occurs when the dependency file is missing in your .zip. If your application is in JS, we have an article guiding you in the step-by-step creation of the `package.json` [here](https://docs.squarecloud.app/articles/how-to-create-your-package-json), and for Python, it's the `requirements.txt` [here](https://docs.squarecloud.app/articles/how-to-create-your-requirements).
+  </Accordion>
+  <Accordion title="FEW_MEMORY" icon="memory">
+    This error occurs when you incorrectly configure the RAM in the configuration file or provide more RAM than is available, or less than the minimum required for the type of application, which is 512MB for websites.
+  </Accordion>
+  <Accordion title="INVALID_MAIN" icon="file-code">
+    This error occurs when the file defined as "main" for your application in the configuration file does not exist, is written incorrectly, or the path is incorrect. If your main file is inside a folder, for example, you should enter `folder/file.js`.
+  </Accordion>
+  <Accordion title="MISSING_CONFIG" icon="file-signature">
+    This error occurs when the configuration file is not present in your **.zip**, is not in the root, or has the incorrect format. Make sure the configuration file is in the `.app` or `.config` format; also, enable file extension visibility on your computer to check for a duplicate extension.
+  </Accordion>
+  <Accordion title="MISSING_MEMORY" icon="memory">
+    This error occurs when the configuration file does not have the **MEMORY** field where the total amount of RAM available for your application is defined.
+  </Accordion>
+  <Accordion title="INVALID_DISPLAY_NAME" icon="file">
+    This error occurs when the configuration file does not have the **DISPLAY_NAME** field where the display name of the application is defined with a **32-character** limit.
+  </Accordion>
+  <Accordion title="INVALID_START" icon="terminal">
+    This error occurs when the configuration file for your website does not have the **START** field or is written incorrectly. It is used to execute custom commands on your website.
+  </Accordion>
+  <Accordion title="FAILED_UPLOAD" icon="x">
+    This error is usually caused by an issue with the **zip** file. Check if the **.zip** file was created correctly and is not password-protected. If the **zip** file is password-protected, you will need to remove the password from the **zip.** If the file was created correctly and is not password-protected, but you still receive this error, it may be that the file is corrupted. In that case, you can try creating a new zip file and see if that resolves the issue.
+  </Accordion>
+</AccordionGroup>
+
+  </Step>
+</Steps>
