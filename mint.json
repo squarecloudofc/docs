@@ -12,7 +12,8 @@
     }
   },
   "modeToggle": {
-    "default": "dark"
+    "default": "dark",
+    "isHidden": true
   },
   "topbarCtaButton": {
     "name": "Dashboard",
@@ -59,6 +60,13 @@
       "group": "Getting Started",
       "pages": [
         "introduction",
+        {
+          "group": "Production-ready services",
+          "pages": [
+            "services/bots",
+            "services/sites"
+          ]
+        },
         "articles/how-to-create-your-squarecloud-configuration-file"
       ]
     },
@@ -104,7 +112,11 @@
     },
     {
       "group": "Company",
-      "pages": ["company/brand", "company/legal", "company/support"]
+      "pages": [
+        "company/brand",
+        "company/legal",
+        "company/support"
+      ]
     },
     {
       "group": "API Reference",
@@ -118,11 +130,15 @@
       "pages": [
         {
           "group": "No auth required",
-          "pages": ["api-reference/endpoint/service/statistics"]
+          "pages": [
+            "api-reference/endpoint/service/statistics"
+          ]
         },
         {
           "group": "User",
-          "pages": ["api-reference/endpoint/user/info"]
+          "pages": [
+            "api-reference/endpoint/user/info"
+          ]
         },
         {
           "group": "Application",
@@ -167,7 +183,9 @@
     },
     {
       "group": "SDKs",
-      "pages": ["sdks/introduction"]
+      "pages": [
+        "sdks/introduction"
+      ]
     },
     {
       "group": "JavaScript SDK",
@@ -241,7 +259,7 @@
   },
   "seo": {
     "indexHiddenPages": true
-  },  
+  },
   "feedback": {
     "thumbsRating": true,
     "raiseIssue": true,
