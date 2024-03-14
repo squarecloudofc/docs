@@ -43,7 +43,7 @@
   ],
   "tabs": [
     {
-      "name": "API Reference",
+      "name": "API & Blob Reference",
       "url": "api-reference"
     },
     {
@@ -64,7 +64,8 @@
           "group": "Production-ready services",
           "pages": [
             "services/bots",
-            "services/sites"
+            "services/sites",
+            "services/blob"
           ]
         },
         "articles/how-to-create-your-squarecloud-configuration-file"
@@ -126,7 +127,7 @@
       ]
     },
     {
-      "group": "Endpoints",
+      "group": "API Endpoints",
       "pages": [
         {
           "group": "No auth required",
@@ -179,6 +180,16 @@
             "api-reference/endpoint/apps/network/analytics"
           ]
         }
+      ]
+    },
+    {
+      "group": "Blob Endpoints",
+      "pages": [
+        "api-reference/endpoint/blob/stats",
+        "api-reference/endpoint/blob/list",
+        "api-reference/endpoint/blob/put",
+        "api-reference/endpoint/blob/delete"
+
       ]
     },
     {
