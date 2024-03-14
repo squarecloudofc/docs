@@ -1,0 +1,111 @@
+---
+title: "Serverless storage [BETA]"
+description: "Discover the innovations and robustness of Square Cloud by exploring the serverless storage capabilities."
+icon: "database"
+---
+
+<Frame>
+  <img src="/images/services/blob.png" style={{ borderRadius: "0.5rem" }} />
+</Frame>
+
+<br/>
+
+<Note>Blob currently in beta. If you encounter any issues or have any feedback, please [contact us](/contact).</Note>
+
+**Square Cloud**, an advanced technological platform, stands out for providing comprehensive support for various types of solutions. This article delves into the features and capabilities of serverless storage on **Square Cloud**.
+
+## Features and Support
+
+<CardGroup cols={2}>
+    <Card title="No Ingress or Egress Fees" icon="money-bill">
+        Say goodbye to unexpected charges with ZERO fees for ingress and egress traffic. Whether you're uploading or retrieving data, there are no additional costs to worry about.
+    </Card>
+    <Card title="Zero Management Overhead" icon="server">
+        Simplify your workflow by eliminating the need for complex setup procedures. Just upload your assets, and Square Cloud takes care of the rest. Relax and focus on building your applications.
+    </Card>
+
+    <Card title="Built for Modern Application" icon="terminal">
+        Designed to seamlessly integrate with your applications, offering high-speed content delivery through a global content delivery network (CDN).
+    </Card>
+    <Card title="Redundant Storage" icon="box">
+        Your data is safeguarded with fast triple-replication and end-to-end encryption, ensuring its integrity and confidentiality at all times.
+    </Card>
+</CardGroup>
+
+## Pricing Model
+Our pricing is simple and predictable, with no hidden fees. You only pay for what you use, with no minimum fees or upfront commitments.
+
+| Included in ALL PLANS                            | **Usage-based**                                     |
+|--------------------------------------------------|-----------------------------------------------------|
+| Low latency                                      | Always Low latency                                  |
+| 1GB of storage included                          | Up to **1PB of storage**. (1GB/R$ 0.25)             |
+| 250 objects included                             | Up to **1 billion objects**. (250/R$ 0.50)          |
+| Up to 1 million requests/day for free. (UTC+0)   | Up to **1 billion requests/day for free**. (UTC+0)  |
+
+<Info>When your plan expires, actually nothing happens. Only in the next month, Square Cloud Blob Billing will be enabled.</Info>
+<Warning>All prices are in Brazilian Real (R$). To use Square Cloud Blob Storage, you need to have a valid account with a paid plan.</Warning>
+
+## Supported File Types
+Square Cloud supports a wide range of file types, making it a versatile solution for various types of applications. Here's a list of the main file types supported by Square Cloud:
+
+| File Type   | Extensions                                                                   |
+|-------------|------------------------------------------------------------------------------|
+| Video       | .mp4, .mpeg, .webm, .flv, .m4v                                               |
+| Image       | .jpeg, .png, .apng, .tiff, .gif, .webp, .bmp, .svg, .ico, .cur, .heic, .heif |
+| Audio       | .wav, .ogg, .opus, .mp4, .mpeg, .aac                                         | 
+| Text        | .html, .css, .csv                                                            |
+| Application | .xml, .sqlite3, .pdf, .json, .javascript                                     |
+
+<Note> If you have a specific file type that you'd like to use with Square Cloud, please [contact us](/contact).</Note>
+
+## How to Host My Archive on Square Cloud?
+<Steps>
+  <Step 
+  
+  title="Initial Setup" icon="file">
+    The first step to host your asset on **Square Cloud** is to upload your file into the [put endpoint](/api-reference/endpoint/blob/put). This endpoint allows you to upload your file to the serverless storage.    
+  </Step>
+  <Step 
+  
+  title="Access URL" icon="globe">
+    The second step is to access your file through the URL provided by the response of the previous step. This URL is the public link to your file, and you can use it to access your asset from anywhere.
+  </Step>
+</Steps>
+
+## Benchmarks
+
+We've conducted extensive benchmarks to ensure that **Square Cloud** is the fastest and most reliable serverless storage solution. Here are some of the key findings from our benchmarks:
+
+- **Latency**: The average latency for receiving a file is ~20ms.
+- **Throughput**: The average throughput for a file is ~10-15Mybtes/s. (80-120mbps)
+- **Availability**: The average availability is 99.999999999% (11 9's). (powered by a S3 Design)
+
+In Square Cloud tests, using our infrastructure, in [Tampa, Florida](/platform/overview#our-secure-infrastructure).<br/>
+Latency is lower than 20ms, and throughput is higher than ~100MB/s.
+
+In a expountaneous test, using a famous website testing tool ([check-host](https://check-host.net/check-report/16a4d450kafe)), we tested the latency of our serverless storage in 10 different locations.
+
+| Location [16a4d450kafe] | Latency (ms) |
+|-------------------------|--------------|
+| USA, Chicago			  | 30		     |
+| Netherlands, Amsterdam  | 32	  		 |
+| Germany, Frankfurt	  | 32		 	 |
+| France, Paris			  | 32			 |
+| USA, Atlanta			  | 32			 |
+| UK, Coventry			  | 44	 		 |
+| Poland, Poznan		  | 49			 |
+| Brazil, Sao Paulo		  | 42			 |
+| Croatia, Sisak		  | 55	 		 |
+| Spain, Barcelona		  | 59			 |
+
+Using higher file sizes, the latency increases, but the latency is still lower than 200ms in most locations. Thanks to our global content delivery network (CDN) provided by [Cloudflare](https://www.cloudflare.com/).
+
+In a another test, we tested the speed of our serverless storage using [Bunny CDN Tool](https://bunny.net/).
+
+<Frame>
+  <img src="/images/services/blob-speed.png" style={{ borderRadius: "0.5rem" }} />
+</Frame>
+
+<br/>
+<Info>Benchmarks are not guaranteed. Remember that the latency and throughput may vary depending on your location, file size, and network conditions.</Info>
+<Warning>The **latency in Africa and some locations in Asia is higher**. We are working to improve the latency in these locations as soon as possible.</Warning>
