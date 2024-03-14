@@ -1,0 +1,154 @@
+---
+title: "Blob Object Put"
+sidebarTitle: "Object Put"
+description: "This documentation provides a comprehensive overview of the PUT /v1/put endpoint of the SquareCloud Blob API."
+api: "PUT https://blob.squarecloud.app/v1/put"
+authMethod: "none"
+---
+
+<ParamField header="Authorization" type="string" placeholder="API KEY" required>
+  The API key for your account. You can find this in your [account settings](https://squarecloud.app/account).
+</ParamField>
+
+<ParamField body="file" type="file" placeholder="commit.zip" required>
+  Use FormData or NodeJS Buffer (single file or compress [zip])
+</ParamField>
+
+<ParamField query="name" type="string" placeholder="File Name" required>
+  A string representing the name of the file.<br/>Must adhere to the a to z, A to Z, 0 to 9, and _ pattern. (3 to 32 characters)
+</ParamField>
+
+<ParamField query="prefix" type="string" placeholder="File Prefix">
+  A string representing the prefix for the file.<br/>Must adhere to the a to z, A to Z, 0 to 9, and _ pattern. (3 to 32 characters)
+</ParamField>
+
+<ParamField query="expire" type="number" placeholder="Expiration (days)">
+  A number indicating the expiration period of the file, ranging from 1 to 365 days.
+</ParamField>
+
+<ParamField query="security_hash" type="boolean" placeholder="Security Hash">
+  Set to true if a security hash is required.
+</ParamField>
+
+<ParamField query="auto_download" type="boolean" placeholder="Auto Download">
+  Set to true if the file should be set for automatic download.
+</ParamField>
+
+### Response
+
+<ResponseField name="status" type="string">
+  Indicates whether the call was successful. "success" if successful, "error" if not.
+</ResponseField>
+
+<ResponseField name="response" type="object">
+  <Expandable title="Toggle object">
+    <ResponseField name="url" type="string">
+      The URL of the uploaded file. (File distributed in Square Cloud CDN)
+    </ResponseField>
+  </Expandable>
+</ResponseField>
+
+<ResponseExample>
+```json
+{
+    "status": "success",
+    "response": {
+        "url": "https://public-blob.squarecloud.dev/ID/PREFIX/NAME_ltq7jshx-763f-ex1.jpeg"
+    }
+}
+```
+</ResponseExample>
+
+### Troubleshooting
+<Tabs>
+    <Tab title="400 Status Code">
+        ### Object-Related
+        <CodeGroup>
+        ```json NAME
+        // The provided object name is invalid. 
+        // Must adhere to the a to z, A to Z, 0 to 9, and _ pattern.
+        {
+            "status": "error",
+            "code": "INVALID_OBJECT_NAME"
+        }
+        ```
+        ```json PREFIX
+        // The provided object prefix is invalid.
+        // Must adhere to the a to z, A to Z, 0 to 9, and _ pattern.
+        {
+            "status": "error",
+            "code": "INVALID_OBJECT_NAME"
+        }
+        ```
+        ```json EXPIRE
+        // The provided expiration value for the object is invalid.
+        // Must be a number ranging from 1 to 365. (value in days).
+        {
+            "status": "error",
+            "code": "INVALID_OBJECT_EXPIRE"
+        }
+        ```
+        ```json SECURITY_HASH
+        // The provided security hash boolean is invalid.
+        // Just set to true or false. 😅
+        {
+            "status": "error",
+            "code": "INVALID_OBJECT_SECURITY_HASH"
+        }
+        ```
+        ```json AUTO_DOWNLOAD
+        // The provided auto-download boolean is invalid.
+        // Just set to true or false. 😅
+        {
+            "status": "error",
+            "code": "INVALID_OBJECT_AUTO_DOWNLOAD"
+        }
+        ```
+        </CodeGroup>
+        ### File-Related
+        <Warning> Actually, the maximum file size is 100mb. In the future, we plan to increase to 10GB. But for now, it's 100mb because of the CDN. </Warning>
+        <CodeGroup>
+        ```json INVALID_FILE
+        // The provided file is invalid.
+        {
+            "status": "error",
+            "code": "INVALID_FILE"
+        }
+        ```
+        ```json FILETYPE
+        // The provided file type is invalid.
+        {
+            "status": "error",
+            "code": "INVALID_FILETYPE"
+        }
+        ```
+        ```json FILE_TOO_SMALL
+        // The file size is too small (< 1kb).
+        {
+            "status": "error",
+            "code": "FILE_TOO_SMALL"
+        }
+        ```
+        ```json FILE_TOO_LARGE
+        // The file size is too large (> 100mb).
+        {
+            "status": "error",
+            "code": "FILE_TOO_LARGE"
+        }
+        ```
+        </CodeGroup>
+    </Tab>
+    <Tab title="401 Status Code">
+        ### Unauthorized
+        <CodeGroup>
+        ```json ACCESS_DENIED
+        // Just set the correct API key in the Authorization header.
+        {
+            "status": "error",
+            "code": "ACCESS_DENIED"
+        }
+        ```
+        </CodeGroup>
+    </Tab>
+</Tabs>
+

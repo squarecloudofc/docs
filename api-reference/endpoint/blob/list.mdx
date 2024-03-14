@@ -1,0 +1,108 @@
+---
+title: "Blob Object List"
+sidebarTitle: "Object List"
+description: "This documentation provides a comprehensive overview of the GET /v1/list endpoint of the SquareCloud Blob API."
+api: "GET https://blob.squarecloud.app/v1/list"
+authMethod: "none"
+---
+
+<ParamField header="Authorization" type="string" placeholder="API KEY" required>
+  The API key for your account. You can find this in your [account settings](https://squarecloud.app/account).
+</ParamField>
+
+<ParamField query="prefix" type="string" placeholder="File Prefix">
+  A string representing the prefix for the file.<br/>Must adhere to the a to z, A to Z, 0 to 9, and _ pattern. (3 to 32 characters)
+</ParamField>
+
+<ParamField query="continuationToken" type="string" placeholder="Continuation Token">
+  A string representing the continuation token for the file list.
+</ParamField>
+
+### Response
+
+<ResponseField name="status" type="string">
+  Indicates whether the call was successful. "success" if successful, "error" if not.
+</ResponseField>
+
+<ResponseField name="response" type="object">
+
+<Expandable title="Toggle object">
+<ResponseField name="objects" type="array">
+
+<Expandable title="Toggle object">
+
+<ResponseField name="name" type="string">
+  The name of the object.
+</ResponseField>
+
+<ResponseField name="size" type="integer">
+  The size of the object in bytes.
+</ResponseField>
+
+<ResponseField name="created_at" type="ISO 8601">
+  The date and time the object was created.
+</ResponseField>
+
+<ResponseField name="expire_at" type="ISO 8601">
+  The date and time the object will expire.
+</ResponseField>
+
+</Expandable>
+
+</ResponseField>
+</Expandable>
+
+</ResponseField>
+
+<ResponseExample>
+```json Response - [30s cache]
+{
+  "status": "success",
+  "response": {
+    "objects": [
+      {
+        "name": "ID/prefix/name1_ltq7b2sw-de6241.jpeg",
+        "size": 78266,
+        "created_at": "2024-03-13T19:31:28.776Z"
+      },
+      {
+        "name": "ID/prefix/name_ltq7b2sw-de6243-ex1.jpeg",
+        "size": 90466,
+        "created_at": "2024-03-13T19:35:28.776Z",
+        "expire_at": "2024-03-14T19:35:28.776Z"
+      },
+    ]
+  }
+}
+```
+</ResponseExample>
+
+### Troubleshooting
+<Tabs>
+    <Tab title="400 Status Code">
+        ### Object-Related
+        <CodeGroup>
+        ```json INVALID_PREFIX
+        // The provided object prefix is invalid.
+        // Must adhere to the a to z, A to Z, 0 to 9, and _ pattern.
+        {
+            "status": "error",
+            "code": "INVALID_OBJECT_PREFIX"
+        }
+        ```
+        </CodeGroup>
+    </Tab>
+    <Tab title="401 Status Code">
+        ### Unauthorized
+        <CodeGroup>
+        ```json ACCESS_DENIED
+        // Just set the correct API key in the Authorization header.
+        {
+            "status": "error",
+            "code": "ACCESS_DENIED"
+        }
+        ```
+        </CodeGroup>
+    </Tab>
+</Tabs>
+

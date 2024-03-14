@@ -1,0 +1,82 @@
+---
+title: "Blob Object Delete"
+sidebarTitle: "Object Delete"
+description: "This documentation provides a comprehensive overview of the DELETE /v1/delete endpoint of the SquareCloud Blob API."
+api: "DELETE https://blob.squarecloud.app/v1/delete"
+authMethod: "none"
+---
+
+<ParamField header="Authorization" type="string" placeholder="API KEY" required>
+  The API key for your account. You can find this in your [account settings](https://squarecloud.app/account).
+</ParamField>
+
+<ParamField body="objects" type="array" placeholder="Objects">
+ <Warning> **Square Cloud API Playground does not support the specific array usage**.</Warning>
+
+ An array of strings representing the names of the objects to delete. You can delete up to 100 objects at a time in a single request.
+ Object names must adhere to the following pattern: `a to z, A to Z, 0 to 9, and _`.
+  ```json
+ [
+  "ID/prefix/name1_ltq7b2sw-de6241.jpeg",
+  "ID/prefix/name_ltq7b2sw-de6243-ex1.jpeg"
+ ]
+ ```
+
+</ParamField>
+
+### Response
+
+<ResponseField name="status" type="string">
+  Indicates whether the call was successful. "success" if successful, "error" if not.
+</ResponseField>
+
+<ResponseExample>
+```json
+{
+  "status": "success",
+}
+```
+</ResponseExample>
+
+### Troubleshooting
+<Tabs>
+    <Tab title="400 Status Code">
+        ### Object-Related
+        <CodeGroup>
+        ```json INVALID_OBJECTS
+        // The provided object names are invalid.
+        {
+            "status": "error",
+            "code": "INVALID_OBJECTS"
+        }
+        ```
+        ```json TOO_MANY_OBJECTS
+        // The number of objects to delete exceeds the maximum limit.
+        {
+            "status": "error",
+            "code": "TOO_MANY_OBJECTS"
+        }
+        ```
+        ```json FAILED_DELETE
+        // The request to delete the objects failed. Please try again.
+        {
+            "status": "error",
+            "code": "FAILED_DELETE"
+        }
+        ```
+        </CodeGroup>
+    </Tab>
+    <Tab title="401 Status Code">
+        ### Unauthorized
+        <CodeGroup>
+        ```json ACCESS_DENIED
+        // Just set the correct API key in the Authorization header.
+        {
+            "status": "error",
+            "code": "ACCESS_DENIED"
+        }
+        ```
+        </CodeGroup>
+    </Tab>
+</Tabs>
+

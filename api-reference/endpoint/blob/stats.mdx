@@ -1,0 +1,83 @@
+---
+title: "Blob Account Stats"
+sidebarTitle: "Account Stats"
+description: "This documentation provides a comprehensive overview of the GET /v1/stats endpoint of the SquareCloud Blob API."
+api: "GET https://blob.squarecloud.app/v1/account/stats"
+authMethod: "none"
+---
+
+<ParamField header="Authorization" type="string" placeholder="API KEY" required>
+  The API key for your account. You can find this in your [account settings](https://squarecloud.app/account).
+</ParamField>
+
+### Response
+
+<ResponseField name="status" type="string">
+  Indicates whether the call was successful. "success" if successful, "error" if not.
+</ResponseField>
+
+<ResponseField name="response" type="object">
+
+<Expandable title="Toggle object">
+<ResponseField name="objects" type="number">
+  The total number of objects in your account.
+</ResponseField>
+<ResponseField name="size" type="number">
+  The total size of all objects in your account, in bytes.
+</ResponseField>
+<ResponseField name="storagePrice" type="number">
+  The total price of storage for all objects in your account, in BRL.
+</ResponseField>
+<ResponseField name="objectsPrice" type="number">
+  The total price of all objects in your account, in BRL.
+</ResponseField>
+<ResponseField name="totalEstimate" type="number">
+  The total price of all objects in your account, in BRL.
+</ResponseField>
+</Expandable>
+
+</ResponseField>
+
+<ResponseExample>
+```json Response - [30s cache]
+{
+  "status": "success",
+  "response": {
+    "objects": 5,
+    "size": 1628388,
+    "storagePrice": 0,
+    "objectsPrice": 0,
+    "totalEstimate": 0
+  }
+}
+```
+</ResponseExample>
+
+### Troubleshooting
+<Tabs>
+    <Tab title="400 Status Code">
+        ### Object-Related
+        <CodeGroup>
+        ```json FAILED_LIST
+        // Just try again later.
+        {
+            "status": "error",
+            "code": "FAILED_LIST"
+        }
+        ```
+        </CodeGroup>
+    </Tab>
+    <Tab title="401 Status Code">
+        ### Unauthorized
+        <CodeGroup>
+        ```json ACCESS_DENIED
+        // Just set the correct API key in the Authorization header.
+        {
+            "status": "error",
+            "code": "ACCESS_DENIED"
+        }
+        ```
+        </CodeGroup>
+    </Tab>
+</Tabs>
+
