@@ -43,8 +43,12 @@
   ],
   "tabs": [
     {
-      "name": "API & Blob Reference",
+      "name": "API Reference",
       "url": "api-reference"
+    },
+    {
+      "name": "Blob Reference",
+      "url": "blob-reference"
     },
     {
       "name": "SDKs",
@@ -183,12 +187,18 @@
       ]
     },
     {
+      "group": "Blob Reference",
+      "pages": [
+        "blob-reference/authentication"
+      ]
+    },
+    {
       "group": "Blob Endpoints",
       "pages": [
-        "api-reference/endpoint/blob/stats",
-        "api-reference/endpoint/blob/list",
-        "api-reference/endpoint/blob/put",
-        "api-reference/endpoint/blob/delete"
+        "blob-reference/endpoint/stats",
+        "blob-reference/endpoint/list",
+        "blob-reference/endpoint/put",
+        "blob-reference/endpoint/delete"
 
       ]
     },
