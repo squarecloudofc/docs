@@ -1,0 +1,46 @@
+---
+title: "Last Deploys"
+description: "Get the last 10 deployments of an application from the last 24 hours."
+api: "GET https:/api.squarecloud.app/v2/apps/{app_id}/deploy/info"
+authMethod: "none"
+---
+
+<ParamField header="Authorization" type="string" placeholder="API KEY" required>
+  The API key for your account. You can find this in your [account settings](https://squarecloud.app/account).
+</ParamField>
+
+<ParamField path="app_id" type="string" placeholder="Application ID" required>
+  The ID of the application. You can find this in the URL of your application's dashboard.
+</ParamField>
+
+### Response
+
+<ResponseField name="status" type="string">
+  Indicates whether the call was successful. "success" if successful, "error" if not.
+</ResponseField>
+
+<ResponseField name="response" type="array">
+
+The contents of the response.
+
+<Expandable title="Toggle object">
+
+<ResponseField name="webhook" type="string">
+  The webhook URL for the application.
+</ResponseField>
+
+</Expandable>
+
+</ResponseField>
+
+
+<ResponseExample>
+```json
+{
+    "status": "success",
+    "response": { 
+        "webhook": "https://api.squarecloud.app/v2/git/webhook/69ce71f11974f2cc21d47cd0a8bcbafdaacbc3c9924b23ca40e0e2032705f6391eb89b40983338e0f2415e9331d602ccc"
+    }
+}
+```
+</ResponseExample>
