@@ -1,0 +1,114 @@
+---
+title: "Hosting a React Application on Square Cloud"
+sidebarTitle: "Deploy your React website"
+description: "This article guides you through the creation and hosting of a React application on Square Cloud."
+---
+
+## Creating a New React Project
+
+Before you begin, make sure you have Node.js and npm installed on your system. If you don't have them yet, you can download them from the [official Node.js website](https://nodejs.org/).
+
+With Node.js and npm installed, you can create a new React project using the `create-react-app` command, which is the official tool for React projects.
+
+Open a terminal and execute the following command to create a new project:
+
+```bash
+npx create-react-app my-react-app
+```
+
+In the above command, `my-react-app` is the name of your new project. You can replace `my-react-app` with any desired name for your project.
+
+`create-react-app` is a package available in the npm registry that sets up a new React project for you. It takes care of all the initial setup, such as creating the project directory, installing necessary dependencies, and configuring basic files.
+
+## Using TypeScript
+
+If you want to use TypeScript in your React project, you can add TypeScript support when creating the project. Modify the creation command as follows:
+
+```bash
+npx create-react-app my-react-app --template typescript
+```
+
+This adds TypeScript support to your React project.
+
+## Configuring Port 80
+
+Port 80 is the default port for HTTP traffic. To host a React application on Square Cloud, it's crucial to configure the use of port 80. In React, you can set the `set PORT=80` parameter in the startup script to ensure your application runs correctly on this port.
+
+## Creating the Configuration File on Square Cloud
+
+Square Cloud requires a specific configuration file to host your application. You can access our step-by-step guide on how to create one:
+[How to create your Square Cloud configuration file](https://docs.squarecloud.app/articles/how-to-create-your-squarecloud-configuration-file)
+
+## Configuring the START Field
+
+In the Square Cloud configuration file, the `START` field is essential for customizing the startup command. If you want to build and start your application on Square Cloud, configure the `START` field as follows:
+
+```app squarecloud.app
+START=npm run build && npm start
+```
+
+This command will execute the "build" and "start" scripts defined in your `package.json`:
+
+```json package.json
+{
+  "name": "my-react-app",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "set PORT=80 && react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
+```
+
+## Uploading Your Application to Square Cloud
+
+After following all the steps, place your application files inside the zip file where the configuration file is and upload the site at [Upload](https://squarecloud.app/dashboard/upload). Remember not to include files like `package-lock.json` or `node_modules`. You can get more information about unnecessary files when hosting at [automatic-deletion-files-when-deploying-an-application-to-squarecloud](https://docs.squarecloud.app/faqs/automatic-deletion-files-when-deploying-an-application-to-squarecloud).
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Custom Domain" icon="globe" iconType="solid">
+    If you want to use a custom domain for your application hosted on Square Cloud, note that, by default, the URL will be something like `https://mysite.squareweb.app/`. The subdomain is determined by the SUBDOMAIN field in the configuration file. However, if you prefer to use a custom domain, such as `mysite.com.br`, you'll need to purchase the `Standard` plan or a higher plan. We detail each step to set up your custom domain in our article: [How to set up your custom domain](https://docs.squarecloud.app/articles/how-to-set-up-your-domain).
+  </Accordion>
+
+  <Accordion title="Minimum RAM Requirement" icon="memory" iconType="solid">
+      The minimum amount of RAM required to host a website is 512MB, however, when building your site directly on Square, it is advisable to use a higher amount, or you may encounter the [LACK_OF_RAM](https://docs.squarecloud.app/faqs/troubleshooting/LACK_OF_RAM) error.
+  </Accordion>
+
+  <Accordion title="Temporary access Denied" icon="ban" iconType="solid">
+    If you receive the message "Your access has been temporarily denied." after trying to access the site, please wait for some time. If the issue persists, feel free to contact us at https://squarecloud.app/support.
+    <Frame>
+      <img src="https://i.imgur.com/Og5iBAH.png" style={{ borderRadius: "0.2rem" }} />
+    </Frame>
+  </Accordion>
+</AccordionGroup>
+
+## Additional Resources
+
+For more information about React and its tools, visit the [official React documentation](https://reactjs.org/docs). There, you'll find detailed guides, tutorials, and API documentation to help you make the most of React.
+
+If you continue to experience any issues, please don't hesitate to [contact our support team](/company/support).
