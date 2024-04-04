@@ -1,0 +1,101 @@
+---
+title: "Hosting a Vite App on Square Cloud"
+sidebarTitle: "Hosting a Vite App"
+description: "This article guides you on creating and hosting a Vite app on Square Cloud, allowing the choice between JavaScript and TypeScript, as well as different templates like React, Vue, etc."
+---
+
+## Creating a New Vite Project
+
+Before you begin, make sure you have Node.js and npm installed on your system. If you don't have them yet, you can download them from the [official Node.js website](https://nodejs.org/).
+
+### Creating a Vite Project
+
+To create a new Vite project, run the following command:
+
+```bash
+npm create vite@latest my-vite-app
+```
+
+In the above command, `my-vite-app` is the name of your new project. Replace it with any desired name for your project. By default, this command sets up a Vite project with JavaScript.
+
+### Choosing a Specific Template
+
+Vite allows choosing different templates for your project. When creating a new project, you can specify the desired template using the `--template` option. Here are some examples:
+
+Select a template by: `react`, `vue` & `lit`.
+```bash
+# npm 7+, extra double-dash is needed:
+npm create vite@latest my-vite-app -- --template [template]
+```
+
+Choose the template that best suits your needs and adjust the project name as needed.
+
+### Understanding the Difference Between JavaScript and TypeScript
+
+When you choose JavaScript, Vite configures the project with default JavaScript settings. On the other hand, when choosing TypeScript, Vite configures the project with TypeScript settings, including generating a `tsconfig.json` file.
+
+## Configuring Port 80
+
+Port 80 is the default port for HTTP traffic. To host a Vite app on Square Cloud, configure the use of port 80. In Vite, you can set the `--port 80` parameter in the startup script to ensure your app runs correctly on this port.
+
+## Creating the Configuration File on Square Cloud
+
+Square Cloud requires a specific configuration file to host your app. You can access our step-by-step guide on how to create one:
+[How to create your Square Cloud configuration file](https://docs.squarecloud.app/articles/how-to-create-your-squarecloud-configuration-file)
+
+## Configuring the START Field
+
+In the Square Cloud configuration file, the `START` field is essential to customize the startup command. If you want to build and start your Vite app on Square Cloud, configure the `START` field as follows:
+
+```app squarecloud.app
+START=npm run build && npm run serve
+```
+
+This command will execute the "build" and "serve" scripts defined in your `package.json`:
+
+```json package.json
+{
+  "name": "my-vite-app",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview --port 80"
+  },
+  "devDependencies": {
+    "vite": "^5.1.4"
+  }
+}
+
+```
+
+## Uploading Your App to Square Cloud
+
+After following all the steps, place your Vite app files inside the zip file where the configuration file is, and upload the site at [Upload](https://squarecloud.app/dashboard/upload). Remember not to include files like `node_modules`. You can get more information about unnecessary files when hosting at [automatic-deletion-files-when-deploying-an-application-to-squarecloud](https://docs.squarecloud.app/faqs/automatic-deletion-files-when-deploying-an-application-to-squarecloud).
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Custom Domain" icon="globe" iconType="solid">
+    If you want to use a custom domain for your app hosted on Square Cloud, note that by default, the URL will be something like `https://mysite.squareweb.app/`. The subdomain is determined by the SUBDOMAIN field in the configuration file. However, if you prefer using a custom domain, such as `mysite.com`, you'll need to purchase the `Standard` plan or a higher plan. We detail each step to set up your custom domain in our article: [How to set up your custom domain](https://docs.squarecloud.app/articles/how-to-set-up-your-domain).
+  </Accordion>
+
+  <Accordion title="Minimum RAM Requirements" icon="memory" iconType="solid">
+      The minimum amount of RAM required to host a website is 512MB, however, when building your site directly on Square, it's advisable to use a higher amount, or you may encounter the [LACK_OF_RAM](https://docs.squarecloud.app/faqs/troubleshooting/LACK_OF_RAM) error.
+  </Accordion>
+
+  <Accordion title="Temporarily Denied Access" icon="ban" iconType="solid">
+    If you receive the message "Your access has been temporarily denied." when trying to access the site, wait for some time. If the issue persists, feel free to contact us at https://squarecloud.app/support.
+    <Frame>
+      <img src="https://i.imgur.com/Og5iBAH.png" style={{ borderRadius: "0.2rem" }} />
+    </Frame>
+  </Accordion>
+</AccordionGroup>
+
+## Additional Resources
+
+For more information about Vite and its tools, visit the [official Vite documentation](https://vitejs.dev/guide/). There, you'll find detailed guides, tutorials, and API documentation to help you make the most of Vite.
+
+If you continue to face issues, don't hesitate to [contact our support team](/company/support).
