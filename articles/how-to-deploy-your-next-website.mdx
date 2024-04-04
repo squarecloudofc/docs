@@ -1,0 +1,107 @@
+---
+title: "Hosting a Next.js Website on Square Cloud"
+sidebarTitle: "Deploy your Next.js website"
+description: "This article guides you on creating and hosting a Next.js website on Square Cloud."
+---
+
+## Creating a New Next.js Project
+
+First, you'll need to have Node.js and npm installed on your system. If you don't have them yet, you can download them from the [official Node.js website](https://nodejs.org/).
+
+Once you've confirmed that Node.js and npm are installed correctly, you can create a new Next.js project using the `create-next-app` command, which is the official command for new Next.js projects.
+
+Open a terminal and run the following command to create a new project:
+
+Desculpe pela confusão anterior. Aqui está a seção revisada com a explicação da flag `--ts` inserida no local correto:
+
+```bash
+npx create-next-app@latest my-app
+```
+
+In this command, `my-app` is the name of your new project. You can replace `my-app` with any name you want for your project. The `npx` command is a tool that comes with `npm`, the Node.js package manager. It is used to run Node.js packages that are installed locally in your project or are available remotely on the npm registry.
+
+`create-next-app` is a package available on the npm registry that sets up a new Next.js project for you. It takes care of all the initial setup, such as creating the project directory, installing necessary dependencies, and configuring basic files.
+
+`@latest` is a tag specifying that you want to use the latest version of the `create-next-app` package. This ensures you're always using the most updated version and, consequently, have access to the latest features.
+
+If you want to create a new Next.js project with TypeScript, you can add the `--ts` flag to the command:
+
+```bash
+npx create-next-app@latest my-app --ts
+```
+
+The `--ts` flag is an option you can add to the `create-next-app` command to create a new Next.js project with TypeScript support.
+
+## Configuring Port 80
+
+Port 80 is the default port for HTTP traffic. To host a Next.js website on Square Cloud, it's crucial to configure the use of port 80. In Next.js, you can set the `-p 80` parameter in the startup script to ensure your website runs correctly on this port.
+
+## Creating the Configuration File on Square Cloud
+
+Square Cloud requires a specific configuration file to host your website. You can access our step-by-step guide on how to create one:
+[How to create your Square Cloud configuration file](https://docs.squarecloud.app/articles/how-to-create-your-squarecloud-configuration-file)
+
+## Configuring the START Field
+
+In the Square Cloud configuration file, the `START` field is essential for customizing the startup command. If you want to build and start your website on Square Cloud, configure the `START` field as follows:
+
+```app squarecloud.app
+START=npm run build && npm run start
+```
+
+This command will execute the "build" and "start" scripts defined in your `package.json`:
+
+```json package.json
+{
+  "name": "my-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start -p 80",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "react": "^18",
+    "react-dom": "^18",
+    "next": "14.1.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.0.1",
+    "postcss": "^8",
+    "tailwindcss": "^3.3.0",
+    "eslint": "^8",
+    "eslint-config-next": "14.1.0"
+  }
+}
+```
+
+## Uploading Your Website to Square Cloud
+
+After following all the steps, place your website files inside the zip where the configuration file is, and upload the site at [Upload](https://squarecloud.app/dashboard/upload). Remember not to include files like `package-lock.json` or `node_modules`. You can get more information about unnecessary files when hosting at [automatic-deletion-files-when-deploying-an-application-to-squarecloud](https://docs.squarecloud.app/faqs/automatic-deletion-files-when-deploying-an-application-to-squarecloud).
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Custom Domain" icon="globe" iconType="solid">
+    If you want to use a custom domain for your website hosted on Square Cloud, note that, by default, the URL will be something like `https://mysite.squareweb.app/`. The subdomain is determined by the SUBDOMAIN field in the configuration file. However, if you prefer to use a custom domain, such as `mysite.com.br`, you'll need to purchase the `Standard` plan or a higher plan. We detail each step to set up your custom domain in our article: [How to set up your custom domain](https://docs.squarecloud.app/articles/how-to-set-up-your-domain).
+  </Accordion>
+
+  <Accordion title="Minimum RAM Requirement" icon="memory" iconType="solid">
+  The minimum amount of RAM required to host a website is 512MB, however, when building your site directly on Square, it is advisable to use a higher amount, or you may encounter the [LACK_OF_RAM](https://docs.squarecloud.app/faqs/troubleshooting/LACK_OF_RAM) error.
+  </Accordion>
+
+  <Accordion title="Temporary access Denied" icon="ban" iconType="solid">
+    If you receive the message "Your access has been temporarily denied." after trying to access the site, please wait for some time. If the issue persists, feel free to contact us at https://squarecloud.app/support.
+    <Frame>
+      <img src="https://i.imgur.com/Og5iBAH.png" style={{ borderRadius: "0.2rem" }} />
+    </Frame>
+  </Accordion>
+</AccordionGroup>
+
+## Additional Resources
+
+For more information about Next.js and its tools, visit the [official Next.js documentation](https://nextjs.org/docs). There, you'll find detailed guides, tutorials, and API documentation to help you make the most of Next.js.
+
+If you continue to experience any issues, please don't hesitate to [contact our support team](/company/support).
