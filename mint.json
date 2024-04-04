@@ -105,8 +105,10 @@
         "articles/how-to-set-up-git-integration",
         "articles/how-to-set-up-your-domain",
         "articles/how-to-deploy-your-website",
-        "articles/how-to-deploy-your-react-website",
+        "articles/how-to-deploy-your-flask-application",
         "articles/how-to-deploy-your-vite-website",
+        "articles/how-to-deploy-your-react-website",
+        "articles/how-to-deploy-your-next-website",
         "articles/how-to-create-your-lavalink-server"
       ]
     },
