@@ -1,0 +1,179 @@
+---
+title: "Configure Top.gg Webhook on Square Cloud"
+sidebarTitle: "Top.gg Webhook Configuration"
+description: "A detailed guide to setting up the Top.gg webhook on Square Cloud."
+---
+
+## Prerequisites
+
+This guide assumes that you have an approved bot on [top.gg](https://top.gg/). Depending on the language you are using for your project, you may need to have either [Node.JS](https://nodejs.org/en) or [Python](https://www.python.org/downloads/) installed in your environment.
+
+## Setting Up the Environment
+
+If you are using Node.js for your project, start a new Node.js project with the following command:
+
+```bash Terminal
+npm init -y
+```
+
+This command creates a package.json file in the current directory, which serves as a manifest for your Node.js project.
+
+Next, you will need to install some libraries to facilitate the process. In this tutorial, we will use the top.gg SDK (@top-gg/sdk) and express. To add them to your project, run the following command:
+
+```bash Terminal
+npm install @top-gg/sdk express
+```
+
+If you are using Python for your project, you need to install the `flask` and `waitress` libraries. You can do this using pip, which is a package manager for Python. If you don't have pip installed, you can download it from [here](https://pypi.org/project/pip/). Once you have pip, you can install the `flask` and `waitress` libraries with the following commands:
+
+```bash
+pip install flask
+pip install waitress
+```
+## Setting Up the Project
+
+In this tutorial, we will use the example provided by the top.gg documentation [here](https://docs.top.gg/docs/Libraries/javascript), with some modifications.
+
+```javascript index.js
+// Import the necessary libraries
+const Topgg = require("@top-gg/sdk");
+const express = require("express");
+
+// We create an instance of the Express app
+const app = express();
+
+// We create an instance of the Top.gg Webhook
+// Insert the webhook authentication here
+const webhook = new Topgg.Webhook("YOUR_AUTHORIZATION"); 
+
+// We define a route for the '/topgg' endpoint that accepts POST requests
+app.post(
+  "/topgg",
+  // We use the webhook listener to handle the votes
+  webhook.listener((vote) => {
+    // We print a message in the console when a vote is received
+    console.log(`Vote received successfully! User ID: ${vote.user}`);
+  })
+);
+
+// We start the server on port 80, the default port for HTTP traffic
+app.listen(80);
+```
+
+To get the webhook authentication, go to your profile on the top.gg site [here](https://top.gg/user/me), click on "edit" on the bot you want to receive notifications when it receives votes, and under "GENERAL", choose the "webhook" option. Then, set the webhook authentication in "Authorization". In this example, we used "myappsquare":
+
+```js
+const webhook = new Topgg.Webhook("myappsquare");
+```
+```python
+AUTH_TOKEN = 'myappsquare'
+```
+For Python, you can use the following example code:
+
+```python app.py
+# Import the necessary libraries
+import logging
+import json
+from waitress import serve
+from flask import Flask, request, abort
+
+# Create an instance of the Flask app
+app = Flask(__name__)
+
+# Define your authorization token
+AUTH_TOKEN = 'YOUR_AUTHORIZATION'
+
+# Define a route for the '/topgg' endpoint that accepts POST requests
+@app.route("/topgg", methods=["POST"])
+def hook():
+    # Check the authorization header
+    auth = request.headers.get('Authorization')
+    if auth != AUTH_TOKEN:
+        logging.error('Access denied')
+        abort(401)  # Unauthorized
+
+    # Convert the request data from bytes to a JSON dictionary
+    data = json.loads(request.data)
+    # Print the ID of the user who voted
+    print(f'Vote received successfully! User ID: {data["user"]}')
+    # Return a response with the string "Data received" and status 200 to indicate that the request was processed successfully
+    return "Data received"
+
+# Check if this script is being run directly and not imported as a module
+if __name__ == "__main__":
+    # Set the log message format to exclude the log level
+    logging.basicConfig(format='%(message)s', level=logging.INFO)
+    # Serve our Flask app on port 80 and listen on all network interfaces
+    serve(app, host="0.0.0.0", port=80)
+```
+# Managing Dependencies with requirements.txt and package.json Files
+
+## The requirements.txt File
+
+The `requirements.txt` file lists all the external libraries required for your Python project. You should list all the libraries your project will use, excluding the native libraries. This file should be included when submitting your application to Square Cloud.
+
+Just like the `package.json` is used to manage dependencies in Node.js projects, the `requirements.txt` is used for the same purpose in Python projects. It helps ensure that all environments where your app runs have the same versions of the required libraries, which helps avoid compatibility issues.
+
+## The package.json File
+
+The `package.json` file lists all the external libraries required for your Node.js project. You should list all the libraries your project will use, excluding the native libraries. This file should be included when submitting your application to Square Cloud.
+
+### Conclusion
+
+In both cases, these files make it easy for other developers to set up the environment to run your app, as they can install all dependencies at once using these files.
+
+## Creating the Configuration File in Square Cloud
+
+Square Cloud requires a specific configuration file to host your application. Refer to our step-by-step guide on how to create one [here](https://docs.squarecloud.app/articles/how-to-create-your-squarecloud-configuration-file).
+
+## Uploading Your Application to Square Cloud
+
+After following all the steps, put your application files into a zip file, including the configuration file, and upload it to the site at [Upload](https://squarecloud.app/dashboard/upload).
+
+If your application is a Node.js project, remember to include the `package.json` file, but do not include folders or files like `node_modules` or `package-lock.json`.
+
+If your application is a Python project, remember to include the `requirements.txt` file, but do not include folders or files like `__pycache__` or `.pyc` files.
+
+You can get more information about unnecessary files when hosting at [automatic-deletion-files-when-deploying-an-application-to-squarecloud](https://docs.squarecloud.app/faqs/automatic-deletion-files-when-deploying-an-application-to-squarecloud).
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Custom Domain" icon="globe" iconType="solid">
+    If you want to use a custom domain for your application hosted on Square Cloud, note that by default, the URL will be something like `https://mysite.squareweb.app/`. The subdomain is determined by the SUBDOMAIN field in the configuration file. However, if you prefer to use a custom domain, such as `mysite.com`, you'll need to purchase the `Standard` plan or a higher plan. We detail each step to set up your custom domain in our article: [How to Set Up Your Custom Domain](https://docs.squarecloud.app/articles/how-to-set-up-your-domain).
+  </Accordion>
+
+  <Accordion title="Minimum RAM Requirements" icon="memory" iconType="solid">
+    The minimum amount of RAM required to host a website is 512MB. However, depending on the size and complexity of your project, it may be advisable to use a larger amount of RAM to avoid the [LACK_OF_RAM](https://docs.squarecloud.app/faqs/troubleshooting/LACK_OF_RAM) error.
+  </Accordion>
+
+  <Accordion title="Temporary Access Denied" icon="ban" iconType="solid">
+    If you receive the message "Your access has been temporarily denied." when trying to access the site, please wait for some time. If the issue persists, feel free to contact us at https://squarecloud.app/support.
+    <Frame>
+      <img src="https://i.imgur.com/Og5iBAH.png" style={{ borderRadius: "0.2rem" }} />
+    </Frame>
+  </Accordion>
+</AccordionGroup>
+
+## Starting Tests
+
+If you have done everything correctly, try accessing your site using the subdomain defined in the configuration file. If you defined it as "mysite", to access it will be `https://mysite.squareweb.app/`. After you access and only "Cannot GET /" or "Method Not Allowed" appears, everything is okay.
+
+Now, you need to go back to the previous page where the authorization was defined. In the Webhook URL field, you should put the URL of your site with the route that will receive the votes.
+
+- For the JavaScript code we created with `app.post("/topgg", webhook.listener((vote) => {...})`, the route that will receive the votes is "/topgg". So, if your website is "https://mysite.squareweb.app", you should put "https://mysite.squareweb.app/topgg" as the Webhook URL.
+
+- For the Python code we created with `@app.route("/topgg", methods=["POST"])`, the route that will receive the votes is also "/topgg". So, the Webhook URL would be the same "https://mysite.squareweb.app/topgg".
+
+<Frame>
+      <img src="https://i.imgur.com/3KUPtJY.png" style={{ borderRadius: "0.2rem" }} />
+</Frame>
+
+Finally, click on the "Send Test" button. After that, check the terminal. If everything went well, the message you defined in `console.log` or `print` should appear in the terminal.
+<Frame>
+      <img src="https://i.imgur.com/wrHoMuR.png" style={{ borderRadius: "0.2rem" }} />
+</Frame>
+
+And with that, if everything has been configured correctly, your webhook will be ready to send notifications when your bot receives a vote on top.gg.
+
+If you continue to experience any issues, please don't hesitate to [contact our support team](/company/support).
