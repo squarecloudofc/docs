@@ -1,0 +1,102 @@
+---
+title: "Hosting a Django Application on Square Cloud"
+sidebarTitle: "Deploy your Django application"
+description: "This article guides you through creating and hosting a Django application on Square Cloud."
+---
+
+## Creating a New Django Project
+
+Before getting started, make sure you have Python and pip installed on your system. If you don't already have them, you can download them from the [official Python website](https://www.python.org/) and [official Pip website](https://pypi.org/).
+
+With Python and pip installed, you can create a new Django project. First, install Django using pip:
+
+```bash
+pip install django
+```
+
+Then, create a new Python file (e.g., `app.py`) and add the following code to create a basic Django application:
+
+```python app.py
+from django.conf import settings
+from django.http import HttpResponse
+from django.urls import path
+from django.core.wsgi import get_wsgi_application
+
+# Basic Django settings
+settings.configure(
+    DEBUG=False,  # Turn off debug mode
+    SECRET_KEY='mysecretkey',  # Set your secret key
+    ALLOWED_HOSTS=['*'],  # Allow all hosts for simplicity
+    ROOT_URLCONF=__name__,  # Set the root URL configuration to this module
+    MIDDLEWARE_CLASSES=(),  # Use an empty tuple to disable middleware
+)
+
+# Simple view
+def index(request):
+    return HttpResponse("Hello world!")  # Return a simple HTTP response
+
+# URL configuration
+urlpatterns = [
+    path('', index),  # Map the root URL to the index view
+]
+
+# WSGI application
+application = get_wsgi_application()
+
+# WSGI server
+if __name__ == "__main__":
+    from wsgiref.simple_server import make_server
+    httpd = make_server('', 80, application)  # Serve the application using the WSGI server on port 80
+    print("Django server running on port 80...")
+    httpd.serve_forever()  # Start the server
+```
+
+In the above code, we create a basic route that returns "Hello, World!" when accessed. The application is configured to run on port 80, which is the default port for HTTP traffic.
+
+## Managing Dependencies with the requirements.txt File
+
+The `requirements.txt` file is a file that lists all external libraries required for your project. You should list all libraries your project will use, excluding native libraries like `random` and `datetime`. This file should be included when submitting your application to Square Cloud.
+
+```txt requirements.txt
+django
+```
+
+## Creating the Configuration File on Square Cloud
+
+Square Cloud requires a specific configuration file to host your application. You can access our step-by-step guide on how to create one:
+[How to Create Your Square Cloud Configuration File](https://docs.squarecloud.app/articles/how-to-create-your-squarecloud-configuration-file)
+
+## Configuring the START Field
+
+In the Square Cloud configuration file, the `START` field is essential for customizing the startup command. If you want to build and start your application on Square Cloud, configure the `START` field as follows:
+```app squarecloud.app
+START=python app.py runserver 0.0.0.0:80
+```
+## Uploading Your Application to Square Cloud
+
+After following all the steps, package your application files into a zip file where the configuration file is and upload the site on [Upload](https://squarecloud.app/dashboard/upload). Remember to include the `requirements.txt` file, but do not include files like `__pycache__`. You can get more information about unnecessary files when hosting at [automatic-deletion-files-when-deploying-an-application-to-squarecloud](https://docs.squarecloud.app/faqs/automatic-deletion-files-when-deploying-an-application-to-squarecloud).
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Custom Domain" icon="globe" iconType="solid">
+    If you want to use a custom domain for your application hosted on Square Cloud, note that by default, the URL will be something like `https://mysite.squareweb.app/`. The subdomain is determined by the SUBDOMAIN field in the configuration file. However, if you prefer to use a custom domain, such as `mysite.com`, you'll need to purchase the `Standard` plan or a higher plan. We detail each step to set up your custom domain in our article: [How to Set Up Your Custom Domain](https://docs.squarecloud.app/articles/how-to-set-up-your-domain).
+  </Accordion>
+
+  <Accordion title="Minimum RAM Requirements" icon="memory" iconType="solid">
+    The minimum amount of RAM required to host a website is 512MB. However, depending on the size and complexity of your Django website, it may be advisable to use a larger amount of RAM to avoid the [LACK_OF_RAM](https://docs.squarecloud.app/faqs/troubleshooting/LACK_OF_RAM) error.
+  </Accordion>
+
+  <Accordion title="Temporary Access Denied" icon="ban" iconType="solid">
+    If you receive the message "Your access has been temporarily denied." when trying to access the site, please wait for some time. If the issue persists, feel free to contact us at https://squarecloud.app/support.
+    <Frame>
+      <img src="https://i.imgur.com/Og5iBAH.png" style={{ borderRadius: "0.2rem" }} />
+    </Frame>
+  </Accordion>
+</AccordionGroup>
+
+## Additional Resources
+
+For more information about Django and its tools, visit the [official Django documentation](https://docs.djangoproject.com/en/5.0/). There, you'll find detailed guides, tutorials, and API documentation to help you make the most out of Django.
+
+If you continue to encounter issues, don't hesitate to [contact our support team](/company/support).
