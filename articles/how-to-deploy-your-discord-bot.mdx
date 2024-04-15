@@ -1,0 +1,114 @@
+---
+title: "Hosting a Discord Bot on Square Cloud"
+sidebarTitle: "Deploy your Discord bot"
+description: "This article guides you through creating and hosting a Discord bot on Square Cloud."
+---
+
+## Setting Up Your Discord Bot
+
+Before you start coding, you need to properly set up your bot on Discord:
+
+1. Go to the [Discord Developer Portal](https://discord.com/developers/applications) and create a new application.
+2. Navigate to the "Bot" tab and add a bot to your application.
+3. In the "Token" section, click "Reset Token" to generate your bot's token. This token will be used to authenticate your bot with the Discord server.
+4. Scroll down to the "Privileged Gateway Intents" section and enable the "MESSAGE CONTENT INTENT" by checking the corresponding box. This intent is necessary for your bot to access message contents. Without this intent, your bot won't be able to read messages sent in the Discord server.
+
+Remember to keep your bot's token secret as it can be used to control your bot.
+
+## Creating a New Discord Bot with Python (discord.py)
+
+1. Ensure you have Python installed on your system. If not, you can download it from the [official Python website](https://www.python.org/).
+2. Install the discord.py library using pip:
+
+```bash
+pip install discord.py
+```
+
+3. Create a new Python file (e.g., `main.py`) and add the following code to create a basic Discord bot:
+
+```python main.py
+import discord
+from discord.ext import commands
+
+intents = discord.Intents.default()
+intents.message_content = True
+
+client = commands.Bot(command_prefix='!', intents=intents)
+
+@client.event
+async def on_ready():
+    print(f'{client.user}')
+
+@client.command()
+async def hello(ctx):
+    await ctx.reply('Hello!')
+
+client.run('your token here')
+```
+
+4. Create a `requirements.txt` file to list all external libraries needed for your project:
+
+```txt requirements.txt
+discord.py
+```
+
+## Creating a New Discord Bot with JavaScript (discord.js)
+
+1. Ensure you have Node.js installed on your system. If not, you can download it from the [official Node.js website](https://nodejs.org/).
+2. Initialize a new Node.js project using `npm init`. This will create a new `package.json` file for your project:
+
+```bash
+npm init -y
+```
+
+3. Install the discord.js library using npm:
+
+```bash
+npm install discord.js
+```
+
+4. Create a new JavaScript file (e.g., `index.js`) and add the following code to create a basic Discord bot:
+
+```javascript index.js
+const { Client, GatewayIntentBits } = require("discord.js");
+
+const client = new Client({
+  intents: [
+    GatewayIntentBits.Guilds,
+    GatewayIntentBits.GuildMessages,
+    GatewayIntentBits.MessageContent,
+  ],
+});
+
+client.on("ready", () => {
+  console.log(`${client.user.tag}!`);
+});
+
+client.on("messageCreate", (message) => {
+  if (message.content === "!hello") {
+    message.reply("Hello!");
+  }
+});
+
+client.login("your token here");
+```
+
+## Creating the Configuration File on Square Cloud
+
+Square Cloud requires a specific configuration file to host your application. You can access our step-by-step guide on how to create one:
+[How to Create Your Square Cloud Configuration File](https://docs.squarecloud.app/articles/how-to-create-your-squarecloud-configuration-file)
+
+## Configuring the START Field
+<Warning>Only use this field if you are really sure about what you are doing.</Warning>
+
+In the Square Cloud configuration file, the **START** field is optional and only needed if you are using a custom script to start the bot. In the provided example, the **START** field is not necessary.
+
+## Uploading Your Application to Square Cloud
+
+After following all the steps, package your application files into a zip file where the configuration file is and upload the bot at [Upload](https://squarecloud.app/dashboard/upload). Remember to include the `requirements.txt` or `package.json` file, but do not include files like `__pycache__` or `node_modules`. You can get more information about unnecessary files when hosting at [automatic-file-deletion-when-deploying-an-application-on-squarecloud](https://docs.squarecloud.app/faqs/automatic-file-deletion-when-deploying-an-application-on-squarecloud).
+
+## Additional Resources
+
+For more information on creating bots with discord.py and discord.js, visit the [official discord.py documentation](https://discordpy.readthedocs.io/en/latest/) and the [official discord.js guide](https://discordjs.guide/). There, you'll find detailed guides, tutorials, and API documentation to help you make the most of these libraries.
+
+If you continue to encounter issues, feel free to [contact our support team](/company/support).
