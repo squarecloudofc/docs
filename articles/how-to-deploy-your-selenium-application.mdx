@@ -1,0 +1,75 @@
+---
+title: "Hosting a Selenium on Square Cloud"
+sidebarTitle: "Web Navigation with Selenium"
+description: "This article guides you to automate web navigation using Selenium and Chromium on Square Cloud."
+---
+
+## Creating a New Selenium Script
+
+Before you start, make sure you have **Python** and **pip** installed on your system. If you don't have them yet, you can download them from the [official Python website](https://www.python.org/) and the [official Pip website](https://pypi.org/).
+
+With Python and pip installed, you can create a new Selenium script. First, install Selenium using pip:
+
+```bash
+pip install selenium
+```
+
+Next, create a new Python file (for example, `main.py`) and add the following code to create a basic Selenium script:
+
+```python
+import time
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
+
+# Define options for Chromium
+options = Options()
+options.add_argument("--headless")  # Run in the background. This means that the browser runs without opening a browser window.
+options.add_argument("--no-sandbox")  # Required when you are running as root. This allows Selenium to start in a user-unsupported environment.
+options.add_argument("--disable-dev-shm-usage")  # This overcomes limitations when dealing with elements on large pages.
+
+# Initialize the driver
+service = Service('/usr/bin/chromedriver') # On Square Cloud, the path to the Chromium driver is '/usr/bin/chromedriver'
+driver = webdriver.Chrome(service=service, options=options)
+
+# Set the window size to larger dimensions
+driver.set_window_size(1920, 1080)  # Adjust these values as needed
+
+# Open the web page
+driver.get('https://www.google.com')
+
+# Loop to take a print of the page every 1 minute
+while True:
+    driver.save_screenshot('page.png')
+    print("Page print saved.")
+    time.sleep(60)  # Pause for 60 seconds
+```
+
+## Managing Dependencies with the requirements.txt File
+
+The `requirements.txt` file is a file that lists all the external libraries needed for your project. You should list all the libraries that your project will use, excluding native libraries like `random` and `datetime`. This file should be included when submitting your application to Square Cloud.
+
+```txt requirements.txt
+selenium
+```
+
+## About `binary_location`
+
+In the provided example, `binary_location` is not necessary because the Selenium WebDriver tries to find the browser on its default path if `binary_location` is not specified. This means that if Chromium is installed in a location that is in the system PATH, the WebDriver can find it automatically without you having to specify the location.
+
+In the case of Square Cloud, if the Chromium version is fixed and cannot be changed, and the Selenium WebDriver can automatically find the Chromium executable, then you would not need to specify the `binary_location`. However, if there is any reason why the WebDriver cannot find Chromium automatically, you would need to use `binary_location` to specify the location of the executable.
+
+## Creating the Configuration File on Square Cloud
+
+Square Cloud requires a specific configuration file to host your application. You can access our step-by-step guide on how to create one:
+[How to create your Square Cloud configuration file](https://docs.squarecloud.app/articles/how-to-create-your-squarecloud-configuration-file)
+
+## Uploading Your Application to Square Cloud
+
+After following all the steps, package your application files into a zip file where the configuration file is and upload the site on [Upload](https://squarecloud.app/dashboard/upload). Remember to include the `requirements.txt` file, but do not include files like `__pycache__`. You can get more information about unnecessary files when hosting at [automatic-deletion-files-when-deploying-an-application-to-squarecloud](https://docs.squarecloud.app/faqs/automatic-deletion-files-when-deploying-an-application-to-squarecloud).
+
+## Additional Resources
+
+For more information about Selenium and its tools, visit the [official Selenium documentation](https://www.selenium.dev/pt-br/documentation/webdriver/getting_started/). There, you'll find detailed guides, tutorials, and API documentation to help you make the most out of Selenium.
+
+If you continue to encounter issues, don't hesitate to [contact our support team](/company/support).
