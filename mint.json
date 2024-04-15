@@ -104,9 +104,12 @@
       "pages": [
         "articles/how-to-set-up-git-integration",
         "articles/how-to-set-up-your-domain",
+        "articles/how-to-deploy-your-selenium-application",
         "articles/how-to-deploy-your-website",
-        "articles/how-to-deploy-your-flask-application",
+        "articles/how-to-deploy-your-discord-bot",
         "articles/how-to-deploy-your-vite-website",
+        "articles/how-to-deploy-your-flask-application",
+        "articles/how-to-deploy-your-django-application",
         "articles/how-to-deploy-your-react-website",
         "articles/how-to-deploy-your-next-website",
         "articles/how-to-create-your-lavalink-server"
@@ -245,6 +248,7 @@
       "pages": [
         "faqs/using-autorestart-in-your-squarecloud-application",
         "faqs/debugging-an-application",
+        "faqs/topgg-webhook-config",
         "faqs/automatic-deletion-files-when-deploying-an-application-to-squarecloud"
       ]
     },
