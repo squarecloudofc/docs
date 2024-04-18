@@ -68,10 +68,8 @@ Square Cloud requires a specific configuration file to host your application. Yo
 
 ## Configuring the START Field
 
-In the Square Cloud configuration file, the `START` field is essential for customizing the startup command. If you want to build and start your application on Square Cloud, configure the `START` field as follows:
-```app squarecloud.app
-START=python app.py runserver 0.0.0.0:80
-```
+In the Square Cloud configuration file, the **START** field is optional and is only necessary if you are using a custom script to start the website. In the example provided, the **START** field is not necessary.
+
 ## Uploading Your Application to Square Cloud
 
 After following all the steps, package your application files into a zip file where the configuration file is and upload the site on [Upload](https://squarecloud.app/dashboard/upload). Remember to include the `requirements.txt` file, but do not include files like `__pycache__`. You can get more information about unnecessary files when hosting at [automatic-deletion-files-when-deploying-an-application-to-squarecloud](https://docs.squarecloud.app/faqs/automatic-deletion-files-when-deploying-an-application-to-squarecloud).
