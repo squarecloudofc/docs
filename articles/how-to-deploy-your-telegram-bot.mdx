@@ -1,0 +1,107 @@
+---
+title: "Hosting a Telegram Bot on Square Cloud"
+sidebarTitle: "Deploy your Telegram bot"
+description: "This article guides you through creating and hosting a Telegram bot on Square Cloud."
+---
+
+## Setting Up Your Telegram Bot
+
+Before you start coding, you need to properly set up your bot on Telegram:
+
+<AccordionGroup>
+  <Accordion title="Getting Started" icon="rocket" iconType="solid">
+    First, you should access [Telegram](https://web.telegram.org/a/) and search for a bot called "BotFather."
+    <Frame>
+      <img src="https://i.imgur.com/s7wIwTD.png" style={{ borderRadius: "0.2rem" }} />
+    </Frame>
+  </Accordion>
+
+  <Accordion title="Getting the Token" icon="key" iconType="solid">
+    Click on it to start a conversation and type "start." When it sends the message, choose the "/newbot" option. After that, it will ask for the name you want for your bot, and finally, when you choose the name, it will generate the token.
+    <Frame>
+      <img src="https://i.imgur.com/RjBSyHo.png" style={{ borderRadius: "0.2rem" }} />
+    </Frame>
+  </Accordion>
+</AccordionGroup>
+
+## Creating a New Telegram Bot with Python (telebot)
+
+1. Ensure you have Python installed on your system. If not, you can download it from the [official Python website](https://www.python.org/).
+2. Install the telebot library using pip:
+
+```bash
+pip install telebot
+```
+
+3. Create a new Python file (e.g., `main.py`) and add the following code to create a basic Telegram bot:
+
+```python main.py
+# Importing the telebot_router library
+from telebot_router import TeleBot
+
+# Initializing the bot
+app = TeleBot(__name__)
+
+# Defining a route for messages that are not commands
+@app.route('(?!/).+')
+def parrot(message):
+    # Getting the chat ID
+    chat_dest = message['chat']['id']
+    # Getting the user's message
+    user_msg = message['text']
+    # Getting bot information
+    bot_info = app.get_me()['result']
+    # Getting the bot's name
+    bot_name = bot_info['username']
+    # Formatting the message to be sent
+    msg = "{} Says: {}".format(bot_name, user_msg)
+    # Sending the message
+    app.send_message(chat_dest, msg)
+    
+# Defining the main function
+if __name__ == '__main__':
+    # Configuring the API key
+    app.config['api_key'] = 'your token here'
+    # Getting bot information
+    bot_info = app.get_me()['result']
+    # Getting the bot's name
+    bot_name = bot_info['username']
+    # Printing the bot's name
+    print(f"{bot_name}") 
+    # Starting the bot
+    app.poll(debug=True)
+```
+
+4. Create a `requirements.txt` file to list all external libraries needed for your project:
+
+```txt requirements.txt
+telebot
+```
+
+## Creating the Configuration File on Square Cloud
+
+Square Cloud requires a specific configuration file to host your application. You can access our step-by-step guide on how to create one:
+[How to Create Your Square Cloud Configuration File](https://docs.squarecloud.app/articles/how-to-create-your-squarecloud-configuration-file)
+
+## Configuring the START Field
+<Warning>Only use this field if you are really sure about what you are doing.</Warning>
+
+In the Square Cloud configuration file, the **START** field is optional and only needed if you are using a custom script to start the bot. In the provided example, the **START** field is not necessary.
+
+## Uploading Your Application to Square Cloud
+
+After following all the steps, package your application files into a zip file where the configuration file is and upload the bot at [Upload](https://squarecloud.app/dashboard/upload). Remember to include the `requirements.txt` file, but do not include files like `__pycache__`. You can get more information about unnecessary files when hosting at [automatic-file-deletion-when-deploying-an-application-on-squarecloud](https://docs.squarecloud.app/faqs/automatic-file-deletion-when-deploying-an-application-on-squarecloud).
+
+## Testing the Bot
+
+If you have done everything correctly, simply search for your bot on Telegram and send a message; it will echo it back to you.
+
+    <Frame>
+      <img src="https://i.imgur.com/wne3VDh.png" style={{ borderRadius: "0.2rem" }} />
+    </Frame>
+
+## Additional Resources
+
+For more information on creating bots with telebot, visit the [official telebot documentation](https://pypi.org/project/telebot/). There, you'll find detailed guides, tutorials, and API documentation to help you make the most of these libraries.
+
+If you continue to encounter issues, feel free to [contact our support team](/company/support).
