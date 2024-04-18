@@ -36,10 +36,11 @@ The `--ts` flag is an option you can add to the `create-next-app` command to cre
 
 Port 80 is the default port for HTTP traffic. To host a Next.js website on Square Cloud, it's crucial to configure the use of port 80. In Next.js, you can set the `-p 80` parameter in the startup script to ensure your website runs correctly on this port.
 
-## Creating the Configuration File on Square Cloud
+## Creating the squarecloud.app config file
 
-Square Cloud requires a specific configuration file to host your website. You can access our step-by-step guide on how to create one:
-[How to create your Square Cloud configuration file](https://docs.squarecloud.app/articles/how-to-create-your-squarecloud-configuration-file)
+<Card title="Learn about: how to make the configuration file for Square Cloud." icon="link" href="https://docs.squarecloud.app/articles/how-to-create-your-squarecloud-configuration-file">
+The squarecloud.app file is a configuration file that will be used to configure your application; it will be used to define the name, description, version, main file, among other things.
+</Card>
 
 ## Configuring the START Field
 
@@ -77,7 +78,7 @@ This command will execute the "build" and "start" scripts defined in your `packa
 }
 ```
 
-## Uploading Your Website to Square Cloud
+## Uploading your project to Square Cloud
 
 After following all the steps, place your website files inside the zip where the configuration file is, and upload the site at [Upload](https://squarecloud.app/dashboard/upload). Remember not to include files like `package-lock.json` or `node_modules`. You can get more information about unnecessary files when hosting at [automatic-deletion-files-when-deploying-an-application-to-squarecloud](https://docs.squarecloud.app/faqs/automatic-deletion-files-when-deploying-an-application-to-squarecloud).
 

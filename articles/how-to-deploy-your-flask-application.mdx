@@ -36,16 +36,17 @@ The `requirements.txt` file is a file that lists all external libraries required
 ```txt requirements.txt
 flask
 ```
-## Creating the Configuration File on Square Cloud
+## Creating the squarecloud.app config file
 
-Square Cloud requires a specific configuration file to host your application. You can access our step-by-step guide on how to create one:
-[How to Create Your Square Cloud Configuration File](https://docs.squarecloud.app/articles/how-to-create-your-squarecloud-configuration-file)
+<Card title="Learn about: how to make the configuration file for Square Cloud." icon="link" href="https://docs.squarecloud.app/articles/how-to-create-your-squarecloud-configuration-file">
+The squarecloud.app file is a configuration file that will be used to configure your application; it will be used to define the name, description, version, main file, among other things.
+</Card>
 
 ## Configuring the START Field
 
 In the Square Cloud configuration file, the **START** field is optional and is only necessary if you are using a custom script to start the website. In the example provided, the **START** field is not necessary.
 
-## Uploading Your Application to Square Cloud
+## Uploading your project to Square Cloud
 
 After following all the steps, package your application files into a zip file where the configuration file is and upload the site on [Upload](https://squarecloud.app/dashboard/upload). Remember to include the `requirements.txt` file, but do not include files like `__pycache__`. You can get more information about unnecessary files when hosting at [automatic-deletion-files-when-deploying-an-application-to-squarecloud](https://docs.squarecloud.app/faqs/automatic-deletion-files-when-deploying-an-application-to-squarecloud).
 

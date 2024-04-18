@@ -112,17 +112,18 @@ discord.py
   </Tab>
 </Tabs>
 
-## Creating the Configuration File on Square Cloud
+## Creating the squarecloud.app config file
 
-Square Cloud requires a specific configuration file to host your application. You can access our step-by-step guide on how to create one:
-[How to Create Your Square Cloud Configuration File](https://docs.squarecloud.app/articles/how-to-create-your-squarecloud-configuration-file)
+<Card title="Learn about: how to make the configuration file for Square Cloud." icon="link" href="https://docs.squarecloud.app/articles/how-to-create-your-squarecloud-configuration-file">
+The squarecloud.app file is a configuration file that will be used to configure your application; it will be used to define the name, description, version, main file, among other things.
+</Card>
 
 ## Configuring the START Field
 <Warning>Only use this field if you are really sure about what you are doing.</Warning>
 
 In the Square Cloud configuration file, the **START** field is optional and only needed if you are using a custom script to start the bot. In the provided example, the **START** field is not necessary.
 
-## Uploading Your Application to Square Cloud
+## Uploading your project to Square Cloud
 
 After following all the steps, package your application files into a zip file where the configuration file is and upload the bot at [Upload](https://squarecloud.app/dashboard/upload). Remember to include the `requirements.txt` or `package.json` file, but do not include files like `__pycache__` or `node_modules`. You can get more information about unnecessary files when hosting at [automatic-file-deletion-when-deploying-an-application-on-squarecloud](https://docs.squarecloud.app/faqs/automatic-file-deletion-when-deploying-an-application-on-squarecloud).
 
