@@ -24,7 +24,7 @@ Sure, here's the revised text:
     </Frame>
   </Accordion>
   <Accordion title="Activating Privileged Intents" icon="message" iconType="solid">
-    Now that you already have your bot's token, you need to activate the message content intent. To do this, you should still be in the "Bot" tab, scroll down and look for "Privileged Gateway Intents" and activate "MESSAGE CONTENT INTENT". This intent is necessary for the code example we will give, it serves for your bot to access the content of the messages. Without this intent, your bot will not be able to read the messages sent on the Discord server.
+   Now that you already have your bot's token, you need to activate the necessary intents. To do this, you should still be in the "Bot" tab, scroll down and look for "Privileged Gateway Intents". Here, you should activate the following intents:
     <Frame>
       <img src="/images/articles/discord/intent.png" style={{ borderRadius: "0.2rem" }} />
     </Frame>
@@ -32,9 +32,9 @@ Sure, here's the revised text:
 </AccordionGroup>
 <Warning>Remember to keep your bot's token secret as it can be used to control your bot.</Warning>
 
-## Creating a New Discord Bot with Python (discord.py)
-
-1. Ensure you have Python installed on your system. If not, you can download it from the [official Python website](https://www.python.org/).
+<Tabs>
+  <Tab title="Discord.py">
+    1. Ensure you have Python installed on your system. If not, you can download it from the [official Python website](https://www.python.org/).
 2. Install the discord.py library using pip:
 
 ```bash
@@ -68,10 +68,9 @@ client.run('your token here')
 ```txt requirements.txt
 discord.py
 ```
-
-## Creating a New Discord Bot with JavaScript (discord.js)
-
-1. Ensure you have Node.js installed on your system. If not, you can download it from the [official Node.js website](https://nodejs.org/).
+  </Tab>
+  <Tab title="Discord.js">
+    1. Ensure you have Node.js installed on your system. If not, you can download it from the [official Node.js website](https://nodejs.org/).
 2. Initialize a new Node.js project using `npm init`. This will create a new `package.json` file for your project:
 
 ```bash
@@ -109,6 +108,8 @@ client.on("messageCreate", (message) => {
 
 client.login("your token here");
 ```
+  </Tab>
+</Tabs>
 
 ## Creating the Configuration File on Square Cloud
 
