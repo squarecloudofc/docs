@@ -6,14 +6,31 @@ description: "This article guides you through creating and hosting a Discord bot
 
 ## Setting Up Your Discord Bot
 
-Before you start coding, you need to properly set up your bot on Discord:
+Before you start coding, you need to set up your bot properly on Discord. First, it's necessary to have a Discord account. If you don't have one yet, you can create one by visiting the [official Discord website](https://discord.com/).
+Sure, here's the revised text:
 
-1. Go to the [Discord Developer Portal](https://discord.com/developers/applications) and create a new application.
-2. Navigate to the "Bot" tab and add a bot to your application.
-3. In the "Token" section, click "Reset Token" to generate your bot's token. This token will be used to authenticate your bot with the Discord server.
-4. Scroll down to the "Privileged Gateway Intents" section and enable the "MESSAGE CONTENT INTENT" by checking the corresponding box. This intent is necessary for your bot to access message contents. Without this intent, your bot won't be able to read messages sent in the Discord server.
+<AccordionGroup>
+  <Accordion title="Getting Started" icon="rocket" iconType="solid">
+    First, go to the [Developer Portal](https://discord.com/developers/applications) and click on "New Application". Next, you will need to choose a name for your bot and click on "Create" to create it.
+    <Frame>
+      <img src="/images/articles/discord/getting-started.png" style={{ borderRadius: "0.2rem" }} />
+    </Frame>
+  </Accordion>
 
-Remember to keep your bot's token secret as it can be used to control your bot.
+  <Accordion title="Getting the Token" icon="key" iconType="solid">
+    After creating your bot, it's time to get the token. To do this, you should go to the "Bot" tab and click on "Reset Token", thus generating your token. Finally, just copy it to use it in your code later.
+    <Frame>
+      <img src="/images/articles/discord/getting-the-token.png" style={{ borderRadius: "0.2rem" }} />
+    </Frame>
+  </Accordion>
+  <Accordion title="Activating Privileged Intents" icon="message" iconType="solid">
+    Now that you already have your bot's token, you need to activate the message content intent. To do this, you should still be in the "Bot" tab, scroll down and look for "Privileged Gateway Intents" and activate "MESSAGE CONTENT INTENT". This intent is necessary for the code example we will give, it serves for your bot to access the content of the messages. Without this intent, your bot will not be able to read the messages sent on the Discord server.
+    <Frame>
+      <img src="/images/articles/discord/intent.png" style={{ borderRadius: "0.2rem" }} />
+    </Frame>
+  </Accordion>
+</AccordionGroup>
+<Warning>Remember to keep your bot's token secret as it can be used to control your bot.</Warning>
 
 ## Creating a New Discord Bot with Python (discord.py)
 
@@ -106,6 +123,28 @@ In the Square Cloud configuration file, the **START** field is optional and only
 ## Uploading Your Application to Square Cloud
 
 After following all the steps, package your application files into a zip file where the configuration file is and upload the bot at [Upload](https://squarecloud.app/dashboard/upload). Remember to include the `requirements.txt` or `package.json` file, but do not include files like `__pycache__` or `node_modules`. You can get more information about unnecessary files when hosting at [automatic-file-deletion-when-deploying-an-application-on-squarecloud](https://docs.squarecloud.app/faqs/automatic-file-deletion-when-deploying-an-application-on-squarecloud).
+
+## Testing the Bot
+
+If you've done everything correctly, the next step is to invite your bot for testing. To do this, follow these steps:
+
+1. Access the [Developer Portal](https://discord.com/developers/applications).
+2. Select your bot.
+3. Navigate to the "OAuth2" tab.
+4. Go to "OAuth2 URL Generator".
+5. Check the "bot" option.
+6. Choose the permissions your bot will have if it's invited using this invite.
+7. Below the permissions, an invite link for your bot will be generated. It should look something like this:
+```txt
+https://discord.com/oauth2/authorize?client_id=00000000000000&permissions=8&scope=bot
+```
+
+Remember, the `client_id` in the URL should be replaced with your bot's actual client ID. The `permissions` value may also need to be adjusted based on the permissions you want your bot to have.
+
+Now, to test if everything is working, execute the following command on your server: `!hello`. 😊
+    <Frame>
+      <img src="/images/articles/discord/testing-bot.png" style={{ borderRadius: "0.2rem" }} />
+    </Frame>
 
 ## Additional Resources
 
