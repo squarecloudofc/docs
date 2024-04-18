@@ -32,43 +32,8 @@ Sure, here's the revised text:
 </AccordionGroup>
 <Warning>Remember to keep your bot's token secret as it can be used to control your bot.</Warning>
 
+# Using wrappers for bot creation
 <Tabs>
-  <Tab title="Discord.py">
-    1. Ensure you have Python installed on your system. If not, you can download it from the [official Python website](https://www.python.org/).
-2. Install the discord.py library using pip:
-
-```bash
-pip install discord.py
-```
-
-3. Create a new Python file (e.g., `main.py`) and add the following code to create a basic Discord bot:
-
-```python main.py
-import discord
-from discord.ext import commands
-
-intents = discord.Intents.default()
-intents.message_content = True
-
-client = commands.Bot(command_prefix='!', intents=intents)
-
-@client.event
-async def on_ready():
-    print(f'{client.user}')
-
-@client.command()
-async def hello(ctx):
-    await ctx.reply('Hello!')
-
-client.run('your token here')
-```
-
-4. Create a `requirements.txt` file to list all external libraries needed for your project:
-
-```txt requirements.txt
-discord.py
-```
-  </Tab>
   <Tab title="Discord.js">
     1. Ensure you have Node.js installed on your system. If not, you can download it from the [official Node.js website](https://nodejs.org/).
 2. Initialize a new Node.js project using `npm init`. This will create a new `package.json` file for your project:
@@ -107,6 +72,42 @@ client.on("messageCreate", (message) => {
 });
 
 client.login("your token here");
+```
+  </Tab>
+    <Tab title="Discord.py">
+    1. Ensure you have Python installed on your system. If not, you can download it from the [official Python website](https://www.python.org/).
+    2. Install the discord.py library using pip:
+
+```bash
+pip install discord.py
+```
+
+3. Create a new Python file (e.g., `main.py`) and add the following code to create a basic Discord bot:
+
+```python main.py
+import discord
+from discord.ext import commands
+
+intents = discord.Intents.default()
+intents.message_content = True
+
+client = commands.Bot(command_prefix='!', intents=intents)
+
+@client.event
+async def on_ready():
+    print(f'{client.user}')
+
+@client.command()
+async def hello(ctx):
+    await ctx.reply('Hello!')
+
+client.run('your token here')
+```
+
+4. Create a `requirements.txt` file to list all external libraries needed for your project:
+
+```txt requirements.txt
+discord.py
 ```
   </Tab>
 </Tabs>
