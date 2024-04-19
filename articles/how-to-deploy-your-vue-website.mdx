@@ -1,38 +1,26 @@
 ---
-title: "Hosting a Vite Application on Square Cloud"
-sidebarTitle: "Deploy your Vite website"
-description: "This article guides you on creating and hosting a Vite app on Square Cloud"
+title: "Hosting a Vue Application on Square Cloud"
+sidebarTitle: "Deploy your Vue website"
+description: "This article guides you on creating and hosting a Vue app on Square Cloud"
 ---
 
-## Creating a New Vite Project
+## Creating a New Vue Project
 
 Before you begin, make sure you have Node.js and npm installed on your system. If you don't have them yet, you can download them from the [official Node.js website](https://nodejs.org/).
 
-### Creating a Vite Project
+### Creating a Vue Project
 
-To create a new Vite project, run the following command:
+To create a new Vue project, run the following command:
 
 ```bash
-npm create vite@latest my-vite-app
+npm create vue@latest
 ```
 
-In the above command, `my-vite-app` is the name of your new project. Replace it with any desired name for your project. By default, this command sets up a Vite project with JavaScript.
+In this command, `npm create vue@latest` is used to create a new Vue project with the latest version of Vue. The `npm create` command is a tool that comes with `npm`, the Node.js package manager. It is used to initialize a new or existing npm package.
 
-### Choosing a Specific Template
+`vue@latest` is a package available on the npm registry that sets up a new Vue project for you. It takes care of all the initial setup, such as creating the project directory, installing necessary dependencies, and configuring basic files.
 
-Vite allows choosing different templates for your project. When creating a new project, you can specify the desired template using the `--template` option. Here are some examples:
-
-Select a template by: `react`, `vue` & `lit`.
-```bash
-# npm 7+, extra double-dash is needed:
-npm create vite@latest my-vite-app -- --template [template]
-```
-
-Choose the template that best suits your needs and adjust the project name as needed.
-
-### Understanding the Difference Between JavaScript and TypeScript
-
-When you choose JavaScript, Vite configures the project with default JavaScript settings. On the other hand, when choosing TypeScript, Vite configures the project with TypeScript settings, including generating a `tsconfig.json` file.
+`@latest` is a tag specifying that you want to use the latest version of the `vue` package. This ensures you're always using the most updated version and, consequently, have access to the latest features.
 
 ## Configuring Port 80
 
@@ -56,20 +44,23 @@ This command will execute the "build" and "serve" scripts defined in your `packa
 
 ```json package.json
 {
-  "name": "my-vite-app",
+  "name": "vue-project",
+  "version": "0.0.0",
   "private": true,
-  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "serve": "vite preview --port 80"
   },
+  "dependencies": {
+    "vue": "^3.4.21"
+  },
   "devDependencies": {
-    "vite": "^5.1.4"
+    "@vitejs/plugin-vue": "^5.0.4",
+    "vite": "^5.2.8"
   }
 }
-
 ```
 
 ## Uploading Your App to Square Cloud
@@ -97,6 +88,6 @@ After following all the steps, place your Vite app files inside the zip file whe
 
 ## Additional Resources
 
-For more information about Vite and its tools, visit the [official Vite documentation](https://vitejs.dev/guide/). There, you'll find detailed guides, tutorials, and API documentation to help you make the most of Vite.
+For more information about Vue and its tools, visit the [official Vue documentation](https://vuejs.org/). There, you'll find detailed guides, tutorials, and API documentation to help you make the most of Vue.
 
 If you continue to face issues, don't hesitate to [contact our support team](/company/support).
