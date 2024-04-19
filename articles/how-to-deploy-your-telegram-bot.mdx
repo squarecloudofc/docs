@@ -24,8 +24,58 @@ Before you start coding, you need to set up your bot properly on Telegram. First
 </AccordionGroup>
 <Warning>Remember to keep your bot's token secret as it can be used to control your bot.</Warning>
 
-## Creating a New Telegram Bot with Python (telebot)
 
+# Using wrappers for bot creation
+<Tabs>
+  <Tab title="node-telegram-bot-api">
+    1. Ensure you have Node.js installed on your system. If not, you can download it from the [official Node.js website](https://nodejs.org/).
+    2. Initialize a new Node.js project using `npm init`. This will create a new `package.json` file for your project:
+
+```bash
+npm init -y
+```
+
+3. Install the node-telegram-bot-api library using npm:
+
+```bash
+npm install node-telegram-bot-api
+```
+
+4. Create a new JavaScript file (e.g., `index.js`) and add the following code to create a basic Discord bot:
+
+```javascript index.js
+// Importing the node-telegram-bot-api library
+const TelegramBot = require("node-telegram-bot-api");
+
+// Configuring the API key
+const token = "your token here";
+
+// Initializing the bot
+const bot = new TelegramBot(token, { polling: true });
+
+// Getting bot information
+bot.getMe().then((botInfo) => {
+  // Getting the bot's name
+  const botName = botInfo.username;
+
+  // Defining a route for messages that are not commands
+  bot.on("message", (msg) => {
+    // Getting the chat ID
+    const chatId = msg.chat.id;
+    // Getting the user's message
+    const userMsg = msg.text;
+    // Formatting the message to be sent
+    const responseMsg = `${botName} Says: ${userMsg}`;
+    // Sending the message
+    bot.sendMessage(chatId, responseMsg);
+  });
+
+  // Printing the bot's name
+  console.log(botName);
+});
+```
+  </Tab>
+    <Tab title="telebot">
 1. Ensure you have Python installed on your system. If not, you can download it from the [official Python website](https://www.python.org/).
 2. Install the telebot library using pip:
 
@@ -77,6 +127,8 @@ if __name__ == '__main__':
 ```txt requirements.txt
 telebot
 ```
+  </Tab>
+</Tabs>
 
 ## Creating the squarecloud config file
 
