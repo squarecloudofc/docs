@@ -1,0 +1,116 @@
+---
+title: "Hosting a Whatsapp Bot on Square Cloud"
+sidebarTitle: "Deploy your Whatsapp bot"
+description: "This article guides you through creating and hosting a Whatsapp bot on Square Cloud."
+---
+
+## Introduction
+
+Before you start coding it is necessary to properly set up your bot on WhatsApp. First, you need to have WhatsApp downloaded on your phone. If you don't have it yet, you can visit the [official WhatsApp website](https://www.whatsapp.com/coronavirus/get-started?lang=en). After having WhatsApp installed and configured, you can start programming your bot.
+<AccordionGroup>
+  <Accordion title="Remote path to the WhatsApp Web version" icon="file" iconType="solid">
+    It is necessary to get the remote path to the WhatsApp Web version, otherwise, you may encounter errors.
+    For this, you should access [wa-version](https://github.com/wppconnect-team/wa-version/tree/main/html), choose the desired version (we always recommend the most recent version) and click on "Raw". After opening the page, just copy the URL that we will use later. URL example:
+    "https://raw.githubusercontent.com/wppconnect-team/wa-version/main/html/2.2412.54.html"
+    <Frame>
+      <img src="/images/articles/whatsapp/remote-path.png" style={{ borderRadius: "0.2rem" }} />
+    </Frame>
+  </Accordion>
+</AccordionGroup>
+
+
+# Starting Project
+1. Ensure you have Node.js installed on your system. If not, you can download it from the [official Node.js website](https://nodejs.org/).
+2. Initialize a new Node.js project using `npm init`. This will create a new `package.json` file for your project:
+
+```bash
+npm init -y
+```
+
+3. Install the whatsapp-web.js and qrcode library using npm:
+
+```bash
+npm install whatsapp-web.js qrcode
+```
+
+4. Create a new JavaScript file (e.g., `index.js`) and add the following code to create a basic Whatsapp bot:
+
+```javascript index.js
+// Importing the necessary modules
+const { Client } = require("whatsapp-web.js");
+const qrcode = require("qrcode");
+
+// Creating a new instance of the client
+const client = new Client({
+  puppeteer: {
+    // Runs Chrome in headless mode (without a user interface).
+    headless: true,
+    args: [
+      // Disables Chrome's sandboxing features. This is necessary when running
+      // Puppeteer in certain environments like Docker containers.
+      "--no-sandbox",
+      // Additional sandboxing flag to disable setuid sandbox.
+      "--disable-setuid-sandbox",
+    ],
+  },
+  // Setting the webVersionCache option
+  webVersionCache: {
+    // Setting the type as "remote", which means that the WhatsApp Web version will be fetched from a remote URL
+    type: "remote",
+    // Setting the remote path for the WhatsApp Web version
+    remotePath: "URL PATH HERE",
+  },
+});
+
+// This event is fired when whatsapp-web.js generates a new QR code
+client.on("qr", async (qr) => {
+  // Here we are using the qrcode library to generate a QR Code and save it as a file
+  try {
+    await qrcode.toFile("./qrcode.png", qr);
+    console.log("QR Code saved as qrcode.png");
+  } catch (err) {
+    console.error(err);
+  }
+});
+
+// This event is fired when the client is ready
+client.on("ready", () => {
+  // This log will be displayed in the console when the client is ready, i.e., after the QR Code has been successfully scanned and the WhatsApp Web session has been started
+  console.log("Client is ready!");
+});
+
+// This event is fired when a message is created
+client.on("message_create", (msg) => {
+  // Here we are logging the body of the message to the console
+  console.log(msg.body);
+  // If the message is "!ping"
+  if (msg.body == "!ping") {
+    // Reply with "pong"
+    msg.reply("pong");
+  }
+});
+
+// Initializing the client
+client.initialize();
+```
+
+## Creating the squarecloud config file
+
+<Card title="Learn about: how to make the configuration file for Square Cloud." icon="link" href="https://docs.squarecloud.app/articles/how-to-create-your-squarecloud-configuration-file">
+The squarecloud.app file is a configuration file that will be used to configure your application; it will be used to define the name, description, version, main file, among other things.
+</Card>
+
+## Configuring the START Field
+<Warning>Only use this field if you are really sure about what you are doing.</Warning>
+
+In the Square Cloud configuration file, the **START** field is optional and only needed if you are using a custom script to start the bot. In the provided example, the **START** field is not necessary.
+
+## Uploading your project to Square Cloud
+
+After following all the steps, package your application files into a zip file where the configuration file is and upload the bot at [Upload](https://squarecloud.app/dashboard/upload). Remember to include the `requirements.txt` file, but do not include files like `__pycache__`. You can get more information about unnecessary files when hosting at [automatic-file-deletion-when-deploying-an-application-on-squarecloud](https://docs.squarecloud.app/faqs/automatic-file-deletion-when-deploying-an-application-on-squarecloud).
+
+## Additional Resources
+
+For more information on creating bots with whatsapp-web.js, visit the [official whatsapp-web.js documentation](https://wwebjs.dev/). There, you'll find detailed guides, tutorials, and API documentation to help you make the most of these libraries.
+
+If you continue to encounter issues, feel free to [contact our support team](/company/support).
