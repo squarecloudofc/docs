@@ -1,0 +1,48 @@
+---
+title: "How to Change Timezone"
+sidebarTitle: "Changing Timezone"
+description: "Learn how to change the timezone to suit your application's needs."
+---
+
+## Introduction
+
+The Square Cloud servers are located in Tampa, Florida, USA. By default, the timezone is set according to this location. However, in this article, we will teach you how you can customize the timezone of your application to whichever you desire.
+
+## Getting Started
+
+The following sections provide code examples for both Javascript and Python:
+
+<Tabs>
+  <Tab title="Javascript">
+    In JavaScript, you can use the `Date` object and the `toLocaleString` method to change the timezone:
+
+```javascript index.js
+// Create a Date object
+const date = new Date();
+
+// Convert the date to a string using a specific timezone
+const dateString = date.toLocaleString("pt-BR", {timeZone: "America/Sao_Paulo"});
+
+console.log(dateString);  // Outputs the date and time in the "America/Sao_Paulo" timezone
+```
+  </Tab>
+  <Tab title="Python">
+    In Python, you can use the `datetime` library to change the timezone:
+
+```python main.py
+from datetime import datetime, timedelta
+
+# Create a datetime object
+now = datetime.now()
+
+# Create a timedelta object to represent the timezone difference
+time_difference = timedelta(hours=-3) # The timezone difference between UTC and "America/Sao_Paulo" is -3 hours
+# Change the timezone
+time = now + time_difference
+
+print(time) # Outputs the date and time in the "America/Sao_Paulo" timezone
+```
+  </Tab>
+</Tabs>
+
+If you continue to experience any issues, please don't hesitate to [contact our support team](/company/support).

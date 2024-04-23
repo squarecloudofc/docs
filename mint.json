@@ -66,11 +66,7 @@
         "introduction",
         {
           "group": "Production-ready services",
-          "pages": [
-            "services/bots",
-            "services/sites",
-            "services/blob"
-          ]
+          "pages": ["services/bots", "services/sites", "services/blob"]
         },
         "articles/how-to-create-your-squarecloud-configuration-file"
       ]
@@ -120,18 +116,11 @@
     },
     {
       "group": "Platform",
-      "pages": [
-        "platform/overview",
-        "platform/limitations-and-restrictions"
-      ]
+      "pages": ["platform/overview", "platform/limitations-and-restrictions"]
     },
     {
       "group": "Company",
-      "pages": [
-        "company/brand",
-        "company/legal",
-        "company/support"
-      ]
+      "pages": ["company/brand", "company/legal", "company/support"]
     },
     {
       "group": "API Reference",
@@ -145,15 +134,11 @@
       "pages": [
         {
           "group": "No auth required",
-          "pages": [
-            "api-reference/endpoint/service/statistics"
-          ]
+          "pages": ["api-reference/endpoint/service/statistics"]
         },
         {
           "group": "User",
-          "pages": [
-            "api-reference/endpoint/user/info"
-          ]
+          "pages": ["api-reference/endpoint/user/info"]
         },
         {
           "group": "Application",
@@ -199,9 +184,7 @@
     },
     {
       "group": "Blob Reference",
-      "pages": [
-        "blob-reference/authentication"
-      ]
+      "pages": ["blob-reference/authentication"]
     },
     {
       "group": "Blob Endpoints",
@@ -210,14 +193,11 @@
         "blob-reference/endpoint/list",
         "blob-reference/endpoint/put",
         "blob-reference/endpoint/delete"
-
       ]
     },
     {
       "group": "SDKs",
-      "pages": [
-        "sdks/introduction"
-      ]
+      "pages": ["sdks/introduction"]
     },
     {
       "group": "JavaScript SDK",
@@ -250,6 +230,7 @@
       "group": "FAQs",
       "pages": [
         "faqs/using-autorestart-in-your-squarecloud-application",
+        "faqs/timezone-change-guide",
         "faqs/debugging-an-application",
         "faqs/topgg-webhook-config",
         "faqs/automatic-deletion-files-when-deploying-an-application-to-squarecloud"
