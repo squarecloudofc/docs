@@ -1,9 +1,8 @@
 ---
 title: "How to Change Timezone"
-sidebarTitle: "Changing Timezone"
+sidebarTitle: "How to Changing Timezone"
 description: "Learn how to change the timezone to suit your application's needs."
 ---
-
 ## Introduction
 
 The Square Cloud servers are located in Tampa, Florida, USA. By default, the timezone is set according to this location. However, in this article, we will teach you how you can customize the timezone of your application to whichever you desire.
@@ -14,34 +13,95 @@ The following sections provide code examples for both Javascript and Python:
 
 <Tabs>
   <Tab title="Javascript">
-    In JavaScript, you can use the `Date` object and the `toLocaleString` method to change the timezone:
+    <Tabs>
+      <Tab title="Native">
+        ```javascript index.js
+        // Create a Date object
+        const date = new Date();
+        // Convert the date to a string using a specific timezone
+        const dateString = date.toLocaleString("pt-BR", {
+          timeZone: "America/Sao_Paulo",
+        });
+        console.log(dateString); // Outputs the date and time in the "America/Sao_Paulo" timezone
+        ```
+      </Tab>
+      <Tab title="Moment">
+        ```javascript index.js
+        const moment = require('moment');
+        require('moment-timezone');
 
-```javascript index.js
-// Create a Date object
-const date = new Date();
+        // Create a Moment.js object with the current date and time
+        const date = moment();
 
-// Convert the date to a string using a specific timezone
-const dateString = date.toLocaleString("pt-BR", {timeZone: "America/Sao_Paulo"});
+        // Change the timezone to "America/Sao_Paulo"
+        const time = date.tz('America/Sao_Paulo');
 
-console.log(dateString);  // Outputs the date and time in the "America/Sao_Paulo" timezone
-```
+        // Format the date/time string as needed
+        // Explanation of the format string:
+        // YYYY: Represents the year with four digits (e.g., 2022)
+        // MM: Represents the month as a zero-padded decimal number (e.g., 01 for January, 02 for February, ..., 12 for December)
+        // DD: Represents the day of the month as a zero-padded decimal number (e.g., 01, 02, ..., 31)
+        // HH: Represents the hour as a zero-padded decimal number in 24-hour clock format (e.g., 00 for midnight, 13 for 1 PM, ..., 23 for 11 PM)
+        // mm: Represents the minute as a zero-padded decimal number (e.g., 00, 01, ..., 59)
+        // ss: Represents the second as a zero-padded decimal number (e.g., 00, 01, ..., 59)
+        const formattedTime = time.format('YYYY-DD-MM HH:mm:ss');
+        console.log(formattedTime); // Outputs the date and time in the "America/Sao_Paulo" timezone
+        ```
+      </Tab>
+    </Tabs>
   </Tab>
   <Tab title="Python">
-    In Python, you can use the `datetime` library to change the timezone:
+    <Tabs>
+      <Tab title="Native">
+        ```python main.py
+        from datetime import datetime, timedelta
 
-```python main.py
-from datetime import datetime, timedelta
+        # Create a datetime object
+        now = datetime.now()
 
-# Create a datetime object
-now = datetime.now()
+        # Create a timedelta object to represent the timezone difference
+        time_difference = timedelta(hours=-3)  # The timezone difference between UTC and "America/Sao_Paulo" is -3 hours
 
-# Create a timedelta object to represent the timezone difference
-time_difference = timedelta(hours=-3) # The timezone difference between UTC and "America/Sao_Paulo" is -3 hours
-# Change the timezone
-time = now + time_difference
+        # Change the timezone
+        time = now + time_difference
 
-print(time) # Outputs the date and time in the "America/Sao_Paulo" timezone
-```
+        # Define the format string for date and time representation
+        # %Y: Represents the year with four digits (e.g., 2022)
+        # %d: Represents the day of the month as a zero-padded decimal number (e.g., 01, 02, ..., 31)
+        # %m: Represents the month as a zero-padded decimal number (e.g., 01 for January, 02 for February, ..., 12 for December)
+        # %H: Represents the hour as a zero-padded decimal number in 24-hour clock format (e.g., 00 for midnight, 13 for 1 PM, ..., 23 for 11 PM)
+        # %M: Represents the minute as a zero-padded decimal number (e.g., 00, 01, ..., 59)
+        # %S: Represents the second as a zero-padded decimal number (e.g., 00, 01, ..., 59)
+        formatted_time = time.strftime('%Y-%d-%m %H:%M:%S')
+        print(formatted_time)  # Outputs the formatted date and time in the "America/Sao_Paulo" timezone
+        ```
+      </Tab>
+      <Tab title="Pytz">
+        ```python main.py
+        from datetime import datetime
+        import pytz
+
+        # Create a datetime object with the current time in UTC
+        now = datetime.now(pytz.utc)
+
+        # Define the timezone for "America/Sao_Paulo"
+        tz = pytz.timezone('America/Sao_Paulo')
+
+        # Convert the UTC datetime to "America/Sao_Paulo" timezone
+        time = now.astimezone(tz)
+
+        # Define the format string for date and time representation
+        # %Y: Represents the year with four digits (e.g., 2022)
+        # %d: Represents the day of the month as a zero-padded decimal number (e.g., 01, 02, ..., 31)
+        # %m: Represents the month as a zero-padded decimal number (e.g., 01 for January, 02 for February, ..., 12 for December)
+        # %H: Represents the hour as a zero-padded decimal number in 24-hour clock format (e.g., 00 for midnight, 13 for 1 PM, ..., 23 for 11 PM)
+        # %M: Represents the minute as a zero-padded decimal number (e.g., 00, 01, ..., 59)
+        # %S: Represents the second as a zero-padded decimal number (e.g., 00, 01, ..., 59)
+        formattedTime = time.strftime('%Y-%d-%m %H:%M:%S')
+        print(formattedTime)  # Outputs the date and time in the "America/Sao_Paulo" timezone
+        ```
+      </Tab>
+    </Tabs>
   </Tab>
 </Tabs>
 

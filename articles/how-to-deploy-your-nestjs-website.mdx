@@ -1,30 +1,62 @@
 ---
-title: "Hosting a Vue Application on Square Cloud"
-sidebarTitle: "Deploy your Vue website"
-description: "This article guides you on creating and hosting a Vue app on Square Cloud"
+title: "Hosting a Nestjs Application on Square Cloud"
+sidebarTitle: "Deploy your Nestjs website"
+description: "This article guides you on creating and hosting a Nestjs app on Square Cloud"
 ---
 
 ## Introduction
 
 Before you begin, make sure you have Node.js and npm installed on your system. If you don't have them yet, you can download them from the [official Node.js website](https://nodejs.org/).
 
-### Creating a Vue Project
+### Setting up NestJS CLI
 
-To create a new Vue project, run the following command:
+To use the NestJS command-line interface (CLI), you need to install it globally on your system. Run the following command:
 
 ```bash
-npm create vue@latest
+npm install -g @nestjs/cli
 ```
 
-In this command, `npm create vue@latest` is used to create a new Vue project with the latest version of Vue. The `npm create` command is a tool that comes with `npm`, the Node.js package manager. It is used to initialize a new or existing npm package.
+This command installs the `@nestjs/cli` package globally on your system, which allows you to use the `nest` command from anywhere in your terminal.
 
-`vue@latest` is a package available on the npm registry that sets up a new Vue project for you. It takes care of all the initial setup, such as creating the project directory, installing necessary dependencies, and configuring basic files.
+### Creating a NestJS Project
 
-`@latest` is a tag specifying that you want to use the latest version of the `vue` package. This ensures you're always using the most updated version and, consequently, have access to the latest features.
+To create a new NestJS project, run the following command:
+
+```bash
+nest new my-app
+```
+
+In this command, `nest new my-app` is used to create a new NestJS project. The `nest new` command is a tool that comes with `nest`, the NestJS CLI (Command Line Interface). It is used to initialize a new NestJS application.
+
+`my-app` is the name of the new application. This command creates a new directory named `my-app` and sets up the necessary files and dependencies for a basic NestJS application.
 
 ## Configuring Port 80
 
-Port 80 is the default port for HTTP traffic. To host a Vite app on Square Cloud, configure the use of port 80. In Vite, you can set the `--port 80` parameter in the startup script to ensure your app runs correctly on this port.
+After generating the NestJS project with the command `nest new my-app`, the file you need to modify to change the port is `main.ts`. This file is located at the root of your project directory, inside the `src` folder.
+
+```typescript
+import { NestFactory } from '@nestjs/core';
+import { AppModule } from './app.module';
+
+async function bootstrap() {
+  const app = await NestFactory.create(AppModule);
+  await app.listen(80); // Change the port number here to 80
+}
+bootstrap();
+```
+Port 80 is the default port for HTTP traffic.
+
+## Building the Application
+
+NestJS uses TypeScript, so you could compile your TypeScript code to JavaScript before you can run your application.
+
+You can build your application by running the following command:
+
+```bash
+npm run build
+```
+
+This command runs the `build` script defined in your `package.json` file, which in turn runs the `nest build` command. This command compiles your TypeScript code to JavaScript.
 
 ## Creating the squarecloud config file
 
@@ -32,36 +64,19 @@ Port 80 is the default port for HTTP traffic. To host a Vite app on Square Cloud
 The squarecloud.app file is a configuration file that will be used to configure your application; it will be used to define the name, description, version, main file, among other things.
 </Card>
 
-## Configuring the START Field
+## Configuring the MAIN field
 
-In the Square Cloud configuration file, the `START` field is essential to customize the startup command. If you want to build and start your Vite app on Square Cloud, configure the `START` field as follows:
+You need to specify the main file of your application in the `MAIN` field of squarecloud.app. For a NestJS application, the main file is the compiled JavaScript file of your `main.ts` file, which is `dist/main.js`.
+
+Here's how you can set it:
 
 ```app squarecloud.app
-START=npm run build && npm run serve
+MAIN=dist/main.js
 ```
 
-This command will execute the "build" and "serve" scripts defined in your `package.json`:
+## Configuring the START Field
 
-```json package.json
-{
-  "name": "vue-project",
-  "version": "0.0.0",
-  "private": true,
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "serve": "vite preview --port 80"
-  },
-  "dependencies": {
-    "vue": "^3.4.21"
-  },
-  "devDependencies": {
-    "@vitejs/plugin-vue": "^5.0.4",
-    "vite": "^5.2.8"
-  }
-}
-```
+In the Square Cloud configuration file, the **START** field is optional and is only necessary if you are using a custom script to start the website. In the example provided, the **START** field is not necessary.
 
 ## Uploading Your App to Square Cloud
 
@@ -88,6 +103,6 @@ After following all the steps, place your Vite app files inside the zip file whe
 
 ## Additional Resources
 
-For more information about Vue and its tools, visit the [official Vue documentation](https://vuejs.org/). There, you'll find detailed guides, tutorials, and API documentation to help you make the most of Vue.
+For more information about Nestjs and its tools, visit the [official Nestjs documentation](https://docs.nestjs.com/). There, you'll find detailed guides, tutorials, and API documentation to help you make the most of Nestjs.
 
 If you continue to experience any issues, please don't hesitate to [contact our support team](/company/support).

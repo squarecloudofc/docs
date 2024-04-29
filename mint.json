@@ -111,6 +111,7 @@
         "articles/how-to-deploy-your-react-website",
         "articles/how-to-deploy-your-vue-website",
         "articles/how-to-deploy-your-next-website",
+        "articles/how-to-deploy-your-nestjs-website",
         "articles/how-to-create-your-lavalink-server"
       ]
     },
