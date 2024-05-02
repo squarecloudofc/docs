@@ -30,9 +30,38 @@ npx create-react-app my-react-app --template typescript
 
 This adds TypeScript support to your React project.
 
-## Configuring Port 80
+## Configuring the Production Environment with Serve
 
-Port 80 is the default port for HTTP traffic. To host a React application on Square Cloud, it's crucial to configure the use of port 80. In React, you can set the `set PORT=80` parameter in the startup script to ensure your application runs correctly on this port.
+After having your React project created and configured, it's time to prepare it for production. For this, we will use a library called `serve`. This library is a static server that can serve your React project after it has been built.
+
+### Installing the Serve Library
+
+To install the `serve` library, navigate to your project directory in the terminal and run the following command:
+
+```bash
+npm install serve@14.2.3
+```
+
+This command installs version `14.2.3` of the `serve` library. If you want to install the latest version, you can omit the `@14.2.3`.
+
+### Configuring the Startup Script
+
+After installing the `serve` library, you need to configure your project's startup script to use `serve`. To do this, open your project's `package.json` file and add a new script called `start:prod`:
+
+```json
+"scripts": {
+  "start": "react-scripts start",
+  "start:prod": "serve -s build -l 80",
+  ...
+}
+```
+
+In the `start:prod` script, `serve -s build -l 80` does the following:
+- `serve`: This is the command to start the `serve` server.
+- `-s build`: The `-s` option serves the `build` directory in single-page application mode. This means all not-found requests will be redirected to `index.html`. The `build` directory is created when you run `npm run build`.
+- `-l 80`: The `-l` option followed by `80` tells `serve` to listen on port 80. Port 80 is the default port for HTTP traffic.
+
+Now, when you want to start your project in production mode, you can run the `npm run start:prod` command. This command first builds your React project and then serves the built files using `serve` on port 80.
 
 ## Creating the squarecloud config file
 
@@ -45,10 +74,10 @@ The squarecloud.app file is a configuration file that will be used to configure 
 In the Square Cloud configuration file, the `START` field is essential for customizing the startup command. If you want to build and start your application on Square Cloud, configure the `START` field as follows:
 
 ```app squarecloud.app
-START=npm run build && npm start
+START=npm run build && npm run start:prod
 ```
 
-This command will execute the "build" and "start" scripts defined in your `package.json`:
+This command will execute the "build" and "start:prod" scripts defined in your `package.json`:
 
 ```json package.json
 {
@@ -59,16 +88,24 @@ This command will execute the "build" and "start" scripts defined in your `packa
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "react-scripts": "5.0.1",
+    "serve": "^14.2.3",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "set PORT=80 && react-scripts start",
+    "start": "react-scripts start",
+    "start:prod": "serve -s build -l 80",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
   },
   "browserslist": {
     "production": [
