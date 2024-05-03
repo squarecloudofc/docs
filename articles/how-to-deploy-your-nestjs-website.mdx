@@ -1,6 +1,6 @@
 ---
 title: "Hosting a Nestjs Application on Square Cloud"
-sidebarTitle: "Deploy your Nestjs website"
+sidebarTitle: "Nestjs application"
 description: "This article guides you on creating and hosting a Nestjs app on Square Cloud"
 ---
 
@@ -78,9 +78,15 @@ MAIN=dist/main.js
 
 In the Square Cloud configuration file, the **START** field is optional and is only necessary if you are using a custom script to start the website. In the example provided, the **START** field is not necessary.
 
+## Purchasing a Plan Before Uploading Your Project
+
+Before you can upload your project to Square Cloud, it's important to understand that you need to purchase a plan. The type of plan you choose will depend on the resources required by your application. You can view our plans [here](https://squarecloud.app/plans).
+
+<Note>**Are you wondering how much RAM and CPU your plan needs to host a NestJS application?** Don't worry, we're here to help. NestJS is a progressive Node.js framework for building efficient and scalable server-side applications. It's modular, testable, and strongly typed with TypeScript, making it a great choice for complex back-end development. Our **[Standard](https://squarecloud.app/pay/standard)** plan offers **4GB** of RAM and **1vCPU**, which should be sufficient for most Nestjs applications. However, if you're working on a larger project or need more stability, we recommend considering our Pro plan. With additional resources, you can ensure smooth performance even under high demand. To purchase, simply click [here](https://squarecloud.app/pay/pro).</Note>
+
 ## Uploading Your App to Square Cloud
 
-After following all the steps, place your Vite app files inside the zip file where the configuration file is, and upload the site at [Upload](https://squarecloud.app/dashboard/upload). Remember not to include files like `node_modules`. You can get more information about unnecessary files when hosting at [automatic-deletion-files-when-deploying-an-application-to-squarecloud](https://docs.squarecloud.app/faqs/automatic-deletion-files-when-deploying-an-application-to-squarecloud).
+After following all the steps, package your application files into a zip file where the configuration file is and upload the application on [Upload](https://squarecloud.app/dashboard/upload). Remember not to include files like `node_modules`. You can get more information about unnecessary files when hosting at [automatic-deletion-files-when-deploying-an-application-to-squarecloud](https://docs.squarecloud.app/faqs/automatic-deletion-files-when-deploying-an-application-to-squarecloud).
 
 ## Troubleshooting
 

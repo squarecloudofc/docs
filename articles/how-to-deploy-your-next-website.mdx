@@ -1,6 +1,6 @@
 ---
 title: "Hosting a Next.js Website on Square Cloud"
-sidebarTitle: "Deploy your Next.js website"
+sidebarTitle: "Next.js website"
 description: "This article guides you on creating and hosting a Next.js website on Square Cloud."
 ---
 
@@ -21,14 +21,6 @@ In this command, `my-app` is the name of your new project. You can replace `my-a
 `create-next-app` is a package available on the npm registry that sets up a new Next.js project for you. It takes care of all the initial setup, such as creating the project directory, installing necessary dependencies, and configuring basic files.
 
 `@latest` is a tag specifying that you want to use the latest version of the `create-next-app` package. This ensures you're always using the most updated version and, consequently, have access to the latest features.
-
-If you want to create a new Next.js project with TypeScript, you can add the `--ts` flag to the command:
-
-```bash
-npx create-next-app@latest my-app --ts
-```
-
-The `--ts` flag is an option you can add to the `create-next-app` command to create a new Next.js project with TypeScript support.
 
 ## Configuring Port 80
 
@@ -75,10 +67,15 @@ This command will execute the "build" and "start" scripts defined in your `packa
   }
 }
 ```
+## Purchasing a Plan Before Uploading Your Project
+
+Before you can upload your project to Square Cloud, it's important to understand that you need to purchase a plan. The type of plan you choose will depend on the resources required by your application. You can view our plans [here](https://squarecloud.app/plans).
+
+<Note>**Are you wondering how much RAM and CPU your plan needs to host a Next.js website?** Don't worry, we're here to help. Next.js is a React framework best known for its server-side rendering and static site generation capabilities. It's designed to provide an optimal developer experience through features like zero-config, automatic TypeScript support, file-system based routing, and built-in CSS support. Our **[Standard](https://squarecloud.app/pay/standard)** plan offers **4GB** of RAM and **1vCPU**, which should be sufficient for most Next.js websites. However, if you're working on a larger project or need more stability, we recommend considering our Pro plan. With additional resources, you can ensure smooth performance even under high demand. To purchase, simply click [here](https://squarecloud.app/pay/pro).</Note>
 
 ## Uploading your project to Square Cloud
 
-After following all the steps, place your website files inside the zip where the configuration file is, and upload the site at [Upload](https://squarecloud.app/dashboard/upload). Remember not to include files like `package-lock.json` or `node_modules`. You can get more information about unnecessary files when hosting at [automatic-deletion-files-when-deploying-an-application-to-squarecloud](https://docs.squarecloud.app/faqs/automatic-deletion-files-when-deploying-an-application-to-squarecloud).
+After following all the steps, package your application files into a zip file where the configuration file is, and upload the website on [Upload](https://squarecloud.app/dashboard/upload). Remember not to include files like `package-lock.json` or `node_modules`. You can get more information about unnecessary files when hosting at [automatic-deletion-files-when-deploying-an-application-to-squarecloud](https://docs.squarecloud.app/faqs/automatic-deletion-files-when-deploying-an-application-to-squarecloud).
 
 ## Troubleshooting
 

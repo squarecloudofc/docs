@@ -1,6 +1,6 @@
 ---
 title: "Hosting a Flask Application on Square Cloud"
-sidebarTitle: "Deploy your Flask application"
+sidebarTitle: "Flask application"
 description: "This article guides you through creating and hosting a Flask application on Square Cloud."
 ---
 
@@ -46,9 +46,15 @@ The squarecloud.app file is a configuration file that will be used to configure 
 
 In the Square Cloud configuration file, the **START** field is optional and is only necessary if you are using a custom script to start the website. In the example provided, the **START** field is not necessary.
 
+## Purchasing a Plan Before Uploading Your Project
+
+Before you can upload your project to Square Cloud, it's important to understand that you need to purchase a plan. The type of plan you choose will depend on the resources required by your application. You can view our plans [here](https://squarecloud.app/plans).
+
+<Note>**Are you wondering how much RAM and CPU your plan needs to host a Flask Application?** Don't worry, we're here to help. Flask is known for its efficiency, especially for small projects or learning purposes. Our **[Standard](https://squarecloud.app/pay/standard)** plan offers **4GB** of RAM and **1vCPU**, which should be sufficient for most Flask applications. However, if you're working on a larger project and seeking extra stability, we recommend considering our Pro plan. With additional resources, you can maintain stability even during peak demand. To purchase, simply click [here](https://squarecloud.app/pay/pro).</Note>
+
 ## Uploading your project to Square Cloud
 
-After following all the steps, package your application files into a zip file where the configuration file is and upload the site on [Upload](https://squarecloud.app/dashboard/upload). Remember to include the `requirements.txt` file, but do not include files like `__pycache__`. You can get more information about unnecessary files when hosting at [automatic-deletion-files-when-deploying-an-application-to-squarecloud](https://docs.squarecloud.app/faqs/automatic-deletion-files-when-deploying-an-application-to-squarecloud).
+After following all the steps, package your application files into a zip file where the configuration file is, and upload the application on [Upload](https://squarecloud.app/dashboard/upload). Remember to include the `requirements.txt` file, but do not include files like `__pycache__`. You can get more information about unnecessary files when hosting at [automatic-deletion-files-when-deploying-an-application-to-squarecloud](https://docs.squarecloud.app/faqs/automatic-deletion-files-when-deploying-an-application-to-squarecloud).
 
 ## Troubleshooting
 
