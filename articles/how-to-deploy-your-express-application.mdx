@@ -1,0 +1,90 @@
+---
+title: "Hosting an Express Application on Square Cloud"
+sidebarTitle: "Express application"
+description: "This article guides you on creating and hosting an Express app on Square Cloud"
+---
+
+## Introduction
+
+Before you begin, make sure you have Node.js and npm installed on your system. If you don't have them yet, you can download them from the [official Node.js website](https://nodejs.org/).
+
+### Setting up Express
+
+To use Express, you need to install it on your system. Run the following command:
+
+```bash
+npm install express
+```
+
+This command installs the `express` package on your system, which allows you to use Express in your terminal.
+
+### Creating an Express Project
+
+To create a new Express project, you can start by creating a new file and writing the following code:
+
+```javascript app.js
+// Importing the Express module
+const express = require('express');
+
+// Creating a new Express application
+const app = express();
+
+// Setting the port to 80
+// Port 80 is the default port for HTTP traffic.
+const port = 80;
+
+// Defining a route handler for the route '/'
+// This route handler sends 'Hello World!' when accessed.
+app.get('/', (req, res) => {
+  res.send('Hello World!');
+});
+
+// Making our Express application listen on port 80
+app.listen(port, () => {
+  // This block of code will run once the server is listening on port 80
+  console.log(`Example app listening on port ${port}`);
+});
+```
+## Creating the squarecloud config file
+
+<Card title="Learn about: how to make the configuration file for Square Cloud." icon="link" href="https://docs.squarecloud.app/articles/how-to-create-your-squarecloud-configuration-file">
+The squarecloud.app file is a configuration file that will be used to configure your application; it will be used to define the name, description, version, main file, among other things.
+</Card>
+
+## Configuring the START Field
+
+In the Square Cloud configuration file, the **START** field is optional and is only necessary if you are using a custom script to start the website. In the example provided, the **START** field is not necessary.
+
+## Purchasing a Plan Before Uploading Your Project
+
+Before you can upload your project to Square Cloud, it's important to understand that you need to purchase a plan. The type of plan you choose will depend on the resources required by your application. You can view our plans [here](https://squarecloud.app/plans).
+
+<Note>**Are you wondering how much RAM and CPU your plan needs to host an Express application?** Don't worry, we're here to help. Express.js is a framework for Node.js that provides minimal features for web server construction. It's easy to learn, highly flexible, and suitable for a wide range of applications, making it a great choice for web development. Our **[Standard](https://squarecloud.app/pay/standard)** plan offers **4GB** of RAM and **1vCPU**, which should be sufficient for most Express applications. However, if you're working on a larger project or need more stability, we recommend considering our Pro plan. With additional resources, you can ensure smooth performance even under high demand. To purchase, simply click [here](https://squarecloud.app/pay/pro).</Note>
+## Uploading Your App to Square Cloud
+
+After following all the steps, package your application files into a zip file where the configuration file is and upload the application on [Upload](https://squarecloud.app/dashboard/upload). Remember not to include files like `node_modules`. You can get more information about unnecessary files when hosting at [automatic-deletion-files-when-deploying-an-application-to-squarecloud](https://docs.squarecloud.app/faqs/automatic-deletion-files-when-deploying-an-application-to-squarecloud).
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Custom Domain" icon="globe" iconType="solid">
+    If you want to use a custom domain for your app hosted on Square Cloud, note that by default, the URL will be something like `https://mysite.squareweb.app/`. The subdomain is determined by the SUBDOMAIN field in the configuration file. However, if you prefer using a custom domain, such as `mysite.com`, you'll need to purchase the `Standard` plan or a higher plan. We detail each step to set up your custom domain in our article: [How to set up your custom domain](https://docs.squarecloud.app/articles/how-to-set-up-your-domain).
+  </Accordion>
+
+  <Accordion title="Minimum RAM Requirements" icon="memory" iconType="solid">
+      The minimum amount of RAM required to host a website is 512MB, however, when building your site directly on Square, it's advisable to use a higher amount, or you may encounter the [LACK_OF_RAM](https://docs.squarecloud.app/faqs/troubleshooting/LACK_OF_RAM) error.
+  </Accordion>
+
+  <Accordion title="Temporarily Denied Access" icon="ban" iconType="solid">
+    If you receive the message "Your access has been temporarily denied." when trying to access the site, wait for some time. If the issue persists, feel free to contact us at https://squarecloud.app/support.
+    <Frame>
+      <img src="https://i.imgur.com/Og5iBAH.png" style={{ borderRadius: "0.2rem" }} />
+    </Frame>
+  </Accordion>
+</AccordionGroup>
+
+## Additional Resources
+
+For more information about Express and its tools, visit the [official Express documentation](https://expressjs.com/). There, you'll find detailed guides, tutorials, and API documentation to help you make the most of Express.
+
+If you continue to experience any issues, please don't hesitate to [contact our support team](/company/support).

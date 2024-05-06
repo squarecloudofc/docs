@@ -96,23 +96,24 @@
       ]
     },
     {
-      "group": "Articles",
+      "group": "Guides",
       "pages": [
         "articles/how-to-set-up-git-integration",
         "articles/how-to-set-up-your-domain",
-        "articles/how-to-deploy-your-selenium-application",
         "articles/how-to-deploy-your-website",
         "articles/how-to-deploy-your-discord-bot",
         "articles/how-to-deploy-your-telegram-bot",
         "articles/how-to-deploy-your-whatsapp-bot",
         "articles/how-to-deploy-your-vite-website",
-        "articles/how-to-deploy-your-flask-application",
-        "articles/how-to-deploy-your-django-application",
         "articles/how-to-deploy-your-react-website",
         "articles/how-to-deploy-your-vue-website",
         "articles/how-to-deploy-your-next-website",
-        "articles/how-to-deploy-your-nestjs-website",
-        "articles/how-to-create-your-lavalink-server"
+        "articles/how-to-create-your-lavalink-server",
+        "articles/how-to-deploy-your-express-application",
+        "articles/how-to-deploy-your-flask-application",
+        "articles/how-to-deploy-your-django-application",
+        "articles/how-to-deploy-your-nestjs-application",
+        "articles/how-to-deploy-your-selenium-application"
       ]
     },
     {
