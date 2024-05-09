@@ -110,6 +110,7 @@
         "articles/how-to-deploy-your-next-website",
         "articles/how-to-create-your-lavalink-server",
         "articles/how-to-deploy-your-express-application",
+        "articles/how-to-deploy-your-fastify-application",
         "articles/how-to-deploy-your-flask-application",
         "articles/how-to-deploy-your-django-application",
         "articles/how-to-deploy-your-nestjs-application",
