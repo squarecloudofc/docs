@@ -61,14 +61,19 @@
   ],
   "navigation": [
     {
-      "group": "Getting Started",
+      "group": "Get Started",
       "pages": [
-        "introduction",
-        {
-          "group": "Production-ready services",
-          "pages": ["services/bots", "services/sites", "services/blob"]
-        },
-        "articles/how-to-create-your-squarecloud-configuration-file"
+        "getting-started/overview",
+        "getting-started/quick-start",
+        "getting-started/config-file"
+      ]
+    },
+    {
+      "group": "Services",
+      "pages": [
+        "services/bots",
+        "services/sites",
+        "services/blob"
       ]
     },
     {
@@ -89,8 +94,8 @@
           ]
         },
         "articles/getting-started-with-java",
-        "articles/getting-started-with-elixir",
         "articles/getting-started-with-rust",
+        "articles/getting-started-with-elixir",
         "articles/getting-started-with-php",
         "articles/getting-started-with-go"
       ]
@@ -281,5 +286,19 @@
     "thumbsRating": true,
     "raiseIssue": true,
     "suggestEdit": true
-  }
+  },
+  "redirects": [
+    {
+      "source": "/introduction",
+      "destination": "/getting-started/overview"
+    },
+    {
+      "source": "/articles/how-to-create-your-squarecloud-configuration-file",
+      "destination": "/getting-started/config-file"
+    },
+    {
+      "source": "/articles/como-criar-seu-arquivo-de-configuracao-squarecloud",
+      "destination": "/getting-started/config-file"
+    } 
+  ]
 }
