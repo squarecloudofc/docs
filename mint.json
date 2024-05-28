@@ -47,6 +47,10 @@
       "url": "api-reference"
     },
     {
+      "name": "CLI Reference",
+      "url": "cli-reference"
+    },
+    {
       "name": "Blob Reference",
       "url": "blob-reference"
     },
@@ -188,6 +192,14 @@
             "api-reference/endpoint/apps/network/analytics"
           ]
         }
+      ]
+    },
+    {
+      "group": "CLI Reference",
+      "pages": [
+        "cli-reference/installation",
+        "cli-reference/authentication",
+        "cli-reference/commands"
       ]
     },
     {
