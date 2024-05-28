@@ -1,0 +1,171 @@
+---
+title: "How to create your squarecloud.app config file"
+sidebarTitle: "Config file"
+icon: "gear-complex-code"
+description: "Learn how to create your Square Cloud configuration file"
+---
+
+## Configuration file? What is it? 🤔
+The configuration file is a file that contains the parameters of your application, such as the main file, memory, version, and other parameters. This file is used to configure and deploy your application on the Square Cloud platform.
+
+## Creating the configuration file
+It's very simple to create the configuration file, just create a file with the name `squarecloud.app` or `squarecloud.config` and put the configuration parameters inside it.
+
+<Steps>
+    <Step title="Select extension">
+        The configuration file can have two extensions: **.app** or **.config**. You can choose the extension you prefer. Tip: use **.app** to help promote Square (squarecloud.app). 😂
+        <Info>In **macOS**, we recommend using the **.config** extension.</Info>
+        <Warning>Note: **.app** or **.config** is the **file extension**, **not the name**.</Warning>
+
+    </Step>
+    <Step title="Create file">
+        Create a file with the extension you selected and put the configuration parameters inside it.
+    </Step>
+</Steps>
+
+## Configuration parameters
+Below you can see the configuration parameters that you can use in your configuration file.
+
+<Steps>
+    <Step title="MAIN [*]" icon="file">
+        The **MAIN** parameter is used to define the main file of your application.
+        ```systemd Example:
+        MAIN=index.js
+        ```
+        ```systemd Also, support subdirectories.
+        MAIN=src/loaders/index.js
+        ```
+        <Info>This parameter has maximum of **32 characters**.</Info>
+        <Info>This configuration is **IGNORED** if you use START parameter.</Info>
+    </Step>
+    <Step title="MEMORY [*]" icon="memory">
+        The **MEMORY** parameter is used to define the amount of memory that your application will use on the Square Cloud platform.
+        ```systemd
+        MEMORY=256
+        ```
+        <Info>The value is in megabytes (MB).</Info>
+        <Note>The minimum memory for a bot is **512MB** and for a website is **512MB**.</Note>
+    </Step>
+    <Step title="VERSION [*]" icon="arrow-up-9-1">
+        The **VERSION** parameter is used to define the version of your application.
+        ```systemd
+        VERSION=recommended
+        ```
+        <Info>For each language there is a different version, see the table below.</Info>
+        | Language                 | Version `recommended`  | Version `latest` |
+        | ------------------------ | ---------------------- | ---------------- |
+        | JavaScript [Node.js]     | 20.9.0 (LTS - 2023)    | 21.1.0           |
+        | Python                   | 3.11.6                 | 3.12             |
+        | Java                     | JDK 17                 | JDK 18           |
+        | Elixir                   | 1.15.4                 | 1.15.4           |
+        | Rust                     | 1.76.0                 | 1.76.0           |
+        | PHP                      | 8.2.10                 | 8.2.10           |
+        | Go                       | 1.21.3                 | 1.21.3           |
+        | HTML/CSS                 | Build 07-29-23         | Build 07-29-23   |
+
+        <Tip>We recommend using the `recommended` version as our team has performed extensive testing on all recommended versions.</Tip>
+    </Step>
+    <Step title="DISPLAY_NAME [*]" icon="text">
+        The **DISPLAY_NAME** parameter is used to define the name of your application.
+        ```systemd Example:
+        DISPLAY_NAME=Admin BOT
+        ```
+        <Info>This parameter has maximum of **32 characters**.</Info>
+    </Step>
+    <Step title="DESCRIPTION" icon="text">
+        The **DESCRIPTION** parameter is used to define the description of your application.
+        ```systemd Example:
+        DESCRIPTION=This bot is designed to help you with your daily tasks.
+        ```
+        <Info>This parameter has maximum of **280 characters**.</Info>
+    </Step>
+    <Step title="AUTORESTART" icon="rotate">
+        The **AUTORESTART** parameter is used to define if your application should restart automatically if it crashes.
+        ```systemd Example:
+        AUTORESTART=true
+        ```
+        <Info>By default, this parameter is set to `false`.</Info>
+    </Step>
+    <Step title="SUBDOMAIN" icon="globe">
+        The **SUBDOMAIN** parameter is used to define the subdomain of your website.
+        ```systemd Example:
+        SUBDOMAIN=mysite
+        ```
+        <Info>This parameter has maximum of **63 characters**.</Info>
+        <Note>Website url will be: mysite.squareweb.app</Note>
+    </Step>
+    <Step title="START" icon="play">
+        The **START** parameter is used to define a custom startup command for your application.
+        ```systemd Example:
+        START=npm run start
+        ```
+        <Info>This parameter has maximum of **128 characters**.</Info>
+        <Info>This parameter **ignores** the MAIN parameter, which is used to join Square's standardized initialization commands.</Info>
+    </Step>
+</Steps>
+
+
+## Examples of configuration for bots
+We have some examples of configurations for bots, below you can see some examples.
+
+```systemd This example just use required parameters. (minimum configuration)
+MAIN=index.js
+MEMORY=256
+VERSION=recommended
+DISPLAY_NAME=Robin bot
+```
+
+```systemd This example is a bot with all parameters.
+MAIN=index.js
+MEMORY=256
+VERSION=recommended
+DISPLAY_NAME=Robin bot
+DESCRIPTION=Robin is a bot designed to help you with your daily tasks.
+AUTORESTART=true
+```
+
+```systemd This example use all parameters and CUSTOM STARTUP COMMAND in a bot.
+MAIN=index.js
+MEMORY=512
+VERSION=recommended
+DISPLAY_NAME=Batman force
+START=npm run start
+```
+
+## Examples of configuration for websites
+We have some examples of configurations for websites, below you can see some examples.
+
+<Info>Website url will be: mysite.squareweb.app</Info>
+```systemd This example use all parameters and CUSTOM STARTUP COMMAND in a website.
+MAIN=index.js
+MEMORY=512
+VERSION=recommended
+DISPLAY_NAME=My website!
+DESCRIPTION=My website is very cool!
+SUBDOMAIN=mysite
+START=npm run build && npm run start
+AUTORESTART=true
+```
+
+<Info>MAIN `next.config.js` used only to system recognize the project as a JavaScript project or TypeScript project (another .ts/.tsx file)</Info>
+```systemd Next.js website example.
+MAIN=next.config.js
+MEMORY=1024
+VERSION=recommended
+DISPLAY_NAME=Next.js website
+DESCRIPTION=This website is built with Next.js.
+SUBDOMAIN=nextjs
+START=npm run build && npm run start
+AUTORESTART=true
+```
+
+## Reforcing the limits
+For security and performance reasons, there are limits on the configuration parameters, below you can see the limits of each parameter.
+
+| Parameter     | Character limit |
+| ------------- | --------------- |
+| MAIN          | 32 characters   |
+| DISPLAY_NAME  | 32 characters   |
+| DESCRIPTION   | 280 characters  |
+| START         | 128 characters  |
+| SUBDOMAIN     | 63 characters   |

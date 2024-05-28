@@ -1,0 +1,156 @@
+---
+title: "😁 Welcome to the Square Platform"
+sidebarTitle: "Overview"
+icon: "book"
+description: "Square Cloud is a platform that provides hassle-free, user-friendly enterprise hosting services. Get started in minutes. ✨"
+---
+
+<CardGroup>
+  <Card
+    title="Quick Start Guide"
+    icon="book"
+    href="/getting-started/quick-start"
+  >
+    Get a fast overview in your first steps with Square Cloud.
+  </Card>
+  <Card title="Official API" icon="code" href="/api-reference">
+    Our API documentation for developers (and you're here!).
+  </Card>
+</CardGroup>
+
+<Snippet file="before-begin.mdx" />
+
+Once you've signed up, you can start deploying your applications on Square Cloud after selected the plan that suits your needs.
+
+## Facilitating your journey with CLI 💻
+This Overview uses a [Square Cloud CLI](/cli) to deploy your applications. The CLI is a command-line tool that allows you to interact with Square Cloud services. You can use the CLI to deploy applications, manage services, and view logs.
+
+To use the CLI, you need to install it on your local machine. You can install the CLI using the following commands:
+
+<Frame>
+  <img src="https://cdn.squarecloud.app/blog/posts/changelog/01-02-2024/square-cli-install.gif" />
+</Frame>
+<br/>
+
+<CodeGroup>
+```bash macOS, Linux, and WSL 
+curl -fsSL https://cli.squarecloud.app/install | bash
+```
+
+```bash Windows with npm
+npm install -g @squarecloud/cli
+```
+
+```bash Windows with yarn
+yarn global add @squarecloud/cli
+```
+</CodeGroup>
+
+<Steps>
+  <Step title="Read the instructions about your language">
+    <Snippet file="languages.mdx" />
+    <Info>For this example, we will use the JavaScript (Node.js) language.</Info>
+  </Step>
+  <Step title="Create your Square Cloud config file">
+    After installing the CLI, you need to create a configuration file. You can create a [configuration file](/getting-started/config-file) reading this article [here](/getting-started/config-file).
+
+    My configuration file looks like this:
+    ```systemd
+    MAIN=index.js
+    MEMORY=512
+    VERSION=recommended
+    DISPLAY_NAME=Robin bot
+    DESCRIPTION=This bot system is designed to help you with your daily tasks.
+    ```
+  </Step>
+  <Step title="Upload your project">
+    After this journey, you need to upload your project to Square Cloud. You can do this by running the following command:
+    ```bash
+    squarecloud upload
+    ```
+  </Step>
+</Steps>
+
+
+## Facilitating your journey with web interface 😉
+If you don't like command lines or prefer to use the web interface, you can upload your project directly to the Square Cloud website. To do this, follow these steps:
+
+<Steps>
+  <Step title="Access the Square Cloud website">
+    Access the [Square Cloud dashboard](https://squarecloud.app/dashboard) using your account.
+  </Step>
+    <Step title="Create your Square Cloud config file">
+    After accessing the dashboard, you need to create a configuration file. You can create a [configuration file](/getting-started/config-file) reading this article [here](/getting-started/config-file).
+  </Step>
+  <Step title="ZIP your project">
+    After creating the configuration file, you need to zip your project.
+    ```bash Using the CLI
+    squarecloud zip
+    ```
+
+    Or you can zip your project manually:
+    <CodeGroup>
+      ```bash Windows
+      1. Locate the file or folder that you want to zip.
+      2. Press and hold (or right-click) the file or folder, select (or point to) Send to, and then select Compressed (zipped) folder.
+      3. A new zipped folder with the same name is created in the same location. To rename it, press and hold (or right-click) the folder, select Rename, and then type the new name.
+      ```
+      ```bash Linux
+      1. Locate the file or folder that you want to zip.
+      2. Right-click the file or folder, then choose Compress from the shortcut menu.
+      3. A new zipped folder with the same name is created in the same location. To rename it, press and hold (or right-click) the folder, select Rename, and then type the new name.
+      ```
+      ```bash macOS
+      1. Locate the file or folder that you want to zip.
+      2. Control-click the file or folder, then choose Compress from the shortcut menu.
+      3. A new zipped folder with the same name is created in the same location. To rename it, press and hold (or right-click) the folder, select Rename, and then type the new name.
+      ```
+    </CodeGroup>
+
+    Or you can use the command line to compress your project folder:
+    <CodeGroup>
+    ```bash macOS, Linux, and WSL
+    zip -r my-project.zip .
+    ```
+
+    ```bash Windows (powershell)
+    Compress-Archive -Path . -DestinationPath my-project.zip
+    ```
+    </CodeGroup>
+   </Step>
+  <Step title="Deploy your project">
+    After uploading your project, click on the "Add New" button to deploy your project.
+  </Step>
+</Steps>
+
+## What's next?
+Now that you've learned how to deploy your project, you can explore the Square Cloud platform further. Here are some resources to help you get started:
+
+<CardGroup>
+  <Card
+    title="API Reference"
+    icon="server"
+    href="/api-reference"
+  >
+    Learn more about the Square Cloud API.
+  </Card>
+  <Card
+    title="CLI Reference"
+    icon="code"
+    href="/cli-reference"
+  >
+    Learn more about the Square Cloud CLI.
+  </Card>
+</CardGroup>
+
+Join our community on [Discord](https://discord.gg/squarecloud) to get help from other developers and share your experiences.
+<Card 
+  title="Square Cloud Community"
+  icon="discord"
+  href="https://discord.gg/squarecloud"
+  color="#7289DA"
+>
+  Join our community on Discord. We're here to help you!
+</Card>
+
+If you have any questions or need help, you can reach out to our [support team](https://squarecloud.app/support). We're here to help you! 🚀
