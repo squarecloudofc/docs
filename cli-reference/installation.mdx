@@ -1,0 +1,62 @@
+---
+title: "Installation"
+icon: "download"
+description: "Learn what it takes to install the Square Cloud CLI."
+---
+
+The Square Cloud CLI is a command-line tool that allows you to interact with Square Cloud services. You can use the CLI to deploy applications, manage services, and much more.
+
+## Installation 
+To use the CLI, you need to install it on your local machine.
+ 
+You can install the CLI using the following commands:
+<Frame>
+  <img src="https://cdn.squarecloud.app/blog/posts/changelog/01-02-2024/square-cli-install.gif" />
+</Frame>
+<br/>
+
+<CodeGroup>
+```bash macOS, Linux, and WSL 
+curl -fsSL https://cli.squarecloud.app/install | bash
+```
+
+```bash Windows with npm
+npm install -g @squarecloud/cli
+```
+
+```bash Windows with yarn
+yarn global add @squarecloud/cli
+```
+</CodeGroup>
+
+## Update the CLI
+To update the CLI, you can run the following command:
+<CodeGroup>
+```bash Windows
+squarecloud update
+```
+```bash Linux, macOS, and WSL
+curl -fsSL https://cli.squarecloud.app/install | bash
+```
+</CodeGroup>
+
+```bash Output
+$: squarecloud update
+Downloading checksums...
+Downloading binaries from github release...
+https://github.com/squarecloudofc/cli/releases/download/v2.1.1/squarecloud_windows_amd64.zip
+Validating file...
+Extracting file to C:\Users\squarecloud\AppData\Roaming\squarecloud
+Square Cloud CLI updated to version 2.1.1
+```
+And that's it! You have successfully updated the Square Cloud CLI. 🎉
+
+## Next steps
+After installing the CLI, you need to authenticate to the Square Cloud API.
+
+<Card
+  title="Authentication"
+  href="/cli-reference/authentication"
+>
+    Learn what it takes to authenticate to the Square Cloud CLI.
+</Card> 

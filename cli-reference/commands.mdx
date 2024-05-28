@@ -1,0 +1,170 @@
+---
+title: "Commands Reference"
+sidebarTitle: "Commands"
+icon: "code"
+description: "Learn about the commands available in the Square Cloud CLI."
+---
+
+## Primary Commands
+The Square Cloud CLI provides the following primary commands:
+
+<Tabs>
+    <Tab title="squarecloud help">
+        Command to get help about any command.
+
+        ```bash
+        squarecloud help
+        ```
+
+        You will see the help information about the command.
+        ```bash Output
+        A command line application to manage your Square Cloud applications
+
+        Usage:
+          squarecloud COMMAND [flags]
+          squarecloud [command]
+
+        Available Commands:
+          app         Do some actions with your applications
+          apps        List all your Square Cloud applications
+          commit      Commit your application to Square Cloud
+          help        Help about any command
+          login       Login to Square Cloud
+          upload      Upload your application to Square Cloud
+          whoami      Print the user informations associated with current Square Cloud Token
+          zip         Zip the current folder
+
+        Flags:
+          -h, --help      help for squarecloud
+          -v, --version   Print CLI version
+
+        Use "squarecloud [command] --help" for more information about a command.
+        ```
+    </Tab>
+    <Tab title="squarecloud login">
+        Command to authenticate to the Square Cloud CLI using your API key.
+
+        ```bash
+        squarecloud login
+        ```
+
+        You will be prompted to enter your API key.
+
+        ```bash Insert your square cloud api token
+        Your API Token:
+        > Insert your square cloud api token
+        ```
+
+        ```bash Output	 
+        Your API Token has successfuly changed! You are now logged in a <username>
+        With great power comes great responsibility!
+        ```
+
+        After entering your API key, you will be authenticated to the Square Cloud CLI. 😁
+    </Tab>
+    <Tab title="squarecloud whoami">
+        Command to print user information associated with the current Square Cloud Token.
+
+        ```bash
+        squarecloud whoami
+        ```
+
+        You will see the user information associated with the current Square Cloud Token.
+        ```bash Output
+        Currently logged as <username>
+        ```
+    </Tab>
+    <Tab title="squarecloud commit">
+        Command to commit your application to Square Cloud.
+
+        ```bash
+        squarecloud commit
+        ```
+
+        Your application will be committed to Square Cloud.
+        ```bash Output
+        ✓ Your source has successfuly commited to Square Cloud
+        ```
+    </Tab>
+    <Tab title="squarecloud zip">
+        Command to zip the current folder.
+
+        ```bash
+        squarecloud zip
+        ```
+
+        The current folder will be zipped.
+        ```bash Output
+        ✓ Your source has successfuly zipped to documentation.zip
+        ```
+    </Tab>
+</Tabs>
+
+## App Commands
+The CLI provides the following commands to manage your applications:
+
+<Tabs>
+    <Tab title="squarecloud apps">
+        Command to list all your Square Cloud applications.
+
+        ```bash
+        squarecloud apps
+        ```
+
+        You will see a list of all your Square Cloud applications.
+        ```bash Output
+        NAME                             App ID                              MEMORY    CLUSTER        LANG          WEBSITE
+        Community Bot                    5bbd020326ee4692aba43e0ca0a75454    1024mb    fl-micron-1    javascript    false
+        Management Bot                   5241e2ae060a4735ba672dd4abb7099b    1024mb    fl-micron-2    javascript    false
+        Eval Bot Test                    7845e3b8683a4cb7a323656c09fdafce    1024mb    fl-micron-4    javascript    false
+        Config Web                       9b72fc4efc7748da9c69fe21daab18f4    2048mb    fl-micron-2    javascript    true
+        Proxy System                     a23d130fcc9d4be288ae4599a4292c32    3096mb    fl-micron-1    javascript    true
+        Portfolio                        441fa128793q47adbb7519536eb6f9bc    2048mb    fl-micron-1    static        true
+        ```
+    </Tab>
+    <Tab title="squarecloud app">
+        Command to perform actions with your applications.
+
+        ```bash
+        squarecloud app
+        ```
+
+        You will see a list of all available commands to manage your applications.
+        ```bash Output
+        Do some actions with your applications
+
+        Usage:
+          squarecloud app [flags]
+          squarecloud app [command]
+
+        Available Commands:
+          backup      Create a backup of you application
+          delete      Delete your application
+          logs        See your application logs
+          restart     Restart your application
+          start       Start your application
+          status      Show the status of your application
+          stop        Stop your application
+
+        Flags:
+          -h, --help   help for app
+
+        Use "squarecloud app [command] --help" for more information about a command.
+        ```
+    </Tab> 
+</Tabs>
+
+## Deployment Command
+The CLI provides the following command to deploy your application:
+
+<Tabs>
+    <Tab title="squarecloud upload">
+        Command to upload your application to Square Cloud.
+
+        ```bash
+        squarecloud upload
+        ```
+
+        Your application will be deployed to Square Cloud.
+    </Tab>
+</Tabs>
