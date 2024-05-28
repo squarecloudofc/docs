@@ -4,9 +4,7 @@ description: "Discover the innovations and robustness of Square Cloud by explori
 icon: "robot"
 ---
 
-<Frame>
-  <img src="/images/services/bots.png" style={{ borderRadius: "0.5rem" }} />
-</Frame>
+<img src="/images/services/bots.png" />
 
 **Square Cloud**, an advanced technological platform, stands out for providing comprehensive support for various types of bots. This article delves into the features and bot support offered by **Square Cloud**, highlighting how this platform excels in the current technological landscape.
 
@@ -107,7 +105,7 @@ Square Cloud caters to a diverse range of programming languages, empowering deve
  title="Configuration File" icon="file">
     The first step to host your bot on **Square Cloud** is to create a detailed configuration file. This file is not just a simple text document but a comprehensive guide that defines the settings for the application on **Square Cloud**. It functions as an architectural plan for your project on the platform.
 
-    Once the plan is acquired, you need to create this file, detailing each configuration and filling it out correctly. Details on how to create this file are available [here](https://docs.squarecloud.app/articles/how-to-create-your-squarecloud-configuration-file), with a step-by-step guide.
+    Once the plan is acquired, you need to create this file, detailing each configuration and filling it out correctly. Details on how to create this file are available [here](https://docs.squarecloud.app/getting-started/config-file), with a step-by-step guide.
   </Step>
   <Step title="ZIP File Creation" icon="file-zip">
     With the configuration file ready, the next step is to prepare your application for upload. This involves placing the application files and the **Square Cloud** configuration file inside a .zip file.
@@ -131,7 +129,7 @@ Square Cloud caters to a diverse range of programming languages, empowering deve
     This error occurs when the dependency file is missing in your .zip. If your application is in JS, we have an article guiding you in the step-by-step creation of the `package.json` [here](https://docs.squarecloud.app/articles/how-to-create-your-package-json), and for Python, it's the `requirements.txt` [here](https://docs.squarecloud.app/articles/how-to-create-your-requirements).
   </Accordion>
   <Accordion title="FEW_MEMORY" icon="memory">
-    This error occurs when you incorrectly configure the RAM in the configuration file or provide more RAM than is available, or less than the minimum required for the type of application, which is 100MB for bots.
+    This error occurs when you incorrectly configure the RAM in the configuration file or provide more RAM than is available, or less than the minimum required for the type of application, which is 256MB for bots.
   </Accordion>
   <Accordion title="INVALID_MAIN" icon="file-code">
     This error occurs when the file defined as "main" for your application in the configuration file does not exist, is written incorrectly, or the path is incorrect. If your main file is inside a folder, for example, you should enter `folder/file.js`.
