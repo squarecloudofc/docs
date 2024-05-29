@@ -85,6 +85,7 @@
       "pages": [
         {
           "group": "JavaScript",
+          "icon": "node-js",
           "pages": [
             "articles/getting-started-with-nodejs",
             "articles/how-to-create-your-package-json"
@@ -92,6 +93,7 @@
         },
         {
           "group": "Python",
+          "icon": "python",
           "pages": [
             "articles/getting-started-with-python",
             "articles/how-to-create-your-requirements"
@@ -107,6 +109,7 @@
     {
       "group": "Guides",
       "pages": [
+        "articles/managing-teams",
         "articles/how-to-set-up-git-integration",
         "articles/how-to-set-up-your-domain",
         "articles/how-to-deploy-your-website",
