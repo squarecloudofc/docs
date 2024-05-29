@@ -145,10 +145,6 @@
       "group": "API Endpoints",
       "pages": [
         {
-          "group": "No auth required",
-          "pages": ["api-reference/endpoint/service/statistics"]
-        },
-        {
           "group": "User",
           "pages": ["api-reference/endpoint/user/info"]
         },
