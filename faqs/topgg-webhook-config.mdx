@@ -153,13 +153,20 @@ You can get more information about unnecessary files when hosting at [automatic-
   </Accordion>
 
   <Accordion title="Minimum RAM Requirements" icon="memory" iconType="solid">
-    The minimum amount of RAM required to host a website is 512MB. However, depending on the size and complexity of your project, it may be advisable to use a larger amount of RAM to avoid the [LACK_OF_RAM](https://docs.squarecloud.app/faqs/troubleshooting/LACK_OF_RAM) error.
+    The minimum amount of RAM required to host a website or API is 512MB. However, depending on the size and complexity of your project, it may be advisable to use a larger amount of RAM to avoid the [LACK_OF_RAM](https://docs.squarecloud.app/faqs/troubleshooting/LACK_OF_RAM) error.
   </Accordion>
 
   <Accordion title="Temporary Access Denied" icon="ban" iconType="solid">
     If you receive the message "Your access has been temporarily denied." when trying to access the site, please wait for some time. If the issue persists, feel free to contact us at https://squarecloud.app/support.
     <Frame>
-      <img src="https://i.imgur.com/Og5iBAH.png" style={{ borderRadius: "0.2rem" }} />
+      <img src="/images/articles/troubleshooting/temporarily-denied-access.png" style={{ borderRadius: "0.2rem" }} />
+    </Frame>
+  </Accordion>
+  
+    <Accordion title="Website took too long to respond..." icon="clock" iconType="solid">
+     If you receive the message "Website took too long to respond..." make sure you have correctly set port 80 on your application. If the issue persists, feel free to contact us at https://squarecloud.app/support.
+    <Frame>
+      <img src="/images/articles/troubleshooting/website-took-too-long-to-respond.png" style={{ borderRadius: "0.2rem" }} />
     </Frame>
   </Accordion>
 </AccordionGroup>
@@ -175,12 +182,12 @@ Now, you need to go back to the previous page where the authorization was define
 - For the Python code we created with `@app.route("/topgg", methods=["POST"])`, the route that will receive the votes is also "/topgg". So, the Webhook URL would be the same "https://mysite.squareweb.app/topgg".
 
 <Frame>
-      <img src="https://i.imgur.com/3KUPtJY.png" style={{ borderRadius: "0.2rem" }} />
+      <img src="/images/articles/topgg/example-url.png" style={{ borderRadius: "0.2rem" }} />
 </Frame>
 
 Finally, click on the "Send Test" button. After that, check the terminal. If everything went well, the message you defined in `console.log` or `print` should appear in the terminal.
 <Frame>
-      <img src="https://i.imgur.com/wrHoMuR.png" style={{ borderRadius: "0.2rem" }} />
+      <img src="/images/articles/topgg/example-send.png" style={{ borderRadius: "0.2rem" }} />
 </Frame>
 
 And with that, if everything has been configured correctly, your webhook will be ready to send notifications when your bot receives a vote on top.gg.
