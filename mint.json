@@ -188,6 +188,7 @@
           "group": "Application - Network",
           "pages": [
             "api-reference/endpoint/apps/network/custom",
+            "api-reference/endpoint/apps/network/dns",
             "api-reference/endpoint/apps/network/analytics"
           ]
         }
