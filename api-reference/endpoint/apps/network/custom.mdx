@@ -1,8 +1,8 @@
 ---
 title: "Custom Domain Integration"
 sidebarTitle: "Custom Domain"
-description: "Integrate your website with a custom domain."
-api: "POST https:/api.squarecloud.app/v2/apps/{app_id}/network/custom/{custom_domain}"
+description: "Integrate your website with a custom domain. It has a rate limit of 1 request every 60 seconds."
+api: "POST https:/api.squarecloud.app/v2/apps/{app_id}/network/custom"
 authMethod: "none"
 ---
 
@@ -16,7 +16,7 @@ authMethod: "none"
   The ID of the application. You can find this in the URL of your application's dashboard.
 </ParamField>
 
-<ParamField path="custom_domain" type="string" placeholder="example.com" required>
+<ParamField body="custom" type="string" placeholder="example.com" required>
   The custom domain you want to use.
 </ParamField>
 
@@ -24,15 +24,6 @@ authMethod: "none"
 
 <ResponseField name="status" type="string">
   Indicates whether the call was successful. "success" if successful, "error" if not.
-</ResponseField>
-
-<ResponseField name="response" type="object">
-
-The contents of the response.
-
-<Expandable title="Toggle object">
-
-</Expandable>
 </ResponseField>
 
 <ResponseExample>
