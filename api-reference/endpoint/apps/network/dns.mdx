@@ -1,0 +1,70 @@
+---
+title: "Custom Domain DNS Records"
+sidebarTitle: "Domain DNS Records"
+description: "Get the DNS records for your custom domain."
+api: "GET https:/api.squarecloud.app/v2/apps/{app_id}/network/dns"
+authMethod: "none"
+---
+
+**Is necessary to have at least the [Standard plan](https://squarecloud.app/plans) to use this route.**
+
+<ParamField header="Authorization" type="string" placeholder="API KEY" required>
+  The API key for your account. You can find this in your [account settings](https://squarecloud.app/account).
+</ParamField>
+
+<ParamField path="app_id" type="string" placeholder="Application ID" required>
+  The ID of the application. You can find this in the URL of your application's dashboard.
+</ParamField>
+
+### Response
+
+<ResponseField name="status" type="string">
+  Indicates whether the call was successful. "success" if successful, "error" if not.
+</ResponseField>
+
+<ResponseField name="response" type="array">
+
+The contents of the response.
+
+<Expandable title="Toggle object">
+
+<ResponseField name="type" type="string">
+  The type of the DNS record.
+</ResponseField>
+
+<ResponseField name="name" type="string">
+  The name of the DNS record.
+</ResponseField>
+
+<ResponseField name="value" type="string">
+  The value of the DNS record.
+</ResponseField>
+
+<ResponseField name="status" type="string">
+  The status of the DNS record. It can be "pending_validation", "pending" or "active".
+</ResponseField>
+
+</Expandable>
+</ResponseField>
+
+<ResponseExample>
+```json
+{
+  "status": "success",
+  "response": [
+    {
+      "type": "txt",
+      "name": "_acme-challenge.joaootavios.dev",
+      "value": "hmo-jMx_KCWQU5CWG6xmrkI4AOZOJXlQtjEtc7zI1PA",
+      "status": "pending_validation"
+    },
+    {
+      "type": "cname",
+      "name": "joaootavios.dev",
+      "value": "custom.squarecloud.app",
+      "status": "pending"
+    }
+  ]
+}
+```
+</ResponseExample>
