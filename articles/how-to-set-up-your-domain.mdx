@@ -26,14 +26,13 @@ After entering your domain, copy the provided nameservers and paste them on the 
 
 ## Configuring your domain on Square Cloud
 
-- Choose the site you want to configure the domain for in the [dashboard](https://squarecloud.app/dashboard), then go to the **Network** option and enter your domain in place of "example.com."
+- Choose the site you want to configure the domain for in the [dashboard](https://squarecloud.app/dashboard), then go to the **Settings** option and enter your domain in place of "example.com."
 <Frame>
   <img src="/images/articles/cloudflare/domain-setup.png" style={{ borderRadius: '0.2rem' }} />
 </Frame>
 
 - Now that the domain is configured on Square Cloud, go back to Cloudflare, select your domain, and choose the DNS option.
-- Finally, point your domain to "custom.squarecloud.app" with the type "CNAME", replacing the "name" with your domain.
-
+- Finally, point your domain to "cname.squarecloud.app" with the type "CNAME", replacing "name" with your domain, and another with the type TXT with the value that will appear in "DNS Configuration" after clicking "save".
 <Frame>
   <img src="/images/articles/cloudflare/record-dns.png" style={{ borderRadius: '0.2rem' }} />
 </Frame>
