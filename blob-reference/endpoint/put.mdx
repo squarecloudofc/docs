@@ -10,12 +10,12 @@ authMethod: "none"
   The API key for your account. You can find this in your [account settings](https://squarecloud.app/account).
 </ParamField>
 
-<ParamField body="file" type="file" placeholder="commit.zip" required>
-  Use FormData or NodeJS Buffer (single file or compress [zip])
+<ParamField body="file" type="file" placeholder="myphone.png" required>
+  Use FormData or NodeJS Buffer. (multipart/form-data)
 </ParamField>
 
 <ParamField query="name" type="string" placeholder="File Name" required>
-  A string representing the name of the file.<br/>Must adhere to the a to z, A to Z, 0 to 9, and _ pattern. (3 to 32 characters)
+  A string representing the name of the file. (with extension)<br/>Must adhere to the a to z, A to Z, 0 to 9, and _ pattern. (3 to 32 characters)
 </ParamField>
 
 <ParamField query="prefix" type="string" placeholder="File Prefix">
