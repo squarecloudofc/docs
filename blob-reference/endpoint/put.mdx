@@ -11,11 +11,11 @@ authMethod: "none"
 </ParamField>
 
 <ParamField body="file" type="file" placeholder="myphone.png" required>
-  Use FormData or NodeJS Buffer. (multipart/form-data)
+  Use FormData. (multipart/form-data)
 </ParamField>
 
 <ParamField query="name" type="string" placeholder="File Name" required>
-  A string representing the name of the file. (with extension)<br/>Must adhere to the a to z, A to Z, 0 to 9, and _ pattern. (3 to 32 characters)
+  A string representing the name of the file. (without extension)<br/>Must adhere to the a to z, A to Z, 0 to 9, and _ pattern. (3 to 32 characters)
 </ParamField>
 
 <ParamField query="prefix" type="string" placeholder="File Prefix">
@@ -42,6 +42,15 @@ authMethod: "none"
 
 <ResponseField name="response" type="object">
   <Expandable title="Toggle object">
+    <ResponseField name="id" type="string">
+      The ID of the uploaded file.
+    </ResponseField>
+    <ResponseField name="name" type="string">
+      The name of the uploaded file.
+    </ResponseField>
+    <ResponseField name="size" type="number">
+      The size of the uploaded file, in bytes.
+    </ResponseField>
     <ResponseField name="url" type="string">
       The URL of the uploaded file. (File distributed in Square Cloud CDN)
     </ResponseField>
@@ -53,7 +62,10 @@ authMethod: "none"
 {
     "status": "success",
     "response": {
-        "url": "https://public-blob.squarecloud.dev/ID/PREFIX/NAME_ltq7jshx-763f-ex1.jpeg"
+        "id": "3155597145698959364/test_lxch4k7y-07ee.png",
+        "name": "test",
+        "size": 416230,
+        "url": "https://public-blob.squarecloud.dev/3155597145698959364/test_lxch4k7y-07ee.png"
     }
 }
 ```
