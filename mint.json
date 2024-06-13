@@ -211,7 +211,7 @@
       "pages": [
         "blob-reference/endpoint/stats",
         "blob-reference/endpoint/list",
-        "blob-reference/endpoint/put",
+        "blob-reference/endpoint/post",
         "blob-reference/endpoint/delete"
       ]
     },
