@@ -4,13 +4,13 @@ sidebarTitle: "Getting Started with Node.js"
 description: "Learn how to get started on Square Cloud with Node.js"
 ---
 
-## Introduction 🚀
+## 🚀 Introduction
 
 - Before you begin, make sure you have Node.js and npm installed on your system. If you don't have them yet, you can download them from the [official Node.js website](https://nodejs.org/).
 - Next, you will need to create an account on Square Cloud, which can be done through the [login page](https://squarecloud.app/login). You can use either your email or Discord, or both, to create an account.
 - Finally, you need to have an active paid plan on your account. You can view our plans and purchase one according to your needs [here](https://squarecloud.app/plans).
 
-## Creating the squarecloud config file ⚙️
+## ⚙️ Creating the squarecloud config file
 
 <Card
   title="Learn about: how to make the configuration file for Square Cloud."
@@ -22,20 +22,20 @@ description: "Learn how to get started on Square Cloud with Node.js"
   version, main file, among other things.
 </Card>
 
-## Preparing Your Node.js Project for Square Cloud 🚀
+## 🖥️ Preparing Your Node.js Project
 
-### Essential Configuration Files and Folders 📁
+### 📁 Essential Configuration Files
 
 When preparing your Node.js project for deployment on Square Cloud, ensure that you include your configuration file (`squarecloud.app/.config`) and the essential files of your application in a zip file.
 
 <Warning>The configuration (`squarecloud.app/.config`) file must be located in the root of the zip file. Otherwise, Square Cloud will not be able to find it during deployment.</Warning>
 
-#### Files to Exclude Before Uploading 🗑️
+#### 🗑️ Files to Exclude Before Uploading
 
 - `node_modules`: This folder is not required to be sent as it will be created during the installation process in the production environment.
 - `package-lock.json`: This file is not necessary because the production environment will install dependencies based on `package.json`.
 
-### Why Exclude These Files? 🤔
+### 🤔 Why Exclude These Files?
 
 There are several reasons to exclude `node_modules` and `package-lock.json` before uploading your project:
 
@@ -47,7 +47,7 @@ There are several reasons to exclude `node_modules` and `package-lock.json` befo
 
 By doing this, you can ensure that your Node.js application is optimally prepared and secure for deployment to Square Cloud.
 
-### Required Files 📄
+### 📄 Required Files
 
 Three files are required to host your Node project:
 
@@ -61,7 +61,7 @@ Three files are required to host your Node project:
   a production platform.
 </Note>
 
-## Troubleshooting 💡
+## 💡 Troubleshooting
 
 <AccordionGroup>
   <Accordion
@@ -84,7 +84,7 @@ Three files are required to host your Node project:
   </Accordion>
 </AccordionGroup>
 
-## Uploading Project to Square Cloud 📤
+## 📤 Uploading Project to Square Cloud
 
 After preparing your project files, you can now upload them to Square Cloud and host your project.
 

@@ -22,26 +22,26 @@ description: "Learn how to get started on Square Cloud with Python"
   version, main file, among other things.
 </Card>
 
-## Preparing Project for Upload 📁
+## 📁 Preparing Project for Upload
 
 After creating the configuration file, you need to create a zip file that includes the configuration file (`squarecloud.app/.config`) along with the files of your application.
 
-## Preparing Your Python Project for Square Cloud 🚀
+## 🖥️ Preparing Your Python Project
 
-### Essential Configuration Files and Folders 📁
+### 📁 Essential Configuration Files
 
 When preparing your Python project for deployment on Square Cloud, ensure that you include your configuration file (`squarecloud.app/.config`) and the essential files of your application in a zip file.
 
 <Warning>The configuration (`squarecloud.app/.config`) file must be located in the root of the zip file. Otherwise, Square Cloud will not be able to find it during deployment.</Warning>
 
-#### Files to Exclude Before Uploading 🗑️
+#### 🗑️ Files to Exclude Before Uploading
 
 - `ffmpeg`: This software is pre-installed in the Square Cloud environment, so there's no need to include this folder in your project.
 - `.venv`: This folder contains the virtual environment for your project. Square Cloud provides an isolated environment, so this folder is not required.
 - `pyproject.toml`: While this file defines build system requirements and dependencies, Square Cloud uses `requirements.txt` for dependency management.
 - `poetry.lock`: Since Square Cloud does not currently support Poetry, this file should be excluded to avoid any potential issues during deployment.
 
-### Why Exclude These Files? 🤔
+### 🤔 Why Exclude These Files?
 
 Excluding `ffmpeg`, `.venv`, `pyproject.toml`, and `poetry.lock` is important for several reasons:
 
@@ -53,13 +53,13 @@ Excluding `ffmpeg`, `.venv`, `pyproject.toml`, and `poetry.lock` is important fo
 
 Before uploading, make sure to zip your project files in **.zip** format, excluding the unnecessary files mentioned above. This will help ensure that your Python application is ready for a successful deployment to Square Cloud.
 
-### Required Files 📄
+### 📄 Required Files
 
 - main.py (Example of main file).
 - [requirements.txt](./how-to-create-your-requirements) (Dependency file).
 - [squarecloud.app](/getting-started/config-file) (file that contains the Square Cloud configuration).
 
-## Troubleshooting 💡
+## 💡 Troubleshooting
 
 <AccordionGroup>
   <Accordion
