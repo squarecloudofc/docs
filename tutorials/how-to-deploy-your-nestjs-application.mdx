@@ -6,7 +6,9 @@ description: "This article guides you on creating and hosting a Nestjs app on Sq
 
 ## Introduction
 
-Before you begin, make sure you have Node.js and npm installed on your system. If you don't have them yet, you can download them from the [official Node.js website](https://nodejs.org/).
+- Before you begin, make sure you have Node.js and npm installed on your system. If you don't have them yet, you can download them from the [official Node.js website](https://nodejs.org/).
+- Next, you will need to create an account on Square Cloud, which can be done through the [login page](https://squarecloud.app/login). You can use either your email or Discord, or both, to create an account.
+- Finally, you need to have an active paid plan on your account. You can view our plans and purchase one according to your needs [here](https://squarecloud.app/plans).
 
 ### Setting up NestJS CLI
 
@@ -84,9 +86,50 @@ Before you can upload your project to Square Cloud, it's important to understand
 
 <Note>**Are you wondering how much RAM and CPU your plan needs to host a NestJS application?** Don't worry, we're here to help. NestJS is a progressive Node.js framework for building efficient and scalable server-side applications. It's modular, testable, and strongly typed with TypeScript, making it a great choice for complex back-end development. Our **[Standard](https://squarecloud.app/pay/standard)** plan offers **4GB** of RAM and **1vCPU**, which should be sufficient for most Nestjs applications. However, if you're working on a larger project or need more stability, we recommend considering our Pro plan. With additional resources, you can ensure smooth performance even under high demand. To purchase, simply click [here](https://squarecloud.app/pay/pro).</Note>
 
-## Uploading Your App to Square Cloud
+## Uploading Project to Square Cloud
 
-After following all the steps, package your application files into a zip file where the configuration file is and upload the application on [Upload](https://squarecloud.app/dashboard/upload). Remember not to include files like `node_modules`. You can get more information about unnecessary files when hosting at [automatic-deletion-files-when-deploying-an-application-to-squarecloud](https://docs.squarecloud.app/faqs/automatic-deletion-files-when-deploying-an-application-to-squarecloud).
+After preparing your project files, you can now upload them to Square Cloud and host your project.
+
+<Tabs>
+  <Tab title="Dashboard Upload">
+    Access the [Square Cloud
+    Dashboard](https://squarecloud.app/dashboard/upload) and upload your project
+    files.
+    <Frame>
+      <img src="/images/uploading.gif" style={{ borderRadius: "0.2rem" }} />
+    </Frame>
+  </Tab>
+  <Tab title="CLI Upload">
+    <Steps>
+      <Step title="First Step">
+        First, you need to have the CLI installed in your environment. If you
+        don't have it yet, run the following command in your terminal: ```npm install -g @squarecloud/cli``` If you already have it, we
+        recommend updating it. To do this, run the following command in your
+        terminal: 
+        ```bash 
+        squarecloud update
+        ```
+      </Step>
+      <Step title="Second Step">
+        Now, to authenticate and use other CLI commands, you will find your
+        authorization key [here](https://squarecloud.app/account) by clicking on
+        "Request API Key". After obtaining your authorization key, run the
+        following command: 
+        ```bash 
+        squarecloud login
+        ```
+      </Step>
+      <Step title="Third Step">
+        Finally, to deploy your application to Square Cloud using the CLI, you
+        need to execute the following command, passing the path of your zip
+        file: 
+        ```bash 
+        squarecloud upload app.zip
+        ```
+      </Step>
+    </Steps>
+  </Tab>
+</Tabs>
 
 ## Troubleshooting
 

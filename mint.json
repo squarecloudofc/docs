@@ -61,6 +61,10 @@
     {
       "name": "FAQs",
       "url": "faqs"
+    },
+    {
+      "name": "Tutorials",
+      "url": "tutorials"
     }
   ],
   "navigation": [
@@ -107,26 +111,28 @@
       ]
     },
     {
-      "group": "Guides",
+      "group": "Tutorials",
       "pages": [
-        "articles/managing-teams",
-        "articles/how-to-set-up-git-integration",
-        "articles/how-to-set-up-your-domain",
-        "articles/how-to-deploy-your-website",
-        "articles/how-to-deploy-your-discord-bot",
-        "articles/how-to-deploy-your-telegram-bot",
-        "articles/how-to-deploy-your-whatsapp-bot",
-        "articles/how-to-deploy-your-vite-website",
-        "articles/how-to-deploy-your-react-website",
-        "articles/how-to-deploy-your-vue-website",
-        "articles/how-to-deploy-your-next-website",
-        "articles/how-to-create-your-lavalink-server",
-        "articles/how-to-deploy-your-express-application",
-        "articles/how-to-deploy-your-fastify-application",
-        "articles/how-to-deploy-your-flask-application",
-        "articles/how-to-deploy-your-django-application",
-        "articles/how-to-deploy-your-nestjs-application",
-        "articles/how-to-deploy-your-selenium-application"
+        "tutorials/managing-teams",
+        "tutorials/timezone-change-guide",
+        "tutorials/topgg-webhook-config",
+        "tutorials/how-to-set-up-git-integration",
+        "tutorials/how-to-set-up-your-domain",
+        "tutorials/how-to-deploy-your-website",
+        "tutorials/how-to-deploy-your-discord-bot",
+        "tutorials/how-to-deploy-your-telegram-bot",
+        "tutorials/how-to-deploy-your-whatsapp-bot",
+        "tutorials/how-to-deploy-your-vite-website",
+        "tutorials/how-to-deploy-your-react-website",
+        "tutorials/how-to-deploy-your-vue-website",
+        "tutorials/how-to-deploy-your-next-website",
+        "tutorials/how-to-create-your-lavalink-server",
+        "tutorials/how-to-deploy-your-express-application",
+        "tutorials/how-to-deploy-your-fastify-application",
+        "tutorials/how-to-deploy-your-flask-application",
+        "tutorials/how-to-deploy-your-django-application",
+        "tutorials/how-to-deploy-your-nestjs-application",
+        "tutorials/how-to-deploy-your-selenium-application"
       ]
     },
     {
@@ -250,9 +256,7 @@
       "group": "FAQs",
       "pages": [
         "faqs/using-autorestart-in-your-squarecloud-application",
-        "faqs/timezone-change-guide",
         "faqs/debugging-an-application",
-        "faqs/topgg-webhook-config",
         "faqs/automatic-deletion-files-when-deploying-an-application-to-squarecloud"
       ]
     },

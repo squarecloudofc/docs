@@ -5,28 +5,78 @@ icon: "flask"
 description: "Learn how to get started on Square Cloud with Elixir"
 ---
 
-## Introduction
-This tutorial will have you deploying a Elixir app to Square Cloud in minutes.
+## Introduction 🚀
 
-The tutorial assumes that you have a [Square Cloud account](https://squarecloud.app/login), and that you have [Elixir](https://elixir-lang.org/install.html) installed locally.
+- Before you begin, make sure you have Elixir on your system. If you don't have them yet, you can download them from the [official Elixir website](https://elixir-lang.org/install.html).
+- Next, you will need to create an account on Square Cloud, which can be done through the [login page](https://squarecloud.app/login). You can use either your email or Discord, or both, to create an account.
+- Finally, you need to have an active paid plan on your account. You can view our plans and purchase one according to your needs [here](https://squarecloud.app/plans).
 
-## Required Files
-- Main file.
-- mix.exs (dependency file).
+## Creating the squarecloud config file ⚙️
+
+<Card
+  title="Learn about: how to make the configuration file for Square Cloud."
+  icon="link"
+  href="https://docs.squarecloud.app/getting-started/config-file"
+>
+  The squarecloud.app file is a configuration file that will be used to
+  configure your application; it will be used to define the name, description,
+  version, main file, among other things.
+</Card>
+
+## Required Files 📄
+- main.ex (Example of main file).
+- mix.exs (Dependency file).
 - [squarecloud.app](/getting-started/config-file) (file that contains the Square Cloud configuration).
 
-## Preparing Files for Upload
+## Preparing Project for Upload 🚀
+
 Before hosting your project on Square Cloud, you must first have the files of your project properly configured, so that you can host it later.
 
-Create your [squarecloud.app](/getting-started/config-file) configuration file.
+<Warning>The configuration (`squarecloud.app/.config`) file must be located in the root of the zip file. Otherwise, Square Cloud will not be able to find it during deployment.</Warning>
 
-After the files of your project are ready just zip them in **.zip** format before uploading to Square Cloud.
-
-# Uploading Files to Square Cloud
+## Uploading Project to Square Cloud 📤
 
 After preparing your project files, you can now upload them to Square Cloud and host your project.
-Access the [Square Cloud Dashboard](https://squarecloud.app/dashboard/upload) and upload your project files.
 
-<Frame>
-  <img src="/images/uploading.gif" style={{ borderRadius: "0.5rem" }} />
-</Frame>
+<Tabs>
+  <Tab title="Dashboard Upload">
+    Access the [Square Cloud
+    Dashboard](https://squarecloud.app/dashboard/upload) and upload your project
+    files.
+    <Frame>
+      <img src="/images/uploading.gif" style={{ borderRadius: "0.2rem" }} />
+    </Frame>
+  </Tab>
+  <Tab title="CLI Upload">
+    <Steps>
+      <Step title="First Step">
+        First, you need to have the CLI installed in your environment. If you
+        don't have it yet, run the following command in your terminal: ```npm install -g @squarecloud/cli``` If you already have it, we
+        recommend updating it. To do this, run the following command in your
+        terminal: 
+        ```bash 
+        squarecloud update
+        ```
+      </Step>
+      <Step title="Second Step">
+        Now, to authenticate and use other CLI commands, you will find your
+        authorization key [here](https://squarecloud.app/account) by clicking on
+        "Request API Key". After obtaining your authorization key, run the
+        following command: 
+        ```bash 
+        squarecloud login
+        ```
+      </Step>
+      <Step title="Third Step">
+        Finally, to deploy your application to Square Cloud using the CLI, you
+        need to execute the following command, passing the path of your zip
+        file: 
+        ```bash 
+        squarecloud upload app.zip
+        ```
+      </Step>
+    </Steps>
+  </Tab>
+</Tabs>
+
+If you continue to experience any issues, please don't hesitate to [contact our support team](/company/support).

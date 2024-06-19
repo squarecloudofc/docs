@@ -12,7 +12,7 @@ A `package.json` file is a standard way to specify the dependencies of your Node
 There are two main paths to kickstart your package.json:
 
 ### Automatic (Recommended)
-Navigate to your project"s root directory and run `npm init`. This interactive prompt will guide you through filling in the basic details.
+Navigate to your project"s root directory and run `npm init -y`. This interactive prompt will guide you through filling in the basic details.
 
 ###  Manual 
 Create a file named `package.json` and write the `JSON structure yourself`. While this offers more control, it requires familiarity with the format.
@@ -54,5 +54,6 @@ Your package.json is a vital part of sharing your project. Include it in your ve
 - Use tools like `npm audit` to identify and address potential vulnerabilities in your dependencies.
 - Group related dependencies into sub-packages for better organization.
 - Keep your package.json concise and well-documented for future reference.
+- When setting up your package.json, you may also encounter the `devDependencies` property. This is used to list packages that are only needed during development, such as testing libraries or build tools. These dependencies are not included when the project is deployed to production environments, like Square Cloud. This helps to keep the production environment clean and free of unnecessary packages that are not needed for the app to run.
 
 By following these steps and tips, you"ll craft a package.json that steers your Node.js project towards smooth sailing and success. Remember, a well-managed dependency landscape is a happy developer"s landscape!

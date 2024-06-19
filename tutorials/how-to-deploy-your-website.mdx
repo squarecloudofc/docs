@@ -6,10 +6,20 @@ description: "Learn how to host your website or API on Square Cloud using the sq
 
 ## Introduction
 
-Hosting your website or API on Square Cloud is a breeze with the squarecloud.app configuration file. This file allows you to customize and configure your application with essential parameters like the main file, memory allocation, version, display name, and more.
+- Create an account on Square Cloud, which can be done through the [login page](https://squarecloud.app/login). You can use either your email or Discord, or both, to create an account.
+- Have an active paid plan on your account. You can view our plans and purchase one according to your needs [here](https://squarecloud.app/plans).
 
-## Creating the squarecloud.app configuration File
-To get started, create your [squarecloud.app](/getting-started/config-file) configuration file in the root directory of your project.
+## Creating the squarecloud config file
+
+<Card
+  title="Learn about: how to make the configuration file for Square Cloud."
+  icon="link"
+  href="https://docs.squarecloud.app/getting-started/config-file"
+>
+  The squarecloud.app file is a configuration file that will be used to
+  configure your application; it will be used to define the name, description,
+  version, main file, among other things.
+</Card>
 
 ### Important website parameters
 The **website port** needs to be **80**, if you are using a static website, you don't need to set the `START` parameter.
@@ -45,6 +55,9 @@ START=npm run build && npm run start
   </Card>
   <Card title="Next.js" icon="node-js" href="https://docs.squarecloud.app/articles/how-to-deploy-your-next-website">
     Learn how to host your Next.js website on Square Cloud.
+  </Card>
+  <Card title="NestJs" icon="js" href="https://docs.squarecloud.app/articles/how-to-deploy-your-nestjs-application">
+    Learn how to host your NestJs application on Square Cloud.
   </Card>
   <Card title="Vite" icon="rocket" href="https://docs.squarecloud.app/articles/how-to-deploy-your-vite-website">
     Learn how to host your Vite website on Square Cloud.

@@ -4,15 +4,17 @@ sidebarTitle: "Top.gg Webhook Configuration"
 description: "A detailed guide to setting up the Top.gg webhook on Square Cloud."
 ---
 
-## Prerequisites
+## Introduction
 
-This guide assumes you have an approved bot on [top.gg](https://top.gg/) and are using either Node.js or Python for your project.
+- This guide assumes you have an approved bot on [top.gg](https://top.gg/) and are using either Node.js or Python for your project.
+- Next, you will need to create an account on Square Cloud, which can be done through the [login page](https://squarecloud.app/login). You can use either your email or Discord, or both, to create an account.
+- Finally, you need to have an active paid plan on your account. You can view our plans and purchase one according to your needs [here](https://squarecloud.app/plans).
 
 ## Setting Up the Environment
-
-**For Node.js users:**
-
-1. Start a new Node.js project with the following command:
+<Tabs>
+  <Tab title="Node.js">
+1. Before you begin, make sure you have Node.js and npm installed on your system. If you don't have them yet, you can download them from the [official Node.js website](https://nodejs.org/).
+2. Start a new Node.js project with the following command:
 
 ```bash Terminal
 npm init -y
@@ -25,8 +27,8 @@ This command creates a package.json file in the current directory.
 ```bash Terminal
 npm install @top-gg/sdk express
 ```
-
-**For Python users:**
+  </Tab>
+    <Tab title="Python">
 1. Ensure you have Python and Pip (a package manager for Python) installed on your system. If not, you can download them from the [official Python website](https://www.python.org/) and the [official Pip website](https://pypi.org/).
 2. Install the `flask` and `waitress` libraries using pip:
 
@@ -34,7 +36,8 @@ npm install @top-gg/sdk express
 pip install flask
 pip install waitress
 ```
-
+  </Tab>
+</Tabs>
 ## Setting Up the Project
 
 **1. Get your webhook authentication:**
@@ -49,7 +52,7 @@ pip install waitress
 The following sections provide code examples for both Javascript and Python:
 
 <Tabs>
-  <Tab title="Javascript">
+  <Tab title="Node.js">
     We will use the example provided by the top.gg documentation [here](https://docs.top.gg/docs/Libraries/javascript), with some modifications.
 
 ```javascript index.js
@@ -113,22 +116,6 @@ if __name__ == "__main__":
   </Tab>
 </Tabs>
 
-# Managing Dependencies with requirements.txt and package.json Files
-
-## The requirements.txt File
-
-The `requirements.txt` file lists all the external libraries required for your Python project. You should list all the libraries your project will use, excluding the native libraries. This file should be included when submitting your application to Square Cloud.
-
-Just like the `package.json` is used to manage dependencies in Node.js projects, the `requirements.txt` is used for the same purpose in Python projects. It helps ensure that all environments where your app runs have the same versions of the required libraries, which helps avoid compatibility issues.
-
-## The package.json File
-
-The `package.json` file lists all the external libraries required for your Node.js project. You should list all the libraries your project will use, excluding the native libraries. This file should be included when submitting your application to Square Cloud.
-
-### Conclusion
-
-In both cases, these files make it easy for other developers to set up the environment to run your app, as they can install all dependencies at once using these files.
-
 ## Creating the squarecloud config file
 
 <Card title="Learn about: how to make the configuration file for Square Cloud." icon="link" href="https://docs.squarecloud.app/getting-started/config-file">
@@ -137,13 +124,52 @@ The squarecloud.app file is a configuration file that will be used to configure 
 
 ## Uploading Your Application to Square Cloud
 
-After following all the steps, put your application files into a zip file, including the configuration file, and upload it to the site at [Upload](https://squarecloud.app/dashboard/upload).
+After following all the steps, put your application files into a `.zip` file, including the configuration file.
 
-If your application is a Node.js project, remember to include the `package.json` file, but do not include folders or files like `node_modules` or `package-lock.json`.
+If your application is a Node.js project, take a look at our article on [Node.js]("https://docs.squarecloud.app/articles/getting-started-with-nodejs").
 
-If your application is a Python project, remember to include the `requirements.txt` file, but do not include folders or files like `__pycache__` or `.pyc` files.
+If your application is a Python project, take a look at our article on [Python]("https://docs.squarecloud.app/articles/getting-started-with-python").
 
-You can get more information about unnecessary files when hosting at [automatic-deletion-files-when-deploying-an-application-to-squarecloud](https://docs.squarecloud.app/faqs/automatic-deletion-files-when-deploying-an-application-to-squarecloud).
+<Tabs>
+  <Tab title="Dashboard Upload">
+    Access the [Square Cloud
+    Dashboard](https://squarecloud.app/dashboard/upload) and upload your project
+    files.
+    <Frame>
+      <img src="/images/uploading.gif" style={{ borderRadius: "0.2rem" }} />
+    </Frame>
+  </Tab>
+  <Tab title="CLI Upload">
+    <Steps>
+      <Step title="First Step">
+        First, you need to have the CLI installed in your environment. If you
+        don't have it yet, run the following command in your terminal: 
+        ```bash
+        npm install -g @squarecloud/cli
+        ``` 
+        If you already have it, we recommend updating it. To do this, run the following command in your terminal:
+        ```bash
+        squarecloud update 
+        ```
+      </Step>
+      <Step title="Second Step">
+        Now, to authenticate and use other CLI commands, you will find your
+        authorization key [here](https://squarecloud.app/account) by clicking on
+        "Request API Key". After obtaining your authorization key, run the
+        following command: 
+        ```bash
+        squarecloud login 
+        ```
+      </Step>
+      <Step title="Third Step">
+        Finally, to deploy your application to Square Cloud using the CLI, you need to execute the following command, passing the path of your zip file:
+        ```bash
+        squarecloud upload app.zip
+        ``` 
+      </Step>
+    </Steps>
+  </Tab>
+</Tabs>
 
 ## Troubleshooting
 
@@ -163,7 +189,7 @@ You can get more information about unnecessary files when hosting at [automatic-
     </Frame>
   </Accordion>
   
-    <Accordion title="Website took too long to respond..." icon="clock" iconType="solid">
+  <Accordion title="Website took too long to respond..." icon="clock" iconType="solid">
      If you receive the message "Website took too long to respond..." make sure you have correctly set port 80 on your application. If the issue persists, feel free to contact us at https://squarecloud.app/support.
     <Frame>
       <img src="/images/articles/troubleshooting/website-took-too-long-to-respond.png" style={{ borderRadius: "0.2rem" }} />
