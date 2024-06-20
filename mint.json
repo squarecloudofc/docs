@@ -78,11 +78,7 @@
     },
     {
       "group": "Services",
-      "pages": [
-        "services/bots",
-        "services/sites",
-        "services/blob"
-      ]
+      "pages": ["services/bots", "services/sites", "services/blob"]
     },
     {
       "group": "Languages",
@@ -315,6 +311,46 @@
     {
       "source": "/articles/como-criar-seu-arquivo-de-configuracao-squarecloud",
       "destination": "/getting-started/config-file"
-    } 
+    },
+    {
+      "source": "/articles/how-to-set-up-git-integration",
+      "destination": "/tutorials/how-to-set-up-git-integration"
+    },
+    {
+      "source": "/articles/how-to-set-up-your-domain",
+      "destination": "/tutorials/how-to-set-up-your-domain"
+    },
+    {
+      "source": "/articles/how-to-deploy-your-react-website",
+      "destination": "/tutorials/how-to-deploy-your-react-website"
+    },
+    {
+      "source": "/articles/how-to-deploy-your-next-website",
+      "destination": "/tutorials/how-to-deploy-your-next-website"
+    },
+    {
+      "source": "/articles/how-to-deploy-your-nestjs-application",
+      "destination": "/tutorials/how-to-deploy-your-nestjs-application"
+    },
+    {
+      "source": "/articles/how-to-deploy-your-vite-website",
+      "destination": "/tutorials/how-to-deploy-your-vite-website"
+    },
+    {
+      "source": "/articles/how-to-deploy-your-vue-website",
+      "destination": "/tutorials/how-to-deploy-your-vue-website"
+    },
+    {
+      "source": "/articles/how-to-deploy-your-flask-application",
+      "destination": "/tutorials/how-to-deploy-your-flask-application"
+    },
+    {
+      "source": "/articles/how-to-deploy-your-django-application",
+      "destination": "/tutorials/how-to-deploy-your-django-application"
+    },
+    {
+      "source": "/articles/how-to-create-your-lavalink-server",
+      "destination": "/tutorials/how-to-create-your-lavalink-server"
+    }
   ]
 }
