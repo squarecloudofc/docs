@@ -43,6 +43,10 @@
   ],
   "tabs": [
     {
+      "name": "Tutorials",
+      "url": "tutorials"
+    },
+    {
       "name": "API Reference",
       "url": "api-reference"
     },
@@ -61,10 +65,6 @@
     {
       "name": "FAQs",
       "url": "faqs"
-    },
-    {
-      "name": "Tutorials",
-      "url": "tutorials"
     }
   ],
   "navigation": [
@@ -107,27 +107,42 @@
       ]
     },
     {
-      "group": "Tutorials",
+      "group": "Bots",
       "pages": [
-        "tutorials/managing-teams",
-        "tutorials/timezone-change-guide",
-        "tutorials/topgg-webhook-config",
-        "tutorials/how-to-set-up-git-integration",
-        "tutorials/how-to-set-up-your-domain",
-        "tutorials/how-to-deploy-your-website",
         "tutorials/how-to-deploy-your-discord-bot",
-        "tutorials/how-to-deploy-your-telegram-bot",
         "tutorials/how-to-deploy-your-whatsapp-bot",
+        "tutorials/how-to-deploy-your-telegram-bot"
+      ]
+    },
+    {
+      "group": "Website",
+      "pages": [
+        "tutorials/how-to-deploy-your-vue-website",
         "tutorials/how-to-deploy-your-vite-website",
         "tutorials/how-to-deploy-your-react-website",
-        "tutorials/how-to-deploy-your-vue-website",
-        "tutorials/how-to-deploy-your-next-website",
-        "tutorials/how-to-create-your-lavalink-server",
-        "tutorials/how-to-deploy-your-express-application",
-        "tutorials/how-to-deploy-your-fastify-application",
+        "tutorials/how-to-deploy-your-next-website"
+      ]
+    },
+    {
+      "group": "APIs",
+      "pages": [
         "tutorials/how-to-deploy-your-flask-application",
         "tutorials/how-to-deploy-your-django-application",
         "tutorials/how-to-deploy-your-nestjs-application",
+        "tutorials/how-to-deploy-your-express-application",
+        "tutorials/how-to-deploy-your-fastify-application"
+      ]
+    },
+    {
+      "group": "Tutorials",
+      "pages": [
+        "tutorials/managing-teams",
+        "tutorials/how-to-set-up-your-domain",
+        "tutorials/how-to-create-your-lavalink-server",
+        "tutorials/how-to-deploy-your-website",
+        "tutorials/how-to-set-up-git-integration",
+        "tutorials/timezone-change-guide",
+        "tutorials/topgg-webhook-config",
         "tutorials/how-to-deploy-your-selenium-application"
       ]
     },
