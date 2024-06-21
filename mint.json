@@ -340,14 +340,6 @@
       "destination": "/tutorials/how-to-deploy-your-react-website"
     },
     {
-      "source": "/articles/how-to-deploy-your-next-website",
-      "destination": "/tutorials/how-to-deploy-your-next-website"
-    },
-    {
-      "source": "/articles/how-to-deploy-your-nestjs-application",
-      "destination": "/tutorials/how-to-deploy-your-nestjs-application"
-    },
-    {
       "source": "/articles/how-to-deploy-your-vite-website",
       "destination": "/tutorials/how-to-deploy-your-vite-website"
     },
@@ -368,14 +360,6 @@
       "destination": "/tutorials/how-to-deploy-your-discord-bot"
     },
     {
-      "source": "/articles/how-to-deploy-your-django-application",
-      "destination": "/tutorials/how-to-deploy-your-django-application"
-    },
-    {
-      "source": "/articles/how-to-deploy-your-flask-application",
-      "destination": "/tutorials/how-to-deploy-your-flask-application"
-    },
-    {
       "source": "/articles/how-to-deploy-your-express-application",
       "destination": "/tutorials/how-to-deploy-your-express-application"
     },    {
@@ -389,10 +373,6 @@
     {
       "source": "/articles/how-to-deploy-your-next-website",
       "destination": "/tutorials/how-to-deploy-your-next-website"
-    },
-    {
-      "source": "/articles/how-to-deploy-your-react-website",
-      "destination": "/tutorials/how-to-deploy-your-react-website"
     },
     {
       "source": "/articles/how-to-deploy-your-selenium-application",
