@@ -364,6 +364,65 @@
       "destination": "/tutorials/how-to-deploy-your-django-application"
     },
     {
+      "source": "/articles/how-to-deploy-your-discord-bot",
+      "destination": "/tutorials/how-to-deploy-your-discord-bot"
+    },
+    {
+      "source": "/articles/how-to-deploy-your-django-application",
+      "destination": "/tutorials/how-to-deploy-your-django-application"
+    },
+    {
+      "source": "/articles/how-to-deploy-your-flask-application",
+      "destination": "/tutorials/how-to-deploy-your-flask-application"
+    },
+    {
+      "source": "/articles/how-to-deploy-your-express-application",
+      "destination": "/tutorials/how-to-deploy-your-express-application"
+    },    {
+      "source": "/articles/how-to-deploy-your-fastify-applicationr",
+      "destination": "/tutorials/how-to-deploy-your-fastify-application"
+    },
+    {
+      "source": "/articles/how-to-deploy-your-nestjs-application",
+      "destination": "/tutorials/how-to-deploy-your-nestjs-application"
+    },
+    {
+      "source": "/articles/how-to-deploy-your-next-website",
+      "destination": "/tutorials/how-to-deploy-your-next-website"
+    },
+    {
+      "source": "/articles/how-to-deploy-your-react-website",
+      "destination": "/tutorials/how-to-deploy-your-react-website"
+    },
+    {
+      "source": "/articles/how-to-deploy-your-selenium-application",
+      "destination": "/tutorials/how-to-deploy-your-selenium-application"
+    },
+    {
+      "source": "/articles/how-to-deploy-your-telegram-bot",
+      "destination": "/tutorials/how-to-deploy-your-telegram-bot"
+    },
+    {
+      "source": "/articles/how-to-deploy-your-website",
+      "destination": "/tutorials/how-to-deploy-your-website"
+    },
+    {
+      "source": "/articles/how-to-deploy-your-whatsapp-bot",
+      "destination": "/tutorials/how-to-deploy-your-whatsapp-bot"
+    },
+    {
+      "source": "/articles/managing-teams",
+      "destination": "/tutorials/managing-teams"
+    },
+    {
+      "source": "/faqs/timezone-change-guide",
+      "destination": "/tutorials/timezone-change-guide"
+    },
+    {
+      "source": "/faqs/topgg-webhook-config",
+      "destination": "/tutorials/topgg-webhook-config"
+    },
+    {
       "source": "/articles/how-to-create-your-lavalink-server",
       "destination": "/tutorials/how-to-create-your-lavalink-server"
     }
