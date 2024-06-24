@@ -58,12 +58,16 @@ The contents of the response.
 
 <Expandable title="Toggle object">
 
+<ResponseField name="name" type="string">
+    The application's name.
+</ResponseField>
+
 <ResponseField name="id" type="string">
     The application's ID.
 </ResponseField>
 
-<ResponseField name="name" type="string">
-    The application's name.
+<ResponseField name="desc" type="string">
+    The application's description.
 </ResponseField>
 
 <ResponseField name="ram" type="number">
@@ -74,11 +78,20 @@ The contents of the response.
     The application's language.
 </ResponseField>
 
+<ResponseField name="domain" type="string">
+    The application's domain.
+</ResponseField>
+
+<ResponseField name="custom" type="string">
+    The application's custom domain.
+</ResponseField>
+
 <ResponseField name="cluster" type="string">
     The application's cluster.
 </ResponseField>
 
 <ResponseField name="isWebsite" type="boolean">
+  <Warning>DEPRECATED</Warning>
     Indicates whether the application is a website.
 </ResponseField>
 
@@ -102,7 +115,7 @@ The contents of the response.
         "name": "standard",
         "memory": {
           "limit": 2048,
-          "available": 1792,
+          "available": 1536,
           "used": 256
         },
         "duration": 1732072955446
@@ -110,12 +123,15 @@ The contents of the response.
     },
     "applications": [
       {
-        "id": "446b0b4118634a1c99e73bac9a54e475",
         "name": "Square Example APP",
-        "ram": 256,
+        "id": "446b0b4118634a1c99e73bac9a54e475",
+        "desc": "This is a example of description",
+        "ram": 512,
         "lang": "javascript",
+        "domain": "square-example-app.squareweb.app",
+        "custom": "mydomain.com",
         "cluster": "fl-micron-1",
-        "isWebsite": false
+        "isWebsite": true // DEPRECATED
       }
     ]
   }
