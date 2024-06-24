@@ -29,8 +29,8 @@ The contents of the response.
   The user's ID.
 </ResponseField>
 
-<ResponseField name="tag" type="string">
-  The user's tag.
+<ResponseField name="name" type="string">
+  The user's name.
 </ResponseField>
 
 <ResponseField name="email" type="string">
@@ -62,8 +62,8 @@ The contents of the response.
     The application's ID.
 </ResponseField>
 
-<ResponseField name="tag" type="string">
-    The application's tag.
+<ResponseField name="name" type="string">
+    The application's name.
 </ResponseField>
 
 <ResponseField name="ram" type="number">
@@ -96,14 +96,14 @@ The contents of the response.
   "response": {
     "user": {
       "id": "313397145698959364",
-      "tag": "joaootavios",
+      "name": "joaootavios",
       "email": "joao@squarecloud.app",
       "plan": {
         "name": "standard",
         "memory": {
-          "limit": 0000,
-          "available": 0000,
-          "used": 0000
+          "limit": 2048,
+          "available": 1792,
+          "used": 256
         },
         "duration": 1732072955446
       }
@@ -111,8 +111,8 @@ The contents of the response.
     "applications": [
       {
         "id": "446b0b4118634a1c99e73bac9a54e475",
-        "tag": "Square Example APP",
-        "ram": 128,
+        "name": "Square Example APP",
+        "ram": 256,
         "lang": "javascript",
         "cluster": "fl-micron-1",
         "isWebsite": false
