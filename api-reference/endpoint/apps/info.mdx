@@ -30,12 +30,12 @@ The contents of the response.
 
 <Expandable title="Toggle object">
 
-<ResponseField name="id" type="string">
-  The application's ID.
-</ResponseField>
-
 <ResponseField name="name" type="string">
   The application's name.
+</ResponseField>
+
+<ResponseField name="id" type="string">
+  The application's ID.
 </ResponseField>
 
 <ResponseField name="owner" type="string">
@@ -63,6 +63,7 @@ The contents of the response.
 </ResponseField>
 
 <ResponseField name="isWebsite" type="boolean">
+  <Warning>DEPRECATED</Warning>
   Indicates whether the application is a website.
 </ResponseField>
 
@@ -74,15 +75,15 @@ The contents of the response.
 {
   "status": "success",
   "response": {
-    "id": "64d0c750212742ca8704fb458c9771af",
     "name": "Best bot forever",
+    "id": "64d0c750212742ca8704fb458c9771af",
     "owner": "3133971456989594464",
     "cluster": "fl-micron-1",
     "ram": 1024,
     "language": "rust",
     "domain": null,
     "custom": null,
-    "isWebsite": false
+    "isWebsite": false // DEPRECATED
   }
 }
 ```
