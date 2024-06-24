@@ -4,7 +4,7 @@ sidebarTitle: "GitHub integration"
 description: "Learn how to configure Git integration on Square Cloud"
 ---
 
-## Obtaining the Access Token
+## Getting the GitHub Access Token
 
 - Visit the [Personal access tokens](https://github.com/settings/tokens) page to obtain your access token. Click on **"Generate new token"** and choose the **"classic"** option.
 - When choosing the classic token option, **select only** the **"repos" option** and do **not set an expiration time**. Remember to give a name to your token so that you can identify it later.
@@ -17,25 +17,26 @@ description: "Learn how to configure Git integration on Square Cloud"
   <img src="/images/articles/github/copy-access-token.png" style={{ borderRadius: '0.2rem' }} />
 </Frame>
 
-## Configuring the Access Token
+## Configuring the Access Token in Square Cloud
 
 - After obtaining the access token, go to the [dashboard](https://squarecloud.app/dashboard), select your app, navigate to the Deploy section, and **paste your token in the corresponding field**. Click on **"Save"**.
 <Frame>
-  <img src="/images/articles/github/deploy-webhook-git.png" style={{ borderRadius: '0.2rem' }} />
+  <img src="/images/articles/github/deploy-webhook-git.gif" style={{ borderRadius: '0.2rem' }} />
 </Frame>
 
 - After saving, a URL webhook will be displayed that **you need to copy**.
 
-## Configuring the Webhook
+## Configuring the Square Cloud Webhook on GitHub
 
 - Now, access your application's repository (which can be private or public) and go to **"Deploy"**. Then, click on **"Webhooks"** and then on **"Add Webhook"**.
 - Paste your webhook in the Payload URL field, set the Content Type to **application/json**, and click on **"Add Webhook"**.
 <Frame>
-  <img src="/images/articles/github/add-webhook.png" style={{ borderRadius: '0.2rem' }} />
+  <img src="/images/articles/github/add-webhook.gif" style={{ borderRadius: '0.2rem' }} />
 </Frame>
 
 
 ## Deploy
 
 - If you have followed all the steps correctly, simply commit to your repository. Your application on Square Cloud will be updated.
-- You can see the recent deploys in the Deploy tab of the dashboard. If you have any questions, please [contact us](/company/support).
+
+If you continue to experience any issues, please don't hesitate to [contact our support team](/company/support).

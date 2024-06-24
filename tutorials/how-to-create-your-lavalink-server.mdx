@@ -1,0 +1,80 @@
+---
+title: "How to create your Lavalink Server"
+sidebarTitle: "Lavalink Server"
+description: "Learn how to host your Lavalink server and stream high-quality music to your Discord bot."
+---
+
+## Introduction 🚀
+
+- Follow the tutorial below and host your Lavalink server today it"s super simple! If you need any assistance, feel free to reach out to us through our official support channels.
+- Next, you will need to create an account on Square Cloud, which can be done through the [login page](https://squarecloud.app/login). You can use either your email or Discord, or both, to create an account.
+- Finally, you need to have an active paid plan on your account. You can view our plans and purchase one according to your needs [here](https://squarecloud.app/plans).
+
+## Choosing the Version
+
+Choose your desired version of `Lavalink` by clicking [here](https://github.com/freyacodes/Lavalink/releases/). We recommend selecting the latest version for the best experience.
+
+## Creating the squarecloud config file
+
+<Card title="Learn about: how to make the configuration file for Square Cloud." icon="link" href="https://docs.squarecloud.app/getting-started/config-file">
+The squarecloud.app file is a configuration file that will be used to configure your application; it will be used to define the name, description, version, main file, among other things.
+</Card>
+
+## Creating the application.yml
+
+Create a configuration file for your Lavalink server. You can access an example file [here](https://github.com/freyacodes/Lavalink/blob/master/LavalinkServer/application.yml.example).
+
+<Warning>Set the `port` field in your `application.yml` file to: `80`.</Warning>
+
+## Enhancing Security
+
+It is highly recommended to configure a secure password in the `password` field of your configuration file (application.yml). We recommend using a password with at least 32 characters.
+
+<Note>It is important to remember that you must use port 443 (SSL) and the `secure` option in `true` to connect to your lavalink.</Note>
+
+## Uploading Project to Square Cloud
+
+Create a compressed file (.zip) containing the `Lavalink.jar` and `application.yml`. Then, upload your configuration file to Square Cloud.
+
+<Tabs>
+  <Tab title="Dashboard Upload">
+    Access the [Square Cloud
+    Dashboard](https://squarecloud.app/dashboard/upload) and upload your project
+    files.
+    <Frame>
+      <img src="/images/uploading.gif" style={{ borderRadius: "0.2rem" }} />
+    </Frame>
+  </Tab>
+  <Tab title="CLI Upload">
+    <Steps>
+      <Step title="First Step">
+        First, you need to have the CLI installed in your environment. If you
+        don't have it yet, run the following command in your terminal: 
+        ```bash 
+        npm install -g @squarecloud/cli
+        ``` 
+        If you already have it, we recommend updating it. To do this, run the following command in your terminal:
+        ```bash
+        squarecloud update 
+        ```
+      </Step>
+      <Step title="Second Step">
+        Now, to authenticate and use other CLI commands, you will find your
+        authorization key [here](https://squarecloud.app/account) by clicking on
+        "Request API Key". After obtaining your authorization key, run the
+        following command: 
+        ```bash
+        squarecloud login 
+        ```
+      </Step>
+      <Step title="Third Step">
+        Finally, to deploy your application to Square Cloud using the CLI, you need to execute the following command, passing the path of your zip file:
+        ```bash
+        squarecloud upload server.zip
+        ``` 
+      </Step>
+    </Steps>
+  </Tab>
+</Tabs>
+
+If you continue to experience any issues, please don't hesitate to [contact our support team](/company/support).

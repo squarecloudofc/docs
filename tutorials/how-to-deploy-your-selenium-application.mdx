@@ -6,7 +6,9 @@ description: "This article guides you to automate web navigation using Selenium 
 
 ## Creating a New Selenium Script
 
-Before you start, make sure you have **Python** and **pip** installed on your system. If you don't have them yet, you can download them from the [official Python website](https://www.python.org/) and the [official Pip website](https://pypi.org/).
+- Before you start, make sure you have **Python** and **pip** installed on your system. If you don't have them yet, you can download them from the [official Python website](https://www.python.org/) and the [official Pip website](https://pypi.org/).
+- Next, you will need to create an account on Square Cloud, which can be done through the [login page](https://squarecloud.app/login). You can use either your email or Discord, or both, to create an account.
+- Finally, you need to have an active paid plan on your account. You can view our plans and purchase one according to your needs [here](https://squarecloud.app/plans).
 
 With Python and pip installed, you can create a new Selenium script. First, install Selenium using pip:
 
@@ -65,9 +67,50 @@ In the case of Square Cloud, if the Chromium version is fixed and cannot be chan
 The squarecloud.app file is a configuration file that will be used to configure your application; it will be used to define the name, description, version, main file, among other things.
 </Card>
 
-## Uploading your project to Square Cloud
+## Uploading Project to Square Cloud
 
-After following all the steps, package your application files into a zip file where the configuration file is and upload the site on [Upload](https://squarecloud.app/dashboard/upload). Remember to include the `requirements.txt` file, but do not include files like `__pycache__`. You can get more information about unnecessary files when hosting at [automatic-deletion-files-when-deploying-an-application-to-squarecloud](https://docs.squarecloud.app/faqs/automatic-deletion-files-when-deploying-an-application-to-squarecloud).
+After preparing your project files, you can now upload them to Square Cloud and host your project.
+
+<Tabs>
+  <Tab title="Dashboard Upload">
+    Access the [Square Cloud
+    Dashboard](https://squarecloud.app/dashboard/upload) and upload your project
+    files.
+    <Frame>
+      <img src="/images/uploading.gif" style={{ borderRadius: "0.2rem" }} />
+    </Frame>
+  </Tab>
+  <Tab title="CLI Upload">
+    <Steps>
+      <Step title="First Step">
+        First, you need to have the CLI installed in your environment. If you
+        don't have it yet, run the following command in your terminal: ```npm install -g @squarecloud/cli``` If you already have it, we
+        recommend updating it. To do this, run the following command in your
+        terminal: 
+        ```bash 
+        squarecloud update
+        ```
+      </Step>
+      <Step title="Second Step">
+        Now, to authenticate and use other CLI commands, you will find your
+        authorization key [here](https://squarecloud.app/account) by clicking on
+        "Request API Key". After obtaining your authorization key, run the
+        following command: 
+        ```bash 
+        squarecloud login
+        ```
+      </Step>
+      <Step title="Third Step">
+        Finally, to deploy your application to Square Cloud using the CLI, you
+        need to execute the following command, passing the path of your zip
+        file: 
+        ```bash 
+        squarecloud upload zip
+        ```
+      </Step>
+    </Steps>
+  </Tab>
+</Tabs>
 
 ## Additional Resources
 

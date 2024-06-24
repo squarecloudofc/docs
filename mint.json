@@ -43,6 +43,10 @@
   ],
   "tabs": [
     {
+      "name": "Tutorials",
+      "url": "tutorials"
+    },
+    {
       "name": "API Reference",
       "url": "api-reference"
     },
@@ -74,11 +78,7 @@
     },
     {
       "group": "Services",
-      "pages": [
-        "services/bots",
-        "services/sites",
-        "services/blob"
-      ]
+      "pages": ["services/bots", "services/sites", "services/blob"]
     },
     {
       "group": "Languages",
@@ -107,26 +107,43 @@
       ]
     },
     {
-      "group": "Guides",
+      "group": "Bots",
       "pages": [
-        "articles/managing-teams",
-        "articles/how-to-set-up-git-integration",
-        "articles/how-to-set-up-your-domain",
-        "articles/how-to-deploy-your-website",
-        "articles/how-to-deploy-your-discord-bot",
-        "articles/how-to-deploy-your-telegram-bot",
-        "articles/how-to-deploy-your-whatsapp-bot",
-        "articles/how-to-deploy-your-vite-website",
-        "articles/how-to-deploy-your-react-website",
-        "articles/how-to-deploy-your-vue-website",
-        "articles/how-to-deploy-your-next-website",
-        "articles/how-to-create-your-lavalink-server",
-        "articles/how-to-deploy-your-express-application",
-        "articles/how-to-deploy-your-fastify-application",
-        "articles/how-to-deploy-your-flask-application",
-        "articles/how-to-deploy-your-django-application",
-        "articles/how-to-deploy-your-nestjs-application",
-        "articles/how-to-deploy-your-selenium-application"
+        "tutorials/how-to-deploy-your-discord-bot",
+        "tutorials/how-to-deploy-your-whatsapp-bot",
+        "tutorials/how-to-deploy-your-telegram-bot"
+      ]
+    },
+    {
+      "group": "Website",
+      "pages": [
+        "tutorials/how-to-deploy-your-vue-website",
+        "tutorials/how-to-deploy-your-vite-website",
+        "tutorials/how-to-deploy-your-react-website",
+        "tutorials/how-to-deploy-your-next-website"
+      ]
+    },
+    {
+      "group": "APIs",
+      "pages": [
+        "tutorials/how-to-deploy-your-flask-application",
+        "tutorials/how-to-deploy-your-django-application",
+        "tutorials/how-to-deploy-your-nestjs-application",
+        "tutorials/how-to-deploy-your-express-application",
+        "tutorials/how-to-deploy-your-fastify-application"
+      ]
+    },
+    {
+      "group": "Tutorials",
+      "pages": [
+        "tutorials/managing-teams",
+        "tutorials/how-to-set-up-your-domain",
+        "tutorials/how-to-create-your-lavalink-server",
+        "tutorials/how-to-deploy-your-website",
+        "tutorials/how-to-set-up-git-integration",
+        "tutorials/timezone-change-guide",
+        "tutorials/topgg-webhook-config",
+        "tutorials/how-to-deploy-your-selenium-application"
       ]
     },
     {
@@ -250,9 +267,7 @@
       "group": "FAQs",
       "pages": [
         "faqs/using-autorestart-in-your-squarecloud-application",
-        "faqs/timezone-change-guide",
         "faqs/debugging-an-application",
-        "faqs/topgg-webhook-config",
         "faqs/automatic-deletion-files-when-deploying-an-application-to-squarecloud"
       ]
     },
@@ -311,6 +326,85 @@
     {
       "source": "/articles/como-criar-seu-arquivo-de-configuracao-squarecloud",
       "destination": "/getting-started/config-file"
-    } 
+    },
+    {
+      "source": "/articles/how-to-set-up-git-integration",
+      "destination": "/tutorials/how-to-set-up-git-integration"
+    },
+    {
+      "source": "/articles/how-to-set-up-your-domain",
+      "destination": "/tutorials/how-to-set-up-your-domain"
+    },
+    {
+      "source": "/articles/how-to-deploy-your-react-website",
+      "destination": "/tutorials/how-to-deploy-your-react-website"
+    },
+    {
+      "source": "/articles/how-to-deploy-your-vite-website",
+      "destination": "/tutorials/how-to-deploy-your-vite-website"
+    },
+    {
+      "source": "/articles/how-to-deploy-your-vue-website",
+      "destination": "/tutorials/how-to-deploy-your-vue-website"
+    },
+    {
+      "source": "/articles/how-to-deploy-your-flask-application",
+      "destination": "/tutorials/how-to-deploy-your-flask-application"
+    },
+    {
+      "source": "/articles/how-to-deploy-your-django-application",
+      "destination": "/tutorials/how-to-deploy-your-django-application"
+    },
+    {
+      "source": "/articles/how-to-deploy-your-discord-bot",
+      "destination": "/tutorials/how-to-deploy-your-discord-bot"
+    },
+    {
+      "source": "/articles/how-to-deploy-your-express-application",
+      "destination": "/tutorials/how-to-deploy-your-express-application"
+    },    {
+      "source": "/articles/how-to-deploy-your-fastify-applicationr",
+      "destination": "/tutorials/how-to-deploy-your-fastify-application"
+    },
+    {
+      "source": "/articles/how-to-deploy-your-nestjs-application",
+      "destination": "/tutorials/how-to-deploy-your-nestjs-application"
+    },
+    {
+      "source": "/articles/how-to-deploy-your-next-website",
+      "destination": "/tutorials/how-to-deploy-your-next-website"
+    },
+    {
+      "source": "/articles/how-to-deploy-your-selenium-application",
+      "destination": "/tutorials/how-to-deploy-your-selenium-application"
+    },
+    {
+      "source": "/articles/how-to-deploy-your-telegram-bot",
+      "destination": "/tutorials/how-to-deploy-your-telegram-bot"
+    },
+    {
+      "source": "/articles/how-to-deploy-your-website",
+      "destination": "/tutorials/how-to-deploy-your-website"
+    },
+    {
+      "source": "/articles/how-to-deploy-your-whatsapp-bot",
+      "destination": "/tutorials/how-to-deploy-your-whatsapp-bot"
+    },
+    {
+      "source": "/articles/managing-teams",
+      "destination": "/tutorials/managing-teams"
+    },
+    {
+      "source": "/faqs/timezone-change-guide",
+      "destination": "/tutorials/timezone-change-guide"
+    },
+    {
+      "source": "/faqs/topgg-webhook-config",
+      "destination": "/tutorials/topgg-webhook-config"
+    },
+    {
+      "source": "/articles/how-to-create-your-lavalink-server",
+      "destination": "/tutorials/how-to-create-your-lavalink-server"
+    }
   ]
 }

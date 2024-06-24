@@ -6,7 +6,9 @@ description: "This article guides you through creating and hosting a Flask appli
 
 ## Creating a New Flask Project
 
-Before getting started, make sure you have Python and pip installed on your system. If you don't already have them, you can download them from the [official Python website](https://www.python.org/) and [official Pip website](https://pypi.org/).
+- Before getting started, make sure you have Python and pip installed on your system. If you don't already have them, you can download them from the [official Python website](https://www.python.org/) and [official Pip website](https://pypi.org/).
+- Next, you will need to create an account on Square Cloud, which can be done through the [login page](https://squarecloud.app/login). You can use either your email or Discord, or both, to create an account.
+- Finally, you need to have an active paid plan on your account. You can view our plans and purchase one according to your needs [here](https://squarecloud.app/plans).
 
 With Python and pip installed, you can create a new Flask project. First, install Flask using pip:
 
@@ -52,15 +54,56 @@ Before you can upload your project to Square Cloud, it's important to understand
 
 <Note>**Are you wondering how much RAM and CPU your plan needs to host a Flask Application?** Don't worry, we're here to help. Flask is known for its efficiency, especially for small projects or learning purposes. Our **[Standard](https://squarecloud.app/pay/standard)** plan offers **4GB** of RAM and **1vCPU**, which should be sufficient for most Flask applications. However, if you're working on a larger project and seeking extra stability, we recommend considering our Pro plan. With additional resources, you can maintain stability even during peak demand. To purchase, simply click [here](https://squarecloud.app/pay/pro).</Note>
 
-## Uploading your project to Square Cloud
+## Uploading Project to Square Cloud
 
-After following all the steps, package your application files into a zip file where the configuration file is, and upload the application on [Upload](https://squarecloud.app/dashboard/upload). Remember to include the `requirements.txt` file, but do not include files like `__pycache__`. You can get more information about unnecessary files when hosting at [automatic-deletion-files-when-deploying-an-application-to-squarecloud](https://docs.squarecloud.app/faqs/automatic-deletion-files-when-deploying-an-application-to-squarecloud).
+After preparing your project files, you can now upload them to Square Cloud and host your project.
+
+<Tabs>
+  <Tab title="Dashboard Upload">
+    Access the [Square Cloud
+    Dashboard](https://squarecloud.app/dashboard/upload) and upload your project
+    files.
+    <Frame>
+      <img src="/images/uploading.gif" style={{ borderRadius: "0.2rem" }} />
+    </Frame>
+  </Tab>
+  <Tab title="CLI Upload">
+    <Steps>
+      <Step title="First Step">
+        First, you need to have the CLI installed in your environment. If you
+        don't have it yet, run the following command in your terminal: ```npm install -g @squarecloud/cli``` If you already have it, we
+        recommend updating it. To do this, run the following command in your
+        terminal: 
+        ```bash 
+        squarecloud update
+        ```
+      </Step>
+      <Step title="Second Step">
+        Now, to authenticate and use other CLI commands, you will find your
+        authorization key [here](https://squarecloud.app/account) by clicking on
+        "Request API Key". After obtaining your authorization key, run the
+        following command: 
+        ```bash 
+        squarecloud login
+        ```
+      </Step>
+      <Step title="Third Step">
+        Finally, to deploy your application to Square Cloud using the CLI, you
+        need to execute the following command, passing the path of your zip
+        file: 
+        ```bash 
+        squarecloud upload zip
+        ```
+      </Step>
+    </Steps>
+  </Tab>
+</Tabs>
 
 ## Troubleshooting
 
 <AccordionGroup>
   <Accordion title="Custom Domain" icon="globe" iconType="solid">
-    If you want to use a custom domain for your application hosted on Square Cloud, note that by default, the URL will be something like `https://mysite.squareweb.app/`. The subdomain is determined by the SUBDOMAIN field in the configuration file. However, if you prefer to use a custom domain, such as `mysite.com`, you'll need to purchase the `Standard` plan or a higher plan. We detail each step to set up your custom domain in our article: [How to Set Up Your Custom Domain](https://docs.squarecloud.app/articles/how-to-set-up-your-domain).
+    If you want to use a custom domain for your application hosted on Square Cloud, note that by default, the URL will be something like `https://mysite.squareweb.app/`. The subdomain is determined by the SUBDOMAIN field in the configuration file. However, if you prefer to use a custom domain, such as `mysite.com`, you'll need to purchase the `Standard` plan or a higher plan. We detail each step to set up your custom domain in our article: [How to Set Up Your Custom Domain](https://docs.squarecloud.app/tutorials/how-to-set-up-your-domain).
   </Accordion>
 
   <Accordion title="Minimum RAM Requirements" icon="memory" iconType="solid">
