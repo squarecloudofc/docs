@@ -6,6 +6,7 @@ api: "GET https://api.squarecloud.app/v2/apps/{app_id}/backup"
 authMethod: "none"
 ---
 
+<Warning>Each application (app ID) can only perform 12 backups every 24 hours.</Warning>
 <ParamField header="Authorization" type="string" placeholder="API KEY" required>
   The API key for your account. You can find this in your [account settings](https://squarecloud.app/account).
 </ParamField>
