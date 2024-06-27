@@ -1,0 +1,67 @@
+---
+title: "Get List of Application Backups"
+sidebarTitle: "Application Backups List"
+description: "This route allows you to retrieve a list of backups (snapshots) for a specific application."
+api: "GET https://api.squarecloud.app/v2/apps/{app_id}/backups"
+authMethod: "none"
+---
+
+<Warning>**Exclusive route for [Pro](https://squarecloud.app/en/pay?plan=pro), [Business](https://squarecloud.app/en/pay?plan=business), and [Enterprise](https://squarecloud.app/en/pay?plan=enterprise) clients.**</Warning>
+<ParamField header="Authorization" type="string" placeholder="API KEY" required>
+  The API key for your account. You can find this in your [account settings](https://squarecloud.app/account).
+</ParamField>
+<ParamField path="app_id" type="string" placeholder="Application ID" required>
+  The ID of the application. You can find this in the URL of your application's dashboard.
+</ParamField>
+
+### Response
+
+<ResponseField name="status" type="string">
+  Indicates whether the call was successful. "success" if successful, "error" if not.
+</ResponseField>
+<ResponseField name="response" type="object">
+
+The contents of the response.
+<Expandable title="Toggle object">
+<ResponseField name="name" type="string">
+  The ID of the application from which you fetched the backups.
+</ResponseField>
+<ResponseField name="size" type="number">
+  Size of the backup in bytes.
+</ResponseField>
+<ResponseField name="modified" type="string">
+  Date of the last modification of the backup.
+</ResponseField>
+<ResponseField name="key" type="string">
+  AWS access key for the backup.
+</ResponseField>
+</Expandable>
+</ResponseField>
+<ResponseExample>
+```json
+{
+  "status": "success",
+  "response": [
+    {
+      "name": "1d2cdc0d6ebd435c91315c6329d12eab",
+      "size": 12900705,
+      "modified": "2024-06-27T06:23:42.326Z",
+      "key": "AWSAccessKeyId=access key"
+    },
+    {
+      "name": "1d2cdc0d6ebd435c91315c6329d12eab",
+      "size": 12900705,
+      "modified": "2024-06-26T07:05:40.000Z",
+      "key": "AWSAccessKeyId=access key"
+    },
+    {
+      "name": "1d2cdc0d6ebd435c91315c6329d12eab",
+      "size": 12900705,
+      "modified": "2024-06-25T05:15:51.533Z",
+      "key": "AWSAccessKeyId=access key"
+    },
+  ]
+}
+```
+</ResponseExample>
+<Note>The format of the URL to download the desired backup is: https://backups.squarecloud.app/{name}.zip?{key}</Note>

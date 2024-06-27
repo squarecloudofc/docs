@@ -179,6 +179,7 @@
             "api-reference/endpoint/apps/restart",
             "api-reference/endpoint/apps/stop",
             "api-reference/endpoint/apps/backup",
+            "api-reference/endpoint/apps/backups",
             "api-reference/endpoint/apps/commit",
             "api-reference/endpoint/apps/delete",
             "api-reference/endpoint/apps/upload"
