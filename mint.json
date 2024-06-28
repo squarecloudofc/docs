@@ -107,20 +107,20 @@
       ]
     },
     {
-      "group": "Bots",
-      "pages": [
-        "tutorials/how-to-deploy-your-discord-bot",
-        "tutorials/how-to-deploy-your-whatsapp-bot",
-        "tutorials/how-to-deploy-your-telegram-bot"
-      ]
+      "group": "Introduction",
+      "pages": ["tutorials/introduction"]
     },
     {
-      "group": "Website",
+      "group": "Tutorials",
       "pages": [
-        "tutorials/how-to-deploy-your-vue-website",
-        "tutorials/how-to-deploy-your-vite-website",
-        "tutorials/how-to-deploy-your-react-website",
-        "tutorials/how-to-deploy-your-next-website"
+        "tutorials/managing-teams",
+        "tutorials/how-to-set-up-your-domain",
+        "tutorials/how-to-create-your-lavalink-server",
+        "tutorials/how-to-deploy-your-website",
+        "tutorials/how-to-set-up-git-integration",
+        "tutorials/timezone-change-guide",
+        "tutorials/topgg-webhook-config",
+        "tutorials/how-to-deploy-your-selenium-application"
       ]
     },
     {
@@ -134,16 +134,20 @@
       ]
     },
     {
-      "group": "Tutorials",
+      "group": "Website",
       "pages": [
-        "tutorials/managing-teams",
-        "tutorials/how-to-set-up-your-domain",
-        "tutorials/how-to-create-your-lavalink-server",
-        "tutorials/how-to-deploy-your-website",
-        "tutorials/how-to-set-up-git-integration",
-        "tutorials/timezone-change-guide",
-        "tutorials/topgg-webhook-config",
-        "tutorials/how-to-deploy-your-selenium-application"
+        "tutorials/how-to-deploy-your-vue-website",
+        "tutorials/how-to-deploy-your-vite-website",
+        "tutorials/how-to-deploy-your-react-website",
+        "tutorials/how-to-deploy-your-next-website"
+      ]
+    },
+    {
+      "group": "Bots",
+      "pages": [
+        "tutorials/how-to-deploy-your-discord-bot",
+        "tutorials/how-to-deploy-your-whatsapp-bot",
+        "tutorials/how-to-deploy-your-telegram-bot"
       ]
     },
     {
