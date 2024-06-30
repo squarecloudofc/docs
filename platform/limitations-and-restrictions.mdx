@@ -11,15 +11,19 @@ Every project hosted on the Square Cloud Platform has specific minimum resource 
 - **Bots:** A minimum of **256MB** of RAM is required for hosting.
 - **Websites:** Websites need at least **512MB** of RAM allocated to operate effectively.
 
-Please note that while Square Cloud offers plans with up to 512GB of RAM, the maximum RAM allocation for any application is 32GB. If you require more than 32GB, please reach out to our support team for assistance.
+Please note that while Square Cloud offers plans with up to **1TB of RAM**, the **maximum RAM allocation** for any **application is 32GB**. <ins>If you require more than 32GB, please reach out to our support team for assistance.</ins>
 
 ## CPU Optimization & Limitation
 
 The CPU limitation logic aims to optimize performance by dynamically adapting to the application's needs. The code divides the default CPU allocation by two, promoting an efficient resource utilization approach. However, specific conditions alter this behavior:
 
-- If the default **CPU allocation is less than or equal to 0.5**, the CPU remains at half.
-- If **RAM allocation is 512** or **higher**, and CPU allocation is between 0.5 and 6, the CPU is released for **full usage**.
-- If **RAM allocation is 1024** or **higher**, the CPU is released for **full usage**.
+If the **application's default CPU allocation** is <ins>1vCPU</ins>, the **CPU is set to 1**. (full release)
+
+**Otherwise**, the CPU **allocation varies based** on the **application's RAM size**:
+- If **RAM is less than or equal to 1024**, the CPU is set to the **maximum of half** of CPU or 1.
+- If **RAM is 2048** or <ins>**more**</ins>, the **CPU remains unchanged**. (full release)
+- For **RAM sizes between 1024 and 2048**, the CPU is set to **half of CPU**.
+
 
 This strategy aims to balance CPU efficiency with variable system demands, ensuring adequate performance across different scenarios.
 
@@ -32,7 +36,7 @@ The **network speed increases by 25MB/s** for every **additional 256MB** of RAM 
 
 Here are the network limitations based on RAM allocation:
 
-- **Less than 256MB RAM:** 25MB/s network speed.
+- **256MB RAM:** 25MB/s network speed.
 - **Up to 512MB RAM:** 50MB/s network speed.
 - **1024MB RAM:** 100MB/s network speed.
 - **2048MB RAM:** 200MB/s network speed.
@@ -53,14 +57,6 @@ Storage limitations are crucial to ensure equitable resource distribution and to
 ## Service Limits
 
 Squarecloud implements service limits to ensure fair and efficient resource utilization for all users. These limits are categorized as:
-
-### COMMERCIAL_USE
-
-If an application on the free plan violates COMMERCIAL_USE, typically by engaging in commercial activities or misusing resources intended for non-commercial use, the application will be temporarily banned. During this temporary ban, the application itself cannot be started, restarted, or stopped. However, the user's account remains unaffected. This temporary ban acts as a corrective measure to enforce the terms of service and discourage resource misuse.
-
-### ABUSE_STORAGE
-
-In cases where an application is found to be in violation of ABUSE_STORAGE, involving excessive misuse or unauthorized utilization of storage resources, the application may face more severe consequences. As a measure to maintain resource integrity and fairness, the application may be subject to deletion. It is crucial to use storage resources responsibly and within the bounds of the terms and conditions.
 
 ### LACK_OF_RAM
 
