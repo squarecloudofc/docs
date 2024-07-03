@@ -279,6 +279,8 @@
     {
       "group": "Troubleshooting",
       "pages": [
+        "faqs/troubleshooting/unauthorized",
+        "faqs/troubleshooting/timeout",
         "faqs/troubleshooting/lavalink-closed-abnormally",
         "faqs/troubleshooting/whitelist-mongodb",
         "faqs/troubleshooting/LACK_OF_CPU",

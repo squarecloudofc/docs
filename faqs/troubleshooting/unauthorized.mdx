@@ -1,0 +1,18 @@
+---
+title: "Solving Timeout Access Issues on Websites or APIs"
+sidebarTitle: "Timeout Access to Websites or APIs"
+description: "Learn how to resolve timeout access issues on your website or API."
+---
+
+## When does it occur and how to resolve it?
+- There are 2 situations that can result in this message when trying to access a website/API:
+
+1. The URL of the site you tried to access is not hosted on Square Cloud. Any subdomain of a site that is not hosted on Square Cloud and is attempted to be accessed will receive the message "Unauthorized". If you added the "SUBDOMAIN" field after deploying your application, this field will not be read, and the URL will not exist because this field is only read during the deployment. Therefore, you need to remove and redeploy your application with this field correctly configured.
+
+2. If you have recently hosted your site, please wait 3 to 5 minutes. Square Cloud is finalizing the configurations for your site. After this period, try accessing it again.
+
+<Frame>
+  <img src="/images/articles/cloudflare/unauthorized-dns.png" style={{ borderRadius: '0.2rem' }} />
+</Frame>
+
+If you continue to experience any issues, please don't hesitate to [contact our support team](/company/support).
