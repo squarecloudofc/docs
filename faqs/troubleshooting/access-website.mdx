@@ -1,0 +1,35 @@
+---
+title: "Troubleshooting Access Issues on Website or API"
+sidebarTitle: "Access Problems on Website or API"
+description: "Discover how to resolve issues when accessing your website or API."
+---
+
+## Unauthorized
+
+- There are 2 situations that can result in this message when trying to access a website/API:
+
+1. The URL of the site you tried to access is not hosted on Square Cloud. Any subdomain of a site that is not hosted on Square Cloud and is attempted to be accessed will receive the message "Unauthorized". If you added the "SUBDOMAIN" field after deploying your application, this field will not be read, and the URL will not exist because this field is only read during the deployment. Therefore, you need to remove and redeploy your application with this field correctly configured.
+
+2. If you have recently hosted your site, please wait 1 minute. Square Cloud is finalizing the configurations for your site. After this period, try accessing it again.
+
+<Frame>
+  <img src="/images/articles/cloudflare/unauthorized-dns.png" style={{ borderRadius: '0.2rem' }} />
+</Frame>
+
+## Timeout
+
+- There are 4 situations that can result in this message when trying to access a website/API:
+
+1. Your website or API may have errors preventing it from responding properly.
+
+2. If the website or API is offline, you will also receive this message. It's important to check the logs to identify any potential errors.
+
+3. In Square Cloud, the default port for websites and APIs is port `80` for HTTP traffic. If your website or API is using a different port, you may encounter this error message.
+
+4. If you do not correctly configure the host as `0.0.0.0` when hosting your site, this can lead to access errors.
+
+<Frame>
+  <img src="/images/articles/cloudflare/timeout.png" style={{ borderRadius: '0.2rem' }} />
+</Frame>
+
+If you continue to experience any issues, please don't hesitate to [contact our support team](/company/support).
