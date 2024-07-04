@@ -34,20 +34,53 @@ With Auto Restart, follow these steps to enable it in your application's configu
 </Steps>
 
 ## How Auto Restart Works
+Auto Restart is a proactive feature that monitors the health of your application. If your application crashes or becomes unresponsive, Auto Restart takes action to get it back up and running.
 
-Auto Restart is a proactive feature that monitors the health of your application. If your application crashes or becomes unresponsive, Auto Restart takes action to get it back up and running. Here's how it works:
+<Steps>
+    <Step title="Application goes down">
+        When your application crashes or becomes unresponsive, Auto Restart detects the issue if AUTORESTART is enabled in your configuration file.
+    </Step>
+    <Step title="Application Exit Status Verification">
+        If the **application exit status is 1**, will proceed to next step.
+    </Step>
+    <Step title="Application Recent Restart Verification">
+       If the **application didn't restart in the last 60 minutes**, will proceed to next step.
+    </Step>
+    <Step title="Application Exception Verification">
+        If the application logs contain any of the excluded errors, Auto Restart will not restart the application.
 
-- Monitoring: Auto Restart continuously monitors your application to ensure it's running as expected.
+        Examples of excluded errors include:
+        <CodeGroup>
+        ```json SyntaxError
+        SyntaxError: Unexpected token 'X'..
+        SyntaxError: Unexpected identifier 'X'..
+        SyntaxError: Invalid or unexpected token 'X'..
+        ```
+        ```json Version didn't find
+        npm ERR! notarget No matching version found for
+        ERROR: Could not find a version that satisfies the requirement
+        And variations of this error.
+        ```
+        ```json Module not found
+        Error: Cannot find module 'X'
+        Module not found: Can't resolve 'X' in 'Y'
+        And variations of this error.
+        ```
+        ```json Invalid dependency file
+        ERROR: Invalid requirement: 'X'
+        ERROR: Could not open requirements file: 'X'
+        npm ERR! code EJSONPARSE... npm ERR! Failed to parse json
+        And variations of this error.
+        ```
+        </CodeGroup>
 
-- Detection: When Auto Restart detects that your application has crashed or is unresponsive, it initiates the restart process.
-
-- Restart: Auto Restart automatically restarts your application to bring it back to a functional state. It uses the configuration parameters you've defined, such as the MAIN file and memory allocation, to relaunch your app.
-
-- Notification: If a restart occurs, you receive a notification inside Console. This allows you to review the logs and understand the reason for the restart.
-
-- Minimal Downtime: Auto Restart operates quickly to minimize downtime, ensuring that your application is back online as soon as possible.
-
-- Small Rate Limit: Auto Restart has a small rate limit to prevent excessive restarts. This ensures that your application is not restarted too frequently. (**Note:** The rate limit is 1 restart per 60 minutes.)
+        If the application logs contain any of these errors, Auto Restart will not restart the application.
+    </Step>
+    <Step title="Application Restart">
+        AUTORESTART automatically restarts your application to bring it back. 😉
+        <Info>Cooldown between restarts is 60 minutes.</Info>
+    </Step>
+</Steps>
 
 ## Best Practices
 
