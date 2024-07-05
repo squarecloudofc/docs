@@ -1,0 +1,29 @@
+---
+title: "Square Cloud Services Status"
+sidebarTitle: "Status"
+description: "Check the real-time status of Square Cloud services"
+api: "GET https://api.squarecloud.app/v2/service/status"
+authMethod: "none"
+---
+
+<Info>
+  This route has a 5-minute cache and does not reflect the real-time status of
+  status.squarecloud.app.
+</Info>
+
+### Response
+
+<ResponseField name="status" type="string">
+The current status of Square Cloud, with `online` indicating the service is online, `degraded` indicating issues, and `unknown` indicating unavailable.
+</ResponseField>
+<ResponseField name="message" type="object">
+Message about the current status of Square Cloud services.
+</ResponseField>
+<ResponseExample>
+```json
+{
+    "status": "online",
+    "message": "All services are online."
+}
+```
+</ResponseExample>

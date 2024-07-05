@@ -169,6 +169,10 @@
       "group": "API Endpoints",
       "pages": [
         {
+          "group": "Service",
+          "pages": ["api-reference/endpoint/service/status"]
+        },
+        {
           "group": "User",
           "pages": ["api-reference/endpoint/user/info"]
         },
