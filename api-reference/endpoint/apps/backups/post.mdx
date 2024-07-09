@@ -23,8 +23,11 @@ authMethod: "none"
 
 The contents of the response.
 <Expandable title="Toggle object">
-<ResponseField name="downloadURL" type="string">
+<ResponseField name="url" type="string">
   The URL to download the backup of your application.
+</ResponseField>
+<ResponseField name="key" type="string">
+  The key to download the backup of your application.
 </ResponseField>
 </Expandable>
 </ResponseField>
@@ -33,7 +36,8 @@ The contents of the response.
 {
     "status": "success",
     "response": {
-        "downloadURL": "https://backups.squarecloud.app/hash-of-the-backup.zip"
+        "url": "https://backups.squarecloud.app/23457145698959364_a23d130fcc9ddaf2d288ae9599a4292c32.zip?AWSAccessKeyId=i06Xdad2dRD74Pm8Xly&Expires=1753081182&Signature=riWPedawcsouRAPGU5n3kGHnWoOuw%3D",
+        "key": "AWSAccessKeyId=i06Xdad2dRD74Pm8Xly&Expires=1753081182&Signature=riWPedawcsouRAPGU5n3kGHnWoOuw%3D"
     }
 }
 ```
