@@ -185,10 +185,7 @@
         "api-reference/endpoint/users/me",
         "api-reference/endpoint/apps/upload",
         "api-reference/endpoint/apps/status-all",
-        {
-          "group": "Service",
-          "pages": ["api-reference/endpoint/service/status"]
-        },
+        "api-reference/endpoint/service/status",
         {
           "group": "Application",
           "pages": [
