@@ -1,8 +1,8 @@
 ---
-title: "Create Application File"
-sidebarTitle: "[...]/files/create"
+title: "Create/Modify Application File"
+sidebarTitle: "/v2/apps/:appId/files"
 description: "Create files in your application."
-api: "POST https://api.squarecloud.app/v2/apps/{app_id}/files/create"
+api: "PUT https://api.squarecloud.app/v2/apps/{app_id}/files"
 authMethod: "none"
 ---
 
@@ -18,7 +18,7 @@ authMethod: "none"
   The path where the file should be created. Example: /test.txt
 </ParamField>
 
-<ParamField body="buffer" type="string" required>
+<ParamField body="content" type="string" required>
   The content of the file to be created.
 </ParamField>
 
