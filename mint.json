@@ -78,7 +78,11 @@
     },
     {
       "group": "Services",
-      "pages": ["services/bots", "services/sites", "services/blob"]
+      "pages": [
+        "services/bots",
+        "services/sites",
+        "services/blob"
+      ]
     },
     {
       "group": "Languages",
@@ -108,7 +112,9 @@
     },
     {
       "group": "Introduction",
-      "pages": ["tutorials/introduction"]
+      "pages": [
+        "tutorials/introduction"
+      ]
     },
     {
       "group": "Tutorials",
@@ -152,11 +158,18 @@
     },
     {
       "group": "Platform",
-      "pages": ["platform/overview", "platform/limitations-and-restrictions"]
+      "pages": [
+        "platform/overview",
+        "platform/limitations-and-restrictions"
+      ]
     },
     {
       "group": "Company",
-      "pages": ["company/brand", "company/legal", "company/support"]
+      "pages": [
+        "company/brand",
+        "company/legal",
+        "company/support"
+      ]
     },
     {
       "group": "API Reference",
@@ -168,29 +181,27 @@
     {
       "group": "API Endpoints",
       "pages": [
+        
+        "api-reference/endpoint/users/me",
+        "api-reference/endpoint/apps/upload",
+        "api-reference/endpoint/apps/status-all",
         {
           "group": "Service",
           "pages": ["api-reference/endpoint/service/status"]
-        },
-        {
-          "group": "User",
-          "pages": ["api-reference/endpoint/user/info"]
         },
         {
           "group": "Application",
           "pages": [
             "api-reference/endpoint/apps/info",
             "api-reference/endpoint/apps/status",
-            "api-reference/endpoint/apps/status-all",
             "api-reference/endpoint/apps/logs",
             "api-reference/endpoint/apps/start",
             "api-reference/endpoint/apps/restart",
             "api-reference/endpoint/apps/stop",
-            "api-reference/endpoint/apps/backup",
-            "api-reference/endpoint/apps/backups",
             "api-reference/endpoint/apps/commit",
-            "api-reference/endpoint/apps/delete",
-            "api-reference/endpoint/apps/upload"
+            "api-reference/endpoint/apps/backups/get",
+            "api-reference/endpoint/apps/backups/post",
+            "api-reference/endpoint/apps/delete"
           ]
         },
         {
@@ -205,17 +216,17 @@
         {
           "group": "Application - Deploy",
           "pages": [
-            "api-reference/endpoint/apps/deploy/info",
             "api-reference/endpoint/apps/deploy/list",
+            "api-reference/endpoint/apps/deploy/info",
             "api-reference/endpoint/apps/deploy/webhooks"
           ]
         },
         {
           "group": "Application - Network",
           "pages": [
-            "api-reference/endpoint/apps/network/custom",
             "api-reference/endpoint/apps/network/dns",
-            "api-reference/endpoint/apps/network/analytics"
+            "api-reference/endpoint/apps/network/analytics",
+            "api-reference/endpoint/apps/network/custom"
           ]
         }
       ]
@@ -230,7 +241,9 @@
     },
     {
       "group": "Blob Reference",
-      "pages": ["blob-reference/authentication"]
+      "pages": [
+        "blob-reference/authentication"
+      ]
     },
     {
       "group": "Blob Endpoints",
@@ -243,7 +256,9 @@
     },
     {
       "group": "SDKs",
-      "pages": ["sdks/introduction"]
+      "pages": [
+        "sdks/introduction"
+      ]
     },
     {
       "group": "JavaScript SDK",
@@ -372,7 +387,8 @@
     {
       "source": "/articles/how-to-deploy-your-express-application",
       "destination": "/tutorials/how-to-deploy-your-express-application"
-    },    {
+    },
+    {
       "source": "/articles/how-to-deploy-your-fastify-applicationr",
       "destination": "/tutorials/how-to-deploy-your-fastify-application"
     },
