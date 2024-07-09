@@ -204,8 +204,8 @@
         {
           "group": "Application - File Manager",
           "pages": [
-            "api-reference/endpoint/apps/filemanager/list",
             "api-reference/endpoint/apps/filemanager/content",
+            "api-reference/endpoint/apps/filemanager/list",
             "api-reference/endpoint/apps/filemanager/put",
             "api-reference/endpoint/apps/filemanager/patch",
             "api-reference/endpoint/apps/filemanager/delete"
