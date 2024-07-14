@@ -53,12 +53,7 @@ these tasks using both classes:
 
                 print(file.lastModified)  # 1677112835000
         ```
-    </Tab>
-        <Tab title="Using CLI">
-        ```bash
-        squarecloud app <APP_ID> file-list
-        ```
-    </Tab>
+        </Tab>
 </Tabs>
 
 ## Reading a file
@@ -92,12 +87,7 @@ these tasks using both classes:
 
             print(file_bytes)  # b'01101000 01101001'
         ```
-    </Tab>
-        <Tab title="Using CLI">
-        ```bash
-        squarecloud app <APP-ID> file-read <PATH>
-        ```
-    </Tab>
+        </Tab>
 </Tabs>
 
 ## Creating a file
@@ -128,12 +118,7 @@ these tasks using both classes:
 
             await app.create_file(path='/file.txt', file=square.File('file.txt'))
         ```
-    </Tab>
-        <Tab title="Using CLI">
-        ```bash
-        squarecloud app <APP-ID> file-create <FILE>
-        ```
-    </Tab>
+        </Tab>
 </Tabs>
 
 ## Deleting a file
@@ -161,11 +146,6 @@ these tasks using both classes:
             app = await client.app('application_id')
 
             await app.delete_file(path='/file.txt')
-        ```
-    </Tab>
-        <Tab title="Using CLI">
-        ```bash
-        squarecloud app <APP-ID> file-delete <PATH>
         ```
     </Tab>
 </Tabs>

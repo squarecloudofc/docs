@@ -48,11 +48,6 @@ these tasks using both classes:
             print(status.storage)  # '0B'
         ```
     </Tab>
-    <Tab title="Using CLI">
-        ```bash
-        squarecloud app <APP_ID> status
-        ```
-    </Tab>
 </Tabs>
 
 ## Getting logs
@@ -87,11 +82,6 @@ these tasks using both classes:
             print(logs.logs)  # 'Hello World'
         ```
     </Tab>
-    <Tab title="Using CLI">
-        ```bash
-        squarecloud app <APP_ID> logs
-        ```
-    </Tab>
 </Tabs>
 
 ## Starting the application
@@ -118,11 +108,6 @@ these tasks using both classes:
         async def example():
             app = await client.app('application_id')
             await app.start()
-        ```
-    </Tab>
-    <Tab title="Using CLI">
-        ```bash
-        squarecloud app <APP_ID> start
         ```
     </Tab>
 </Tabs>
@@ -153,11 +138,6 @@ these tasks using both classes:
             await app.stop()
         ```
     </Tab>
-    <Tab title="Using CLI">
-        ```bash
-        squarecloud app <APP_ID> stop
-        ```
-    </Tab>
 </Tabs>
 
 ## Restarting the application
@@ -184,11 +164,6 @@ these tasks using both classes:
         async def example():
             app = await client.app('application_id')
             await app.restart()
-        ```
-    </Tab>
-    <Tab title="Using CLI">
-        ```bash
-        squarecloud app <APP_ID> restart
         ```
     </Tab>
 </Tabs>
@@ -221,11 +196,6 @@ these tasks using both classes:
         async def example():
             app = await client.app('application_id')
             await app.delete()
-        ```
-    </Tab>
-    <Tab title="Using CLI">
-        ```bash
-        squarecloud app <APP_ID> delete
         ```
     </Tab>
 </Tabs>

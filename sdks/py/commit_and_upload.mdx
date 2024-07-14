@@ -34,11 +34,6 @@ zip file is.
         await app.commit(file=file)
     ```
     </Tab>
-    <Tab title="Using CLI">
-    ```bash
-    squarecloud app <APP-ID> commit <FILE>
-    ```
-    </Tab>
 </Tabs>
 
 ## Making a upload
@@ -55,11 +50,6 @@ To upload an application, you only use the [Client] and the CLI.
     async def example():
         file = square.File('path/to/you/file.zip')
         await client.upload_app(file=file)
-    ```
-    </Tab>
-    <Tab title="Using CLI">
-    ```bash
-    squarecloud upload <ZIP>
     ```
     </Tab>
 </Tabs>
