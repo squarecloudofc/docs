@@ -1,0 +1,111 @@
+---
+title: "Deployments"
+description: "The central object is the Client object, instantiated with an API key. This
+object represents a connection to the Square Cloud service and acts as an
+interface to interact with various aspects of the service."
+---
+
+## Create Integration
+
+<Tabs>
+    <Tab title="Using Client">
+    ```python
+    import squarecloud as square
+
+    client = square.Client(api_key='API KEY')
+
+
+    async def example():
+        webhook_url = await client.github_integration(
+            'application_id', access_token='access_token'
+        )
+        print(
+            webhook_url
+        )
+    ```
+    </Tab>
+
+    <Tab title="Using Application">
+    ```python
+    import squarecloud as square
+
+    client = square.Client(api_key='API KEY')
+
+
+    async def example():
+        app = await client.app('application_id')
+        webhook_url = await app.github_integration(access_token='access_token')
+        print(
+            webhook_url
+        )
+    ```
+    </Tab>
+</Tabs>
+
+
+## Obtaining Current Integration
+
+<Tabs>
+    <Tab title="Using Client">
+    ```python
+    import squarecloud as square
+
+    client = square.Client(api_key='API KEY')
+
+
+    async def example():
+        webhook_url = await client.current_app_integration(
+            'application_id',
+        )
+        print(webhook_url)
+    ```
+    </Tab>
+
+    <Tab title="Using Application">
+    ```python
+    import squarecloud as square
+
+    client = square.Client(api_key='API KEY')
+
+
+    async def example():
+        app = await client.app('application_id')
+        webhook_url = await app.current_integration()
+        print(
+            webhook_url
+        )
+    ```
+    </Tab>
+</Tabs>
+
+
+## Last Deploys
+
+<Tabs>
+    <Tab title="Using Client">
+    ```python
+    import squarecloud as square
+
+    client = square.Client(api_key='API KEY')
+
+
+    async def example():
+        deploys = await client.last_deploys('application_id')
+        print(deploys)  # [[DeployData(...), DeployData(...), DeployData(...)]]
+    ```
+    </Tab>
+
+    <Tab title="Using Application">
+    ```python
+    import squarecloud as square
+
+    client = square.Client(api_key='API KEY')
+
+
+    async def example():
+        app = await client.app('application_id')
+        deploys = await app.last_deploys()
+        print(deploys)  # [[DeployData(...), DeployData(...), DeployData(...)]]
+    ```
+    </Tab>
+</Tabs>

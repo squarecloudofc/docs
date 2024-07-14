@@ -149,3 +149,40 @@ these tasks using both classes:
         ```
     </Tab>
 </Tabs>
+
+
+## Moving a file
+
+`client.move_app_file` and `app.move_file` return a `Response` object.
+
+<Tabs>
+    <Tab title="Using Client">
+        ```python
+        import squarecloud as square
+
+        client = square.Client(api_key='API KEY')
+
+
+        async def example():
+            await client.move_app_file(
+                app_id='application_id',
+                origin='path/to/origin/file.py',
+                dest='path/to/destination/file.py',
+            )
+        ```
+    </Tab>
+    <Tab title="Using Application">
+        ```python
+        import squarecloud as square
+
+        client = square.Client(api_key='API KEY')
+
+
+        async def example():
+            app = await client.app('application_id')
+            await app.move_file(
+                origin='path/to/origin/file.py', dest='path/to/destination/file.py'
+            )
+        ```
+    </Tab>
+</Tabs>
