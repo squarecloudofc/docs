@@ -274,6 +274,7 @@
         "sdks/py/commit_and_upload",
         "sdks/py/managing_application",
         "sdks/py/managing_files",
+        "sdks/py/deployments",
         {
           "group": "Advanced Guide",
           "pages": [
