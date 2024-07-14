@@ -181,7 +181,6 @@
     {
       "group": "API Endpoints",
       "pages": [
-        
         "api-reference/endpoint/users/me",
         "api-reference/endpoint/apps/upload",
         "api-reference/endpoint/apps/status-all",
@@ -279,8 +278,7 @@
           "group": "Advanced Guide",
           "pages": [
             "sdks/py/advanced/app_cache",
-            "sdks/py/advanced/listeners",
-            "sdks/py/storing_your_token"
+            "sdks/py/advanced/listeners"
           ]
         }
       ]
