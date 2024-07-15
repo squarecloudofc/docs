@@ -55,11 +55,11 @@ The `requirements.txt` file is a file that lists all the external libraries need
 selenium
 ```
 
-## About `binary_location`
+## Chromium path
 
-In the provided example, `binary_location` is not necessary because the Selenium WebDriver tries to find the browser on its default path if `binary_location` is not specified. This means that if Chromium is installed in a location that is in the system PATH, the WebDriver can find it automatically without you having to specify the location.
+In the example provided above, it's not necessary to explicitly define the Chromium path because the Selenium WebDriver can automatically find the browser if it's installed in a standard system location. The ChromeDriver, specified with `Service('/usr/bin/chromedriver')`, knows where to look for the Chromium/Chrome executable.
 
-In the case of Square Cloud, if the Chromium version is fixed and cannot be changed, and the Selenium WebDriver can automatically find the Chromium executable, then you would not need to specify the `binary_location`. However, if there is any reason why the WebDriver cannot find Chromium automatically, you would need to use `binary_location` to specify the location of the executable.
+In Square Cloud, Chromium is installed in `/usr/bin/chromium`, which is standard. Therefore, the Selenium WebDriver can automatically locate it through the specified ChromeDriver. Thus, there's no need to explicitly specify the Chromium path in the code, unless there are specific reasons to do so, such as custom installations or different environment configurations.
 
 ## Creating the squarecloud config file
 

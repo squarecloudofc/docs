@@ -99,12 +99,23 @@ After preparing your project files, you can now upload them to Square Cloud and 
     <Steps>
       <Step title="First Step">
         First, you need to have the CLI installed in your environment. If you
-        don't have it yet, run the following command in your terminal: ```npm install -g @squarecloud/cli``` If you already have it, we
-        recommend updating it. To do this, run the following command in your
-        terminal: 
-        ```bash 
-        squarecloud update
+        don't have it yet, run the following command in your terminal:
         ```
+        npm install -g @squarecloud/cli
+        ```
+        If you already have it, we recommend updating it. To do this, run the following command in your terminal:
+        <Tabs>
+          <Tab title="Windows">
+            ```bash
+            squarecloud update
+            ```
+          </Tab>
+          <Tab title="Linux, macOS, and WSL">
+            ```bash
+            curl -fsSL https://cli.squarecloud.app/install | bash
+            ```
+          </Tab>
+        </Tabs>
       </Step>
       <Step title="Second Step">
         Now, to authenticate and use other CLI commands, you will find your

@@ -14,22 +14,53 @@ With Python and pip installed, you can create a new Flask project. First, instal
 
 ```bash
 pip install flask
+pip install waitress
 ```
 
 Then, create a new Python file (e.g., `app.py`) and add the following code to create a basic Flask application:
 
 ```python
+# Import the Flask class from the flask module
 from flask import Flask
+
+# Create an instance of the Flask class
 app = Flask(__name__)
 
+# Define a route for the root URL (/) that returns 'Hello, World!'
 @app.route('/')
 def hello_world():
     return 'Hello, World!'
 
+# Check if this script is being executed directly (not imported as a module)
 if __name__ == '__main__':
+    # Run the Flask application on host 0.0.0.0 (all available network interfaces) and port 80
     app.run(host='0.0.0.0', port=80)
 ```
 
+
+## Configuring the Production Environment with Waitress
+
+```python
+from flask import Flask
+
+# Create a Flask application instance
+app = Flask(__name__)
+
+# Define a route for the root URL (/) that returns 'Hello, World!'
+@app.route('/')
+def hello_world():
+    return 'Hello, World!'
+
+# If this script is executed directly (not imported as a module)
+if __name__ == '__main__':
+    from waitress import serve  # Import serve function from Waitress
+    
+    # Serve the Flask application using Waitress on host 0.0.0.0 (all interfaces) and port 80
+    serve(app, host='0.0.0.0', port=80)
+    
+    # Print a message to indicate successful server start on port 80
+    print("Server successfully started on port 80.")
+```
 In the above code, we create a basic route that returns "Hello, World!" when accessed. The application is configured to run on port 80, which is the default port for HTTP traffic.
 
 ## Managing Dependencies with the requirements.txt file
@@ -71,12 +102,23 @@ After preparing your project files, you can now upload them to Square Cloud and 
     <Steps>
       <Step title="First Step">
         First, you need to have the CLI installed in your environment. If you
-        don't have it yet, run the following command in your terminal: ```npm install -g @squarecloud/cli``` If you already have it, we
-        recommend updating it. To do this, run the following command in your
-        terminal: 
-        ```bash 
-        squarecloud update
+        don't have it yet, run the following command in your terminal:
         ```
+        npm install -g @squarecloud/cli
+        ```
+        If you already have it, we recommend updating it. To do this, run the following command in your terminal:
+        <Tabs>
+          <Tab title="Windows">
+            ```bash
+            squarecloud update
+            ```
+          </Tab>
+          <Tab title="Linux, macOS, and WSL">
+            ```bash
+            curl -fsSL https://cli.squarecloud.app/install | bash
+            ```
+          </Tab>
+        </Tabs>
       </Step>
       <Step title="Second Step">
         Now, to authenticate and use other CLI commands, you will find your

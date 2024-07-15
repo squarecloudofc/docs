@@ -4,6 +4,7 @@ sidebarTitle: "Rust"
 icon: "rust"
 description: "Learn how to get started on Square Cloud with Rust"
 ---
+
 ## 🚀 Introduction
 
 - Before you begin, make sure you have Rust on your system. If you don't have them yet, you can download them from the [official Rust website](https://www.rust-lang.org/tools/install).
@@ -23,6 +24,7 @@ description: "Learn how to get started on Square Cloud with Rust"
 </Card>
 
 ## 📄 Required Files
+
 - main.rs (Example of main file).
 - Cargo.toml (dependency file).
 - [squarecloud.app](/getting-started/config-file) (file that contains the Square Cloud configuration).
@@ -31,7 +33,11 @@ description: "Learn how to get started on Square Cloud with Rust"
 
 Before hosting your project on Square Cloud, you must first have the files of your project properly configured, so that you can host it later.
 
-<Warning>The configuration (`squarecloud.app/.config`) file must be located in the root of the zip file. Otherwise, Square Cloud will not be able to find it during deployment.</Warning>
+<Warning>
+  The configuration (`squarecloud.app/.config`) file must be located in the root
+  of the zip file. Otherwise, Square Cloud will not be able to find it during
+  deployment.
+</Warning>
 
 ## 📤 Uploading Project to Square Cloud
 
@@ -50,27 +56,38 @@ After preparing your project files, you can now upload them to Square Cloud and 
     <Steps>
       <Step title="First Step">
         First, you need to have the CLI installed in your environment. If you
-        don't have it yet, run the following command in your terminal: ```npm install -g @squarecloud/cli``` If you already have it, we
-        recommend updating it. To do this, run the following command in your
-        terminal: 
-        ```bash 
-        squarecloud update
+        don't have it yet, run the following command in your terminal:
         ```
+        npm install -g @squarecloud/cli
+        ```
+        If you already have it, we recommend updating it. To do this, run the following command in your terminal:
+        <Tabs>
+          <Tab title="Windows">
+            ```bash
+            squarecloud update
+            ```
+          </Tab>
+          <Tab title="Linux, macOS, and WSL">
+            ```bash
+            curl -fsSL https://cli.squarecloud.app/install | bash
+            ```
+          </Tab>
+        </Tabs>
       </Step>
       <Step title="Second Step">
         Now, to authenticate and use other CLI commands, you will find your
         authorization key [here](https://squarecloud.app/account) by clicking on
         "Request API Key". After obtaining your authorization key, run the
-        following command: 
-        ```bash 
+        following command:
+        ```bash
         squarecloud login
         ```
       </Step>
       <Step title="Third Step">
         Finally, to deploy your application to Square Cloud using the CLI, you
         need to execute the following command, passing the path of your zip
-        file: 
-        ```bash 
+        file:
+        ```bash
         squarecloud upload zip
         ```
       </Step>
