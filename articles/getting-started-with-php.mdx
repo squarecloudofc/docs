@@ -28,6 +28,12 @@ description: "Learn how to get started on Square Cloud with PHP"
 - `composer.json` (*Optional dependency file).
 - [squarecloud.app](/getting-started/config-file) (a file containing your Square Cloud configuration).
 
+## ▶️ Start Application
+
+- If the `START` field is not defined in the configuration file, a local PHP server will be started using the `php -S 0.0.0.0:80` command. If the `START` field is defined in the configuration file, the value in the `START` field will be executed directly. For more information on configuration file parameters, visit [configuration parameters](https://docs.squarecloud.app/getting-started/config-file#configuration-parameters).
+
+- If the `composer.json` file exists, all dependencies will be installed using the `php composer.phar install` command.
+
 ## 🖥️ Preparing Project for Upload
 
 Before you can host your project on Square Cloud, ensure your project files are correctly configured for hosting.
@@ -37,8 +43,6 @@ If your project includes a `composer.json` file, Square Cloud will automatically
 ```plaintext
 START=npm install && php .....
 ```
-If your project lacks a `composer.json` file, it will be initialized by executing the following command: `php -S 0.0.0.0:80`, which will start a web server.
-
 <Warning>The configuration (`squarecloud.app/.config`) file must be located in the root of the zip file. Otherwise, Square Cloud will not be able to find it during deployment.</Warning>
 
 ## 📤 Uploading Project to Square Cloud

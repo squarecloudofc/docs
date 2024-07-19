@@ -30,7 +30,9 @@ description: "Learn how to get started on Square Cloud with Elixir"
 
 ## ▶️ Start Application
 
-- Square Cloud by default uses `restore & run` to start your application. If you want to start in production mode, you'll need to use the `START` field in the configuration file. For more information about the configuration file parameters, visit [configuration parameters](https://docs.squarecloud.app/getting-started/config-file#configuration-parameters).
+- If the `START` field is not defined in the configuration file, Square Cloud will by default uses `restore & run` to start your application. If the `START` field is defined in the configuration file, the value in the `START` field will be executed directly. For more information on configuration file parameters, visit [configuration parameters](https://docs.squarecloud.app/getting-started/config-file#configuration-parameters).
+
+- Square Cloud uses `dotnet restore` to restore project dependencies and `dotnet run --project MAIN` to build and run the project specified by `MAIN`.
 
 ## 🖥️ Preparing Project for Upload
 

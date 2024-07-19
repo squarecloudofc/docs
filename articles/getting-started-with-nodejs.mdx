@@ -22,6 +22,19 @@ description: "Learn how to get started on Square Cloud with Node.js"
   version, main file, among other things.
 </Card>
 
+## ▶️ Start Application
+
+<Tabs>
+  <Tab title="Javascript">
+    - If the `START` field is not defined in the configuration file, Square Cloud will by default run `node` with optimization options and specific parameters. If the `START` field is defined in the configuration file, the value in the `START` field will be executed directly. For more information on configuration file parameters, visit [configuration parameters](https://docs.squarecloud.app/getting-started/config-file#configuration-parameters).
+  </Tab>
+  <Tab title="Typescript">
+    - If the `START` field is not defined in the configuration file, Square Cloud will by default run `npx tsx MAIN` to compile and execute the main TypeScript file specified by `MAIN` field. If the `START` field is defined in the configuration file, the value in the `START` field will be executed directly. For more information on configuration file parameters, visit [configuration parameters](https://docs.squarecloud.app/getting-started/config-file#configuration-parameters).
+  </Tab>
+</Tabs>
+
+- If the `node_modules` folder does not exist, Square Cloud will run `npm install --no-package-lock --no-audit --no-fund` to install dependencies and clean the `.npm` folder.
+
 ## 🖥️ Preparing Your Node.js Project
 
 ### 📁 Essential Configuration Files

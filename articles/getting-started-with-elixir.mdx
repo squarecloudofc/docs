@@ -28,6 +28,12 @@ description: "Learn how to get started on Square Cloud with Elixir"
 - mix.exs (Dependency file).
 - [squarecloud.app](/getting-started/config-file) (file that contains the Square Cloud configuration).
 
+## ▶️ Start Application
+
+- If the `START` field is not defined in the configuration file, Square Cloud will run `mix run --no-halt` to start the project. If the `START` field is defined in the configuration file, the value in the `START` field will be executed directly. For more information on configuration file parameters, visit [configuration parameters](https://docs.squarecloud.app/getting-started/config-file#configuration-parameters).
+
+- Square Cloud performs a local installation of the `hex` and `rebar` tools and obtains project dependencies with `mix deps.get`.
+
 ## 🖥️ Preparing Project for Upload
 
 Before hosting your project on Square Cloud, you must first have the files of your project properly configured, so that you can host it later.
