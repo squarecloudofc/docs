@@ -280,7 +280,8 @@
           "group": "Advanced Guide",
           "pages": [
             "sdks/py/advanced/app_cache",
-            "sdks/py/advanced/listeners"
+            "sdks/py/advanced/listeners",
+            "sdks/py/advanced/using_pydantic"
           ]
         }
       ]
