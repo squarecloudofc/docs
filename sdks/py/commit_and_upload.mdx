@@ -64,8 +64,9 @@ description, main file name, version, etc. To learn more about the
 configuration file, take a look at this [guide](https://docs.squarecloud.app/getting-started/config-file).
 
 <Tip>
-    For your convenience, a function has been added to create this configuration file:
-    `squarecloud.create_config_file`.
+    For your convenience, a class has been added to create this configuration file:
+    `squarecloud.utils.ConfigFile`.
     
-    You can also create the configuration file using the command line `squarecloud create_config_file`.
+    You can also create the configuration file using the command line: 
+    `squarecloud.utils.ConfigFile(display_name=name, main=main_file, memory=memory, *args)`.
 </Tip>
