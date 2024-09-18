@@ -40,6 +40,10 @@ When you choose JavaScript, Vite configures the project with default JavaScript 
 
 Port 80 is the default port for HTTP traffic. To host a Vite app on Square Cloud, configure the use of port 80. In Vite, you can set the `--port 80` parameter in the startup script to ensure your app runs correctly on this port.
 
+## Configuring Host 0.0.0.0
+
+The `--host 0.0.0.0` option is used to bind the Vite server to all available network interfaces. This makes your application accessible not only on `localhost`, but also on external devices within the same network, such as other computers or mobile devices. By default, Vite binds to `localhost`, which restricts access to the machine where it's running. Setting the host to `0.0.0.0` allows the server to listen for incoming requests from any IP address.
+
 ## Creating the squarecloud config file
 
 <Card title="Learn about: how to make the configuration file for Square Cloud." icon="link" href="https://docs.squarecloud.app/getting-started/config-file">
@@ -51,10 +55,10 @@ The squarecloud.app file is a configuration file that will be used to configure 
 In the Square Cloud configuration file, the `START` field is essential to customize the startup command. If you want to build and start your Vite app on Square Cloud, configure the `START` field as follows:
 
 ```app squarecloud.app
-START=npm run build && npm run serve
+START=npm run build && npm run preview
 ```
 
-This command will execute the "build" and "serve" scripts defined in your `package.json`:
+This command will execute the "build" and "preview" scripts defined in your `package.json`:
 
 ```json package.json
 {
@@ -65,7 +69,7 @@ This command will execute the "build" and "serve" scripts defined in your `packa
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "serve": "vite preview --port 80"
+    "preview": "vite preview --host 0.0.0.0 --port 80"
   },
   "devDependencies": {
     "vite": "^5.1.4"
