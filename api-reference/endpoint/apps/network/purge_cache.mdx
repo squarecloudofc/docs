@@ -1,0 +1,33 @@
+---
+title: "Purge Cache"
+sidebarTitle: "[...]/network/purge_cache"
+description: "Purge Cache of the certain paths in the network. It has a rate limit of 1 request every 60 seconds."
+api: "POST https://api.squarecloud.app/v2/apps/{app_id}/network/purge_cache"
+authMethod: "none"
+---
+
+<ParamField header="Authorization" type="string" placeholder="API KEY" required>
+  The API key for your account. You can find this in your [account settings](https://squarecloud.app/dashboard/settings).
+</ParamField>
+
+<ParamField path="app_id" type="string" placeholder="Application ID" required>
+  The ID of the application. You can find this in the URL of your application's dashboard.
+</ParamField>
+
+<ParamField body="paths" type="array" placeholder={["https://yoursubdomain.squareweb.app/", "https://yoursubdomain.squareweb.app/style.css"]} required>
+  The paths you want to purge the cache.
+</ParamField>
+
+### Response
+
+<ResponseField name="status" type="string">
+  Indicates whether the call was successful. "success" if successful, "error" if not.
+</ResponseField>
+
+<ResponseExample>
+```json
+{
+    "status": "success"
+}
+```
+</ResponseExample>
