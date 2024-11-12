@@ -40,18 +40,17 @@ When preparing your Python project for deployment on Square Cloud, ensure that y
 
 - `ffmpeg`: This software is pre-installed in the Square Cloud environment, so there's no need to include this folder in your project.
 - `.venv`: This folder contains the virtual environment for your project. Square Cloud provides an isolated environment, so this folder is not required.
-- `pyproject.toml`: While this file defines build system requirements and dependencies, Square Cloud uses `requirements.txt` for dependency management.
 - `poetry.lock`: Since Square Cloud does not currently support Poetry, this file should be excluded to avoid any potential issues during deployment.
 
 ### 🤔 Why Exclude These Files?
 
-Excluding `ffmpeg`, `.venv`, `pyproject.toml`, and `poetry.lock` is important for several reasons:
+Excluding `ffmpeg`, `.venv` and `poetry.lock` is important for several reasons:
 
 1. **Clean Environment:** Square Cloud creates a fresh environment for your project. Including these files is unnecessary and could lead to conflicts with the cloud environment's configurations.
 
 2. **Efficiency:** Removing these files reduces the size of your upload, making the process faster and more streamlined.
 
-3. **Compatibility:** Excluding `pyproject.toml` and `poetry.lock` ensures that there are no compatibility issues, as Square Cloud relies on `requirements.txt` for installing dependencies.
+3. **Compatibility:** Excluding `poetry.lock` ensures that there are no compatibility issues, as Square Cloud relies on `requirements.txt` for installing dependencies.
 
 Before uploading, make sure to zip your project files in **.zip** format, excluding the unnecessary files mentioned above. This will help ensure that your Python application is ready for a successful deployment to Square Cloud.
 
@@ -59,6 +58,7 @@ Before uploading, make sure to zip your project files in **.zip** format, exclud
 
 - main.py (Example of main file).
 - [requirements.txt](./how-to-create-your-requirements) (Dependency file).
+- OR [pyproject.toml] (Dependency file).
 - [squarecloud.app](/getting-started/config-file) (file that contains the Square Cloud configuration).
 
 ## 💡 Troubleshooting
