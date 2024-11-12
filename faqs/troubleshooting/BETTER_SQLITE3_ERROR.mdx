@@ -16,7 +16,7 @@ Error: Could not locate the bindings file. Tried:
 
 ## Why does it occur?
 
-This error occurs because the `better-sqlite3` library has not been updated to the latest version. In `better-sqlite3` **7.x.x and earlier**, the library **was not support Node.js LTS v20**.x.x.
+This error occurs because the `better-sqlite3` library has not been updated to the latest version. In `better-sqlite3` **11.x.x and earlier**, the library **was not support Node.js LTS v22**.x.x.
 
 ## How to fix
 
@@ -29,10 +29,10 @@ To fix this issue, you need to update the `better-sqlite3` library to the latest
 
 ### Update the `better-sqlite3` in your `package.json`
 
-After checking the latest version of the library, you can update it in your `package.json`. For example, if the current version is 9.2.2, you can use the following:
+After checking the latest version of the library, you can update it in your `package.json`. For example, if the current version is 11.5.0, you can use the following:
 
 ```json Update manually in your package.json
-"better-sqlite3": "^9.2.2",
+"better-sqlite3": "^11.5.0",
 "quick.db": "^9.1.7" // or any other library that depends on better-sqlite3
 ```
 
