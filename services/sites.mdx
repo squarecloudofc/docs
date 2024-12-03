@@ -98,6 +98,7 @@ Leverage Square Cloud's language diversity to build innovative, efficient web ap
     These files list the libraries and packages required for the correct operation of the application. Keeping these files up-to-date is crucial to avoid installation errors. Additionally, it's important to note that native dependencies, such as `node-fetch` in Node.js and `random` in Python, should not be included in these files, as they are native libraries.
   </Step>
   <Step title="Website Upload" icon="arrow-up">
+    <Tip>If you can define a `port` in your code or in `START` parameter, always set `port 80`. The only exception is when hosting a Lavalink Server, see more [here](https://docs.squarecloud.app/tutorials/how-to-create-your-lavalink-server).</Tip>
     After following all the steps and configuring your project for **Square Cloud**, it's time to upload your website. Access the upload page on the **Square Cloud** website and submit your .zip file [here](https://squarecloud.app/dashboard/upload).
 
     The process is simple: select your .zip file and click the upload button. The **Square Cloud** platform will initiate the deployment process, installing the necessary dependencies and configuring the environment based on the configuration file.
