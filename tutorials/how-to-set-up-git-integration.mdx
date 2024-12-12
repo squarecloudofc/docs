@@ -34,6 +34,16 @@ description: "Learn how to configure Git integration on Square Cloud"
   <img src="/images/articles/github/add-webhook.gif" style={{ borderRadius: '0.2rem' }} />
 </Frame>
 
+## Setting a branch for webhook
+
+- If you want to set a branch for the webhook, you can set a query parameter in the webhook URL.
+- Access the **webhook Payload URL** field in your GitHub repository and insert on the end of the webhook URL `?branch=name` where `name` is the name of the desired branch. 
+<Note>
+In this example, the desired branch will be `main` 
+</Note>
+<Frame>
+  <img src="/images/articles/github/setting_branch.gif" style={{ borderRadius: '0.2rem' }}/>
+</Frame>
 
 ## Deploy
 
