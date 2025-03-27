@@ -10,18 +10,11 @@ authMethod: "none"
   The API key for your account. You can find this in your [account settings](https://squarecloud.app/account).
 </ParamField>
 
-<ParamField body="objects" type="array" placeholder="Objects">
- <Warning> **Square Cloud API Playground does not support the specific array usage**.</Warning>
-
- An array of strings representing the names of the objects to delete. You can delete up to 100 objects at a time in a single request.
- Object names must adhere to the following pattern: `a to z, A to Z, 0 to 9, and _`.
-  ```json
- [
-  "ID/prefix/name1_ltq7b2sw-de6241.jpeg",
-  "ID/prefix/name_ltq7b2sw-de6243-ex1.jpeg"
- ]
- ```
-
+<ParamField body="object" type="string" placeholder="Object name" required>
+    The name of the object to delete. The object name must adhere to the following pattern: `a to z, A to Z, 0 to 9, and _`.
+    ```json
+    { "object": "ID/prefix/name1_ltq7b2sw-de6241.jpeg" }
+    ```
 </ParamField>
 
 ### Response
