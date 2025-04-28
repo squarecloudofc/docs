@@ -26,12 +26,11 @@ The Square Cloud CLI provides the following primary commands:
 
         Available Commands:
           app         Do some actions with your applications
-          apps        List all your Square Cloud applications
+          auth        Manage your authentication with Square Cloud
+          backup      Manage your backups
           commit      Commit your application to Square Cloud
           help        Help about any command
-          login       Login to Square Cloud
           upload      Upload your application to Square Cloud
-          whoami      Print the user informations associated with current Square Cloud Token
           zip         Zip the current folder
 
         Flags:
@@ -41,11 +40,11 @@ The Square Cloud CLI provides the following primary commands:
         Use "squarecloud [command] --help" for more information about a command.
         ```
     </Tab>
-    <Tab title="squarecloud login">
+    <Tab title="squarecloud auth login">
         Command to authenticate to the Square Cloud CLI using your API key.
 
         ```bash
-        squarecloud login
+        squarecloud auth login
         ```
 
         You will be prompted to enter your API key.
@@ -62,11 +61,11 @@ The Square Cloud CLI provides the following primary commands:
 
         After entering your API key, you will be authenticated to the Square Cloud CLI. 😁
     </Tab>
-    <Tab title="squarecloud whoami">
+    <Tab title="squarecloud auth whoami">
         Command to print user information associated with the current Square Cloud Token.
 
         ```bash
-        squarecloud whoami
+        squarecloud auth whoami
         ```
 
         You will see the user information associated with the current Square Cloud Token.
