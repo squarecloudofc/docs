@@ -11,7 +11,7 @@ description: "Learn what it takes to authenticate to the Square Cloud CLI."
     <Step title="Authenticate">
         Authenticate to the Square Cloud CLI using the following command:
         ```bash
-        squarecloud login
+        squarecloud auth login
         ```
 
         You will be prompted to enter your API key.
@@ -21,6 +21,11 @@ description: "Learn what it takes to authenticate to the Square Cloud CLI."
         ```
 
         After entering your API key, you will be authenticated to the Square Cloud CLI.
+
+        You can skip the prompt by passing your API key with the `--token` flag:
+        ```bash
+        squarecloud auth login --token=<API key>
+        ```
     </Step>
 </Steps>
 
