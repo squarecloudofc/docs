@@ -27,7 +27,7 @@
     },
     {
       "name": "Follow us on Twitter",
-      "icon": "twitter",
+      "icon": "x-twitter",
       "url": "https://go.squarecloud.app/twitter"
     },
     {
@@ -315,7 +315,7 @@
     "website": "https://squarecloud.app",
     "discord": "https://discord.gg/squarecloud",
     "instagram": "https://instagram.com/squarecloudofc",
-    "twitter": "https://twitter.com/squarecloudofc",
+    "x-twitter": "https://twitter.com/squarecloudofc",
     "linkedin": "https://linkedin.com/company/squarecloud",
     "github": "https://go.squarecloud.app/github"
   },
