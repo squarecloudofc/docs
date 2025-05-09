@@ -19,11 +19,8 @@ description: "In this section you will learn how to make commits and uploads usi
     const fileContent = Buffer.from("Your file content");
     const fileName = "file.txt";
 
-    // Optionally, set whether the application should restart after the commit
-    const shouldRestart = true;
-
     // Perform the commit operation
-    const success = await application.commit(fileContent, fileName, shouldRestart);
+    const success = await application.commit(fileContent, fileName);
 
     // Handle the result accordingly
     if (success) {
