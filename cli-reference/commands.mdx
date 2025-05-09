@@ -103,11 +103,11 @@ The Square Cloud CLI provides the following primary commands:
 The CLI provides the following commands to manage your applications:
 
 <Tabs>
-    <Tab title="squarecloud apps">
+    <Tab title="squarecloud app list">
         Command to list all your Square Cloud applications.
 
         ```bash
-        squarecloud apps
+        squarecloud app list
         ```
 
         You will see a list of all your Square Cloud applications.
@@ -138,12 +138,15 @@ The CLI provides the following commands to manage your applications:
 
         Available Commands:
           backup      Create a backup of you application
+          commit      Commit your application to Square Cloud 
           delete      Delete your application
+          list        List all your applications
           logs        See your application logs
           restart     Restart your application
           start       Start your application
           status      Show the status of your application
           stop        Stop your application
+          upload      Upload your application to Square Cloud
 
         Flags:
           -h, --help   help for app
@@ -151,7 +154,7 @@ The CLI provides the following commands to manage your applications:
         Use "squarecloud app [command] --help" for more information about a command.
         ```
     </Tab> 
-</Tabs>
+</Tabs> 
 
 ## Deployment Command
 The CLI provides the following command to deploy your application:
