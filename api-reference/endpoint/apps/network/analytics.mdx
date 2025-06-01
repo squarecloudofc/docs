@@ -30,26 +30,89 @@ authMethod: "none"
 </ResponseField>
 
 <ResponseExample>
-```json
 {
   "status": "success",
   "response": {
-    "hostname": "joaootavios.dev",
-    "total": {
-      "visits": 557,
-      "megabytes": "2.09",
-      "bytes": 2089127
-    },
-    "countries": [...],
-    "methods": [...],
-    "referers": [...],
-    "browsers": [...],
-    "deviceTypes": [...],
-    "operatingSystems": [...],
-    "agents": [...],
-    "hosts": [...],
-    "paths": [...]
+    "visits": [
+      {
+        "visits": 1,
+        "requests": 4,
+        "bytes": 9677,
+        "date": "2025-05-31T18:45:00Z"
+      }
+    ],
+    "countries": [
+      {
+        "type": "BR",
+        "visits": 1,
+        "requests": 4,
+        "bytes": 9677
+      }
+    ],
+    "devices": [
+      {
+        "type": "desktop",
+        "visits": 1,
+        "requests": 4,
+        "bytes": 9677
+      }
+    ],
+    "os": [
+      {
+        "type": "Windows",
+        "visits": 1,
+        "requests": 4,
+        "bytes": 9677
+      }
+    ],
+    "browsers": [
+      {
+        "type": "Chrome",
+        "visits": 1,
+        "requests": 4,
+        "bytes": 9677
+      }
+    ],
+    "protocols": [
+      {
+        "type": "https",
+        "visits": 1,
+        "requests": 4,
+        "bytes": 9677
+      }
+    ],
+    "methods": [
+      {
+        "type": "GET",
+        "visits": 1,
+        "requests": 4,
+        "bytes": 9677
+      }
+    ],
+    "paths": [
+      {
+        "type": "/",
+        "visits": 1,
+        "requests": 4,
+        "bytes": 9677
+      }
+    ],
+    "referers": [
+      {
+        "type": "https://google.com",
+        "visits": 1,
+        "requests": 4,
+        "bytes": 9677
+      }
+    ],
+    "providers": [
+      {
+        "type": "Cloudflare",
+        "visits": 1,
+        "requests": 4,
+        "bytes": 9677
+      }
+    ]
   }
 }
-```
 </ResponseExample>
