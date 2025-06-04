@@ -1,0 +1,22 @@
+---
+title: "Remove Workspace Member"
+sidebarTitle: "/v2/workspaces/members"
+description: "Removes a workspace member from the workspace."
+api: "DELETE https://api.squarecloud.app/v2/workspaces/members"
+authMethod: "none"
+---
+
+<ParamField header="Authorization" type="string" placeholder="API KEY" required>
+  The API key for your account. You can find this in your [account settings](https://squarecloud.app/account).
+</ParamField>
+
+<ParamField body="workspaceId" type="string" placeholder="Workspace Id">
+  The ID of the workspace.  
+</ParamField>
+
+<ParamField body="memberId" type="string" placeholder="Member ID">
+  The member ID. 
+</ParamField>
+
+
+### Response

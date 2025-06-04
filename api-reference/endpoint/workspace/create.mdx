@@ -1,0 +1,18 @@
+---
+title: "Create Workspace"
+sidebarTitle: "/v2/workspaces"
+description: "Create a new workspace into your Square Cloud account."
+api: "POST https://api.squarecloud.app/v2/workspaces"
+authMethod: "none"
+---
+
+<ParamField header="Authorization" type="string" placeholder="API KEY" required>
+  The API key for your account. You can find this in your [account settings](https://squarecloud.app/account).
+</ParamField>
+
+<ParamField body="name" type="string" placeholder="Workspace name">
+  A string representing the name of the workspace. (without extension)<br/>Must adhere to the a to z, A to Z, 0 to 9, and _ pattern. (3 to 32 characters)
+</ParamField>
+
+### Response
+

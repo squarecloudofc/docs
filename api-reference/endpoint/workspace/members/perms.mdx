@@ -1,0 +1,25 @@
+---
+title: "Change Workspace Member"
+sidebarTitle: "/v2/workspaces/members"
+description: "Changes workspace member permissions."
+api: "PATCH https://api.squarecloud.app/v2/workspaces/members"
+authMethod: "none"
+---
+
+<ParamField header="Authorization" type="string" placeholder="API KEY" required>
+  The API key for your account. You can find this in your [account settings](https://squarecloud.app/account).
+</ParamField>
+
+<ParamField body="workspaceId" type="string" placeholder="Workspace Id">
+  The ID of the workspace.  
+</ParamField>
+
+<ParamField body="memberId" type="string" placeholder="Member ID">
+  The member ID. 
+</ParamField>
+
+<ParamField body="group" type="str" placeholder="Permission name">
+  The member permissions on the workspace applications.
+</ParamField>
+
+### Response
