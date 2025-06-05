@@ -1,0 +1,38 @@
+---
+title: "Invite to Workspace"
+sidebarTitle: "/v2/workspaces/members"
+description: "Invites someone to an workspace."
+api: "POST https://api.squarecloud.app/v2/workspaces/members"
+authMethod: "none"
+---
+
+<ParamField header="Authorization" type="string" placeholder="API KEY" required>
+  The API key for your account. You can find this in your [account settings](https://squarecloud.app/account).
+</ParamField>
+
+<ParamField body="workspaceId" type="string" placeholder="Workspace Id">
+  The ID of the workspace.  
+</ParamField>
+
+<ParamField body="code" type="string" placeholder="Invite code">
+  A string with the member invite code. 
+</ParamField>
+
+<ParamField body="group" type="string" placeholder="Permission name">
+  The member permissions on the workspace applications
+</ParamField>
+
+
+### Response
+
+<ResponseField name="status" type="string">
+  Indicates whether the call was successful. `success` if successful, `error` if not.
+</ResponseField>
+
+<ResponseExample>
+```json
+{
+  "status": "success"
+}
+```
+</ResponseExample>

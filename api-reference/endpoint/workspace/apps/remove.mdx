@@ -1,0 +1,33 @@
+---
+title: "Removing App from Workspace"
+sidebarTitle: "/v2/workspaces/applications"
+description: "Removes an application from the workspace."
+api: "DELETE https://api.squarecloud.app/v2/workspaces/applications"
+authMethod: "none"
+---
+
+<ParamField header="Authorization" type="string" placeholder="API KEY" required>
+  The API key for your account. You can find this in your [account settings](https://squarecloud.app/account).
+</ParamField>
+
+<ParamField body="workspaceId" type="string" placeholder="Workspace Id">
+  The ID of the workspace.  
+</ParamField>
+
+<ParamField body="appId" type="string" placeholder="Application ID">
+  The ID of the application. You can find this in the URL of your application's dashboard.
+</ParamField>
+
+### Response
+
+<ResponseField name="status" type="string">
+  Indicates whether the call was successful. `success` if successful, `error` if not.
+</ResponseField>
+
+<ResponseExample>
+```json
+{
+  "status": "success"
+}
+```
+</ResponseExample>

@@ -227,6 +227,32 @@
             "api-reference/endpoint/apps/network/custom",
             "api-reference/endpoint/apps/network/purge_cache"
           ]
+        },
+        {
+          "group": "Workspace",
+          "pages": [
+            "api-reference/endpoint/workspace/create",
+            "api-reference/endpoint/workspace/delete",
+            "api-reference/endpoint/workspace/get",
+            "api-reference/endpoint/workspace/leave",
+            "api-reference/endpoint/workspace/list"
+          ]
+        },
+        {
+          "group": "Workspace - Members",
+          "pages": [
+            "api-reference/endpoint/workspace/members/code",
+            "api-reference/endpoint/workspace/members/invite",
+            "api-reference/endpoint/workspace/members/kick",
+            "api-reference/endpoint/workspace/members/perms"
+          ]
+        },
+        {
+          "group": "Workspace - Application",
+          "pages": [
+            "api-reference/endpoint/workspace/apps/add",
+            "api-reference/endpoint/workspace/apps/remove"
+          ]
         }
       ]
     },

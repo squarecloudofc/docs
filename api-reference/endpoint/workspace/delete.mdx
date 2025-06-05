@@ -1,0 +1,29 @@
+---
+title: "Delete Workspace"
+sidebarTitle: "/v2/workspaces"
+description: "Delete the workspace."
+api: "DELETE https://api.squarecloud.app/v2/workspaces"
+authMethod: "none"
+---
+
+<ParamField header="Authorization" type="string" placeholder="API KEY" required>
+  The API key for your account. You can find this in your [account settings](https://squarecloud.app/account).
+</ParamField>
+
+<ParamField body="workspaceId" type="string" placeholder="Workspace Id">
+  The ID of the workspace.  
+</ParamField>
+
+### Response
+
+<ResponseField name="status" type="string">
+  Indicates whether the call was successful. `success` if successful, `error` if not.
+</ResponseField>
+
+<ResponseExample>
+```json
+{
+  "status": "success"
+}
+```
+</ResponseExample>
