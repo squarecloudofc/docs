@@ -1,12 +1,10 @@
 ---
-title: "Custom Domain Analytics"
+title: "Website Analytics"
 sidebarTitle: "[...]/network/analytics"
-description: "Get analytics for a custom domain. It has a rate limit of 10 request every 5 seconds."
+description: "Get analytics for a website hosted on Square Cloud. There is a rate limit of 1 uncached request every 10 seconds."
 api: "GET https://api.squarecloud.app/v2/apps/{app_id}/network/analytics"
 authMethod: "none"
 ---
-
-<Info>**Is necessary to have at least the [Standard plan](https://squarecloud.app/plans) to use this route.**</Info>
 
 <ParamField header="Authorization" type="string" placeholder="API KEY" required>
   The API key for your account. You can find this in your [account settings](https://squarecloud.app/account).
@@ -14,6 +12,10 @@ authMethod: "none"
 
 <ParamField path="app_id" type="string" placeholder="Application ID" required>
   The ID of the application. You can find this in the URL of your application's dashboard.
+</ParamField>
+
+<ParamField query="range" type="string" placeholder="Time range">
+  Time range for the analytics data. It can be `daily` or `weekly`. Default is `daily`.
 </ParamField>
 
 ### Response
@@ -34,21 +36,95 @@ authMethod: "none"
 {
   "status": "success",
   "response": {
-    "hostname": "joaootavios.dev",
-    "total": {
-      "visits": 557,
-      "megabytes": "2.09",
-      "bytes": 2089127
-    },
-    "countries": [...],
-    "methods": [...],
-    "referers": [...],
-    "browsers": [...],
-    "deviceTypes": [...],
-    "operatingSystems": [...],
-    "agents": [...],
-    "hosts": [...],
-    "paths": [...]
+    "visits": [
+      {
+        "visits": 1,
+        "requests": 4,
+        "bytes": 9677,
+        "date": "2025-05-31T18:45:00Z"
+      }
+    ],
+    "countries": [
+      {
+        "type": "BR",
+        "visits": 1,
+        "requests": 4,
+        "bytes": 9677,
+        "date": "2025-05-31T18:45:00Z"
+      }
+    ],
+    "devices": [
+      {
+        "type": "desktop",
+        "visits": 1,
+        "requests": 4,
+        "bytes": 9677,
+        "date": "2025-05-31T18:45:00Z"
+      }
+    ],
+    "os": [
+      {
+        "type": "Windows",
+        "visits": 1,
+        "requests": 4,
+        "bytes": 9677,
+        "date": "2025-05-31T18:45:00Z"
+      }
+    ],
+    "browsers": [
+      {
+        "type": "Chrome",
+        "visits": 1,
+        "requests": 4,
+        "bytes": 9677,
+        "date": "2025-05-31T18:45:00Z"
+      }
+    ],
+    "protocols": [
+      {
+        "type": "https",
+        "visits": 1,
+        "requests": 4,
+        "bytes": 9677,
+        "date": "2025-05-31T18:45:00Z"
+      }
+    ],
+    "methods": [
+      {
+        "type": "GET",
+        "visits": 1,
+        "requests": 4,
+        "bytes": 9677,
+        "date": "2025-05-31T18:45:00Z"
+      }
+    ],
+    "paths": [
+      {
+        "type": "/",
+        "visits": 1,
+        "requests": 4,
+        "bytes": 9677,
+        "date": "2025-05-31T18:45:00Z"
+      }
+    ],
+    "referers": [
+      {
+        "type": "https://google.com",
+        "visits": 1,
+        "requests": 4,
+        "bytes": 9677,
+        "date": "2025-05-31T18:45:00Z"
+      }
+    ],
+    "providers": [
+      {
+        "type": "Cloudflare",
+        "visits": 1,
+        "requests": 4,
+        "bytes": 9677,
+        "date": "2025-05-31T18:45:00Z"
+      }
+    ]
   }
 }
 ```
