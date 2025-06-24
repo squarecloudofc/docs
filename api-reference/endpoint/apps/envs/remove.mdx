@@ -1,0 +1,38 @@
+---
+title: "Get The Environment Variables"
+sidebarTitle: "/v2/apps/:Id/envs"
+description: "Get environment variables."
+api: "DELETE https://api.squarecloud.app/v2/apps/{appId}/envs"
+authMethod: "none"
+---
+
+<ParamField header="Authorization" type="string" placeholder="API KEY" required>
+  The API key for your account. You can find this in your [account settings](https://squarecloud.app/account/security).
+</ParamField>
+
+<ParamField path="appId" type="string" placeholder="App ID" required>
+  The application ID. 
+</ParamField>
+
+<ParamField body="envs" type="string[]" required>
+The array containing the keys to remove.
+</ParamField>
+
+### Response
+
+<ResponseField name="status" type="string">
+  Indicates whether the call was successful. `success` if successful, `error` if not.
+</ResponseField>
+<ResponseField name="response" type="object">
+  The key and value of all remaining environment variables.
+</ResponseField>
+
+
+<ResponseExample>
+```json
+{
+  "status": "success",
+  "response": {}
+}
+```
+</ResponseExample>

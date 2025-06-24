@@ -1,0 +1,40 @@
+---
+title: "Overwrite The Environment Variables"
+sidebarTitle: "/v2/apps/:Id/envs"
+description: "Overwrites environment variables with the new values."
+api: "PUT https://api.squarecloud.app/v2/apps/{appId}/envs"
+authMethod: "none"
+---
+
+<ParamField header="Authorization" type="string" placeholder="API KEY" required>
+  The API key for your account. You can find this in your [account settings](https://squarecloud.app/account/security).
+</ParamField>
+
+<ParamField path="appId" type="string" placeholder="App ID" required>
+  The application ID. 
+</ParamField>
+
+<ParamField body="envs" type="object" >
+  The key and value variables you want on the environment. 
+</ParamField>
+
+### Response
+
+<ResponseField name="status" type="string">
+  Indicates whether the call was successful. `success` if successful, `error` if not.
+</ResponseField>
+<ResponseField name="response" type="object">
+  The key and value of all environment variables you defined.
+</ResponseField>
+
+
+<ResponseExample>
+```json
+{
+  "status": "success",
+  "response": {
+    "TESTE": "meuTeste"
+  }
+}
+```
+</ResponseExample>
