@@ -100,8 +100,9 @@ Below you can see the configuration parameters that you can use in your configur
         ```systemd Example:
         START=npm run start
         ```
-        <Info>This parameter has maximum of **128 characters**.</Info>
+        <Info>This parameter has maximum of **256 characters**.</Info>
         <Info>This parameter **ignores** the MAIN parameter, which is used to join Square's standardized initialization commands.</Info>
+        <Info>Applications uploaded after June 19, 2025 can edit this field without uploading it again</Info>
     </Step>
 </Steps>
 
@@ -168,5 +169,5 @@ For security and performance reasons, there are limits on the configuration para
 | MAIN          | 32 characters   |
 | DISPLAY_NAME  | 32 characters   |
 | DESCRIPTION   | 280 characters  |
-| START         | 128 characters  |
+| START         | 256 characters  |
 | SUBDOMAIN     | 63 characters   |
