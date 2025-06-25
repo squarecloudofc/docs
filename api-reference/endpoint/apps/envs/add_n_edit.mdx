@@ -1,0 +1,39 @@
+---
+title: "Add/Edit Environment Variables"
+sidebarTitle: "/v2/apps/:Id/envs"
+description: "Add or edits the environment variables."
+api: "POST https://api.squarecloud.app/v2/apps/{appId}/envs"
+authMethod: "none"
+---
+
+<ParamField header="Authorization" type="string" placeholder="API KEY" required>
+  The API key for your account. You can find this in your [account settings](https://squarecloud.app/account/security).
+</ParamField>
+
+<ParamField path="appId" type="string" placeholder="App ID" required>
+  The application ID. 
+</ParamField>
+
+<ParamField body="envs" type="object" required>
+  The key and value of environment variables. 
+</ParamField>
+### Response
+
+<ResponseField name="status" type="string">
+  Indicates whether the call was successful. `success` if successful, `error` if not.
+</ResponseField>
+<ResponseField name="response" type="object">
+  The key and value of all environment variables you defined.
+</ResponseField>
+
+
+<ResponseExample>
+```json
+{
+  "status": "success",
+  "response": {
+    "TEST": "myTest"
+  }
+}
+```
+</ResponseExample>

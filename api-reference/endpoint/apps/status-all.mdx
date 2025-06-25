@@ -10,6 +10,12 @@ authMethod: "none"
   The API key for your account. You can find this in your [account settings](https://squarecloud.app/account).
 </ParamField>
 
+<ParamField query="workspaceId" type="string" placeholder="Workspace Id">
+  A workspace id. You can found it below your workspace name on dashboard. 
+</ParamField>
+
+If `workspaceId` isn't provided, will get your account applications status.
+
 ### Response
 
 <ResponseField name="status" type="string">

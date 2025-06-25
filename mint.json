@@ -202,6 +202,15 @@
           ]
         },
         {
+          "group": "Application - Environment",
+          "pages": [
+            "api-reference/endpoint/apps/envs/get",
+            "api-reference/endpoint/apps/envs/add_n_edit",
+            "api-reference/endpoint/apps/envs/overwrite",
+            "api-reference/endpoint/apps/envs/remove"
+          ]
+        },
+        {
           "group": "Application - File Manager",
           "pages": [
             "api-reference/endpoint/apps/filemanager/content",
