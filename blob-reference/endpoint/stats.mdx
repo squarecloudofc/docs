@@ -7,7 +7,7 @@ authMethod: "none"
 ---
 
 <ParamField header="Authorization" type="string" placeholder="API KEY" required>
-  The API key for your account. You can find this in your [account settings](https://squarecloud.app/account).
+  The API key for your account. You can find this in your [account settings](https://squarecloud.app/account/security).
 </ParamField>
 
 <Warning>Status updates every 1 minute.</Warning>
@@ -21,11 +21,25 @@ authMethod: "none"
 <ResponseField name="response" type="object">
 
 <Expandable title="Toggle object">
+
+<ResponseField name="usage" type="object">
 <ResponseField name="objects" type="number">
   The total number of objects in your account.
 </ResponseField>
-<ResponseField name="size" type="number">
+<ResponseField name="storage" type="number">
   The total size of all objects in your account, in bytes.
+</ResponseField>
+</ResponseField>
+
+<ResponseField name="plan" type="object">
+<ResponseField name="included" type="number">
+The total storage size included on the plan, in bytes.
+</ResponseField>
+</ResponseField>
+
+<ResponseField name="billing" type="object">
+<ResponseField name="extraStorage" type="number">
+  The extra space used, in bytes.
 </ResponseField>
 <ResponseField name="storagePrice" type="number">
   The total price of storage for all objects in your account, in BRL.
@@ -36,20 +50,29 @@ authMethod: "none"
 <ResponseField name="totalEstimate" type="number">
   The total price of all objects in your account, in BRL.
 </ResponseField>
+</ResponseField>
 </Expandable>
 
 </ResponseField>
 
 <ResponseExample>
-```json Response - [15m cache]
+```json Response - [1m cache]
 {
   "status": "success",
   "response": {
-    "objects": 5,
-    "size": 1628388,
-    "storagePrice": 0,
-    "objectsPrice": 0,
-    "totalEstimate": 0
+    "usage": {
+      "objects": 0,
+      "storage": 0
+    },
+    "plan": {
+      "included": 0
+    },
+    "billing": {
+      "extraStorage": 0,
+      "storagePrice": 0,
+      "objectsPrice": 0,
+      "totalEstimate": 0
+    }
   }
 }
 ```
