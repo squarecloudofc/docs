@@ -1,8 +1,8 @@
 ---
-title: "Get List of Application Backups"
-sidebarTitle: "/v2/apps/:appId/backups"
-description: "This route allows you to retrieve a list of backups (snapshots) for a specific application."
-api: "GET https://api.squarecloud.app/v2/apps/{app_id}/backups"
+title: "Get List of Application Snapshots"
+sidebarTitle: "/v2/apps/:appId/snapshots"
+description: "This route allows you to retrieve a list of snapshots for a specific application."
+api: "GET https://api.squarecloud.app/v2/apps/{app_id}/snapshots"
 authMethod: "none"
 ---
 
@@ -23,7 +23,7 @@ authMethod: "none"
 The contents of the response.
 <Expandable title="Toggle object">
 <ResponseField name="name" type="string">
-  The ID of the application from which you fetched the backups.
+  The ID of the application from which you fetched the snapshots.
 </ResponseField>
 <ResponseField name="size" type="number">
   Size of the backup in bytes.
@@ -63,4 +63,4 @@ The contents of the response.
 }
 ```
 </ResponseExample>
-<Note>The format of the URL to download the desired backup is: https://backups.squarecloud.app/{accountID}_{name}.zip?{key}</Note>
+<Note>The format of the URL to download the desired snapshot is: https://snapshots.squarecloud.app/applications/{accountID}/{name}.zip?{key}</Note>
