@@ -1,12 +1,11 @@
 ---
-title: "Get Application Backup"
-sidebarTitle: "/v2/apps/:appId/backups"
-description: "Perform a backup of your application. It has a rate limit of 1 request every 60 seconds."
-api: "POST https://api.squarecloud.app/v2/apps/{app_id}/backups"
+title: "Get Application Snapshot"
+sidebarTitle: "/v2/apps/:appId/snapshots"
+description: "Perform a snapshot of your application. It has a rate limit of 1 request every 60 seconds."
+api: "POST https://api.squarecloud.app/v2/apps/{app_id}/snapshots"
 authMethod: "none"
 ---
 
-<Warning>Each application (app ID) can only perform 12 backups every 24 hours.</Warning>
 <ParamField header="Authorization" type="string" placeholder="API KEY" required>
   The API key for your account. You can find this in your [account settings](https://squarecloud.app/account/security).
 </ParamField>
@@ -24,10 +23,10 @@ authMethod: "none"
 The contents of the response.
 <Expandable title="Toggle object">
 <ResponseField name="url" type="string">
-  The URL to download the backup of your application.
+  The URL to download the snapshot of your application.
 </ResponseField>
 <ResponseField name="key" type="string">
-  The key to download the backup of your application.
+  The key to download the snapshot of your application.
 </ResponseField>
 </Expandable>
 </ResponseField>
@@ -36,7 +35,7 @@ The contents of the response.
 {
     "status": "success",
     "response": {
-        "url": "https://backups.squarecloud.app/23457145698959364_a23d130fcc9ddaf2d288ae9599a4292c32.zip?AWSAccessKeyId=i06Xdad2dRD74Pm8Xly&Expires=1753081182&Signature=riWPedawcsouRAPGU5n3kGHnWoOuw%3D",
+        "url": "https://snapshots.squarecloud.app/applications/23457145698959364/a23d130fcc9ddaf2d288ae9599a4292c32.zip?AWSAccessKeyId=i06Xdad2dRD74Pm8Xly&Expires=1753081182&Signature=riWPedawcsouRAPGU5n3kGHnWoOuw%3D",
         "key": "AWSAccessKeyId=i06Xdad2dRD74Pm8Xly&Expires=1753081182&Signature=riWPedawcsouRAPGU5n3kGHnWoOuw%3D"
     }
 }
