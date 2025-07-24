@@ -183,6 +183,7 @@
       "group": "API Endpoints",
       "pages": [
         "api-reference/endpoint/users/me",
+        "api-reference/endpoint/users/backups",
         "api-reference/endpoint/apps/upload",
         "api-reference/endpoint/apps/status-all",
         "api-reference/endpoint/service/status",

@@ -1,0 +1,55 @@
+---
+title: "Get All Snapshots"
+sidebarTitle: "/v2/users/snapshots"
+api: "GET https://api.squarecloud.app/v2/users/snapshots"
+authMethod: "authorization"
+description: "Get List of all Snapshots."
+---
+
+<ParamField header="Authorization" type="string" placeholder="API KEY" required>
+  The API key for your account. You can find this in your [account settings](https://squarecloud.app/account/security).
+</ParamField>
+
+### Response
+
+<ResponseField name="status" type="string">
+  Indicates whether the call was successful. `success` if successful, `error` if not.
+</ResponseField>
+<ResponseField name="response" type="object">
+The contents of the response.
+<Expandable title="Toggle object">
+<ResponseField name="name" type="string">
+  The ID of the application to which the snapshot belongs.
+</ResponseField>
+<ResponseField name="size" type="number">
+  Size of the snapshot in bytes.
+</ResponseField>
+<ResponseField name="modified" type="string">
+  Date of the last modification of the snapshot.
+</ResponseField>
+<ResponseField name="key" type="string">
+  AWS access key for the snapshot.
+</ResponseField>
+</Expandable>
+</ResponseField>
+<ResponseExample>
+```json Response
+{
+  "status": "success",
+  "response": [
+    {
+      "name": "1d2cdc0d6ebd435c91315c6329d12eab",
+      "size": 12900705,
+      "modified": "2024-06-27T06:23:42.326Z",
+      "key": "AWSAccessKeyId=access key"
+    },
+    {
+      "name": "1d2cdc0d6ebd435c91315c6329d12eab",
+      "size": 12900705,
+      "modified": "2024-06-26T07:05:40.000Z",
+      "key": "AWSAccessKeyId=access key"
+    },
+  ]
+}
+```
+</ResponseExample>
