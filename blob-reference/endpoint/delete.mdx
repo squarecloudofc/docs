@@ -36,18 +36,11 @@ authMethod: "none"
     <Tab title="400 Status Code">
         ### Object-Related
         <CodeGroup>
-        ```json INVALID_OBJECTS
-        // The provided object names are invalid.
+        ```json INVALID_OBJECT
+        // The provided object name is invalid.
         {
             "status": "error",
-            "code": "INVALID_OBJECTS"
-        }
-        ```
-        ```json TOO_MANY_OBJECTS
-        // The number of objects to delete exceeds the maximum limit.
-        {
-            "status": "error",
-            "code": "TOO_MANY_OBJECTS"
+            "code": "INVALID_OBJECT"
         }
         ```
         ```json FAILED_DELETE
