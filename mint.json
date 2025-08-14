@@ -183,10 +183,38 @@
       "group": "API Endpoints",
       "pages": [
         "api-reference/endpoint/users/me",
-        "api-reference/endpoint/users/backups",
+        "api-reference/endpoint/users/snapshots",
         "api-reference/endpoint/apps/upload",
         "api-reference/endpoint/apps/status-all",
         "api-reference/endpoint/service/status",
+        {
+          "group": "Database",
+          "pages": [
+            "api-reference/endpoint/databases/create",
+            "api-reference/endpoint/databases/start",
+            "api-reference/endpoint/databases/stop",
+            "api-reference/endpoint/databases/status-all",
+            "api-reference/endpoint/databases/status",
+            "api-reference/endpoint/databases/metrics",
+            "api-reference/endpoint/databases/edit",
+            "api-reference/endpoint/databases/delete"
+          ]
+        },
+        {
+          "group": "Database - Credentials",
+          "pages": [
+            "api-reference/endpoint/databases/credentials/get_certificate",
+            "api-reference/endpoint/databases/credentials/reset"
+          ]
+        },
+        {
+          "group": "Database - Snapshots",
+          "pages": [
+            "api-reference/endpoint/databases/snapshots/get",
+            "api-reference/endpoint/databases/snapshots/do_snapshot",
+            "api-reference/endpoint/databases/snapshots/restore"
+          ]
+        },
         {
           "group": "Application",
           "pages": [

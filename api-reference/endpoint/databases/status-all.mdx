@@ -1,0 +1,55 @@
+---
+title: "All databases status"
+sidebarTitle: "All Databases Status"
+description: "Gets all databases statuses."
+api: "GET https://api.squarecloud.app/v2/databases/status"
+authMethod: "none"
+---
+
+## Request
+
+### Headers
+
+<ParamField header="Authorization" type="string" placeholder="API KEY" required>
+  The API key for your account. You can find this in your [account settings](https://squarecloud.app/account/security).
+</ParamField>
+
+## Response
+
+<ResponseField name="status" type="string">
+  Indicates whether the call was successful. `success` if successful, `error` if not.
+</ResponseField>
+<ResponseField name="response" type="array">
+
+The contents of the response.
+<Expandable title="Toggle object">
+<ResponseField name="id" type="string">
+  The ID of the database.
+</ResponseField>
+<ResponseField name="running" type="boolean">
+  The boolean value if is running.
+</ResponseField>
+<ResponseField name="cpu" type="string">
+  The current CPU usage percentage. 
+</ResponseField>
+<ResponseField name="ram" type="string">
+  The current RAM usage 
+</ResponseField>
+</Expandable>
+</ResponseField>
+
+<ResponseExample>
+```json
+{
+    "status": "success",
+    "response": [
+        {
+            "id": "a14b8d5e1cb7405a851eb4c075506121",
+            "running": true,
+            "ram": "118.95MB",
+            "cpu": "0.40%"
+        }
+    ]
+}
+```
+</ResponseExample>

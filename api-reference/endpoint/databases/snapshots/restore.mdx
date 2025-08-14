@@ -1,0 +1,44 @@
+---
+title: "Restore a Database"
+sidebarTitle: "Restore a Database"
+description: "Restores a database based on a snapshot of it."
+api: "POST https://api.squarecloud.app/v2/databases/{databaseId}/snapshots/restore"
+authMethod: "none"
+---
+
+## Request
+
+### Headers
+
+<ParamField header="Authorization" type="string" placeholder="API KEY" required>
+  The API key for your account. You can find this in your [account settings](https://squarecloud.app/account/security).
+</ParamField>
+
+### Path
+
+<ParamField path="databaseId" type="string" placeholder="Database ID" required>
+  The ID of the database.
+</ParamField>
+
+### Body
+
+<ParamField body="snapshotId" type="string" placeholder="Database ID" required>
+  The database id you wanna restore.
+</ParamField>
+<ParamField body="versionId" type="string" placeholder="Database Snapshot ID" required>
+  The snapshot of the database you wanna restore. 
+</ParamField>
+
+## Response
+
+<ResponseField name="status" type="string">
+  Indicates whether the call was successful. `success` if successful, `error` if not.
+</ResponseField>
+
+<ResponseExample>
+```json
+{
+  "status":"success"
+}
+```
+</ResponseExample>

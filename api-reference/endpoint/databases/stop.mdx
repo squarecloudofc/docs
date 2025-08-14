@@ -1,0 +1,35 @@
+---
+title: "Stops a Database"
+sidebarTitle: "Stops Database"
+description: "Shuts down your Database."
+api: "POST https://api.squarecloud.app/v2/database/{databaseId}/stop"
+authMethod: "none"
+---
+
+## Request
+
+### Headers
+
+<ParamField header="Authorization" type="string" placeholder="API KEY" required>
+  The API key for your account. You can find this in your [account settings](https://squarecloud.app/account/security).
+</ParamField>
+
+### Path
+
+<ParamField path="databaseId" type="string" placeholder="Database ID" required>
+  The ID of the database.
+</ParamField>
+
+## Response
+
+<ResponseField name="status" type="string">
+  Indicates whether the call was successful. `success` if successful, `error` if not.
+</ResponseField>
+
+<ResponseExample>
+```json
+{
+  "status":"success"
+}
+```
+</ResponseExample>

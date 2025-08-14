@@ -1,0 +1,84 @@
+---
+title: "Create a Database"
+sidebarTitle: "Create a Database"
+description: "Creates a Database instance hosted on Square Cloud."
+api: "POST https://api.squarecloud.app/v2/databases"
+authMethod: "none"
+---
+
+## Request
+
+### Headers
+
+<ParamField header="Authorization" type="string" placeholder="API KEY" required>
+  The API key for your account. You can find this in your [account settings](https://squarecloud.app/account/security).
+</ParamField>
+
+### Body
+
+<ParamField body="name" type="string" placeholder="database name" required>
+  The name of the Database. Must be [a-z] [A-Z] [0-9].
+</ParamField>
+<ParamField body="memory" type="int" placeholder="RAM(in MB)" required>
+  The RAM allocated to it. Redis minimum is 512 and Mongo, 1024.
+</ParamField>
+<ParamField body="type" type="string" placeholder="database(mongo,redis)" required>
+  The database type, Mongo, Redis or any other available. 
+</ParamField>
+<ParamField body="version" type="string" placeholder="Version number" required>
+  The version of Database. Check the versions available in ...
+</ParamField>
+
+## Response
+
+<ResponseField name="status" type="string">
+  Indicates whether the call was successful. `success` if successful, `error` if not.
+</ResponseField>
+<ResponseField name="response" type="object">
+
+The contents of the response.
+<Expandable title="Toggle object">
+<ResponseField name="id" type="string">
+  The ID of the database.
+</ResponseField>
+<ResponseField name="name" type="string">
+  The name you have choosed to the Database
+</ResponseField>
+<ResponseField name="memory" type="int">
+  The memory allocated to the database
+</ResponseField>
+<ResponseField name="cpu" type="int">
+  The number of vCPUs allocated to the database
+</ResponseField>
+<ResponseField name="type" type="string">
+  The type of the database.
+</ResponseField>
+<ResponseField name="password" type="string">
+  The password for the database.
+</ResponseField>
+<ResponseField name="certificate" type="string">
+  The certificate needed to connect to it. You can save it in a `.pem` file.
+</ResponseField>
+<ResponseField name="connection_url" type="string">
+  The url to connect to the database. 
+</ResponseField>
+</Expandable>
+</ResponseField>
+
+<ResponseExample>
+```json
+{
+  "status":"success",
+  "response": {
+    "id": "a14b8d5e1cb7405a851eb4c075506121",
+    "name": "test",
+    "memory": 1024,
+    "cpu": 2,
+    "type": "mongo",
+    "password": "XidqYaU154Bmq1qsNbDXORW2",
+    "certificate": "QanBva1lveXMxCkpZcm9VZTRZcUZ3SW5CVTE2dFZzQnZSYy8wSk5PM25MRWNmUE03T3hxYzBPSzlrS1hNdjRHN2MyWTFXM0tnd1UKb3dWTXRmL3M1d1V1NVVvaVc3MVBaZz09Ci0tLS0tRU5EIFBSSVZBVEUgS0VZLS0tLS0KLS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURGVENDQWYyZ0F3SUJBZ0lVUktwRFV0aEhrVldnbkY5T1N6dHljOXVXRWZrd0RRWUpLb1pJaHZjTkFRRUwKQlFBd0dqRVlNQllHQTFVRUF3d1BLaTV6Y1hWaGNtVjNaV0l1WVhCd01CNFhEVEkxTURneE1qRTVOVFl5TUZvWApEVE0xTURneE1ERTVOVFl5TUZvd0dqRVlNQllHQTFVRUF3d1BLaTV6Y1hWaGNtVjNaV0l1WVhCd01JSUJJakFOCkJna3Foa2lHOXcwQkFRRUZBQU9DQVE4QU1JSUJDZ0tDQVFFQXZTRjdCMmJVaEhRMzBocUtXYU9PZm5QR0ZNNWcKSlNEak5LZndObXhXUVRsNzlWdjJoTUxjbFljOHJxZUoxUVpsQ1gySFhrMFdENkxUcWxHbzFFVkt6dlMrTkxKUwp3SWF3elVUeUd4eGE0Q1gvUVh4Z2hpSGZjTUEvV0JFMU40UEZnRzBFLy8ySnNDMk43R3FvTW0yOXJEYU5wcEdhCkduTXdzeFcrdTgxR0pRTXl4RmFEVjVoZmlUOU52b1NnU0RLak9aaXV2TDFtZlBOck1WbzdQakF1RG5DSTk5T04KZk9QTC95ejNNbWJuMVJ5NzEwcktFeWhGY243TWtSU2RMbGpuSFlTaXJPdmw5NEdldUNXVjdMZENmdmVIV0wxOQprU3djYlRtSTUrV1BTY0NoKzRlM202empFcnJNTFlhZWFyMFlZTXlLK0tkcE5NVE1naXdGK1c0alh3SURBUUFCCm8xTXdVVEFkQmdOVkhRNEVGZ1FVOWIrODdIYVgrVG1ncEFRSXh2SGpGd1YzTkRZd0h3WURWUjBqQkJnd0ZvQVUKOWIrODdIYVgrVG1ncEFRSXh2SGpGd1YzTkRZd0R3WURWUjBUQVFIL0JBVXdBd0VCL3pBTkJna3Foa2lHOXcwQgpBUXNGQUFPQ0FRRUFpQUhmOGxiS2d3WDVxS1AyeTlnbk1ka3pOV2pTeW5MWnlKOXpnM0RoSXpLTTdrOEZBRkNlCnBndGd1eGZMSFhZMWxFWWhwYlUvSWlkSmUwRmRJMm00czV6QzYwT0hZM0FUYTNOVWJnby91NWllVWtaNlpzbkcKOUNETnlpeVJ0MnBXaFNwaUtvYTR4WXVoUWxQMkhDL2NCMU9sZ0pQSXlsUENKRWN1VkduMWd2WUZVK09vOGdXaQp5SzlRcDhKWVBSaUswQmJoRDRuL2ZBQjJLWnMrMmxyUU5xdmo0eUQ5WDR6VnhCSGV5MjkyYWEzMmY3bGhTSjFUCm8xR3BNSlVYSG1XQmxmNmFWRE5vQW9rWUlkYWxlSTFsaHFwQ3Uvc3FLUFV1am1WUm8vczBkUWdVNFRKeEZ3eCsKVGtXZXZqekQrOEFXU1dFaEZJVjQwU2xSVFNhdjJnYXFPZz09Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K",
+    "connection_url": "mongodb://default:XidqYaU154Bmq1qsNbDXORW2@square-cloud-db-a14b8d5e1cb7405a851eb4c075506121.squareweb.app:7015"
+    }
+}
+```
+</ResponseExample>
