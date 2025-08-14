@@ -1,0 +1,66 @@
+---
+title: "Get Database snapshots"
+sidebarTitle: "Get Snapshots"
+description: "Get a list of all snapshots related with a single database"
+api: "GET https://api.squarecloud.app/v2/databases/{databaseId}/snapshots"
+authMethod: "none"
+---
+
+## Request
+
+### Headers
+
+<ParamField header="Authorization" type="string" placeholder="API KEY" required>
+  The API key for your account. You can find this in your [account settings](https://squarecloud.app/account/security).
+</ParamField>
+
+### Path
+
+<ParamField path="databaseId" type="string" placeholder="Database ID" required>
+  The ID of the database.
+</ParamField>
+
+## Response
+
+<ResponseField name="status" type="string">
+  Indicates whether the call was successful. `success` if successful, `error` if not.
+</ResponseField>
+<ResponseField name="response" type="array">
+
+The contents of the response.
+<Expandable title="Toggle object">
+<ResponseField name="name" type="string">
+  The id of your Database hosted on Square Cloud.
+</ResponseField>
+<ResponseField name="size" type="number">
+  Size of the backup in bytes.
+</ResponseField>
+<ResponseField name="modified" type="string">
+  Date of the last modification of the backup.
+</ResponseField>
+<ResponseField name="key" type="string">
+  AWS access key for the backup.
+</ResponseField>
+</Expandable>
+</ResponseField>
+<ResponseExample>
+```json
+{
+  "status":"success",
+  "response":[
+    {
+      "name":"a14b8d5e1cb7405a851eb4c075506121",
+      "size":10644463,
+      "modified":"2025-08-13T13:29:11.263Z",
+      "key":"AWSAccessKeyId=accesskey&Expires=1757683751&Signature=VZ03MSxcNw3%2FtPezXv0IhTs0jq4%3D&versionId=45ec0b49-9af6-445e-a55c-abd7ec5278b2"
+    },
+    {
+      "name":"a14b8d5e1cb7405a851eb4c075506121",
+      "size":2742383,
+      "modified":"2025-08-13T00:01:47.010Z",
+      "key":"AWSAccessKeyId=accesskey&Expires=1757683751&Signature=7zw5apjyaOd1xPZl3gRgp8Y4yEs%3D&versionId=f65e1378-8717-45c5-8aec-bb233eedb5ce"
+    }
+  ]
+}
+```
+</ResponseExample>

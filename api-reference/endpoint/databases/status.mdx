@@ -1,73 +1,60 @@
 ---
-title: "Get Application Status"
-sidebarTitle: "Get Application Status"
-description: "Collect status information about your application."
-api: "GET https://api.squarecloud.app/v2/apps/{app_id}/status"
+title: "Get Database status"
+sidebarTitle: "Get Database Status"
+description: "Get all status info related with a single database"
+api: "GET https://api.squarecloud.app/v2/databases/{databaseId}/status"
 authMethod: "none"
 ---
+
+## Request
+
+### Headers
 
 <ParamField header="Authorization" type="string" placeholder="API KEY" required>
   The API key for your account. You can find this in your [account settings](https://squarecloud.app/account/security).
 </ParamField>
 
-<ParamField path="app_id" type="string" placeholder="Application ID" required>
-  The ID of the application. You can find this in the URL of your application's dashboard.
+### Path
+
+<ParamField path="databaseId" type="string" placeholder="Database ID" required>
+  The ID of the database.
 </ParamField>
 
-### Response
+## Response
 
 <ResponseField name="status" type="string">
   Indicates whether the call was successful. `success` if successful, `error` if not.
 </ResponseField>
-
-<ResponseField name="code" type="string">
-  The status code of the response.
-</ResponseField>
-
 <ResponseField name="response" type="object">
 
 The contents of the response.
-
 <Expandable title="Toggle object">
-
 <ResponseField name="cpu" type="string">
-  The CPU usage of the application.
+  The current CPU usage percentage. 
 </ResponseField>
-
 <ResponseField name="ram" type="string">
-  The RAM usage of the application.
+  The current RAM usage 
 </ResponseField>
-
-<ResponseField name="status" type="string">
-  The status of the application.
-</ResponseField>
-
 <ResponseField name="running" type="boolean">
-  Indicates whether the application is currently running.
+  The boolean value if is running.
 </ResponseField>
-
 <ResponseField name="storage" type="string">
-  The storage used by the application.
+  The current storage it is using.
 </ResponseField>
-
 <ResponseField name="network" type="object">
+  The network usage and total used.
 <Expandable title="Toggle object">
-
 <ResponseField name="total" type="string">
-  The total network usage of the application.
+  The total used.
 </ResponseField>
-
 <ResponseField name="now" type="string">
-  The current network usage of the application.
+  The current use.
 </ResponseField>
-
 </Expandable>
 </ResponseField>
-
-<ResponseField name="uptime" type="number">
-  The uptime of the application in milliseconds.
+<ResponseField name="uptime" type="int">
+  The timestamp representing the uptime.
 </ResponseField>
-
 </Expandable>
 </ResponseField>
 
@@ -76,16 +63,16 @@ The contents of the response.
 {
     "status": "success",
     "response": {
-        "cpu": "0.01%",
-        "ram": "31.79",
+        "cpu": "0.54%",
+        "ram": "111.32MB",
         "status": "running",
         "running": true,
-        "storage": "2.72MB",
+        "storage": "210.1MB",
         "network": {
-            "total": "602 KB ↑ 134 KB ↓",
-            "now": "14 KB ↑ 3.3 KB ↓"
+            "total": "16.83KB ↑ 126B ↓",
+            "now": "0B ↑ 0B ↓"
         },
-        "uptime": 1662927833666
+        "uptime": 1755028584438
     }
 }
 ```

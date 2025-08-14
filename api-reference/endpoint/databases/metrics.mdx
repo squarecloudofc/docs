@@ -1,0 +1,91 @@
+---
+title: "Database Metrics"
+sidebarTitle: "Database Metrics"
+description: "Gets the metrics of your hosted database."
+api: "GET https://api.squarecloud.app/v2/databases/{databaseId}/metrics"
+authMethod: "none" 
+---
+
+## Request
+
+### Headers
+
+<ParamField header="Authorization" type="string" placeholder="API KEY" required>
+  The API key for your account. You can find this in your [account settings](https://squarecloud.app/account/security).
+</ParamField>
+
+### Path
+
+<ParamField path="databaseId" type="string" placeholder="Database ID" required>
+  The ID of the database.
+</ParamField>
+
+## Response
+
+<ResponseField name="status" type="string">
+  Indicates whether the call was successful. `success` if successful, `error` if not.
+</ResponseField>
+<ResponseField name="response" type="array">
+
+The contents of the response.
+<Expandable title="Toggle object">
+<ResponseField name="date" type="string">
+  The date in ISO format.
+</ResponseField> 
+<ResponseField name="cpu" type="string">
+  The current CPU usage percentage. 
+</ResponseField>
+<ResponseField name="ram" type="string">
+  The current RAM usage 
+</ResponseField>
+<ResponseField name="net" type="int[]">
+  An array representing total network used. First the input, second the output. 
+</ResponseField>
+</Expandable>
+</ResponseField>
+
+<ResponseExample>
+```json
+{
+    "status": "success",
+    "response": [
+        {
+            "date": "2025-08-13T12:55:01.348Z",
+            "cpu": 0.45,
+            "ram": 111.27,
+            "net": [
+                16834,
+                126
+            ]
+        },
+        {
+            "date": "2025-08-13T12:50:01.349Z",
+            "cpu": 0.45,
+            "ram": 111.22,
+            "net": [
+                16834,
+                126
+            ]
+        },
+        {
+            "date": "2025-08-13T12:45:01.350Z",
+            "cpu": 0.58,
+            "ram": 111.36,
+            "net": [
+                16834,
+                126
+            ]
+        },
+        {
+            "date": "2025-08-13T12:40:01.348Z",
+            "cpu": 0.43,
+            "ram": 118.44,
+            "net": [
+                16834,
+                126
+            ]
+        }
+    ]
+}
+```
+</ResponseExample>

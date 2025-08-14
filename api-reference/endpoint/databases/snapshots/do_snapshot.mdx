@@ -1,0 +1,51 @@
+---
+title: "Get a Database Snapshot"
+sidebarTitle: "Get a Snapshot"
+description: "Do a snapshot of the database"
+api: "POST https://api.squarecloud.app/v2/databases/{databaseId}/snapshots"
+authMethod: "none"
+---
+
+## Request
+
+### Headers
+
+<ParamField header="Authorization" type="string" placeholder="API KEY" required>
+  The API key for your account. You can find this in your [account settings](https://squarecloud.app/account/security).
+</ParamField>
+
+### Path
+
+<ParamField path="databaseId" type="string" placeholder="Database ID" required>
+  The ID of the database.
+</ParamField>
+
+## Response
+
+<ResponseField name="status" type="string">
+  Indicates whether the call was successful. `success` if successful, `error` if not.
+</ResponseField>
+<ResponseField name="response" type="object">
+
+The contents of the response.
+<Expandable title="Toggle object">
+<ResponseField name="url" type="string">
+  The URL to download the snapshot of your application.
+</ResponseField>
+<ResponseField name="key" type="string">
+  The key to download the snapshot of your application.
+</ResponseField>
+</Expandable>
+</ResponseField>
+
+<ResponseExample>
+```json
+{
+  "status":"success",
+  "response":{
+    "url":"https://snapshots.squarecloud.app/databases/384443501775028242/a14b8d5e1cb7405a851eb4c075506121.zip?AWSAccessKeyId=accesskey&Expires=1757683751&Signature=JR3danhvtVywQmcaIanWsoJFqhQ%3D",
+    "key":"AWSAccessKeyId=accesskey&Expires=1757683751&Signature=JR3danhvtVywQmcaIanWsoJFqhQ%3D"
+  }
+}
+```
+</ResponseExample>

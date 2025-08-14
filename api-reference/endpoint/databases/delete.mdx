@@ -1,20 +1,26 @@
 ---
-title: "Restart Application"
-sidebarTitle: "Restart Application"
-description: "Initiate your application."
-api: "POST https://api.squarecloud.app/v2/apps/{app_id}/restart"
+title: "Delete a Database"
+sidebarTitle: "Delete a Database"
+description: "Deletes a database hosted on Square Cloud"
+api: "DELETE https://api.squarecloud.app/v2/databases/{databaseId}"
 authMethod: "none"
 ---
+
+## Request
+
+### Headers
 
 <ParamField header="Authorization" type="string" placeholder="API KEY" required>
   The API key for your account. You can find this in your [account settings](https://squarecloud.app/account/security).
 </ParamField>
 
-<ParamField path="app_id" type="string" placeholder="Application ID" required>
-  The ID of the application. You can find this in the URL of your application's dashboard.
+### Path
+
+<ParamField path="databaseId" type="string" placeholder="Database ID" required>
+  The ID of the database.
 </ParamField>
 
-### Response
+## Response
 
 <ResponseField name="status" type="string">
   Indicates whether the call was successful. `success` if successful, `error` if not.
@@ -23,7 +29,7 @@ authMethod: "none"
 <ResponseExample>
 ```json
 {
-    "status": "success"
+  "status":"success"
 }
 ```
 </ResponseExample>

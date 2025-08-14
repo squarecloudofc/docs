@@ -1,0 +1,44 @@
+---
+title: "Edit a database"
+sidebarTitle: "Edit a database"
+description: "Edits a database hosted on Square Cloud, changing name and/or memory"
+api: "PATCH https://api.squarecloud.app/v2/databases/{databaseId}"
+authMethod: "none"
+---
+
+## Request
+
+### Headers
+
+<ParamField header="Authorization" type="string" placeholder="API KEY" required>
+  The API key for your account. You can find this in your [account settings](https://squarecloud.app/account/security).
+</ParamField>
+
+### Path
+
+<ParamField path="databaseId" type="string" placeholder="Database ID" required>
+  The ID of the database.
+</ParamField>
+
+### Body
+
+<ParamField body="name" type="string" placeholder="database name">
+  The name of the Database. Must be [a-z] [A-Z] [0-9].
+</ParamField>
+<ParamField body="ram" type="int" placeholder="RAM(in MB)">
+  The RAM allocated to it. Redis minimum is 512 and Mongo, 1024.
+</ParamField>
+
+## Response
+
+<ResponseField name="status" type="string">
+  Indicates whether the call was successful. `success` if successful, `error` if not.
+</ResponseField>
+
+<ResponseExample>
+```json
+{
+  "status":"success"
+}
+```
+</ResponseExample>
