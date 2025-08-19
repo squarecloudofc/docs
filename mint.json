@@ -173,14 +173,14 @@
       ]
     },
     {
-      "group": "API Reference",
+      "group": "Introduction",
       "pages": [
         "api-reference/authentication",
         "api-reference/limitations-and-restrictions"
       ]
     },
     {
-      "group": "API Endpoints",
+      "group": "API Reference",
       "pages": [
         "api-reference/endpoint/users/me",
         "api-reference/endpoint/users/snapshots",
