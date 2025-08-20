@@ -6,13 +6,13 @@ api: "POST https://api.squarecloud.app/v2/databases"
 authMethod: "none"
 ---
 
+import Authorization from "/snippets/api/auth.mdx";
+
 ## Request
 
 ### Headers
 
-<ParamField header="Authorization" type="string" placeholder="API KEY" required>
-  The API key for your account. You can find this in your [account settings](https://squarecloud.app/account/security).
-</ParamField>
+<Authorization />
 
 ### Body
 
@@ -23,7 +23,7 @@ authMethod: "none"
   The RAM allocated to it. Redis minimum is 512 and Mongo, 1024.
 </ParamField>
 <ParamField body="type" type="string" placeholder="database(mongo,redis)" required>
-  The database type, Mongo, Redis or any other available. 
+  The database type, Mongo, Redis or any other available.
 </ParamField>
 <ParamField body="version" type="string" placeholder="Version number" required>
   The version of Database. Mongo 8.0.11 and Redis 7.4.5.
@@ -60,7 +60,7 @@ The contents of the response.
   The certificate needed to connect to it. You can save it in a `.pem` file.
 </ResponseField>
 <ResponseField name="connection_url" type="string">
-  The url to connect to the database. 
+  The url to connect to the database.
 </ResponseField>
 </Expandable>
 </ResponseField>

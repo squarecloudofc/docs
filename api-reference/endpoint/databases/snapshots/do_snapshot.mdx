@@ -6,13 +6,13 @@ api: "POST https://api.squarecloud.app/v2/databases/{databaseId}/snapshots"
 authMethod: "none"
 ---
 
+import Authorization from "/snippets/api/auth.mdx";
+
 ## Request
 
 ### Headers
 
-<ParamField header="Authorization" type="string" placeholder="API KEY" required>
-  The API key for your account. You can find this in your [account settings](https://squarecloud.app/account/security).
-</ParamField>
+<Authorization />
 
 ### Path
 

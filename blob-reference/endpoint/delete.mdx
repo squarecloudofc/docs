@@ -6,9 +6,9 @@ api: "DELETE https://blob.squarecloud.app/v1/objects"
 authMethod: "none"
 ---
 
-<ParamField header="Authorization" type="string" placeholder="API KEY" required>
-  The API key for your account. You can find this in your [account settings](https://squarecloud.app/account/security).
-</ParamField>
+import Authorization from "/snippets/api/auth.mdx";
+
+<Authorization />
 
 <ParamField body="object" type="string" placeholder="Object name" required>
     The name of the object to delete. The object name must adhere to the following pattern: `a to z, A to Z, 0 to 9, and _`.

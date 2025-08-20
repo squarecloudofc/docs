@@ -6,16 +6,16 @@ api: "POST https://api.squarecloud.app/v2/apps/{appId}/envs"
 authMethod: "none"
 ---
 
-<ParamField header="Authorization" type="string" placeholder="API KEY" required>
-  The API key for your account. You can find this in your [account settings](https://squarecloud.app/account/security).
-</ParamField>
+import Authorization from "/snippets/api/auth.mdx";
+
+<Authorization />
 
 <ParamField path="appId" type="string" placeholder="App ID" required>
-  The application ID. 
+  The application ID.
 </ParamField>
 
 <ParamField body="envs" type="object" required>
-  The key and value of environment variables. 
+  The key and value of environment variables.
 </ParamField>
 ### Response
 

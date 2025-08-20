@@ -6,9 +6,9 @@ api: "GET https://blob.squarecloud.app/v1/account/stats"
 authMethod: "none"
 ---
 
-<ParamField header="Authorization" type="string" placeholder="API KEY" required>
-  The API key for your account. You can find this in your [account settings](https://squarecloud.app/account/security).
-</ParamField>
+import Authorization from "/snippets/api/auth.mdx";
+
+<Authorization />
 
 <Warning>Status updates every 1 minute.</Warning>
 

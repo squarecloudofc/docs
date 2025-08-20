@@ -6,9 +6,9 @@ api: "GET https://api.squarecloud.app/v2/workspaces/{workspaceId}"
 authMethod: "none"
 ---
 
-<ParamField header="Authorization" type="string" placeholder="API KEY" required>
-  The API key for your account. You can find this in your [account settings](https://squarecloud.app/account).
-</ParamField>
+import Authorization from "/snippets/api/auth.mdx";
+
+<Authorization />
 
 ### Response
 
@@ -82,7 +82,7 @@ The workspace applications list.
   "status": "success",
   "response": {
     "id": "dcedcd13d7e272a7b32a70f6a1d180f23c12d759",
-    "name": "Test", 
+    "name": "Test",
     "owner": "5354d9742d889d49b20134ba0be09ccc0033be68",
     "members": [
       {

@@ -6,13 +6,13 @@ api: "GET https://api.squarecloud.app/v2/databases/status"
 authMethod: "none"
 ---
 
+import Authorization from "/snippets/api/auth.mdx";
+
 ## Request
 
 ### Headers
 
-<ParamField header="Authorization" type="string" placeholder="API KEY" required>
-  The API key for your account. You can find this in your [account settings](https://squarecloud.app/account/security).
-</ParamField>
+<Authorization />
 
 ## Response
 
@@ -30,10 +30,10 @@ The contents of the response.
   The boolean value if is running.
 </ResponseField>
 <ResponseField name="cpu" type="string">
-  The current CPU usage percentage. 
+  The current CPU usage percentage.
 </ResponseField>
 <ResponseField name="ram" type="string">
-  The current RAM usage 
+  The current RAM usage
 </ResponseField>
 </Expandable>
 </ResponseField>

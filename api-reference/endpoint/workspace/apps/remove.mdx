@@ -6,12 +6,12 @@ api: "DELETE https://api.squarecloud.app/v2/workspaces/applications"
 authMethod: "none"
 ---
 
-<ParamField header="Authorization" type="string" placeholder="API KEY" required>
-  The API key for your account. You can find this in your [account settings](https://squarecloud.app/account).
-</ParamField>
+import Authorization from "/snippets/api/auth.mdx";
+
+<Authorization />
 
 <ParamField body="workspaceId" type="string" placeholder="Workspace Id">
-  The ID of the workspace.  
+  The ID of the workspace.
 </ParamField>
 
 <ParamField body="appId" type="string" placeholder="Application ID">
