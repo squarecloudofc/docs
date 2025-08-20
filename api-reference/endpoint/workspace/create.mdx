@@ -6,9 +6,9 @@ api: "POST https://api.squarecloud.app/v2/workspaces"
 authMethod: "none"
 ---
 
-<ParamField header="Authorization" type="string" placeholder="API KEY" required>
-  The API key for your account. You can find this in your [account settings](https://squarecloud.app/account).
-</ParamField>
+import Authorization from "/snippets/api/auth.mdx";
+
+<Authorization />
 
 <ParamField body="name" type="string" placeholder="Workspace name">
   A string representing the name of the workspace. (without extension)<br/>Must adhere to the a to z, A to Z, 0 to 9, and _ pattern. (3 to 32 characters)
@@ -44,11 +44,11 @@ The contents of the response.
 ```json
 
 {
-    "status": "success", 
+    "status": "success",
     "response": {
-        "id": "dcedcd13d7e272a7b32a70f6a1d180f23c12d759", 
-        "owner": "5354d9742d889d49b20134ba0be09ccc0033be68", 
-        "name": "Test", 
+        "id": "dcedcd13d7e272a7b32a70f6a1d180f23c12d759",
+        "owner": "5354d9742d889d49b20134ba0be09ccc0033be68",
+        "name": "Test",
         "createdAt": "2025-06-04T20:44:55.934Z"
     }
 }

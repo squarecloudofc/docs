@@ -6,9 +6,9 @@ api: "POST https://blob.squarecloud.app/v1/objects"
 authMethod: "none"
 ---
 
-<ParamField header="Authorization" type="string" placeholder="API KEY" required>
-  The API key for your account. You can find this in your [account settings](https://squarecloud.app/account/security).
-</ParamField>
+import Authorization from "/snippets/api/auth.mdx";
+
+<Authorization />
 
 <ParamField body="file" type="file" placeholder="myphone.png" required>
   Use FormData. (multipart/form-data)
@@ -77,7 +77,7 @@ authMethod: "none"
         ### Object-Related
         <CodeGroup>
         ```json NAME
-        // The provided object name is invalid. 
+        // The provided object name is invalid.
         // Must adhere to the a to z, A to Z, 0 to 9, and _ pattern.
         {
             "status": "error",

@@ -2,13 +2,13 @@
 title: "Get information about your account"
 sidebarTitle: "Get Account Info"
 api: "GET https://api.squarecloud.app/v2/users/me"
-authMethod: "authorization"
+authMethod: "none"
 description: "Get information about your account."
 ---
 
-<ParamField header="Authorization" type="string" placeholder="API KEY" required>
-  The API key for your account. You can find this in your [account settings](https://squarecloud.app/account/security).
-</ParamField>
+import Authorization from "/snippets/api/auth.mdx";
+
+<Authorization />
 
 ### Response
 

@@ -6,9 +6,9 @@ api: "GET https://api.squarecloud.app/v2/workspaces/members/code"
 authMethod: "none"
 ---
 
-<ParamField header="Authorization" type="string" placeholder="API KEY" required>
-  The API key for your account. You can find this in your [account settings](https://squarecloud.app/account).
-</ParamField>
+import Authorization from "/snippets/api/auth.mdx";
+
+<Authorization />
 
 ### Response
 
@@ -24,7 +24,7 @@ authMethod: "none"
 <ResponseExample>
 ```json
 {
-  "status": "success", 
+  "status": "success",
   "code": "9c1a499e623d2410226f1ecdc7e6daaec2fc6704"
 }
 ```

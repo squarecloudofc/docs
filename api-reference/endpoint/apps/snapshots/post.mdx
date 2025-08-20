@@ -6,11 +6,12 @@ api: "POST https://api.squarecloud.app/v2/apps/{app_id}/snapshots"
 authMethod: "none"
 ---
 
+import Authorization from "/snippets/api/auth.mdx";
+
 <Warning>Each account can perform up to (RAM / 256) * 2 snapshots every 24 hours.</Warning>
 
-<ParamField header="Authorization" type="string" placeholder="API KEY" required>
-  The API key for your account. You can find this in your [account settings](https://squarecloud.app/account/security).
-</ParamField>
+<Authorization />
+'
 <ParamField path="app_id" type="string" placeholder="Application ID" required>
   The ID of the application. You can find this in the URL of your application's dashboard.
 </ParamField>

@@ -6,13 +6,13 @@ api: "POST https://api.squarecloud.app/v2/databases/{databaseId}/snapshots/resto
 authMethod: "none"
 ---
 
+import Authorization from "/snippets/api/auth.mdx";
+
 ## Request
 
 ### Headers
 
-<ParamField header="Authorization" type="string" placeholder="API KEY" required>
-  The API key for your account. You can find this in your [account settings](https://squarecloud.app/account/security).
-</ParamField>
+<Authorization />
 
 ### Path
 
@@ -26,7 +26,7 @@ authMethod: "none"
   The database id you wanna restore.
 </ParamField>
 <ParamField body="versionId" type="string" placeholder="Database Snapshot ID" required>
-  The snapshot of the database you wanna restore. 
+  The snapshot of the database you wanna restore.
 </ParamField>
 
 ## Response
