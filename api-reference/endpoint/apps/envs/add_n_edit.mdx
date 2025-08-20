@@ -7,6 +7,7 @@ authMethod: "none"
 ---
 
 import Authorization from "/snippets/api/auth.mdx";
+import Status from "/snippets/api/status.mdx";
 
 <Authorization />
 
@@ -19,9 +20,7 @@ import Authorization from "/snippets/api/auth.mdx";
 </ParamField>
 ### Response
 
-<ResponseField name="status" type="string">
-  Indicates whether the call was successful. `success` if successful, `error` if not.
-</ResponseField>
+<Status />
 <ResponseField name="response" type="object">
   The key and value of all environment variables you defined.
 </ResponseField>

@@ -7,6 +7,7 @@ authMethod: "none"
 ---
 
 import Authorization from "/snippets/api/auth.mdx";
+import Status from "/snippets/api/status.mdx";
 
 <Authorization />
 
@@ -20,9 +21,8 @@ import Authorization from "/snippets/api/auth.mdx";
 
 ### Response
 
-<ResponseField name="status" type="string">
-  Indicates whether the call was successful. `success` if successful, `error` if not.
-</ResponseField>
+<Status />
+
 <ResponseField name="response" type="array">
 
 The list of files and directories in the specified path.
