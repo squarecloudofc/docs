@@ -7,14 +7,13 @@ authMethod: "none"
 ---
 
 import Authorization from "/snippets/api/auth.mdx";
+import Status from "/snippets/api/status.mdx";
 
 <Authorization />
 
 ### Response
 
-<ResponseField name="status" type="string">
-  Indicates whether the call was successful. `success` if successful, `error` if not.
-</ResponseField>
+<Status />
 
 <ResponseField name="code" type="string">
   Your team invite code.
