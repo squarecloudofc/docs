@@ -10,6 +10,14 @@ import Status from "/snippets/api/status.mdx";
 
 <Authorization />
 
+### Query Parameters
+
+<ParamField query="scope" type="string" default="applications">
+  Specifies the type of snapshots to retrieve. 
+  - `applications` (default): Returns snapshots of applications
+  - `databases`: Returns snapshots of databases
+</ParamField>
+
 ### Response
 
 <Status />
